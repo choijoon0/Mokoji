@@ -23,6 +23,6 @@ public class IndexController {
 	@RequestMapping(value = "/insertMember.do")
 	public String insertBoard(IndexVO vo) throws IOException{
 		indexService.insertMember(vo);
-		return "redirect:/signUp.do";
+		return "redirect:/singIn.do";
 	}
 }
