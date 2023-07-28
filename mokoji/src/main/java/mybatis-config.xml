@@ -8,7 +8,7 @@
 
 	<!-- Alias 설정 -->
 	<typeAliases>
-		<typeAlias alias="IndexVO" type="com.mokoji.domain.IndexVO" />
+		<typeAlias alias="index" type="com.mokoji.domain.IndexVO" />
 	</typeAliases>
 	
 	<!-- Sql Mapper 설정 -->

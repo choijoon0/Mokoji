@@ -1,5 +1,7 @@
 package com.mokoji.service;
 
-public class IndexService {
+import com.mokoji.domain.IndexVO;
 
+public interface IndexService {
+	void insertMember(IndexVO vo);
 }
