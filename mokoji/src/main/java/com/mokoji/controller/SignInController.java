@@ -7,22 +7,22 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.mokoji.domain.IndexVO;
-import com.mokoji.service.IndexService;
+import com.mokoji.domain.SignInVO;
+import com.mokoji.service.SignInService;
 
 @Controller
-public class IndexController {
+public class SignInController {
 	@Autowired
-	private IndexService indexService;
+	private SignInService signInservice;
 	
 	@RequestMapping("/{step}.do")
 	public String viewPage(@PathVariable String step) {
 		return step;
 	}
 	
-	@RequestMapping(value = "/insertMember.do")
-	public String insertBoard(IndexVO vo) throws IOException{
-		indexService.insertMember(vo);
+	@RequestMapping(value = "/checkMember.do")
+	public String insertBoard(SignInVO vo) throws IOException{
+		signInservice.checkMember(vo);
 		return "redirect:/singIn.do";
 	}
 }
