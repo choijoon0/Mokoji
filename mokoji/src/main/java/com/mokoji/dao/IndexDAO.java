@@ -1,5 +1,7 @@
 package com.mokoji.dao;
 
-public class IndexDAO {
+import com.mokoji.domain.IndexVO;
 
+public interface IndexDAO {
+	public void insertMember(IndexVO vo);
 }
