@@ -17,7 +17,7 @@ public class IndexDAOImple implements IndexDAO {
 	@Override
 	public void insertMember(IndexVO vo) {
 		// TODO Auto-generated method stub
-		mybatis.insert("IndexDAO.insertmember", vo);
+		//mybatis.insert("IndexDAO.insertmember", vo);
 	}
 
 }

@@ -7,6 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+메인시작!
+	<%
+	response.sendRedirect("go.do");
+	%>
 </body>
 </html>

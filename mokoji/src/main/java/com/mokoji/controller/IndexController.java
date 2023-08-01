@@ -15,6 +15,12 @@ public class IndexController {
 	@Autowired
 	private IndexService indexService;
 	
+	@RequestMapping(value="/go.do")
+	public String goMain() throws IOException{
+		
+		return "main/main";
+	}
+	
 	@RequestMapping("/{step}.do")
 	public String viewPage(@PathVariable String step) {
 		return step;

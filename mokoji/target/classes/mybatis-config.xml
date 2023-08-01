@@ -9,7 +9,7 @@
 	<!-- Alias 설정 -->
 	<typeAliases>
 		<typeAlias alias="index" type="com.mokoji.domain.IndexVO"/>
-		<typeAlias alias="signin" type="com.mokoji.domain.SignInVO" />
+		<typeAlias alias="member" type="com.mokoji.domain.MemberVO"/>
 	</typeAliases>
 	
 	<!-- Sql Mapper 설정 -->
