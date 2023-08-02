@@ -5,8 +5,20 @@
   
 
 }
+.list{
+   margin-top:10.5rem;
+   
+}
 
+.cardlist{
+   margin-top:2rem;
+   margin-left:10.5rem;
+}
 
+.user{
+   position:absolute;
+   left:110rem;
+}
 
 
 
@@ -15,6 +27,22 @@
   left: rem;
   width: 10rem;
   margin:-0.5rem;
+}
+
+.popclub{
+   
+  position: absolute;
+  left: 11.9rem;
+  top: 3.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3.6rem;
+  font-weight: 500;
+  line-height: 1.2125;
+  color: #3d3a39;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
 }
 
 #search{
@@ -101,7 +129,7 @@ a {
 
 .auto-group-r9j1-PXP{
  
-  width: 400px;
+  width: 420px;
 
   top: 10rem;
 
@@ -628,7 +656,7 @@ body {
 .frame-16-WMF .auto-group-faps-Px5 .auto-group-7orb-3a1 {
   margin: 0rem 13.1rem 0rem 14.6rem;
   width: calc(100% - 27.7rem);
-  height: 88.8rem;
+  height: 160rem;
   position: relative;
   background-color: #ece3d3;
   flex-shrink: 0;
@@ -639,7 +667,7 @@ body {
   height: 4.6rem;
   position: absolute;
   left: 28.1rem;
-  top: 81rem;
+  top: 152rem;
   display: flex;
   align-items: center;
   justify-content: center;

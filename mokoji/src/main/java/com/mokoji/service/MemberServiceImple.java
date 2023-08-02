@@ -23,4 +23,10 @@ public class MemberServiceImple implements MemberService{
 		memberDAO.insertMember(vo);
 	}
 
+	@Override
+	public int nameCheck(String mem_id) {
+		// TODO Auto-generated method stub
+		return memberDAO.nameCheck(mem_id);
+	}
+
 }

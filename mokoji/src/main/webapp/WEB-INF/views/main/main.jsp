@@ -194,27 +194,31 @@
 						<a href="#" class="auto-group-px4u-w9b">더보기</a>
 						
 						
-						
-					<c:forEach items="${ clubList }" var="index">
-						<div class="auto-group-r9j1-PXP" id="card">
-							<div class="card mb-3" style="width: 400px">
-								<div class="row g-0">
-									<div class="col-md-4">
-										<img src="..." class="img-fluid rounded-start" alt="...">
-									</div>
-									<div class="col-md-8">
-										<div class="card-body">
-											<h5 class="card-title">${ index.club_name }</h5>
-											<p class="card-text">${ index.club_intro }</p>
-											<p class="card-text">
-												<small class="text-body-secondary"></small>
-											</p>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</c:forEach>
+                   <div class="popclub">인기모임</div>
+                    
+                <div class=list>
+                    <c:forEach items="${ clubList }" var="index">
+                     <div class=cardlist>
+                     <div class="card mb-3" style="height:120px; width: 700px">
+                        <div class="row g-1">
+                           <div class="col-md-4">
+                              <img src="..." class="img-fluid rounded-start" alt="...">
+                           </div>
+                           <div class="col-md-8">
+                              <div class="card-body">
+                                 <h5 class="card-title">${ index.club_name }</h5>
+                                 <p class="card-text">${ index.club_intro }</p>
+                                 <p class="card-text">
+                                    <small class="text-body-secondary"></small>
+                                 </p>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+               </div>
+               </c:forEach>
+                  </div>
+
 						
 						
 						

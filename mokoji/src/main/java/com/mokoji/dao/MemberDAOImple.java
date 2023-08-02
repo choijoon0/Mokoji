@@ -24,4 +24,10 @@ public class MemberDAOImple implements MemberDAO{
 		// TODO Auto-generated method stub
 		mybatis.insert("MemberDAO.insertMember", vo);
 	}
+
+	@Override
+	public int nameCheck(String mem_id) {
+		// TODO Auto-generated method stub
+		return mybatis.selectOne("MemberDAO.nameCheck", mem_id);
+	}
 }
