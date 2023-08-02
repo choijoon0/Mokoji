@@ -26,7 +26,7 @@ public class MemberController {
 	public String checkMember(MemberVO vo, HttpSession session) throws IOException{
 		MemberVO result = memberService.checkMember(vo);
 		
-		if(result == null || result.getMEM_ID() == null) {
+		if(result == null || result.getMem_id() == null) {
 			
 			
 			
@@ -34,7 +34,7 @@ public class MemberController {
 		}else {
 			// #4. 세션에 저장
 			session.setAttribute("sessionTime", new Date().toString());
-			session.setAttribute("name", result.getMEM_ID());
+			session.setAttribute("name", result.getMem_id());
 		}
 		
 		return "redirect:/test.do";
@@ -42,20 +42,13 @@ public class MemberController {
 	}
 	
 	//회원가입
-//	@RequestMapping("/insertMember.do")
-//	public ModelAndView userInsert(MemberVO memberVo)
-//	{
-//		int result = memberService.insertMember(memberVo);
-//		
-//		String message="가입되지 않았습니다";
-//			if( result > 0) message= memberVo.getMEM_NAME()+ "님, 가입을 축하드립니다.";
-//		
-//		ModelAndView mv = new ModelAndView();
-//		mv.setViewName("user/userJoin_ok");
-//		mv.addObject("message", message);
-//		mv.addObject("result", result);
-//		return mv;
-//	}
+	@RequestMapping("/insertMember.do")
+	public String insertMember(MemberVO vo)
+	{
+		memberService.insertMember(vo);
+		
+		return "redirect:/SignUp.do";
+	}
 	
 	
 	

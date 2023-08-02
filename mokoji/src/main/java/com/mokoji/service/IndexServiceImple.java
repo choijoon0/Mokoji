@@ -1,5 +1,7 @@
 package com.mokoji.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,10 +13,11 @@ public class IndexServiceImple implements IndexService{
 	@Autowired
 	private IndexDAOImple indexDAO;
 
+
 	@Override
-	public void insertMember(IndexVO vo) {
+	public List<IndexVO> getClubList(IndexVO vo) {
 		// TODO Auto-generated method stub
-		indexDAO.insertMember(vo);
+		return indexDAO.getClubList(vo);
 	}
 	
 

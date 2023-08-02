@@ -1,5 +1,7 @@
 package com.mokoji.dao;
 
+import java.util.List;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -14,10 +16,12 @@ public class IndexDAOImple implements IndexDAO {
 	@Autowired
 	private SqlSessionTemplate mybatis;
 
+
 	@Override
-	public void insertMember(IndexVO vo) {
+	public List<IndexVO> getClubList(IndexVO vo) {
 		// TODO Auto-generated method stub
-		//mybatis.insert("IndexDAO.insertmember", vo);
+		List<IndexVO> list = mybatis.selectList("IndexDAO.getClubList", vo);
+		return list;
 	}
 
 }

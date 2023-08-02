@@ -20,8 +20,8 @@ public class MemberDAOImple implements MemberDAO{
 	}
 
 	@Override
-	public int insertMember(MemberVO vo) {
+	public void insertMember(MemberVO vo) {
 		// TODO Auto-generated method stub
-		return mybatis.selectOne("MemberDAO.insertMember", vo);
+		mybatis.insert("MemberDAO.insertMember", vo);
 	}
 }

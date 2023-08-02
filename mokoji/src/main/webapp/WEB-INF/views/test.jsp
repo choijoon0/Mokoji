@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>${ member.MEM_ID }</h1>
-zzzz@
+<h1></h1>
+
 </body>
 </html>

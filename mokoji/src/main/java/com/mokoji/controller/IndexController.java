@@ -1,9 +1,11 @@
 package com.mokoji.controller;
 
 import java.io.IOException;
+import java.util.HashMap;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -16,8 +18,8 @@ public class IndexController {
 	private IndexService indexService;
 	
 	@RequestMapping(value="/go.do")
-	public String goMain() throws IOException{
-		
+	public String goMain(IndexVO vo,Model model) throws IOException{
+		model.addAttribute("clubList", indexService.getClubList(vo));
 		return "main/main";
 	}
 	
@@ -26,9 +28,4 @@ public class IndexController {
 		return step;
 	}
 	
-	@RequestMapping(value = "/insertMember.do")
-	public String insertBoard(IndexVO vo) throws IOException{
-		indexService.insertMember(vo);
-		return "redirect:/singIn.do";
-	}
 }
