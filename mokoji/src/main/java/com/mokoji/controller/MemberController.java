@@ -42,12 +42,12 @@ public class MemberController {
 	}
 	
 	//회원가입
-	@RequestMapping("/insertMember.do")
+	@RequestMapping(value = "/insertMember.do")
 	public String insertMember(MemberVO vo)
 	{
 		memberService.insertMember(vo);
 		
-		return "redirect:/SignUp.do";
+		return "redirect:/test.do";
 	}
 	
 	

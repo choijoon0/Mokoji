@@ -4,16 +4,24 @@
 <mapper namespace="MemberDAO">
 
 	<select id="checkMember" parameterType="member" resultType="member">
-		SELECT MEM_ID, MEM_PW ,MEM_NAME FROM MEMBER WHERE MEM_ID = #{MEM_ID}
-		<if test="MEM_PW != null">
-			AND MEM_PW = #{MEM_PW}
+		SELECT mem_id, mem_pw ,mem_name FROM member WHERE mem_id = #{mem_id}
+		<if test="mem_pw != null">
+			AND mem_pw = #{mem_pw}
 		</if>
 	</select>
 	
 	<insert id="insertMember" parameterType="member">
-		INSERT INTO MEMBER
-		(MEM_CODE, MEM_ID, MEM_PW, MEM_NAME, MEM_JUMIN, MEM_TEL, MEM_FAVORITE, MEM_POINT, MEM_LOC, MEM_PIC, MEM_ADDR)
-		VALUES (seq_member.nextval(), #{MEM_ID}, #{MEM_PW}, #{MEM_NAME}, #{MEM_JUMIN}, #{MEM_TEL}, #{MEM_FAVORITE}, 0, #{MEM_LOC}, #{MEM_PIC}, #{MEM_ADDR})
+		INSERT INTO member
+		(mem_code, mem_id, mem_pw, mem_name, mem_jumin, mem_tel, mem_favorite, mem_point, mem_loc, mem_addr, mem_addrdetail
+		<if test='mem_fname != null'>
+		, mem_fname, mem_realfname
+		</if>
+		)VALUES (
+		seq_member.nextval, #{mem_id}, #{mem_pw}, #{mem_name}, #{mem_jumin}, #{mem_tel}, #{mem_favorite}, 0, #{mem_loc}, #{mem_addr}, #{mem_addrdetail}
+		<if test='mem_fname != null'>
+		, #{mem_fname}, #{mem_realfname}
+		</if>
+		)
 	</insert>
 
 </mapper>
