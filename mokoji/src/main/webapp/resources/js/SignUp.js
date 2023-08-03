@@ -96,3 +96,21 @@ $('.tab a').on('click', function (e) {
       }
    });
 
+
+$("#cthigh_name").blur(function(){
+	var cthigh_name = $("#cthigh_name").val();
+	$.ajax({
+		url: 'SignUp.do?cthigh_name='+ cthigh_name,
+		type: "POST", 
+		success : function(data){
+				for(var i=0;i<data.length;i++){
+					$("#mem_favorite2").append("<option>"+data[i].ctmid_name+"</option>");
+				}
+			
+			
+			}, error :function(){
+				alert("request error!");
+			}
+	}); 	 
+});
+

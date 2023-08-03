@@ -37,8 +37,10 @@
 <title>main</title>
 </head>
 <body>
-	<div class="frame-16-WMF">
+	<div>
+		<div class="frame-16-WMF">
 		<%@ include file="header.jsp"%>
+	</div>
 	</div>
 	<div class="frame-16-WMF">
 		<div id="carouselExampleInterval" class="carousel slide"

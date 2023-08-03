@@ -1,13 +1,16 @@
 package com.mokoji.controller;
 
 import java.io.IOException;
-import java.util.HashMap;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.mokoji.domain.CategoryVO;
 import com.mokoji.domain.IndexVO;
@@ -33,12 +36,19 @@ public class IndexController {
 	
 	//회원가입
 	@RequestMapping(value="/goSign.do")
-	public String goSignUp(CategoryVO vo, Model model, Model model2) throws IOException{
+	public String goSignUp(CategoryVO vo, Model model) throws IOException{
 		
 		model.addAttribute("catehighList", indexService.getCateHighList(vo));
-		model2.addAttribute("catemidList", indexService.getCateMidList(vo));
+		//model2.addAttribute("catemidList", indexService.getCateMidList(vo));
 		
 		return "SignUp";
+	}
+	
+	//두번째 카테고리
+	@RequestMapping(value = "/SignUp.do", method = RequestMethod.POST)
+	@ResponseBody
+	public List<CategoryVO> getSelect(@RequestParam("cthigh_name") String cthigh_name){
+		return indexService.getCateMidList(cthigh_name);
 	}
 	
 }

@@ -9,5 +9,5 @@ public interface IndexDAO {
 	
 	public List<IndexVO> getClubList(IndexVO vo);
 	public List<CategoryVO> getCateHighList(CategoryVO vo);
-	public List<CategoryVO> getCateMidList(CategoryVO vo);
+	public List<CategoryVO> getCateMidList(String cthigh_name);
 }

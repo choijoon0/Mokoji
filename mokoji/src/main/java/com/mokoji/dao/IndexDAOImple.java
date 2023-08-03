@@ -36,9 +36,9 @@ public class IndexDAOImple implements IndexDAO {
 
 
 	@Override
-	public List<CategoryVO> getCateMidList(CategoryVO vo) {
+	public List<CategoryVO> getCateMidList(String cthigh_name) {
 		// TODO Auto-generated method stub
-		List<CategoryVO> list = mybatis.selectList("IndexDAO.getCateMidList", vo);
+		List<CategoryVO> list = mybatis.selectList("IndexDAO.getCateMidList", cthigh_name);
 		return list;
 	}
 

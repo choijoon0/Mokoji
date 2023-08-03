@@ -34,22 +34,19 @@
 
 						<div class="field-wrap">
 							<label for="username"> 아이디<span
-								class="point successNameChk">*최소 4자리를 입력해주세요!</span>
-							</label> <input type="text" id="username" name="mem_id" required
-								autocomplete="off" /> <input type="hidden" id="nameDoubleChk" />
+								class="point successNameChk">*최소 4자리를 입력해주세요!</span></label> 
+							<input type="text" id="username" name="mem_id" required autocomplete="off" />
+							<input type="hidden" id="nameDoubleChk" />
 						</div>
 
 						<div class="field-wrap">
-							<input type="password" id="userpass" name="mem_pw"
-								placeholder="비밀번호" maxlength="14" title="14자 까지 입력" required
-								autofocus />
+							<input type="password" id="userpass" name="mem_pw" placeholder="비밀번호" maxlength="14" title="14자 까지 입력" required autofocus />
 						</div>
 
 						<div class="field-wrap">
-							<input type="password" id="userpasschk" name="mem_pw"
-								placeholder="비밀번호 확인" maxlength="14" title="14자 까지 입력" required
-								autofocus /> <span class="point successPwChk"></span> <input
-								type="hidden" id="PwDoubleChk" />
+							<input type="password" id="userpasschk" name="mem_pw" placeholder="비밀번호 확인" maxlength="14" title="14자 까지 입력" required autofocus /> 
+							<span class="point successPwChk"></span> 
+							<input type="hidden" id="PwDoubleChk" />
 						</div>
 
 						<div class="field-wrap">
@@ -68,12 +65,16 @@
 						</div>
 
 						<div class="field-wrap">
-							<label> 관심사<span class="req"></span>
-							</label> <select id="mem_favorite" name="mem_favorite">
+							<label> 관심사<span class="req"></span></label>
+							 <select id="cthigh_name" name="cthigh_name">
 								<option value="선택" selected>====</option>
 								<c:forEach items="${ catehighList }" var="category">
 									<option value="${ category.cthigh_name }">${ category.cthigh_name }</option>
 								</c:forEach>
+							</select>
+							
+							<select id="mem_favorite2" name="mem_favorite2">
+								
 							</select>
 						</div>
 

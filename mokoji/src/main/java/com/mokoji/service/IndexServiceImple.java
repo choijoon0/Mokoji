@@ -30,9 +30,9 @@ public class IndexServiceImple implements IndexService{
 
 	//하위 카테고리 리스트
 	@Override
-	public List<CategoryVO> getCateMidList(CategoryVO vo) {
+	public List<CategoryVO> getCateMidList(String cthigh_name) {
 		// TODO Auto-generated method stub
-		return indexDAO.getCateMidList(vo);
+		return indexDAO.getCateMidList(cthigh_name);
 	}
 	
 

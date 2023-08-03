@@ -218,6 +218,14 @@ input::file-selector-button:hover {
   margin-left: 180px;
   text-align:center;
 }
+#cthigh_name{
+  width: 10rem;
+  margin: auto;
+  margin-top:8px;
+  margin-left: 180px;
+  text-align:center;
+}
+
 
 #mem_loc{
   width: 10rem;

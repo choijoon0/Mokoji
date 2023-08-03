@@ -10,8 +10,8 @@
 		SELECT * FROM CATEGORYHIGH
 	</select>
 	
-	<select id="getCateMidList" parameterType="category" resultType="category">
-		SELECT ctmid_name FROM CATEGORYMIDDLE where cthigh_code = #{cthigh_code}
+	<select id="getCateMidList"  resultType="category">
+		SELECT b.ctmid_name FROM CATEGORYHIGH a, CATEGORYMIDDLE b where a.cthigh_name = #{cthigh_name} AND a.cthigh_code = b.cthigh_code
 	</select>
 
 </mapper>
