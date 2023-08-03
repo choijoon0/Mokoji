@@ -72,7 +72,6 @@ public class MemberVO {
 	}
 	public void setMem_tel(String mem_tel) {
 		this.mem_tel = mem_tel;
-		System.out.println(mem_tel+"sss");
 	}
 	public String getMem_favorite() {
 		return mem_favorite;
@@ -103,14 +102,12 @@ public class MemberVO {
 	}
 	public void setMem_fname(String mem_fname) {
 		this.mem_fname = mem_fname;
-		System.out.println(mem_fname+"파일");
 	}
 	public String getMem_realfname() {
 		return mem_realfname;
 	}
 	public void setMem_realfname(String mem_realfname) {
 		this.mem_realfname = mem_realfname;
-		System.out.println(mem_realfname+"리얼파일");
 	}
 
 	public String getMem_addrdetail() {

@@ -33,10 +33,10 @@ public class IndexController {
 	
 	//회원가입
 	@RequestMapping(value="/goSign.do")
-	public String goSignUp(CategoryVO vo, Model model) throws IOException{
+	public String goSignUp(CategoryVO vo, Model model, Model model2) throws IOException{
 		
 		model.addAttribute("catehighList", indexService.getCateHighList(vo));
-		//model.addAttribute("catemidList", indexService.getCateMidList(vo));
+		model2.addAttribute("catemidList", indexService.getCateMidList(vo));
 		
 		return "SignUp";
 	}

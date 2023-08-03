@@ -28,8 +28,7 @@
 		<div class="tab-content">
 			<div id="signup">
 
-				<form action="insertMember.do" method="post"
-					enctype="multipart/form-data">
+				<form action="insertMember.do" method="post" enctype="multipart/form-data">
 
 					<div class="top-row">
 
@@ -90,7 +89,7 @@
 
 						<div class="field-wrap">
 							<label> <span class="req"></span>
-							</label> <input type="file" maxlength="60" size="40" name='file'>
+							</label><input type="file" maxlength="60" size="40" name='file'>
 						</div>
 
 						<div class="field-wrap">

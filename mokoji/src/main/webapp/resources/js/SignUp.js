@@ -68,11 +68,11 @@ $('.tab a').on('click', function (e) {
 				cache : false,
 				success : function(data) {
 					if (data == 0) {
-						$(".successNameChk").text("사용가능한 이름입니다.");
+						$(".successNameChk").text("사용 가능한 이름입니다!");
 						$(".successNameChk").css("color", "green");
 						$("#nameDoubleChk").val("true");
 					} else {
-						$(".successNameChk").text("사용중인 이름입니다 :p");
+						$(".successNameChk").text("이미 사용중인 아이디입니다! ");
 						$(".successNameChk").css("color", "red");
 						$("#nameDoubleChk").val("false");
 					}
@@ -83,15 +83,14 @@ $('.tab a').on('click', function (e) {
     	}
     });
 
-
     //비밀번호 확인
    $("#userpasschk").blur(function(){
       if($("#userpasschk").val() == $("#userpass").val()){
-         $(".successPwChk").text("비밀번호가 일치합니다.");
+         $(".successPwChk").text("비밀번호가 일치합니다!");
          $(".successPwChk").css("color", "green");
          $("#pwDoubleChk").val("true");
       }else{
-         $(".successPwChk").text("비밀번호가 일치하지 않습니다.");
+         $(".successPwChk").text("비밀번호가 일치하지 않습니다!");
          $(".successPwChk").css("color", "red");
          $("#pwDoubleChk").val("false");
       }
