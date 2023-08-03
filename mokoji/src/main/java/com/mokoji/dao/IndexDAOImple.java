@@ -5,6 +5,8 @@ import java.util.List;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+
+import com.mokoji.domain.CategoryVO;
 import com.mokoji.domain.IndexVO;
 
 
@@ -21,6 +23,22 @@ public class IndexDAOImple implements IndexDAO {
 	public List<IndexVO> getClubList(IndexVO vo) {
 		// TODO Auto-generated method stub
 		List<IndexVO> list = mybatis.selectList("IndexDAO.getClubList", vo);
+		return list;
+	}
+
+
+	@Override
+	public List<CategoryVO> getCateHighList(CategoryVO vo) {
+		// TODO Auto-generated method stub
+		List<CategoryVO> list = mybatis.selectList("IndexDAO.getCateHighList", vo);
+		return list;
+	}
+
+
+	@Override
+	public List<CategoryVO> getCateMidList(CategoryVO vo) {
+		// TODO Auto-generated method stub
+		List<CategoryVO> list = mybatis.selectList("IndexDAO.getCateMidList", vo);
 		return list;
 	}
 

@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,24 +28,29 @@
 		<div class="tab-content">
 			<div id="signup">
 
-				<form action="insertMember.do" method="post" enctype="multipart/form-data">
+				<form action="insertMember.do" method="post"
+					enctype="multipart/form-data">
 
 					<div class="top-row">
 
 						<div class="field-wrap">
-							<label for="username"> 아이디<span class="point successNameChk">*최소 4자리를 입력해주세요!</span>
-							</label> <input type="text" id="username" name="mem_id" required autocomplete="off" />
-							<input type="hidden" id="nameDoubleChk"/>
+							<label for="username"> 아이디<span
+								class="point successNameChk">*최소 4자리를 입력해주세요!</span>
+							</label> <input type="text" id="username" name="mem_id" required
+								autocomplete="off" /> <input type="hidden" id="nameDoubleChk" />
 						</div>
 
 						<div class="field-wrap">
-							<label> 비밀번호<span class="req">*최소 6자리를 입력해주세요!</span>
-							</label> <input type="password" name="mem_pw" required autocomplete="off" />
+							<input type="password" id="userpass" name="mem_pw"
+								placeholder="비밀번호" maxlength="14" title="14자 까지 입력" required
+								autofocus />
 						</div>
 
 						<div class="field-wrap">
-							<label> 비밀번호 재확인<span class="req"></span>
-							</label> <input type="password" required autocomplete="off" />
+							<input type="password" id="userpasschk" name="mem_pw"
+								placeholder="비밀번호 확인" maxlength="14" title="14자 까지 입력" required
+								autofocus /> <span class="point successPwChk"></span> <input
+								type="hidden" id="PwDoubleChk" />
 						</div>
 
 						<div class="field-wrap">
@@ -63,19 +70,17 @@
 
 						<div class="field-wrap">
 							<label> 관심사<span class="req"></span>
-							</label> 
-							<select id="mem_favorite" name="mem_favorite">
+							</label> <select id="mem_favorite" name="mem_favorite">
 								<option value="선택" selected>====</option>
-								<option value="축구">축구</option>
-								<option value="야구">야구</option>
-								<option value="농구">농구</option>
+								<c:forEach items="${ catehighList }" var="category">
+									<option value="${ category.cthigh_name }">${ category.cthigh_name }</option>
+								</c:forEach>
 							</select>
 						</div>
 
 						<div class="field-wrap">
 							<label> 관심지역<span class="req"></span>
-							</label> 
-							<select id="mem_loc" name="mem_loc">
+							</label> <select id="mem_loc" name="mem_loc">
 								<option value="선택" selected>====</option>
 								<option value="경기">경기</option>
 								<option value="부산">부산</option>
@@ -90,12 +95,14 @@
 
 						<div class="field-wrap">
 							<label> <span class="req"></span>
-							</label> <input value="주소" type="text" id="MEM_LOCA" name="mem_addr" readonly required autocomplete="off" />
+							</label> <input value="주소" type="text" id="MEM_LOCA" name="mem_addr"
+								readonly required autocomplete="off" />
 						</div>
 
 						<div class="field-wrap">
 							<label> <span class="req"></span>
-							</label> <input value="상세주소" type="text" id="MEM_LOCB" name="mem_addrdetail" />
+							</label> <input value="상세주소" type="text" id="MEM_LOCB"
+								name="mem_addrdetail" />
 						</div>
 
 						<button type="submit" class="button button-block" />

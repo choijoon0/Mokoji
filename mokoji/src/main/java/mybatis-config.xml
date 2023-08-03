@@ -10,6 +10,7 @@
 	<typeAliases>
 		<typeAlias alias="index" type="com.mokoji.domain.IndexVO"/>
 		<typeAlias alias="member" type="com.mokoji.domain.MemberVO"/>
+		<typeAlias alias="category" type="com.mokoji.domain.CategoryVO"/>
 	</typeAliases>
 	
 	<!-- Sql Mapper 설정 -->

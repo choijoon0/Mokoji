@@ -6,4 +6,12 @@
 		SELECT * FROM CLUB ORDER BY CLUB_CODE DESC
 	</select>
 
+	<select id="getCateHighList" parameterType="category" resultType="category">
+		SELECT * FROM CATEGORYHIGH
+	</select>
+	
+	<select id="getCateMidList" parameterType="category" resultType="category">
+		SELECT ctmid_name FROM CATEGORYMIDDLE where cthigh_code = #{cthigh_code}
+	</select>
+
 </mapper>

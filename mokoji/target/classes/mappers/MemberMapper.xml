@@ -27,5 +27,7 @@
 	<select id="nameCheck" resultType="integer">
 		select count(*) from member where mem_id =#{mem_id}
 	</select>
+	
+	
 
 </mapper>

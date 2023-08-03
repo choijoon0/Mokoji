@@ -81,7 +81,7 @@
 					<input type="submit" class="item--V29" value="로그인"
 						style="border: none; background: transparent;" />
 				</form>
-				<form action="SignUp.do">
+				<form action="goSign.do">
 					<input type="submit" class="item--BvZ" value="회원가입"
 						style="border: none; background: transparent;" />
 				</form>

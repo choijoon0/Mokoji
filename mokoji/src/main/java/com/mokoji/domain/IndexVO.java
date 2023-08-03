@@ -3,6 +3,7 @@ package com.mokoji.domain;
 public class IndexVO {
 	private String club_name, club_loc, club_intro, club_signtype, club_pic;
 	private int club_code, club_cost, club_memtot, ctmid_code;
+	
 	public String getClub_name() {
 		return club_name;
 	}

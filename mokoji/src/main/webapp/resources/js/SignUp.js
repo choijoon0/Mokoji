@@ -84,5 +84,16 @@ $('.tab a').on('click', function (e) {
     });
 
 
-
+    //비밀번호 확인
+   $("#userpasschk").blur(function(){
+      if($("#userpasschk").val() == $("#userpass").val()){
+         $(".successPwChk").text("비밀번호가 일치합니다.");
+         $(".successPwChk").css("color", "green");
+         $("#pwDoubleChk").val("true");
+      }else{
+         $(".successPwChk").text("비밀번호가 일치하지 않습니다.");
+         $(".successPwChk").css("color", "red");
+         $("#pwDoubleChk").val("false");
+      }
+   });
 
