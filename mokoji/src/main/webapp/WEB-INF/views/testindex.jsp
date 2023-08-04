@@ -88,7 +88,7 @@ https://templatemo.com/tm-569-edu-meeting
               <div class="main-button-red">
                   <div class="scroll-to-section">
                   <form action="goSign.do">
-                  	<input type="submit" value="회원가입"/>
+                  	<button type="submit" value="회원가입"/>
             	  </form>
                </div>
               </div>
@@ -108,6 +108,8 @@ https://templatemo.com/tm-569-edu-meeting
           
           
           
+        
+        
           
           <c:forEach items="${ clubList }" var="index">
             <div class="item">
