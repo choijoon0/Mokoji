@@ -25,7 +25,8 @@ public class IndexController {
 	@RequestMapping(value="/go.do")
 	public String goMain(IndexVO vo,Model model) throws IOException{
 		model.addAttribute("clubList", indexService.getClubList(vo));
-		return "main/main";
+		//return "main/main";
+		return "testindex";
 	}
 	
 	//기본 경로

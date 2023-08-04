@@ -14,4 +14,11 @@
 		SELECT b.ctmid_name FROM CATEGORYHIGH a, CATEGORYMIDDLE b where a.cthigh_name = #{cthigh_name} AND a.cthigh_code = b.cthigh_code
 	</select>
 
+	<insert id="insertClub" parameterType="index">
+	INSERT INTO CLUB (club_code, club_name, club_cost, club_loc, club_intro,
+	club_signtype, club_memtot, club_pic, ctmid_code)
+	VALUES(seq_club_code.nextval, ${club_name}, ${club_cost}, ${club_loc}, ${club_intro},
+	${club_signtype}, ${club_memtot}, ${club_pic}, ${ctmid_code})
+	</insert>
+	
 </mapper>

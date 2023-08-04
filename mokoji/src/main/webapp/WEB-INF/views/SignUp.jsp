@@ -33,8 +33,7 @@
 					<div class="top-row">
 
 						<div class="field-wrap">
-							<label for="username"> 아이디<span
-								class="point successNameChk">*최소 4자리를 입력해주세요!</span></label> 
+							<label for="username"> 아이디<span class="point successNameChk">*최소 4자리를 입력해주세요!</span></label> 
 							<input type="text" id="username" name="mem_id" required autocomplete="off" />
 							<input type="hidden" id="nameDoubleChk" />
 						</div>

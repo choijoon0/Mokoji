@@ -21,14 +21,14 @@ public class IndexServiceImple implements IndexService{
 		return indexDAO.getClubList(vo);
 	}
 
-	//상위 카테고리 리스트
+	//동호회 상위 카테고리 가져오기
 	@Override
 	public List<CategoryVO> getCateHighList(CategoryVO vo) {
 		// TODO Auto-generated method stub
 		return indexDAO.getCateHighList(vo);
 	}
 
-	//하위 카테고리 리스트
+	//동호회 하위 카테고리 가져오기
 	@Override
 	public List<CategoryVO> getCateMidList(String cthigh_name) {
 		// TODO Auto-generated method stub

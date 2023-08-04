@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ page import="java.util.List" %>
 
+   pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,33 +13,32 @@
   <title>Frame 50</title>
  
 
+<script
+   src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
 <link href="resources/css/bootstrap.min.css" rel="stylesheet">
 <link href="https://getbootstrap.com/docs/5.3/images/css/docs.css"
-   rel="stylesheet">
+	rel="stylesheet">
 <link rel="canonical"
-   href="https://getbootstrap.com/docs/4.6/examples/pricing/">
+	href="https://getbootstrap.com/docs/4.6/examples/pricing/">
 <link
-   href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-   rel="stylesheet">
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+	rel="stylesheet">
 <link rel="stylesheet"
-   href="https://fonts.googleapis.com/css?family=Inter%3A100%2C300%2C400%2C500" />
+	href="https://fonts.googleapis.com/css?family=Inter%3A100%2C300%2C400%2C500" />
 <link rel="stylesheet"
-   href="https://fonts.googleapis.com/css?family=Source+Sans+Pro%3A100%2C300%2C400%2C500%2C700" />
+	href="https://fonts.googleapis.com/css?family=Source+Sans+Pro%3A100%2C300%2C400%2C500%2C700" />
 <link rel="stylesheet"
-   href="https://fonts.googleapis.com/css?family=Cabin+Condensed%3A400%2C700" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter%3A400"/>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro%3A400"/>
-  <link rel="stylesheet" href="../../resources/styles/createClub.css"/>
+	href="https://fonts.googleapis.com/css?family=Cabin+Condensed%3A400%2C700" />
+
+<link rel="stylesheet" href="././resources/style/createClub.css" />
 
 
-  
-  
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 
- 
+
   
 
 
@@ -68,17 +68,17 @@
 </script>
 </head>
 <body>
+  <div class="asd">
 <div class="frame-50-18M">
+
   <div class="rectangle-217-w21">
   </div>
-
   <label class="item--4gH">
     어떤 형태의 모임을 열어볼까요?
     <br/>
     </label>
     <div class="line-49-wLm">
     </div>
-
 
     <p class="item-1--WYH">
       ‘소셜’은 1회성으로 만나 취향 활동을 함께하는 모임입니다.
@@ -100,7 +100,7 @@
      </div>
     </form>
 </div>
-
+</div>
 <div class="frame-47-rrd">
   <div class="rectangle-218-jQd">
   </div>
@@ -110,73 +110,20 @@
   </div>
 
 
-
-  <label class="item--qiZ">문화</label>
-  <label class="item--H4m">전시,영화,뮤지컬,공연,박물관,연극 등등<input type="checkbox" name="box" value="문화"></label>
-  <div class="line-48-Ybb">
-  </div>
-
-
-
-  <label class="item--JVf">액티비티</label>
-  <label class="item--ai5">등산, 야구, 산책, 러닝, 클라이밍 등등<input type="checkbox" name="box" value="액티비티" ></label>
-  <div class="line-48-GnV">
-  </div>
-
-
-
-  <label class="item--Rih">여행</label>
-  <label class="item--ixh">국내여행, 해외여행, 캠핑, 드라이브 등등<input type="checkbox" name="box" value="여행" ></label>
-  <div class="line-48-QNu">
-  </div>
-
-
-
-  <label class="item--xs3">푸드</label>
-  <label class="item--G73">맛집투어, 카페, 와인, 요리, 맥주, 디저트 등등<input type="checkbox" name="box" value="푸드" ></label>
-  <div class="line-48-jRB">
-  </div>
-
-
-  <label class="item--VVb">파티</label>
-  <label class="item--amw">소개팅, 파티<input type="checkbox" name="box" value="파티" ></label>
-  <div class="line-48-rVo">
-  </div>
-
-
-
-  <label class="item--4SD">외국어</label>
-  <label class="item--Xqb">영어, 일본어, 언어교환, 중국어<input type="checkbox" name="box" value="외국어" ></label>
-  <div class="line-48-nPT">
-  </div>
-
-
-
-  <label class="item--o2R">동네 친목</label>
-  <label class="item--g6D">동네, 관심사, 또래<input type="checkbox" name="box" value="동네 친목" ></label>
-  <div class="line-48-uys">
-  </div>
-
-
-
-  <label class="item--Y8R">자기계발</label>
-  <label class="item--pbj">독서, 스터디, 브랜딩, 커리어, 창작 등등<input type="checkbox" name="box" value="자기계발" ></label>
-  <div class="line-48-FH3">
-  </div>
-
-
-
-  <label class="item--fMT">취미</label>
-  <label class="item--xbT">사진, 보드게임, 드로잉, 댄스, 공예, 노래 등등<input type="checkbox" name="box" value="취미" ></label>
-  <div class="line-48-nGy">
-  </div>
- 
-
-
-  <label class="item--WFb">재테크</label>
-  <label class="item--zwT">재테크, N잡, 창업, 주식, 부동산<input type="checkbox" name="box" value="재테크" ></label>
-  <div class="line-48-K21">
-  </div>
+  <form class="category1">
+    <select name="category1" >
+      <option value="none">=== 선택 ===</option>
+      <option value="ca">문화</option>
+      <option value="ca">액티비티</option>
+    </select>
+  </form>
+  <form class="category2">
+    <select name="category2" >
+      <option value="none">=== 선택 ===</option>
+      <option value="ca">전시</option>
+      <option value="ca">영화</option>
+    </select>
+  </form>
 
 
   
@@ -212,8 +159,10 @@
     <div id="image_container"></div>
     <input type="file" id="img" accept="image/*" onchange="setThumbnail(event);"    name="imgup"/>
   </label>
+  <label class="photo">
   <div class="item--dnZ">사진</div>
   <div class="item-0-10-KQV">0/10</div>
+</label>
 </form>
 
 
@@ -235,7 +184,7 @@
   <label class="item--SPs">만나는 날짜를 정해주세요!</label>
   <div class="line-76-HNR">
   </div>
-
+ 
   <input class="day" type="date" name="date"/><img class="free-icon-calendar-4511116-2-DDb" src="./assets/free-icon-calendar-4511116-2-JTb.png"/>
   <div class="line-56-7H3">
   </div>
@@ -259,24 +208,34 @@
   <div class="line-77-orZ">
   </div>
 
-
-  <div class="div1">
-  <div class="div2" id="offline">오프라인</div>
+  <form>
+    <label id="offline">
+      <input type="radio" name="social_loc"  value="오프라인">오프라인
+    </label>
+    <label id="online">
+      <input type="radio" name="social_loc" value="온라인">온라인
+    </label>
+    
+  </form>
   
-  <div class="div2" id="online">온라인</div>
-  </div>
-  <script src="resources/js/clicked.js"></script>
-
+ 
 
 
   <label class="item--bRB">어떻게 멤버를 모집할까요?</label>
   <div class="line-78-Lbb">
   </div>
- <div class="div5">
-  <div class="div3" id="com">선착순</div>
-  <div class="div3" id="grant">승인제</div>
-</div>
-  <script src="resources/js/clicked2.js"></script>
+  <form>
+    <label id="com">
+      <input type="radio" name="memcom"  value="선착순">선착순
+    </label>
+    <label id="grant">
+      <input type="radio" name="memcom" value="승인제" >승인제
+    </label>
+    
+  </form>
+  
+
+
 
 
 
@@ -300,15 +259,15 @@
   </div>
   <label class="item--ySH">성별</label>
   <form class="gender">
-    <select name="gen" >
+    <select name="gender" >
       <option value="none">=== 선택 ===</option>
-      <option value="gen">남</option>
-      <option value="gen">여</option>
-      
+      <option value="gender">남자</option>
+      <option value="gender">여자</option>
     </select>
   </form>
   <img class="free-icon-gender-10283643-1-md3" src="./assets/free-icon-gender-10283643-1.png"/>
   <div class="line-84-Zuj">
+
   </div>
   <label class="item--GgH">연령</label>
   <form class="age">
@@ -330,11 +289,18 @@
   <label class="item--69X">참여비</label>
   <div class="line-86-7Vs">
   </div>
- 
+  <form>
+    <label id="yes">
+      <input type="radio" name="socialinfo_chpay" onclick="textActive()"  value="있음">있음
+    </label>
+    <label id="no">
+      <input type="radio" name="socialinfo_chpay" onclick="textDisable()" value="없음">없음
+    </label>
+    <input type="text" name="socialinfo_chpay" id="clubpay"placeholder="금액을 작성해주세요." disabled>
+    <script src="././resources/js/createClub.js"></script>
 
-  <div class="div4" id="yes">있음</div>
-  <div class="div4" id="no">없음</div>
-  <script src="resources/js/clicked3.js"></script>
+  </form>
+
 
 
   <label class="item--PPX">인원 수</label>
@@ -359,10 +325,10 @@
 
 
   <button type="submit" class="item--Ufs"  href="#">모임 생성</a>
-  <button type="submit" class="rectangle-338-yLV" href="#">
+  
   </a>
 
 </div>
 
 
-</body>
+</body></body>
