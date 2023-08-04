@@ -1,3 +1,5 @@
+
+
 $('.form').find('input, textarea').on('keyup blur focus', function (e) {
   
   var $this = $(this),
@@ -101,7 +103,7 @@ $("#cthigh_name").blur(function(){
 	var cthigh_name = $("#cthigh_name").val();
 	$.ajax({
 		url: 'SignUp.do?cthigh_name='+ cthigh_name,
-		type: "POST", 
+		type: "GET", 
 		success : function(data){
 				for(var i=0;i<data.length;i++){
 					$("#mem_favorite2").append("<option>"+data[i].ctmid_name+"</option>");
@@ -114,3 +116,17 @@ $("#cthigh_name").blur(function(){
 	}); 	 
 });
 
+   function remove(){
+      $("#mem_favorite2").val("");
+      $("#mem_favorite2").empty();
+   }
+   
+   
+
+
+
+
+   
+   
+   
+   

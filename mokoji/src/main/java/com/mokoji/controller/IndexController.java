@@ -39,13 +39,12 @@ public class IndexController {
 	public String goSignUp(CategoryVO vo, Model model) throws IOException{
 		
 		model.addAttribute("catehighList", indexService.getCateHighList(vo));
-		//model2.addAttribute("catemidList", indexService.getCateMidList(vo));
 		
 		return "SignUp";
 	}
 	
 	//두번째 카테고리
-	@RequestMapping(value = "/SignUp.do", method = RequestMethod.POST)
+	@RequestMapping(value = "/SignUp.do", method = RequestMethod.GET)
 	@ResponseBody
 	public List<CategoryVO> getSelect(@RequestParam("cthigh_name") String cthigh_name){
 		return indexService.getCateMidList(cthigh_name);

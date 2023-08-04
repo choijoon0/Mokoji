@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<footer>
   <div class="rectangle-435-mRK">
   <div class="auto-group-8ysw-f1b">
     <a class="home-eeD" href="main.html">Home</a>
@@ -24,5 +25,6 @@
     <div class="service-Fhs">Service</div>
   </div>
   </div>
+  </footer>
 </body>
 </html>

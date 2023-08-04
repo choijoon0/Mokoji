@@ -1,0 +1,1384 @@
+@charset "UTF-8";
+
+html {
+	font-size:62.5%;
+}
+* {
+	margin: 0;
+	padding: 0;
+}
+ul, li {
+	list-style: none;
+}
+input {
+	border: none;
+}
+body {
+  width: 144rem;
+}.frame-47-rrd {
+  width: 100%;
+  height: 137.7rem;
+  position: relative;
+  overflow: hidden;
+  background-color: #ffffff;
+}
+.frame-47-rrd .rectangle-218-jQd {
+  width: 71.7rem;
+  height: 95.2rem;
+  position: absolute;
+  left: 36.1rem;
+  top: 37.2rem;
+  background-color: #e9f0e3;
+}
+.frame-47-rrd .item--qiZ {
+  width: 7.3rem;
+  height: 4.5rem;
+  position: absolute;
+  left: 53rem;
+  top: 45.4rem;
+  display: flex;
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1.2102272034;
+  color: #000000;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.frame-47-rrd .item--H4m {
+  width: 41.5rem;
+  height: 2rem;
+  position: absolute;
+  left: 51.8rem;
+  top: 48.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  font-weight: 400;
+  line-height: 1.2102272327;
+  color: #000000;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.frame-47-rrd .item--JVf {
+  width: 3.7rem;
+  height: 1.9rem;
+  position: absolute;
+  left: 53rem;
+  top: 56.8rem;
+  display: flex;
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1.2125;
+  color: #000000;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.frame-47-rrd .item--ai5 {
+  width: 41.5rem;
+  height: 2.1rem;
+  position: absolute;
+  left: 51.8rem;
+  top: 57.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  font-weight: 400;
+  line-height: 1.2102272327;
+  color: #000000;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.frame-47-rrd .item--Rih {
+  width: 7.3rem;
+  height: 4.5rem;
+  position: absolute;
+  left: 53rem;
+  top: 63rem;
+  display: flex;
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1.2102272034;
+  color: #000000;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.frame-47-rrd .item--ixh {
+  width: 41.5rem;
+  height: 2.1rem;
+  position: absolute;
+  left: 51.8rem;
+  top: 65.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  font-weight: 400;
+  line-height: 1.2102272327;
+  color: #000000;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.frame-47-rrd .item--xs3 {
+  width: 7.3rem;
+  height: 4.4rem;
+  position: absolute;
+  left: 52.8rem;
+  top: 71.8rem;
+  display: flex;
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1.2102272034;
+  color: #000000;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.frame-47-rrd .item--G73 {
+  width: 41.5rem;
+  height: 2rem;
+  position: absolute;
+  left: 51.8rem;
+  top: 74.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  font-weight: 400;
+  line-height: 1.2102272327;
+  color: #000000;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.frame-47-rrd .item--VVb {
+  width: 1.9rem;
+  height: 1.9rem;
+  position: absolute;
+  left: 52.8rem;
+  top: 82.9rem;
+  display: flex;
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1.2125;
+  color: #000000;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.frame-47-rrd .item--amw {
+  width: 5.7rem;
+  height: 1.6rem;
+  position: absolute;
+  left: 69.7rem;
+  top: 83.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  font-weight: 400;
+  line-height: 1.2125;
+  color: #000000;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.frame-47-rrd .item--4SD {
+  width: 7.3rem;
+  height: 4.5rem;
+  position: absolute;
+  left: 52.8rem;
+  top: 89.2rem;
+  display: flex;
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1.2102272034;
+  color: #000000;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.frame-47-rrd .item--Xqb {
+  width: 14.7rem;
+  height: 1.6rem;
+  position: absolute;
+  left: 65.2rem;
+  top: 92.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  font-weight: 400;
+  line-height: 1.2125;
+  color: #000000;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.frame-47-rrd .item--o2R {
+  width: 10.9rem;
+  height: 4.4rem;
+  position: absolute;
+  left: 52.8rem;
+  top: 97.9rem;
+  display: flex;
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1.2102272034;
+  color: #000000;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.frame-47-rrd .item--g6D {
+  width: 41.5rem;
+  height: 2.1rem;
+  position: absolute;
+  left: 51.8rem;
+  top: 101.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  font-weight: 400;
+  line-height: 1.2102272327;
+  color: #000000;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.frame-47-rrd .item--Y8R {
+  width: 10.9rem;
+  height: 4.5rem;
+  position: absolute;
+  left: 52.8rem;
+  top: 107rem;
+  display: flex;
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1.2102272034;
+  color: #000000;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.frame-47-rrd .item--pbj {
+  width: 41.5rem;
+  height: 2.1rem;
+  position: absolute;
+  left: 51.8rem;
+  top: 110rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  font-weight: 400;
+  line-height: 1.2102272327;
+  color: #000000;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.frame-47-rrd .item--fMT {
+  width: 1.9rem;
+  height: 1.9rem;
+  position: absolute;
+  left: 52.8rem;
+  top: 118.4rem;
+  display: flex;
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1.2125;
+  color: #000000;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.frame-47-rrd .item--xbT {
+  width: 41.5rem;
+  height: 2rem;
+  position: absolute;
+  left: 51.8rem;
+  top: 118.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  font-weight: 400;
+  line-height: 1.2102272327;
+  color: #000000;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.frame-47-rrd .item--WFb {
+  width: 7.3rem;
+  height: 4.5rem;
+  position: absolute;
+  left: 52.8rem;
+  top: 124.5rem;
+  display: flex;
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1.2102272034;
+  color: #000000;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.frame-47-rrd .item--zwT {
+  width: 41.5rem;
+  height: 1.9rem;
+  position: absolute;
+  left: 51.8rem;
+  top: 127.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  font-weight: 400;
+  line-height: 1.2102272327;
+  color: #000000;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.frame-47-rrd .line-48-Ybb {
+  width: 42.1rem;
+  height: 0.1rem;
+  position: absolute;
+  left: 49.8rem;
+  top: 50.7rem;
+  background-color: #3d3a39;
+}
+.frame-47-rrd .line-48-GnV {
+  width: 42.1rem;
+  height: 0.1rem;
+  position: absolute;
+  left: 49.8rem;
+  top: 59.5rem;
+  background-color: #3d3a39;
+}
+.frame-47-rrd .line-48-QNu {
+  width: 42.1rem;
+  height: 0.1rem;
+  position: absolute;
+  left: 49.8rem;
+  top: 68.3rem;
+  background-color: #3d3a39;
+}
+.frame-47-rrd .line-48-jRB {
+  width: 42.1rem;
+  height: 0.1rem;
+  position: absolute;
+  left: 49.8rem;
+  top: 77rem;
+  background-color: #3d3a39;
+}
+.frame-47-rrd .line-48-rVo {
+  width: 42.1rem;
+  height: 0.1rem;
+  position: absolute;
+  left: 49.8rem;
+  top: 85.8rem;
+  background-color: #3d3a39;
+}
+.frame-47-rrd .line-48-nPT {
+  width: 42.1rem;
+  height: 0.1rem;
+  position: absolute;
+  left: 49.8rem;
+  top: 94.6rem;
+  background-color: #3d3a39;
+}
+.frame-47-rrd .line-48-uys {
+  width: 42.1rem;
+  height: 0.1rem;
+  position: absolute;
+  left: 49.8rem;
+  top: 103.4rem;
+  background-color: #3d3a39;
+}
+.frame-47-rrd .line-48-FH3 {
+  width: 42.1rem;
+  height: 0.1rem;
+  position: absolute;
+  left: 49.8rem;
+  top: 112.2rem;
+  background-color: #3d3a39;
+}
+.frame-47-rrd .line-48-nGy {
+  width: 42.1rem;
+  height: 0.1rem;
+  position: absolute;
+  left: 49.8rem;
+  top: 121rem;
+  background-color: #3d3a39;
+}
+.frame-47-rrd .line-48-K21 {
+  width: 42.1rem;
+  height: 0.1rem;
+  position: absolute;
+  left: 49.8rem;
+  top: 129.7rem;
+  background-color: #3d3a39;
+}
+.frame-47-rrd .free-icon-checkbox-6948191-10-FAZ {
+  width: 2.5rem;
+  height: 2.5rem;
+  position: absolute;
+  left: 93.3rem;
+  top: 48rem;
+  object-fit: cover;
+  vertical-align: top;
+}
+.frame-47-rrd .free-icon-checkbox-6948191-21-A2d {
+  width: 2.5rem;
+  height: 2.4rem;
+  position: absolute;
+  left: 93.3rem;
+  top: 126.7rem;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url('../assets/free-icon-checkbox-6948191-21-bg-2ND.png');
+}
+.frame-47-rrd .free-icon-checkbox-6948191-20-3MK {
+  width: 2.5rem;
+  height: 2.4rem;
+  position: absolute;
+  left: 93.3rem;
+  top: 118.3rem;
+  object-fit: cover;
+  vertical-align: top;
+}
+.frame-47-rrd .free-icon-checkbox-6948191-19-m2R {
+  width: 2.5rem;
+  height: 2.5rem;
+  position: absolute;
+  left: 93.3rem;
+  top: 109.9rem;
+  object-fit: cover;
+  vertical-align: top;
+}
+.frame-47-rrd .free-icon-checkbox-6948191-18-tcq {
+  width: 2.5rem;
+  height: 2.5rem;
+  position: absolute;
+  left: 93.3rem;
+  top: 100.7rem;
+  object-fit: cover;
+  vertical-align: top;
+}
+.frame-47-rrd .free-icon-checkbox-6948191-17-R6y {
+  width: 2.5rem;
+  height: 2.4rem;
+  position: absolute;
+  left: 93.3rem;
+  top: 92.1rem;
+  object-fit: cover;
+  vertical-align: top;
+}
+.frame-47-rrd .free-icon-checkbox-6948191-16-wb7 {
+  width: 2.5rem;
+  height: 2.5rem;
+  position: absolute;
+  left: 93.3rem;
+  top: 83.2rem;
+  object-fit: cover;
+  vertical-align: top;
+}
+.frame-47-rrd .free-icon-checkbox-6948191-15-TJZ {
+  width: 2.5rem;
+  height: 2.4rem;
+  position: absolute;
+  left: 93.3rem;
+  top: 74.3rem;
+  object-fit: cover;
+  vertical-align: top;
+}
+.frame-47-rrd .free-icon-checkbox-6948191-14-NgR {
+  width: 2.5rem;
+  height: 2.4rem;
+  position: absolute;
+  left: 93.3rem;
+  top: 65.4rem;
+  object-fit: cover;
+  vertical-align: top;
+}
+.frame-47-rrd .free-icon-checkbox-6948191-13-6cR {
+  width: 2.5rem;
+  height: 2.4rem;
+  position: absolute;
+  left: 93.3rem;
+  top: 56.9rem;
+  object-fit: cover;
+  vertical-align: top;
+}
+.frame-47-rrd .item--DS9 {
+  width: 25.4rem;
+  height: 2.6rem;
+  position: absolute;
+  left: 41.8rem;
+  top: 40.8rem;
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1.2102272034;
+  color: #000000;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.frame-47-rrd .line-50-t2V {
+  width: 28rem;
+  height: 0.2rem;
+  position: absolute;
+  left: 41.8rem;
+  top: 43.6rem;
+  background-color: #000000;
+}
+
+html {
+	font-size:62.5%;
+}
+* {
+	margin: 0;
+	padding: 0;
+}
+ul, li {
+	list-style: none;
+}
+input {
+	border: none;
+}
+body {
+  width: 144rem;
+}.frame-50-18M {
+  width: 100%;
+  height: 83rem;
+  position: relative;
+  overflow: hidden;
+  background-color: #ffffff;
+}
+.frame-50-18M .rectangle-217-w21 {
+  width: 71.7rem;
+  height: 34.1rem;
+  position: absolute;
+  left: 36.1rem;
+  top: 47rem;
+  background-color: #e9f0e3;
+}
+.frame-50-18M .line-45-FYV {
+  width: 39.2rem;
+  height: 0.1rem;
+  position: absolute;
+  left: 52.2rem;
+  top: 67.9rem;
+  background-color: #3d3a39;
+}
+.frame-50-18M .item--Bh3 {
+  width: 5.3rem;
+  height: 2.7rem;
+  position: absolute;
+  left: 52.4rem;
+  top: 64.4rem;
+  display: flex;
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1.2102272034;
+  color: #000000;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.frame-50-18M .item--UAM {
+  width: 35.3rem;
+  height: 2.5rem;
+  position: absolute;
+  left: 55.6rem;
+  top: 64.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  font-weight: 400;
+  line-height: 1.2102272511;
+  color: #000000;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.frame-50-18M .line-46-tE5 {
+  width: 39.2rem;
+  height: 0.1rem;
+  position: absolute;
+  left: 52.2rem;
+  top: 76rem;
+  background-color: #3d3a39;
+}
+.frame-50-18M .item--QiD {
+  width: 5.3rem;
+  height: 2.7rem;
+  position: absolute;
+  left: 52.5rem;
+  top: 71.7rem;
+  display: flex;
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1.2102272034;
+  color: #000000;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.frame-50-18M .item--hxD {
+  width: 35.3rem;
+  height: 2.5rem;
+  position: absolute;
+  left: 55.6rem;
+  top: 72.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  font-weight: 400;
+  line-height: 1.2102272511;
+  color: #000000;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.frame-50-18M .line-49-wLm {
+  width: 28.6rem;
+  height: 0.2rem;
+  position: absolute;
+  left: 41.2rem;
+  top: 51.8rem;
+  background-color: #3d3a39;
+}
+.frame-50-18M .item--4gH {
+  width: 31.5rem;
+  height: 2.1rem;
+  position: absolute;
+  left: 41.2rem;
+  top: 49.1rem;
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1.2102272034;
+  color: #000000;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.frame-50-18M .item-1--WYH {
+  width: 43.5rem;
+  height: 9.7rem;
+  position: absolute;
+  left: 55.5rem;
+  top: 56.3rem;
+  font-size: 1.2rem;
+  font-weight: 400;
+  line-height: 1.2102272511;
+  color: #000000;
+  font-family: Inter, 'Source Sans Pro';
+}
+
+
+html {
+	font-size:62.5%;
+}
+* {
+	margin: 0;
+	padding: 0;
+}
+ul, li {
+	list-style: none;
+}
+input {
+	border: none;
+}
+body {
+  width: 144rem;
+}.frame-47-rrd {
+  width: 100%;
+  height: 137.7rem;
+  position: relative;
+  overflow: hidden;
+  background-color: #ffffff;
+}
+.frame-47-rrd .rectangle-218-jQd {
+  width: 71.7rem;
+  height: 95.2rem;
+  position: absolute;
+  left: 36.1rem;
+  top: 37.2rem;
+  background-color: #e9f0e3;
+}
+.frame-47-rrd .item--qiZ {
+  width: 7.3rem;
+  height: 4.5rem;
+  position: absolute;
+  left: 53rem;
+  top: 45.4rem;
+  display: flex;
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1.2102272034;
+  color: #000000;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.frame-47-rrd .item--H4m {
+  width: 41.5rem;
+  height: 2rem;
+  position: absolute;
+  left: 51.8rem;
+  top: 48.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  font-weight: 400;
+  line-height: 1.2102272327;
+  color: #000000;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.frame-47-rrd .item--JVf {
+  width: 3.7rem;
+  height: 1.9rem;
+  position: absolute;
+  left: 53rem;
+  top: 56.8rem;
+  display: flex;
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1.2125;
+  color: #000000;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.frame-47-rrd .item--ai5 {
+  width: 41.5rem;
+  height: 2.1rem;
+  position: absolute;
+  left: 51.8rem;
+  top: 57.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  font-weight: 400;
+  line-height: 1.2102272327;
+  color: #000000;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.frame-47-rrd .item--Rih {
+  width: 7.3rem;
+  height: 4.5rem;
+  position: absolute;
+  left: 53rem;
+  top: 63rem;
+  display: flex;
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1.2102272034;
+  color: #000000;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.frame-47-rrd .item--ixh {
+  width: 41.5rem;
+  height: 2.1rem;
+  position: absolute;
+  left: 51.8rem;
+  top: 65.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  font-weight: 400;
+  line-height: 1.2102272327;
+  color: #000000;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.frame-47-rrd .item--xs3 {
+  width: 7.3rem;
+  height: 4.4rem;
+  position: absolute;
+  left: 52.8rem;
+  top: 71.8rem;
+  display: flex;
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1.2102272034;
+  color: #000000;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.frame-47-rrd .item--G73 {
+  width: 41.5rem;
+  height: 2rem;
+  position: absolute;
+  left: 51.8rem;
+  top: 74.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  font-weight: 400;
+  line-height: 1.2102272327;
+  color: #000000;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.frame-47-rrd .item--VVb {
+  width: 1.9rem;
+  height: 1.9rem;
+  position: absolute;
+  left: 52.8rem;
+  top: 82.9rem;
+  display: flex;
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1.2125;
+  color: #000000;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.frame-47-rrd .item--amw {
+  width: 5.7rem;
+  height: 1.6rem;
+  position: absolute;
+  left: 69.7rem;
+  top: 83.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  font-weight: 400;
+  line-height: 1.2125;
+  color: #000000;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.frame-47-rrd .item--4SD {
+  width: 7.3rem;
+  height: 4.5rem;
+  position: absolute;
+  left: 52.8rem;
+  top: 89.2rem;
+  display: flex;
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1.2102272034;
+  color: #000000;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.frame-47-rrd .item--Xqb {
+  width: 14.7rem;
+  height: 1.6rem;
+  position: absolute;
+  left: 65.2rem;
+  top: 92.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  font-weight: 400;
+  line-height: 1.2125;
+  color: #000000;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.frame-47-rrd .item--o2R {
+  width: 10.9rem;
+  height: 4.4rem;
+  position: absolute;
+  left: 52.8rem;
+  top: 97.9rem;
+  display: flex;
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1.2102272034;
+  color: #000000;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.frame-47-rrd .item--g6D {
+  width: 41.5rem;
+  height: 2.1rem;
+  position: absolute;
+  left: 51.8rem;
+  top: 101.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  font-weight: 400;
+  line-height: 1.2102272327;
+  color: #000000;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.frame-47-rrd .item--Y8R {
+  width: 10.9rem;
+  height: 4.5rem;
+  position: absolute;
+  left: 52.8rem;
+  top: 107rem;
+  display: flex;
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1.2102272034;
+  color: #000000;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.frame-47-rrd .item--pbj {
+  width: 41.5rem;
+  height: 2.1rem;
+  position: absolute;
+  left: 51.8rem;
+  top: 110rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  font-weight: 400;
+  line-height: 1.2102272327;
+  color: #000000;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.frame-47-rrd .item--fMT {
+  width: 1.9rem;
+  height: 1.9rem;
+  position: absolute;
+  left: 52.8rem;
+  top: 118.4rem;
+  display: flex;
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1.2125;
+  color: #000000;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.frame-47-rrd .item--xbT {
+  width: 41.5rem;
+  height: 2rem;
+  position: absolute;
+  left: 51.8rem;
+  top: 118.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  font-weight: 400;
+  line-height: 1.2102272327;
+  color: #000000;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.frame-47-rrd .item--WFb {
+  width: 7.3rem;
+  height: 4.5rem;
+  position: absolute;
+  left: 52.8rem;
+  top: 124.5rem;
+  display: flex;
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1.2102272034;
+  color: #000000;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.frame-47-rrd .item--zwT {
+  width: 41.5rem;
+  height: 1.9rem;
+  position: absolute;
+  left: 51.8rem;
+  top: 127.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  font-weight: 400;
+  line-height: 1.2102272327;
+  color: #000000;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.frame-47-rrd .line-48-Ybb {
+  width: 42.1rem;
+  height: 0.1rem;
+  position: absolute;
+  left: 49.8rem;
+  top: 50.7rem;
+  background-color: #3d3a39;
+}
+.frame-47-rrd .line-48-GnV {
+  width: 42.1rem;
+  height: 0.1rem;
+  position: absolute;
+  left: 49.8rem;
+  top: 59.5rem;
+  background-color: #3d3a39;
+}
+.frame-47-rrd .line-48-QNu {
+  width: 42.1rem;
+  height: 0.1rem;
+  position: absolute;
+  left: 49.8rem;
+  top: 68.3rem;
+  background-color: #3d3a39;
+}
+.frame-47-rrd .line-48-jRB {
+  width: 42.1rem;
+  height: 0.1rem;
+  position: absolute;
+  left: 49.8rem;
+  top: 77rem;
+  background-color: #3d3a39;
+}
+.frame-47-rrd .line-48-rVo {
+  width: 42.1rem;
+  height: 0.1rem;
+  position: absolute;
+  left: 49.8rem;
+  top: 85.8rem;
+  background-color: #3d3a39;
+}
+.frame-47-rrd .line-48-nPT {
+  width: 42.1rem;
+  height: 0.1rem;
+  position: absolute;
+  left: 49.8rem;
+  top: 94.6rem;
+  background-color: #3d3a39;
+}
+.frame-47-rrd .line-48-uys {
+  width: 42.1rem;
+  height: 0.1rem;
+  position: absolute;
+  left: 49.8rem;
+  top: 103.4rem;
+  background-color: #3d3a39;
+}
+.frame-47-rrd .line-48-FH3 {
+  width: 42.1rem;
+  height: 0.1rem;
+  position: absolute;
+  left: 49.8rem;
+  top: 112.2rem;
+  background-color: #3d3a39;
+}
+.frame-47-rrd .line-48-nGy {
+  width: 42.1rem;
+  height: 0.1rem;
+  position: absolute;
+  left: 49.8rem;
+  top: 121rem;
+  background-color: #3d3a39;
+}
+.frame-47-rrd .line-48-K21 {
+  width: 42.1rem;
+  height: 0.1rem;
+  position: absolute;
+  left: 49.8rem;
+  top: 129.7rem;
+  background-color: #3d3a39;
+}
+.frame-47-rrd .free-icon-checkbox-6948191-10-FAZ {
+  width: 2.5rem;
+  height: 2.5rem;
+  position: absolute;
+  left: 93.3rem;
+  top: 48rem;
+  object-fit: cover;
+  vertical-align: top;
+}
+.frame-47-rrd .free-icon-checkbox-6948191-21-A2d {
+  width: 2.5rem;
+  height: 2.4rem;
+  position: absolute;
+  left: 93.3rem;
+  top: 126.7rem;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url('../assets/free-icon-checkbox-6948191-21-bg-2ND.png');
+}
+.frame-47-rrd .free-icon-checkbox-6948191-20-3MK {
+  width: 2.5rem;
+  height: 2.4rem;
+  position: absolute;
+  left: 93.3rem;
+  top: 118.3rem;
+  object-fit: cover;
+  vertical-align: top;
+}
+.frame-47-rrd .free-icon-checkbox-6948191-19-m2R {
+  width: 2.5rem;
+  height: 2.5rem;
+  position: absolute;
+  left: 93.3rem;
+  top: 109.9rem;
+  object-fit: cover;
+  vertical-align: top;
+}
+.frame-47-rrd .free-icon-checkbox-6948191-18-tcq {
+  width: 2.5rem;
+  height: 2.5rem;
+  position: absolute;
+  left: 93.3rem;
+  top: 100.7rem;
+  object-fit: cover;
+  vertical-align: top;
+}
+.frame-47-rrd .free-icon-checkbox-6948191-17-R6y {
+  width: 2.5rem;
+  height: 2.4rem;
+  position: absolute;
+  left: 93.3rem;
+  top: 92.1rem;
+  object-fit: cover;
+  vertical-align: top;
+}
+.frame-47-rrd .free-icon-checkbox-6948191-16-wb7 {
+  width: 2.5rem;
+  height: 2.5rem;
+  position: absolute;
+  left: 93.3rem;
+  top: 83.2rem;
+  object-fit: cover;
+  vertical-align: top;
+}
+.frame-47-rrd .free-icon-checkbox-6948191-15-TJZ {
+  width: 2.5rem;
+  height: 2.4rem;
+  position: absolute;
+  left: 93.3rem;
+  top: 74.3rem;
+  object-fit: cover;
+  vertical-align: top;
+}
+.frame-47-rrd .free-icon-checkbox-6948191-14-NgR {
+  width: 2.5rem;
+  height: 2.4rem;
+  position: absolute;
+  left: 93.3rem;
+  top: 65.4rem;
+  object-fit: cover;
+  vertical-align: top;
+}
+.frame-47-rrd .free-icon-checkbox-6948191-13-6cR {
+  width: 2.5rem;
+  height: 2.4rem;
+  position: absolute;
+  left: 93.3rem;
+  top: 56.9rem;
+  object-fit: cover;
+  vertical-align: top;
+}
+.frame-47-rrd .item--DS9 {
+  width: 25.4rem;
+  height: 2.6rem;
+  position: absolute;
+  left: 41.8rem;
+  top: 40.8rem;
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1.2102272034;
+  color: #000000;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.frame-47-rrd .line-50-t2V {
+  width: 28rem;
+  height: 0.2rem;
+  position: absolute;
+  left: 41.8rem;
+  top: 43.6rem;
+  background-color: #000000;
+}
+
+html {
+	font-size:62.5%;
+}
+* {
+	margin: 0;
+	padding: 0;
+}
+ul, li {
+	list-style: none;
+}
+input {
+	border: none;
+}
+body {
+  width: 144rem;
+}.frame-48-MMs {
+  width: 100%;
+  height: 125rem;
+  position: relative;
+  overflow: hidden;
+  background-color: #ffffff;
+}
+.frame-48-MMs .rectangle-231-t6u {
+  width: 71.7rem;
+  height: 74.8rem;
+  position: absolute;
+  left: 36.1rem;
+  top: 49rem;
+  background-color: #e9f0e3;
+}
+.frame-48-MMs .item--ojf {
+  width: 15.1rem;
+  height: 1.9rem;
+  position: absolute;
+  left: 43.7rem;
+  top: 51.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1.2125;
+  color: #000000;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.frame-48-MMs .item--rhw {
+  width: 11.7rem;
+  height: 1.9rem;
+  position: absolute;
+  left: 42.2rem;
+  top: 64.7rem;
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1.2125;
+  color: #000000;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.frame-48-MMs .line-52-jFw {
+  width: 36.9rem;
+  height: 0.1rem;
+  position: absolute;
+  left: 52.1rem;
+  top: 60.5rem;
+  background-color: #000000;
+}
+.frame-48-MMs .item--f9b {
+  width: 36.9rem;
+  height: 7.2rem;
+  position: absolute;
+  left: 52.1rem;
+  top: 55.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  font-weight: 400;
+  line-height: 1.2102272327;
+  color: rgba(0, 0, 0, 0.25);
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.frame-48-MMs .item-0-80-Kjw {
+  width: 6.7rem;
+  height: 3.6rem;
+  position: absolute;
+  left: 85.4rem;
+  top: 61.3rem;
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1.2102272034;
+  color: #000000;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+  display: flex;
+  align-items: baseline;
+}
+.frame-48-MMs .item-0-80-Kjw .item-0-80-Kjw-sub-0 {
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1.2102272034;
+  color: rgba(0, 0, 0, 0.200000003);
+  font-family: Inter, 'Source Sans Pro';
+}
+.frame-48-MMs .item-0-80-Kjw .item-0-80-Kjw-sub-1 {
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1.2102272034;
+  color: #000000;
+  font-family: Inter, 'Source Sans Pro';
+}
+.frame-48-MMs .rectangle-232-vNM {
+  width: 9.1rem;
+  height: 9.5rem;
+  position: absolute;
+  left: 41.9rem;
+  top: 68.7rem;
+  background-color: #d9d9d9;
+  border-radius: 1rem;
+}
+.frame-48-MMs .item--dnZ {
+  width: 1.6rem;
+  height: 1.6rem;
+  position: absolute;
+  left: 45.55rem;
+  top: 70.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  font-weight: 400;
+  line-height: 1.2125;
+  color: rgba(0, 0, 0, 0.4499999881);
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.frame-48-MMs .item-0-10-KQV {
+  width: 5.1rem;
+  height: 2.4rem;
+  position: absolute;
+  left: 43.8rem;
+  top: 73.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  font-weight: 400;
+  line-height: 1.2102272327;
+  color: rgba(0, 0, 0, 0.4499999881);
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.frame-48-MMs .rectangle-233-arD {
+  width: 63.1rem;
+  height: 42.1rem;
+  position: absolute;
+  left: 40.4rem;
+  top: 79.5rem;
+  background-color: #d9d9d9;
+}
+.frame-48-MMs .item--VTP {
+  width: 14.7rem;
+  height: 6.1rem;
+  position: absolute;
+  left: 42.1rem;
+  top: 79.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  font-weight: 400;
+  line-height: 1.2102272327;
+  color: rgba(0, 0, 0, 0.4499999881);
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.frame-48-MMs .line-74-9Xw {
+  width: 28rem;
+  height: 0.2rem;
+  position: absolute;
+  left: 41.6rem;
+  top: 54.6rem;
+  background-color: #000000;
+}
+.frame-48-MMs .line-75-5Rb {
+  width: 28rem;
+  height: 0.2rem;
+  position: absolute;
+  left: 41.6rem;
+  top: 67.6rem;
+  background-color: #000000;
+}

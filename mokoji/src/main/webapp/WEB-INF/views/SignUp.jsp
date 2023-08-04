@@ -66,7 +66,7 @@
 
 						<div class="field-wrap">
 							<label> 관심사<span class="req"></span></label>
-							 <select id="cthigh_name" name="cthigh_name">
+							 <select id="cthigh_name" name="cthigh_name" onchange="remove()">
 								<option value="선택" selected>====</option>
 								<c:forEach items="${ catehighList }" var="category">
 									<option value="${ category.cthigh_name }">${ category.cthigh_name }</option>
@@ -74,7 +74,7 @@
 							</select>
 							
 							<select id="mem_favorite2" name="mem_favorite2">
-								
+								<option value="선택" selected>====</option>
 							</select>
 						</div>
 

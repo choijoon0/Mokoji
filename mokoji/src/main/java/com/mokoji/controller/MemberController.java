@@ -52,7 +52,7 @@ public class MemberController {
 		return "redirect:/test.do";
 	}
 	
-
+	//아이디 중복 체크
 	@RequestMapping(value = "/SignUp.do", method = RequestMethod.POST)
 	@ResponseBody
 	public int nameCheck(@RequestParam("mem_id") String mem_id) {

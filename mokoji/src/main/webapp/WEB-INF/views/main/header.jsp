@@ -7,14 +7,20 @@
 <title>Insert title here</title>
 </head>
 <body>
+
+<header>
    <div class="auto-group-g4qr-dgm">
     <div class="logo-removebg-preview-1-1-wxM" style=" cursor: pointer;" onclick="location.href="index.jsp;">
     </div>
     <div class="auto-group-1wzf-EgZ">
-      <nav class="navbar" id="search">
+      <nav class="navbar" id="search1">
         <div class="container-fluid">
-          <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <form class="d-flex"  autocomplete="off">
+          
+        <div class="autocomplete">
+    <input id="searchs" type="text"  placeholder="Country">
+  </div>
+
             <button class="btn" type="submit">검색</button>
           </form>
         </div>
@@ -50,12 +56,14 @@
             </ul>
           </div>
       </nav>
-      <form action="SignIn.do">
+      <form action="category.do">
       <input type="submit" class="item--V29" value="로그인" style="border: none; background: transparent;"/>
      </form>
      <form action="goSign.do">
       <input type="submit" class="item--BvZ" value="회원가입" style="border: none; background: transparent;"/>
       </form>
     </div>
+    </header>
+    
 </body>
 </html>
