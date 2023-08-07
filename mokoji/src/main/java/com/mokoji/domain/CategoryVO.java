@@ -1,11 +1,20 @@
 package com.mokoji.domain;
 
 public class CategoryVO {
-	private String cthigh_name, ctmid_name;
+	private String cthigh_name, ctmid_name, ctmid_pic;
 	private int cthigh_code;
 
 	
 	
+	
+	public String getCtmid_pic() {
+		return ctmid_pic;
+	}
+
+	public void setCtmid_pic(String ctmid_pic) {
+		this.ctmid_pic = ctmid_pic;
+	}
+
 	public int getCthigh_code() {
 		return cthigh_code;
 	}

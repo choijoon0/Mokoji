@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.mokoji.domain.CategoryVO;
 import com.mokoji.domain.IndexVO;
 import com.mokoji.service.IndexService;
 
@@ -24,6 +23,7 @@ public class IndexController {
 	//index - main 연결
 	@RequestMapping(value="/go.do")
 	public String goMain(IndexVO vo,Model model) throws IOException{
+		//동호회 리스트 가져오기
 		model.addAttribute("clubList", indexService.getClubList(vo));
 		//return "main/main";
 		return "testindex";
@@ -35,20 +35,6 @@ public class IndexController {
 		return step;
 	}
 	
-	//회원가입
-	@RequestMapping(value="/goSign.do")
-	public String goSignUp(CategoryVO vo, Model model) throws IOException{
-		
-		model.addAttribute("catehighList", indexService.getCateHighList(vo));
-		
-		return "SignUp";
-	}
-	
-	//두번째 카테고리
-	@RequestMapping(value = "/SignUp.do", method = RequestMethod.GET)
-	@ResponseBody
-	public List<CategoryVO> getSelect(@RequestParam("cthigh_name") String cthigh_name){
-		return indexService.getCateMidList(cthigh_name);
-	}
+
 	
 }

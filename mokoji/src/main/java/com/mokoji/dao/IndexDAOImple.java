@@ -26,20 +26,5 @@ public class IndexDAOImple implements IndexDAO {
 		return list;
 	}
 
-	//동호회 상위 카테고리 가져오기
-	@Override
-	public List<CategoryVO> getCateHighList(CategoryVO vo) {
-		// TODO Auto-generated method stub
-		List<CategoryVO> list = mybatis.selectList("IndexDAO.getCateHighList", vo);
-		return list;
-	}
-
-	//동호회 하위 카테고리 가져오기
-	@Override
-	public List<CategoryVO> getCateMidList(String cthigh_name) {
-		// TODO Auto-generated method stub
-		List<CategoryVO> list = mybatis.selectList("IndexDAO.getCateMidList", cthigh_name);
-		return list;
-	}
 
 }

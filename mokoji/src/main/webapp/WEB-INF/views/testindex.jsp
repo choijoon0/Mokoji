@@ -48,8 +48,8 @@ https://templatemo.com/tm-569-edu-meeting
                       <!-- ***** Menu Start ***** -->
                       <ul class="nav">
                           <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
-                          <li><a href="meetings.html">Meetings</a></li>
-                          <li class="scroll-to-section"><a href="#apply">Apply Now</a></li>
+                          <li><a href="gotestmeet.do">Meetings</a></li>
+                          <li><a href="createClub.do">clubclub</a></li>
                           <li class="has-sub">
                               <a href="javascript:void(0)">Pages</a>
                               <ul class="sub-menu">
@@ -57,7 +57,7 @@ https://templatemo.com/tm-569-edu-meeting
                                   <li><a href="meeting-details.html">Meeting Details</a></li>
                               </ul>
                           </li>
-                          <li class="scroll-to-section"><a href="#courses">Courses</a></li> 
+                          <li><a href="#courses">Courses</a></li> 
                           <li class="scroll-to-section"><a href="#contact">Contact Us</a></li> 
                       </ul>        
                       <a class='menu-trigger'>

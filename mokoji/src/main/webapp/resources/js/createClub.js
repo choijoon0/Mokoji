@@ -8,3 +8,6 @@ function textActive()  {
     
     target.disabled = true;
   }
+  
+  
+  

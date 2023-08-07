@@ -11,6 +11,7 @@
 		<typeAlias alias="index" type="com.mokoji.domain.IndexVO"/>
 		<typeAlias alias="member" type="com.mokoji.domain.MemberVO"/>
 		<typeAlias alias="category" type="com.mokoji.domain.CategoryVO"/>
+		<typeAlias alias="socialing" type="com.mokoji.domain.SocialingVO"/>
 	</typeAliases>
 	
 	<!-- Sql Mapper 설정 -->

@@ -54,35 +54,36 @@ $('.tab a').on('click', function (e) {
             }
         }).open();
         
-    });
+    })
 
 }
+
     $("#username").blur(function(){
-    	var mem_id = $("#username").val();
-    	if(mem_id == "" || mem_id.length < 2){
-    		$(".successNameChk").text("이름은 2자 이상 8자 이하로 설정해주세요 :)");
-			$(".successNameChk").css("color", "red");
-			$("#nameDoubleChk").val("false");
-    	}else{
-    		$.ajax({
-				url : 'SignUp.do?mem_id='+ mem_id,
-				type : 'post',
-				cache : false,
-				success : function(data) {
-					if (data == 0) {
-						$(".successNameChk").text("사용 가능한 이름입니다!");
-						$(".successNameChk").css("color", "green");
-						$("#nameDoubleChk").val("true");
-					} else {
-						$(".successNameChk").text("이미 사용중인 아이디입니다! ");
-						$(".successNameChk").css("color", "red");
-						$("#nameDoubleChk").val("false");
-					}
-				}, error : function() {
-					console.log("실패");
-				}
-			});
-    	}
+       var mem_id = $("#username").val();
+       if(mem_id == "" || mem_id.length < 4){
+          $(".successNameChk").text("아이디는 4자 이상 8자 이하로 설정해주세요 :)");
+         $(".successNameChk").css("color", "red");
+         $("#nameDoubleChk").val("false");
+       }else{
+          $.ajax({
+            url : 'SignUp.do?mem_id='+ mem_id,
+            type : 'post',
+            cache : false,
+            success : function(data) {
+               if (data == 0) {
+                  $(".successNameChk").text("사용가능한 아이디입니다.");
+                  $(".successNameChk").css("color", "green");
+                  $("#nameDoubleChk").val("true");
+               } else {
+                  $(".successNameChk").text("사용중인 아이디입니다 :p");
+                  $(".successNameChk").css("color", "red");
+                  $("#nameDoubleChk").val("false");
+               }
+            }, error : function() {
+               console.log("실패");
+            }
+         });
+       }
     });
 
     //비밀번호 확인
@@ -97,31 +98,30 @@ $('.tab a').on('click', function (e) {
          $("#pwDoubleChk").val("false");
       }
    });
-
-
+   
 $("#cthigh_name").blur(function(){
-	var cthigh_name = $("#cthigh_name").val();
-	$.ajax({
-		url: 'SignUp.do?cthigh_name='+ cthigh_name,
-		type: "GET", 
-		success : function(data){
-				for(var i=0;i<data.length;i++){
-					$("#mem_favorite2").append("<option>"+data[i].ctmid_name+"</option>");
-				}
-			
-			
-			}, error :function(){
-				alert("request error!");
-			}
-	}); 	 
+   var cthigh_name = $("#cthigh_name").val();
+   $.ajax({
+      url: 'SignUp.do?cthigh_name='+ cthigh_name,
+      type: "GET",
+      cache : false,
+      success : function(data){
+            for(var i=0;i<data.length;i++){
+               $("#mem_favorite").append("<option>"+data[i].ctmid_name+"</option>");
+            }
+         
+         
+         }, error :function(){
+            alert("request error!");
+         }
+   });     
 });
 
    function remove(){
-      $("#mem_favorite2").val("");
-      $("#mem_favorite2").empty();
+      $("#mem_favorite").val("");
+      $("#mem_favorite").empty();
    }
-   
-   
+
 
 
 

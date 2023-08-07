@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="SocialingDAO">
+
+	
+	<insert id="insertSocialing" parameterType="socialing">
+	INSERT INTO SOCIALING
+	(social_code, social_name, social_date, social_content, social_tot, social_cost, mem_code, social_starttime, social_endtime, social_loc, ctmid_code
+	<if test='social_pic != null'>
+	, social_pic, social_rpic
+	</if>
+	)VALUES(seq_socialing.nextval, #{ social_name }, #{social_date}, #{social_content}, #{social_tot}, #{social_cost}, #{mem_code}, #{social_starttime}, #{social_endtime}, #{social_loc}, #{ctmid_code}
+	<if test='social_pic != null'>
+	, #{social_pic}, #{social_rpic}
+	</if>
+	)
+	</insert>
+
+	
+
+</mapper>
