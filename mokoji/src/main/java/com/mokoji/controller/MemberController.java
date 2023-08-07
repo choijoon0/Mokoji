@@ -3,6 +3,7 @@ package com.mokoji.controller;
 import java.io.IOException;
 import java.util.Date;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,14 +33,14 @@ public class MemberController {
 			
 			
 			
-			return "redirect:/test2.do";
+			return "redirect:/SignUp.do";
 		}else {
 			// #4. 세션에 저장
 			session.setAttribute("sessionTime", new Date().toString());
 			session.setAttribute("name", result.getMem_id());
 		}
 		
-		return "redirect:/test.do";
+		return "redirect:/go.do";
 		
 	}
 	
@@ -58,4 +59,15 @@ public class MemberController {
 	public int nameCheck(@RequestParam("mem_id") String mem_id) {
 		return memberService.nameCheck(mem_id);
 	}
+	
+	   //로그아웃
+	   @RequestMapping(value="logout.do", method=RequestMethod.POST)
+	    @ResponseBody
+	    public void logoutPOST(HttpServletRequest request) throws Exception{
+	       
+	       HttpSession session = request.getSession();
+	       
+	       session.invalidate();
+	       
+	    }
 }

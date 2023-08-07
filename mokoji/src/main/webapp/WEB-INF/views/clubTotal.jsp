@@ -106,7 +106,7 @@ https://templatemo.com/tm-569-edu-meeting
                          <img src="${catemid.ctmid_pic}"/>
                     </div>
                     <div class="down-content">
-                      <a href="meeting-details.html "><h4><font color="#fff">${catemid.ctmid_name}</font></h4></a>
+                      <a href=""><h4><font color="#fff">${catemid.ctmid_name}</font></h4></a>
                     </div>
                   </div>
                 </div>

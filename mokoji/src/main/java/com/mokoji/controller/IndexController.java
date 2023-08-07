@@ -26,7 +26,7 @@ public class IndexController {
 		//동호회 리스트 가져오기
 		model.addAttribute("clubList", indexService.getClubList(vo));
 		//return "main/main";
-		return "testindex";
+		return "main/testindex";
 	}
 	
 	//기본 경로

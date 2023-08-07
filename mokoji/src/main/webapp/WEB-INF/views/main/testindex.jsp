@@ -16,14 +16,14 @@
     <title>index</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="././resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./././resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
 
     <!-- Additional CSS Files -->
-    <link rel="stylesheet" href="././resources/style/fontawesome.css">
-    <link rel="stylesheet" href="././resources/style/templatemo-edu-meeting.css">
-    <link rel="stylesheet" href="././resources/style/owl.css">
-    <link rel="stylesheet" href="././resources/style/lightbox.css">
+    <link rel="stylesheet" href="./././resources/style/fontawesome.css">
+    <link rel="stylesheet" href="./././resources/style/templatemo-edu-meeting.css">
+    <link rel="stylesheet" href="./././resources/style/owl.css">
+    <link rel="stylesheet" href="./././resources/style/lightbox.css">
 <!--
 
 TemplateMo 569 Edu Meeting
@@ -35,62 +35,27 @@ https://templatemo.com/tm-569-edu-meeting
 
 <body>
   <!-- ***** Header Area Start ***** -->
-  <header class="header-area header-sticky">
-      <div class="container">
-          <div class="row">
-              <div class="col-12">
-                  <nav class="main-nav">
-                      <!-- ***** Logo Start ***** -->
-                      <a href="index.html" class="logo">
-                          MOKOJI
-                      </a>
-                      <!-- ***** Logo End ***** -->
-                      <!-- ***** Menu Start ***** -->
-                      <ul class="nav">
-                          <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
-                          <li><a href="gotestmeet.do">Meetings</a></li>
-                          <li><a href="createClub.do">clubclub</a></li>
-                          <li class="has-sub">
-                              <a href="javascript:void(0)">Pages</a>
-                              <ul class="sub-menu">
-                                  <li><a href="meetings.html">Upcoming Meetings</a></li>
-                                  <li><a href="meeting-details.html">Meeting Details</a></li>
-                              </ul>
-                          </li>
-                          <li><a href="#courses">Courses</a></li> 
-                          <li class="scroll-to-section"><a href="#contact">Contact Us</a></li> 
-                      </ul>        
-                      <a class='menu-trigger'>
-                          <span>Menu</span>
-                      </a>
-                      <!-- ***** Menu End ***** -->
-                  </nav>
-              </div>
-          </div>
-      </div>
-  </header>
+ <%@ include file="header.jsp" %>
   <!-- ***** Header Area End ***** -->
 
   <!-- ***** Main Banner Area Start ***** -->
   <section class="section main-banner" id="top" data-section="section1">
       <video autoplay muted loop id="bg-video">
-          <source src="././resources/images/course-video.mp4" type="video/mp4" />
+          <source src="./././resources/images/course-video.mp4" type="video/mp4" />
       </video>
 
-      <div class="video-overlay header-text">
+<div class="video-overlay header-text">
           <div class="container">
             <div class="row">
               <div class="col-lg-12">
                 <div class="caption">
-              <h6>환영합니다</h6>
-              <h2>Welcome to Mokoji</h2>
-              <p>함께하면 즐거움도 2배! 동호회 활동 및 소셜링에 참여해보세요!</p>
+              <h6>Hello Students</h6>
+              <h2>Welcome to Education</h2>
+              <p>This is an edu meeting HTML CSS template provided by TemplateMo website</a>. 
+              This is a Bootstrap v5.1.3 layout. The video background is taken from Pexels website, a group of young people by
+             Pressmaster</a>.</p>
               <div class="main-button-red">
-                  <div class="scroll-to-section">
-                  <form action="goSign.do">
-                  	<button type="submit" value="회원가입"/>
-            	  </form>
-               </div>
+                  <div><a href="goSign.do">로그인</a></div>
               </div>
           </div>
               </div>
@@ -114,7 +79,7 @@ https://templatemo.com/tm-569-edu-meeting
           <c:forEach items="${ clubList }" var="index">
             <div class="item">
               <div class="icon">
-                <img src="././resources/images/service-icon-01.png" alt="">
+                <img src="./././resources/images/service-icon-01.png" alt="">
               </div>
               <div class="down-content">
                 <h4>${ index.club_name }</h4>
@@ -166,7 +131,7 @@ https://templatemo.com/tm-569-edu-meeting
                   <div class="price">
                     <span>$22.00</span>
                   </div>
-                  <a href="meeting-details.html"><img src="././resources/images/meeting-01.jpg" alt="New Lecturer Meeting"></a>
+                  <a href="meeting-details.html"><img src="./././resources/images/meeting-01.jpg" alt="New Lecturer Meeting"></a>
                 </div>
                 <div class="down-content">
                   <div class="date">
@@ -183,7 +148,7 @@ https://templatemo.com/tm-569-edu-meeting
                   <div class="price">
                     <span>$36.00</span>
                   </div>
-                  <a href="meeting-details.html"><img src="././resources/images/meeting-02.jpg" alt="Online Teaching"></a>
+                  <a href="meeting-details.html"><img src="./././resources/images/meeting-02.jpg" alt="Online Teaching"></a>
                 </div>
                 <div class="down-content">
                   <div class="date">
@@ -200,7 +165,7 @@ https://templatemo.com/tm-569-edu-meeting
                   <div class="price">
                     <span>$14.00</span>
                   </div>
-                  <a href="meeting-details.html"><img src="././resources/images/meeting-03.jpg" alt="Higher Education"></a>
+                  <a href="meeting-details.html"><img src="./././resources/images/meeting-03.jpg" alt="Higher Education"></a>
                 </div>
                 <div class="down-content">
                   <div class="date">
@@ -217,7 +182,7 @@ https://templatemo.com/tm-569-edu-meeting
                   <div class="price">
                     <span>$48.00</span>
                   </div>
-                  <a href="meeting-details.html"><img src="././resources/images/meeting-04.jpg" alt="Student Training"></a>
+                  <a href="meeting-details.html"><img src="./././resources/images/meeting-04.jpg" alt="Student Training"></a>
                 </div>
                 <div class="down-content">
                   <div class="date">
@@ -337,7 +302,7 @@ https://templatemo.com/tm-569-edu-meeting
           
           
             <div class="item">
-              <img src="././resources/images/course-01.jpg" alt="Course One">
+              <img src="./././resources/images/course-01.jpg" alt="Course One">
               <div class="down-content">
                 <h4>Morbi tincidunt elit vitae justo rhoncus</h4>
                 <div class="info">
@@ -363,7 +328,7 @@ https://templatemo.com/tm-569-edu-meeting
             
             
             <div class="item">
-              <img src="././resources/images/course-02.jpg" alt="Course Two">
+              <img src="./././resources/images/course-02.jpg" alt="Course Two">
               <div class="down-content">
                 <h4>Curabitur molestie dignissim purus vel</h4>
                 <div class="info">
@@ -383,7 +348,7 @@ https://templatemo.com/tm-569-edu-meeting
               </div>
             </div>
             <div class="item">
-              <img src="././resources/images/course-03.jpg" alt="">
+              <img src="./././resources/images/course-03.jpg" alt="">
               <div class="down-content">
                 <h4>Nulla at ipsum a mauris egestas tempor</h4>
                 <div class="info">
@@ -404,7 +369,7 @@ https://templatemo.com/tm-569-edu-meeting
               </div>
             </div>
             <div class="item">
-              <img src="././resources/images/course-04.jpg" alt="">
+              <img src="./././resources/images/course-04.jpg" alt="">
               <div class="down-content">
                 <h4>Aenean molestie quis libero gravida</h4>
                 <div class="info">
@@ -426,7 +391,7 @@ https://templatemo.com/tm-569-edu-meeting
               </div>
             </div>
             <div class="item">
-              <img src="././resources/images/course-01.jpg" alt="">
+              <img src="./././resources/images/course-01.jpg" alt="">
               <div class="down-content">
                 <h4>Lorem ipsum dolor sit amet adipiscing elit</h4>
                 <div class="info">
@@ -448,7 +413,7 @@ https://templatemo.com/tm-569-edu-meeting
               </div>
             </div>
             <div class="item">
-              <img src="././resources/images/course-02.jpg" alt="">
+              <img src="./././resources/images/course-02.jpg" alt="">
               <div class="down-content">
                 <h4>TemplateMo is the best website for Free CSS</h4>
                 <div class="info">
@@ -470,7 +435,7 @@ https://templatemo.com/tm-569-edu-meeting
               </div>
             </div>
             <div class="item">
-              <img src="././resources/images/course-03.jpg" alt="">
+              <img src="./././resources/images/course-03.jpg" alt="">
               <div class="down-content">
                 <h4>Web Design Templates at your finger tips</h4>
                 <div class="info">
@@ -492,7 +457,7 @@ https://templatemo.com/tm-569-edu-meeting
               </div>
             </div>
             <div class="item">
-              <img src="././resources/images/course-04.jpg" alt="">
+              <img src="./././resources/images/course-04.jpg" alt="">
               <div class="down-content">
                 <h4>Please visit our website again</h4>
                 <div class="info">
@@ -514,7 +479,7 @@ https://templatemo.com/tm-569-edu-meeting
               </div>
             </div>
             <div class="item">
-              <img src="././resources/images/course-01.jpg" alt="">
+              <img src="./././resources/images/course-01.jpg" alt="">
               <div class="down-content">
                 <h4>Responsive HTML Templates for you</h4>
                 <div class="info">
@@ -536,7 +501,7 @@ https://templatemo.com/tm-569-edu-meeting
               </div>
             </div>
             <div class="item">
-              <img src="././resources/images/course-02.jpg" alt="">
+              <img src="./././resources/images/course-02.jpg" alt="">
               <div class="down-content">
                 <h4>Download Free CSS Layouts for your business</h4>
                 <div class="info">
@@ -558,7 +523,7 @@ https://templatemo.com/tm-569-edu-meeting
               </div>
             </div>
             <div class="item">
-              <img src="././resources/images/course-03.jpg" alt="">
+              <img src="./././resources/images/course-03.jpg" alt="">
               <div class="down-content">
                 <h4>Morbi in libero blandit lectus cursus</h4>
                 <div class="info">
@@ -580,7 +545,7 @@ https://templatemo.com/tm-569-edu-meeting
               </div>
             </div>
             <div class="item">
-              <img src="././resources/images/course-04.jpg" alt="">
+              <img src="./././resources/images/course-04.jpg" alt="">
               <div class="down-content">
                 <h4>Curabitur molestie dignissim purus</h4>
                 <div class="info">
@@ -651,7 +616,7 @@ https://templatemo.com/tm-569-edu-meeting
         </div> 
         <div class="col-lg-6 align-self-center">
           <div class="video">
-            <a href="https://www.youtube.com/watch?v=HndV87XpkWg" target="_blank"><img src="././resources/images/play-icon.png" alt=""></a>
+            <a href="https://www.youtube.com/watch?v=HndV87XpkWg" target="_blank"><img src="./././resources/images/play-icon.png" alt=""></a>
           </div>
         </div>
       </div>
@@ -723,28 +688,27 @@ https://templatemo.com/tm-569-edu-meeting
         </div>
       </div>
     </div>
-    <div class="footer">
-      <p>Copyright © 2022 Edu Meeting Co., Ltd. All Rights Reserved. 
-          <br>
-          Design: <a href="https://templatemo.com" target="_parent" title="free css templates">TemplateMo</a>
-          <br>
-          Distibuted By: <a href="https://themewagon.com" target="_blank" title="Build Better UI, Faster">ThemeWagon</a>
-        </p>
-    </div>
+  <%@ include file="footer.jsp" %>
   </section>
 
   <!-- Scripts -->
   <!-- Bootstrap core JavaScript -->
-    <script src="././resources/vendor/jquery/jquery.min.js"></script>
-    <script src="././resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="./././resources/vendor/jquery/jquery.min.js"></script>
+    <script src="./././resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-    <script src="././resources/js/isotope.min.js"></script>
-    <script src="././resources/js/owl-carousel.js"></script>
-    <script src="././resources/js/lightbox.js"></script>
-    <script src="././resources/js/tabs.js"></script>
-    <script src="././resources/js/video.js"></script>
-    <script src="././resources/js/slick-slider.js"></script>
-    <script src="././resources/js/custom.js"></script>
+    <script src="./././resources/js/isotope.min.js"></script>
+    <script src="./././resources/js/owl-carousel.js"></script>
+    <script src="./././resources/js/lightbox.js"></script>
+    <script src="./././resources/js/tabs.js"></script>
+    <script src="./././resources/js/video.js"></script>
+    <script src="./././resources/js/slick-slider.js"></script>
+    <script src="./././resources/js/custom.js"></script>
+       <script
+      src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+   <script type="text/javascript" src="././resources/js/logOut.js"></script>
+   <script src="https://code.jquery.com/jquery-3.4.1.js"
+      integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+      crossorigin="anonymous"></script>
     <script>
         //according to loftblog tut
         $('.nav li:first').addClass('active');
