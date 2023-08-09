@@ -13,7 +13,7 @@
     <meta name="author" content="TemplateMo">
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
 
-    <title>index</title>
+    <title>Mokoji</title>
 
     <!-- Bootstrap core CSS -->
     <link href="./././resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -703,6 +703,7 @@ https://templatemo.com/tm-569-edu-meeting
     <script src="./././resources/js/video.js"></script>
     <script src="./././resources/js/slick-slider.js"></script>
     <script src="./././resources/js/custom.js"></script>
+    <script src="./././resources/js/main.js"></script>
        <script
       src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
    <script type="text/javascript" src="././resources/js/logOut.js"></script>

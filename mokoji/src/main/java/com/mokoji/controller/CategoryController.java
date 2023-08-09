@@ -12,19 +12,25 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.mokoji.domain.CategoryVO;
+import com.mokoji.domain.ClubVO;
 import com.mokoji.service.CategoryService;
+import com.mokoji.service.ClubService;
 
 @Controller
 public class CategoryController {
    
    @Autowired
-   private CategoryService CategoryService;
+   private CategoryService categoryService;
+   
+   @Autowired
+   private ClubService clubService;
+
    
       //첫번째 카테고리
       @RequestMapping(value="/goSign.do")
       public String goSignUp(CategoryVO vo, Model model) throws IOException{
          
-         model.addAttribute("catehighList", CategoryService.getCateHighList(vo));
+         model.addAttribute("catehighList", categoryService.getCateHighList(vo));
          
          return "SignUp";
       }
@@ -33,19 +39,21 @@ public class CategoryController {
          @RequestMapping(value = "/SignUp.do", method = RequestMethod.GET)
          @ResponseBody
          public List<CategoryVO> getSelect(@RequestParam("cthigh_name") String cthigh_name){
-            return CategoryService.getCateMidList(cthigh_name);
+            return categoryService.getCateMidList(cthigh_name);
          }
          
 //메인에서 넘길때
          
-         @RequestMapping(value = "/gotestmeet.do")
-         public String category(CategoryVO vo, Model model) throws IOException{
+         @RequestMapping(value = "/goclub.do")
+         public String category(ClubVO vo2,CategoryVO vo, Model model) throws IOException{
         	 //상위
-        	 model.addAttribute("getCateList2", CategoryService.getCateList2(vo));
+        	 model.addAttribute("highcategory", categoryService.getCateList2(vo));
             
         	 //85개
-        	 model.addAttribute("getCateList", CategoryService.getCateList(vo));
+        	 model.addAttribute("midcategory", categoryService.getCateList(vo));
            
+        	 //리스트
+        	 model.addAttribute("clubTotList", clubService.getClubList(vo2));
             
             return "clubTotal";
          }

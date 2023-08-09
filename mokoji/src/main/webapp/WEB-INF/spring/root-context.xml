@@ -25,6 +25,8 @@
          <value>com.mokoji.domain.IndexVO</value> <!-- BoardVO -->
          <value>com.mokoji.domain.MemberVO</value>
          <value>com.mokoji.domain.CategoryVO</value>
+         <value>com.mokoji.domain.ClubVO</value>
+         <value>com.mokoji.domain.SocialingVO</value>
       </list>
    </property>
  </bean>

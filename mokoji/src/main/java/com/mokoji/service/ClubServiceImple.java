@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.mokoji.dao.ClubDAOImple;
+import com.mokoji.domain.ClubVO;
 import com.mokoji.domain.IndexVO;
 
 
@@ -24,11 +25,22 @@ public class ClubServiceImple implements ClubService{
 	}
 	
 	
-	//동호회 리스트 가져오기
+	
+	
+	//동호회 리스트
 	@Override
-	public List<IndexVO> getClubList(IndexVO vo) {
+	public List<ClubVO> getClubList(ClubVO vo) {
 		// TODO Auto-generated method stub
-		return null;
+		return clubdao.getClubList(vo);
+	}
+
+
+
+	//동호회 관심사 리스트 가져오기
+	@Override
+	public List<ClubVO> getClubListInterest(String ctmid_name) {
+		// TODO Auto-generated method stub
+		return clubdao.getClubListInterest(ctmid_name);
 	}
 
 }

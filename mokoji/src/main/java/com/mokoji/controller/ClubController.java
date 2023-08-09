@@ -1,19 +1,29 @@
 package com.mokoji.controller;
 
 import java.io.IOException;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.mokoji.domain.CategoryVO;
+import com.mokoji.domain.ClubVO;
 import com.mokoji.domain.IndexVO;
+import com.mokoji.service.CategoryService;
 import com.mokoji.service.ClubService;
 
 @Controller
 public class ClubController {
 	@Autowired
 	private ClubService clubService;
+	
+	@Autowired
+	private CategoryService categoryService;
 	
 	//동호회등록
 	@RequestMapping(value="/insertclub.do")
@@ -22,11 +32,21 @@ public class ClubController {
 		return "redirect:/insertclub.do";
 	}
 	
-	//동호회리스트
-	public String getClubList(IndexVO vo, Model model) throws IOException{
-		
-		
-		return "clubTotal";
-	}
-	
+	   //index - main 연결
+	   @RequestMapping(value="/go.do")
+	   public String goMain(CategoryVO vo1 ,ClubVO vo, Model model) throws IOException{
+	      //동호회 리스트 가져오기
+	      model.addAttribute("clubList", clubService.getClubList(vo));
+	      
+	      //return "main/main";
+	     return "/main/testindex";
+	   }
+	   	   
+	   //관심사별 동호회 리스트 뽑기
+	   @RequestMapping(value = "/clubTotal.do", method = RequestMethod.GET)
+	   @ResponseBody
+	   public List<ClubVO> getClubListInterest(@RequestParam("ctmid_name") String ctmid_name){
+		  System.out.println("되냐되냐되냐");
+	      return clubService.getClubListInterest(ctmid_name);
+	   }
 }

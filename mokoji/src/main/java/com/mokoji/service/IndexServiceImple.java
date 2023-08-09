@@ -14,12 +14,7 @@ public class IndexServiceImple implements IndexService{
 	@Autowired
 	private IndexDAOImple indexDAO;
 
-	//동호회 리스트
-	@Override
-	public List<IndexVO> getClubList(IndexVO vo) {
-		// TODO Auto-generated method stub
-		return indexDAO.getClubList(vo);
-	}
+
 
 
 	

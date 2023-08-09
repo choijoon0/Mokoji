@@ -20,20 +20,13 @@ public class IndexController {
 	@Autowired
 	private IndexService indexService;
 	
-	//index - main 연결
-	@RequestMapping(value="/go.do")
-	public String goMain(IndexVO vo,Model model) throws IOException{
-		//동호회 리스트 가져오기
-		model.addAttribute("clubList", indexService.getClubList(vo));
-		//return "main/main";
-		return "main/testindex";
-	}
+	
 	
 	//기본 경로
-	@RequestMapping("/{step}.do")
-	public String viewPage(@PathVariable String step) {
-		return step;
-	}
+//	@RequestMapping({"/{step}.do"})
+//	public String viewPage(@PathVariable String step) {
+//		return step;
+//	}
 	
 
 	

@@ -28,6 +28,7 @@ public class CategoryDAOImple implements CategoryDAO {
 		return list;
 	}
 
+	//상위 카테고리
 	@Override
 	public List<CategoryVO> getCateList(CategoryVO vo) {
 		// TODO Auto-generated method stub
@@ -35,7 +36,7 @@ public class CategoryDAOImple implements CategoryDAO {
 		return list2;
 
 	}
-
+	//하위 카테고리
 	@Override
 	public List<CategoryVO> getCateList2(CategoryVO vo) {
 		// TODO Auto-generated method stub

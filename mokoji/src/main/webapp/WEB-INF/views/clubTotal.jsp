@@ -24,6 +24,9 @@
     <link rel="stylesheet" href="././resources/style/templatemo-edu-meeting.css">
     <link rel="stylesheet" href="././resources/style/owl.css">
     <link rel="stylesheet" href="././resources/style/lightbox.css">
+    <link rel="stylesheet" href="././resources/style/test.css">
+    
+    <script src="././resources/js/clubTotal.js"></script>
 <!--
 
 TemplateMo 569 Edu Meeting
@@ -34,44 +37,7 @@ https://templatemo.com/tm-569-edu-meeting
   </head>
 
 <body>
-
-
-  <!-- ***** Header Area Start ***** -->
-  <header class="header-area header-sticky">
-      <div class="container">
-          <div class="row">
-              <div class="col-12">
-                  <nav class="main-nav">
-                      <!-- ***** Logo Start ***** -->
-                      <a href="testindex.do" class="logo">
-                          MOKOJI
-                      </a>
-                      <!-- ***** Logo End ***** -->
-                      <!-- ***** Menu Start ***** -->
-                      <ul class="nav">
-                          <li><a href="testmeeting.do" class="active">모임</a></li>
-                          <li><a href="index.html">Apply Now</a></li>
-                          <li class="has-sub">
-                              <a href="javascript:void(0)">Pages</a>
-                              <ul class="sub-menu">
-                                  <li><a href="meetings.html">Upcoming Meetings</a></li>
-                                  <li><a href="meeting-details.html">Meeting Details</a></li>
-                              </ul>
-                          </li>
-                          <li><a href="index.html">Courses</a></li> 
-                          <li><a href="index.html">Contact Us</a></li> 
-                      </ul>        
-                      <a class='menu-trigger'>
-                          <span>Menu</span>
-                      </a>
-                      <!-- ***** Menu End ***** -->
-                  </nav>
-              </div>
-          </div>
-      </div>
-  </header>
-  <!-- ***** Header Area End ***** -->
-
+<%@ include file="main/header.jsp" %>
   <section class="heading-page header-text" id="top">
     <div class="container">
       <div class="row">
@@ -85,29 +51,46 @@ https://templatemo.com/tm-569-edu-meeting
   <section class="meetings-page" id="meetings">
     <div class="container">
       <div class="row">
-        <div class="col-lg-12">
+        <div class="col-lg-12 show active">
           <div class="row">
             <div class="col-lg-12">
               <div class="filters">
                 <ul>
-                   <c:forEach items="${ getCateList2 }" var="catehigh">
-                  <li data-filter=".${catehigh.cthigh_name}">${catehigh.cthigh_name}</li>
+                   <c:forEach items="${ highcategory }" var="catehigh">
+                   
+                <c:choose>
+                <c:when test="${catehigh.cthigh_name eq '문화'}">
+                <li data-filter=".${catehigh.cthigh_name}" class="active">${catehigh.cthigh_name}</li>
+                </c:when>
+                <c:otherwise> 
+				<li data-filter=".${catehigh.cthigh_name}">${catehigh.cthigh_name}</li>
+				</c:otherwise> 
+                </c:choose>   
+    						
+				
+                   
+                   
+                   
+                   
+                   
+                   
+                  
                   </c:forEach>
                 </ul>
               </div>
             </div>
             <div class="col-lg-12">
               <div class="row grid">
+                 <c:forEach items="${ midcategory }" var="catemid">
                
-                 <c:forEach items="${ getCateList }" var="catemid">
                 <div class="col-lg-4 templatemo-item-col all ${catemid.cthigh_name}">
                   <div class="meeting-item">
                     <div class="thumb">
                          <img src="${catemid.ctmid_pic}"/>
                     </div>
-                    <div class="down-content">
-                      <a href=""><h4><font color="#fff">${catemid.ctmid_name}</font></h4></a>
-                    </div>
+                    
+                      <button class="club" value="${ catemid.ctmid_name }">${ catemid.ctmid_name }</button>
+                    
                   </div>
                 </div>
                  </c:forEach>
@@ -119,14 +102,33 @@ https://templatemo.com/tm-569-edu-meeting
         </div>
       </div>
     </div>
-    <div class="footer">
-      <p>Copyright © 2022 Edu Meeting Co., Ltd. All Rights Reserved. 
-          <br>
-          Design: <a href="https://templatemo.com" target="_parent" title="free css templates">TemplateMo</a>
-          <br>
-          Distibuted By: <a href="https://themewagon.com" target="_blank" title="Build Better UI, Faster">ThemeWagon</a>
-        </p>
-    </div>
+    
+    
+    
+     <div class="col-lg-12">
+              <div class="row grid" id="clubList">
+               
+                 <c:forEach items="${ clubTotList }" var="clublist">
+                <div class="col-lg-4 templatemo-item-col all ${clublist.club_name}">
+                  <div class="meeting-item">
+                    <div class="thumb">
+                         <img src="${clublist.club_pic}"/>
+                    </div>
+                    <div class="down-content">
+                      <a href="#"><h4><font color="#fff">${clublist.club_intro}</font></h4></a>
+                    </div>
+                  </div>
+                </div>
+                 </c:forEach>
+      
+              </div>
+            </div>
+    
+    
+    
+    
+    
+<%@ include file="main/footer.jsp" %>
   </section>
 
 
@@ -134,7 +136,9 @@ https://templatemo.com/tm-569-edu-meeting
   <!-- Bootstrap core JavaScript -->
     <script src="././resources/vendor/jquery/jquery.min.js"></script>
     <script src="././resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
+    <script src="././resources/js/jquery-1.9.1.min.js"></script>
+	
+	<script src="././resources/js/clubTotal.js"></script>
     <script src="././resources/js/isotope.min.js"></script>
     <script src="././resources/js/owl-carousel.js"></script>
     <script src="././resources/js/lightbox.js"></script>

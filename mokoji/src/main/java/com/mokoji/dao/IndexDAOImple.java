@@ -18,13 +18,7 @@ public class IndexDAOImple implements IndexDAO {
 	@Autowired
 	private SqlSessionTemplate mybatis;
 
-	//동호회 리스트 가져오기
-	@Override
-	public List<IndexVO> getClubList(IndexVO vo) {
-		// TODO Auto-generated method stub
-		List<IndexVO> list = mybatis.selectList("IndexDAO.getClubList", vo);
-		return list;
-	}
+
 
 
 }
