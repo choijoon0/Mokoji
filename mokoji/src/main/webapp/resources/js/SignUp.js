@@ -105,6 +105,7 @@ $("#cthigh_name").blur(function(){
       url: 'SignUp.do?cthigh_name='+ cthigh_name,
       type: "GET",
       cache : false,
+      
       success : function(data){
             for(var i=0;i<data.length;i++){
                $("#mem_favorite").append("<option>"+data[i].ctmid_name+"</option>");

@@ -37,4 +37,10 @@ public class ClubDAOImple implements ClubDAO{
 		  return mybatis.selectList("ClubDAO.getSelectedClubList", ctmid_name);
 	}
 
+	@Override
+	public List<ClubVO> getHighClubListInterest(String cthigh_name) {
+		// TODO Auto-generated method stub
+		return mybatis.selectList("ClubDAO.getSelectedHighClubList", cthigh_name);
+	}
+
 }

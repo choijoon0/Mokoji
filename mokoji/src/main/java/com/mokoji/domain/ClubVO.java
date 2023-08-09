@@ -7,7 +7,7 @@ import java.util.UUID;
 import org.springframework.web.multipart.MultipartFile;
 
 public class ClubVO {
-	private String club_name, club_loc, club_intro, club_signtype, club_pic, club_rpic,ctmid_name;
+	private String club_name, club_loc, club_intro, club_signtype, club_pic, club_rpic,ctmid_name, cthigh_name;
 	private int club_code, club_cost, club_memtot, ctmid_code;
 	MultipartFile file;
 	
@@ -113,6 +113,14 @@ public class ClubVO {
 
 	public void setCtmid_code(int ctmid_code) {
 		this.ctmid_code = ctmid_code;
+	}
+
+	public String getCthigh_name() {
+		return cthigh_name;
+	}
+
+	public void setCthigh_name(String cthigh_name) {
+		this.cthigh_name = cthigh_name;
 	}
 
 	

@@ -43,4 +43,13 @@ public class ClubServiceImple implements ClubService{
 		return clubdao.getClubListInterest(ctmid_name);
 	}
 
+
+
+
+	@Override
+	public List<ClubVO> getHighClubListInterest(String cthigh_name) {
+		// TODO Auto-generated method stub
+		return clubdao.getHighClubListInterest(cthigh_name);
+	}
+
 }

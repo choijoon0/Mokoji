@@ -3,18 +3,25 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="ClubDAO">
 	<select id="getClubList" parameterType="club" resultType="club">
-	SELECT a.club_code, a.club_name, a.club_cost, a.club_loc, a.club_intro, a.club_signtype, a.club_memtot, a.club_pic, a.ctmid_code FROM CLUB a ,CATEGORYMIDDLE b 
+	SELECT a.club_code, a.club_name, a.club_cost, a.club_loc, a.club_intro, a.club_signtype, a.club_memtot, a.club_pic, a.club_rpic,a.ctmid_code FROM CLUB a ,CATEGORYMIDDLE b 
 	WHERE a.ctmid_code = b.ctmid_code
 	order by a.club_code desc
 	</select>
 	
 	
 	<select id="getSelectedClubList" resultType="club">
-	SELECT a.club_code, a.club_name, a.club_cost, a.club_loc, a.club_intro, a.club_signtype, a.club_memtot, a.club_pic, a.ctmid_code FROM CLUB a ,CATEGORYMIDDLE b 
+	SELECT a.club_code, a.club_name, a.club_cost, a.club_loc, a.club_intro, a.club_signtype, a.club_memtot,a.club_rpic, a.club_pic, a.ctmid_code FROM CLUB a ,CATEGORYMIDDLE b 
 	WHERE a.ctmid_code = b.ctmid_code AND b.ctmid_name = #{ctmid_name} order by a.club_code desc
 	</select>
-
-
+	
+	<select id="getSelectedHighClubList" resultType="club">
+	select c.club_code, c.club_name, c.club_cost, c.club_loc, c.club_intro, c.club_signtype,
+	c.club_memtot, c.club_rpic, c.club_pic, m.ctmid_code from categoryhigh h, categorymiddle m, club c
+	where h.cthigh_code = m.cthigh_code and c.ctmid_code = m.ctmid_code and
+	m.cthigh_code=(select b.cthigh_code from categoryhigh b where b.cthigh_name=#{cthigh_name})
+	order by c.club_code desc
+	</select>
+	
 	<insert id="insertClub" parameterType="club">
 	INSERT INTO CLUB (club_code, club_name, club_cost, club_loc, club_intro,
 	club_signtype, club_memtot, club_pic, ctmid_code)
