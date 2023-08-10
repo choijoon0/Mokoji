@@ -6,11 +6,12 @@
 	
 	<insert id="insertSocialing" parameterType="socialing">
 	INSERT INTO SOCIALING
-	(social_code, social_name, social_date, social_content, social_tot, social_cost, mem_code, social_starttime, social_endtime, social_loc, ctmid_code
+	(social_code, social_name, social_date, social_content, social_tot, social_cost, mem_code, social_loc, social_maxage, social_gender, ctmid_code
 	<if test='social_pic != null'>
 	, social_pic, social_rpic
 	</if>
-	)VALUES(seq_socialing.nextval, #{ social_name }, #{social_date}, #{social_content}, #{social_tot}, #{social_cost}, #{mem_code}, #{social_starttime}, #{social_endtime}, #{social_loc}, #{ctmid_code}
+	)VALUES(
+	seq_socialing.nextval, #{ social_name }, #{social_date}, #{social_content}, #{social_tot}, #{social_cost}, #{mem_code}, #{social_loc}, #{social_maxage}, #{social_gender}, #{ctmid_code}
 	<if test='social_pic != null'>
 	, #{social_pic}, #{social_rpic}
 	</if>

@@ -14,10 +14,6 @@ public class MemberVO {
 	
 	
 	
-
-	
-	
-	
 	public MultipartFile getFile() {
 		return file;
 	}
@@ -34,7 +30,7 @@ public class MemberVO {
 					
 					//***********************************************
 					// 해당 경로로 변경
-					File f = new File("C:\\Users\\04-09\\git\\Mokoji\\mokoji\\src\\main\\webapp\\resources\\images\\"+mem_realfname);
+					File f = new File("C:\\Users\\04-09\\Documents\\workspace-sts-3.9.13.RELEASE\\gWebBoard1\\src\\main\\webapp\\resources\\upload\\"+mem_realfname);
 					
 					try {
 						file.transferTo(f);

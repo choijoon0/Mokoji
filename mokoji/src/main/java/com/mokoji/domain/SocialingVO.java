@@ -2,16 +2,30 @@ package com.mokoji.domain;
 
 import java.io.File;
 import java.io.IOException;
+import java.sql.Date;
 import java.util.UUID;
 
 import org.springframework.web.multipart.MultipartFile;
 
 public class SocialingVO {
-	private String social_name, social_date, social_content, social_starttime, social_endtime, social_loc, social_pic, social_rpic;
-	private int social_code, social_tot, social_cost, mem_code, ctmid_code; 
+	private String social_name, social_content, social_loc, social_pic, social_rpic, social_gender;
+	private int social_code, social_tot, social_cost, mem_code, ctmid_code, social_maxage; 
+	private Date social_starttime, social_date;
 	MultipartFile socialingfile;
 	public MultipartFile getSocialingfile() {
 		return socialingfile;
+	}
+	public String getSocial_gender() {
+		return social_gender;
+	}
+	public void setSocial_gender(String social_gender) {
+		this.social_gender = social_gender;
+	}
+	public int getSocial_maxage() {
+		return social_maxage;
+	}
+	public void setSocial_maxage(int social_maxage) {
+		this.social_maxage = social_maxage;
 	}
 	public void setSocialingfile(MultipartFile socialingfile) {
 		this.socialingfile = socialingfile;
@@ -26,7 +40,7 @@ public class SocialingVO {
 					
 					//***********************************************
 					// 해당 경로로 변경
-					File f = new File("C:\\Users\\04-09\\git\\Mokoji\\mokoji\\src\\main\\webapp\\resources\\images\\"+social_rpic);
+					File f = new File("C:\\Users\\microsoft\\git\\Mokoji\\src\\main\\webapp\\resources\\images\\"+ social_rpic);
 					
 					try {
 						socialingfile.transferTo(f);
@@ -45,29 +59,24 @@ public class SocialingVO {
 	public void setSocial_name(String social_name) {
 		this.social_name = social_name;
 	}
-	public String getSocial_date() {
-		return social_date;
-	}
-	public void setSocial_date(String social_date) {
-		this.social_date = social_date;
-	}
+	
 	public String getSocial_content() {
 		return social_content;
 	}
 	public void setSocial_content(String social_content) {
 		this.social_content = social_content;
 	}
-	public String getSocial_starttime() {
+	public Date getSocial_starttime() {
 		return social_starttime;
 	}
-	public void setSocial_starttime(String social_starttime) {
+	public void setSocial_starttime(Date social_starttime) {
 		this.social_starttime = social_starttime;
 	}
-	public String getSocial_endtime() {
-		return social_endtime;
+	public Date getSocial_date() {
+		return social_date;
 	}
-	public void setSocial_endtime(String social_endtime) {
-		this.social_endtime = social_endtime;
+	public void setSocial_date(Date social_date) {
+		this.social_date = social_date;
 	}
 	public String getSocial_loc() {
 		return social_loc;

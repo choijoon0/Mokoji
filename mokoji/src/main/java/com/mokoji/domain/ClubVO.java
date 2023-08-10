@@ -1,47 +1,8 @@
 package com.mokoji.domain;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.UUID;
-
-import org.springframework.web.multipart.MultipartFile;
-
 public class ClubVO {
-	private String club_name, club_loc, club_intro, club_signtype, club_pic, club_rpic,ctmid_name, cthigh_name;
+	private String club_name, club_loc, club_intro, club_signtype, club_pic;
 	private int club_code, club_cost, club_memtot, ctmid_code;
-	MultipartFile file;
-	
-	
-	
-	public MultipartFile getFile() {
-		return file;
-	}
-	
-	public void setFile(MultipartFile file) {
-		this.file = file;
-		// 업로드 파일 접근
-		if(! file.isEmpty()){
-			this.club_pic = file.getOriginalFilename();
-			
-			// 실제 저장된 파일명 만들기
-			UUID uuid = UUID.randomUUID();
-			club_rpic = uuid.toString() + "_" + club_pic;
-			
-			//***********************************************
-			// 해당 경로로 변경
-			File f = new File("C:\\Users\\04-09\\git\\Mokoji\\mokoji\\src\\main\\webapp\\resources\\images\\"+club_rpic);
-			
-			try {
-				file.transferTo(f);
-				
-			} catch (IllegalStateException e) {				
-				e.printStackTrace();
-			} catch (IOException e) {
-				
-				e.printStackTrace();
-			}
-		}
-	}
 	public String getClub_name() {
 		return club_name;
 	}
@@ -90,38 +51,11 @@ public class ClubVO {
 	public void setClub_memtot(int club_memtot) {
 		this.club_memtot = club_memtot;
 	}
-
-	public String getClub_rpic() {
-		return club_rpic;
-	}
-
-	public void setClub_rpic(String club_rpic) {
-		this.club_rpic = club_rpic;
-	}
-
-	public String getCtmid_name() {
-		return ctmid_name;
-	}
-
-	public void setCtmid_name(String ctmid_name) {
-		this.ctmid_name = ctmid_name;
-	}
-
 	public int getCtmid_code() {
 		return ctmid_code;
 	}
-
 	public void setCtmid_code(int ctmid_code) {
 		this.ctmid_code = ctmid_code;
 	}
-
-	public String getCthigh_name() {
-		return cthigh_name;
-	}
-
-	public void setCthigh_name(String cthigh_name) {
-		this.cthigh_name = cthigh_name;
-	}
-
 	
 }

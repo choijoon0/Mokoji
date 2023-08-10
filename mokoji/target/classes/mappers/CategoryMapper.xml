@@ -8,7 +8,7 @@
 	</select>
 
 	<select id="getCateMidList" resultType="category">
-		SELECT b.ctmid_name FROM CATEGORYHIGH a, CATEGORYMIDDLE b where
+		SELECT b.ctmid_name, b.ctmid_code FROM CATEGORYHIGH a, CATEGORYMIDDLE b where
 		a.cthigh_name = #{cthigh_name} AND a.cthigh_code = b.cthigh_code
 	</select>
 

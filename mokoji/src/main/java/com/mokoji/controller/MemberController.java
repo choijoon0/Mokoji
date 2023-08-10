@@ -33,11 +33,12 @@ public class MemberController {
 			
 			
 			
-			return "redirect:/SignUp.do";
+			return "redirect:/test2.do";
 		}else {
 			// #4. 세션에 저장
 			session.setAttribute("sessionTime", new Date().toString());
 			session.setAttribute("name", result.getMem_id());
+			session.setAttribute("code", result.getMem_code());
 		}
 		
 		return "redirect:/go.do";
@@ -50,7 +51,7 @@ public class MemberController {
 	{
 		memberService.insertMember(vo);
 		
-		return "redirect:/test.do";
+		return "redirect:/SignUp.do";
 	}
 	
 	//아이디 중복 체크
@@ -60,14 +61,14 @@ public class MemberController {
 		return memberService.nameCheck(mem_id);
 	}
 	
-	   //로그아웃
-	   @RequestMapping(value="logout.do", method=RequestMethod.POST)
-	    @ResponseBody
-	    public void logoutPOST(HttpServletRequest request) throws Exception{
-	       
-	       HttpSession session = request.getSession();
-	       
-	       session.invalidate();
-	       
-	    }
+	//로그아웃
+	@RequestMapping(value="logout.do", method=RequestMethod.POST)
+    @ResponseBody
+    public void logoutPOST(HttpServletRequest request) throws Exception{
+    	
+    	HttpSession session = request.getSession();
+    	
+    	session.invalidate();
+    	
+    }
 }
