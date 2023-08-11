@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.mokoji.domain.CategoryVO;
 import com.mokoji.domain.ClubVO;
 import com.mokoji.domain.IndexVO;
+import com.mokoji.domain.MemberVO;
 import com.mokoji.service.CategoryService;
 import com.mokoji.service.ClubService;
 
@@ -55,4 +56,7 @@ public class ClubController {
 	public List<ClubVO> getClubListInterest(@RequestParam("ctmid_name") String ctmid_name) {
 		return clubService.getClubListInterest(ctmid_name);
 	}
+	
+	
+
 }

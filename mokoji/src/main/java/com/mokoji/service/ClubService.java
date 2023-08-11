@@ -12,9 +12,13 @@ public interface ClubService {
 	// 동호회 리스트 가져오기
 	public List<ClubVO> getClubList(ClubVO vo);
 
-	//하위 카테고리로 동호회 리스트
+	// 하위 카테고리로 동호회 리스트
 	public List<ClubVO> getClubListInterest(String ctmid_name);
-	
-	//상위 카테고리로 동호회 리스트
+
+	// 상위 카테고리로 동호회 리스트
 	public List<ClubVO> getHighClubListInterest(String cthigh_name);
+
+	// 동호회 코드로 동호회 1개 검색
+	public List<ClubVO> getOneClublist(ClubVO vo);
+
 }

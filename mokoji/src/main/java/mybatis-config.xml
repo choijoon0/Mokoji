@@ -6,6 +6,7 @@
 	<!-- DB 연동부분은 스프링 설정파일로 이동 -->
 
 
+
 	<!-- Alias 설정 -->
 	<typeAliases>
 		<typeAlias alias="index" type="com.mokoji.domain.IndexVO"/>
@@ -13,6 +14,10 @@
 		<typeAlias alias="category" type="com.mokoji.domain.CategoryVO"/>
 		<typeAlias alias="socialing" type="com.mokoji.domain.SocialingVO"/>
 		<typeAlias alias="club" type="com.mokoji.domain.ClubVO"/>
+		<typeAlias alias="clubpane" type="com.mokoji.domain.ClubPaneVO"/>
+		<typeAlias alias="memclub" type="com.mokoji.domain.MemClubVO"/>
+		<typeAlias alias="instant" type="com.mokoji.domain.ClubInstantVO"/>
+		
 		
 	</typeAliases>
 	

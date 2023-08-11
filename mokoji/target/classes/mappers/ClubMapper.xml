@@ -29,4 +29,8 @@
 	${club_signtype}, ${club_memtot}, ${club_pic}, ${ctmid_code})
 	</insert>
 	
+	<select id="getOneClublist" parameterType="club" resultType="club">
+		SELECT b.club_code, b.club_name, b.club_cost, b.club_loc, b.club_intro, b.club_signtype, b.club_memtot, b.club_pic, a.ctmid_code, b.club_rpic FROM CATEGORYMIDDLE a, CLUB b WHERE a.ctmid_code = b.ctmid_code AND b.club_code = #{club_code}
+    </select>
+	
 </mapper>

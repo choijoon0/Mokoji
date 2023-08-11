@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="CLubPaneDAO">
+
+	<insert id="insertClubPane" parameterType="hashmap">
+		INSERT INTO CLUBPANE (cp_code, cp_name, cp_content, cp_date, cp_pic, cp_cnt, cp_likes, mc_code) 
+		VALUES(seq_clubpane.nextval, #{clubpane.cp_name}, #{clubpane.cp_content}, sysdate, #{clubpane.cp_pic}, 0, 0, #{ memclub.mc_code });
+	</insert>
+
+
+
+</mapper>

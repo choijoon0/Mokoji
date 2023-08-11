@@ -17,4 +17,8 @@ public interface ClubDAO {
 
 	//상위 카테고리로 동호회 리스트
 	public List<ClubVO> getHighClubListInterest(String cthigh_name);
+	
+	   //동호회코드로 동호회 1개
+	   public List<ClubVO> getOneClublist(ClubVO vo);
+
 }
