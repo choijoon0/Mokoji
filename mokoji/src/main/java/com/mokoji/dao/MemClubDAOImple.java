@@ -28,4 +28,10 @@ public class MemClubDAOImple implements MemClubDAO{
 		return mybatis.insert("MemClubDAO.joinClub", map);
 	}
 
+	@Override
+	public String checkMemClub(HashMap<String, Object> map) {
+		// TODO Auto-generated method stub
+		return mybatis.selectOne("MemClubDAO.checkMemClub", map);
+	}
+
 }

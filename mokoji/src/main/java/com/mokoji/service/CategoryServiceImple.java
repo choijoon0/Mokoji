@@ -13,14 +13,14 @@ public class CategoryServiceImple implements CategoryService {
 
 	@Autowired
 	private CategoryDAOImple categoryDAO;
-
+	
 	// 상위 카테고리 리스트
 	@Override
 	public List<CategoryVO> getCateHighList(CategoryVO vo) {
 		// TODO Auto-generated method stub
 		return categoryDAO.getCateHighList(vo);
 	}
-
+	
 	// 하위 카테고리 리스트
 	@Override
 	public List<CategoryVO> getCateMidList(String cthigh_name) {
@@ -39,7 +39,6 @@ public class CategoryServiceImple implements CategoryService {
 	public List<CategoryVO> getCateList2(CategoryVO vo) {
 		// TODO Auto-generated method stub
 		return categoryDAO.getCateList2(vo);
-
 	}
 
 }

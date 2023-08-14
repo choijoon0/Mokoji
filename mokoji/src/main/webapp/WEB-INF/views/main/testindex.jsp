@@ -54,14 +54,8 @@ https://templatemo.com/tm-569-edu-meeting
               <p>This is an edu meeting HTML CSS template provided by TemplateMo website</a>. 
               This is a Bootstrap v5.1.3 layout. The video background is taken from Pexels website, a group of young people by
              Pressmaster</a>.</p>
-             <c:if test="${name eq null}">
               <div class="main-button-red">
                   <div><a href="goSign.do">로그인</a></div>
-             </c:if>
-             <c:if test="${name ne null}">
-              <div class="main-button-red">
-                  <div>환영합니다!</div>
-             </c:if>
               </div>
           </div>
               </div>
@@ -708,8 +702,8 @@ https://templatemo.com/tm-569-edu-meeting
     <script src="./././resources/js/tabs.js"></script>
     <script src="./././resources/js/video.js"></script>
     <script src="./././resources/js/slick-slider.js"></script>
-    <script src="./././resources/js/custom.js"></script>
     <script src="./././resources/js/main.js"></script>
+    <script src="./././resources/js/custom.js"></script>
        <script
       src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
    <script type="text/javascript" src="././resources/js/logOut.js"></script>

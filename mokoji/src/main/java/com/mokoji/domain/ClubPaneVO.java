@@ -1,11 +1,47 @@
 package com.mokoji.domain;
 
+import java.io.File;
+import java.io.IOException;
+import java.util.UUID;
+
 import org.springframework.web.multipart.MultipartFile;
 
 public class ClubPaneVO {
-	private String cp_name, cp_content, cp_date, cp_pic; 
-	private int cp_code, cp_cnt,cp_likes;
+	private String cp_name, cp_content, cp_date, cp_pic, cp_rpic; 
+	private int cp_code, cp_cnt, cp_likes;
 	MultipartFile clubpanefile;
+	
+	public MultipartFile getClubpanefile() {
+		return clubpanefile;
+	}
+	public void setClubpanefile(MultipartFile clubpanefile) {
+		this.clubpanefile = clubpanefile;
+		
+		// 업로드 파일 접근
+		if(! clubpanefile.isEmpty()){
+			this.cp_pic = clubpanefile.getOriginalFilename();
+			
+			// 실제 저장된 파일명 만들기
+			UUID uuid = UUID.randomUUID();
+			cp_rpic = uuid.toString() + "_" + cp_pic;
+			
+			//***********************************************
+			// 해당 경로로 변경
+			File f = new File("C:\\Users\\04-09\\git\\Mokoji\\mokoji\\src\\main\\webapp\\resources\\images\\"+cp_rpic);
+			
+			try {
+				clubpanefile.transferTo(f);
+				
+			} catch (IllegalStateException e) {				
+				e.printStackTrace();
+			} catch (IOException e) {
+				
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	
 	public String getCp_name() {
 		return cp_name;
 	}
@@ -48,11 +84,12 @@ public class ClubPaneVO {
 	public void setCp_likes(int cp_likes) {
 		this.cp_likes = cp_likes;
 	}
-	public MultipartFile getClubpanefile() {
-		return clubpanefile;
+
+	public String getCp_rpic() {
+		return cp_rpic;
 	}
-	public void setClubpanefile(MultipartFile clubpanefile) {
-		this.clubpanefile = clubpanefile;
+	public void setCp_rpic(String cp_rpic) {
+		this.cp_rpic = cp_rpic;
 	}
 	
 	

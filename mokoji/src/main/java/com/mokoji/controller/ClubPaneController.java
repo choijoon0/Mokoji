@@ -19,12 +19,10 @@ public class ClubPaneController {
 	@Autowired
 	private ClubPaneService clubPaneService;
 	
+	
+	//게시판 등록
 	@RequestMapping(value="/insertClubPane.do")
 	public void insertClubPane(ClubVO vo ,ClubPaneVO clubpanevo, MemberVO memvo, MemClubVO memclubvo, Model model) throws IOException{
-		
-		
-		
-		
 		//VO여러개 해쉬맵으로
 		HashMap<String, Object> map = new HashMap<String, Object>();
 
@@ -38,5 +36,8 @@ public class ClubPaneController {
 			System.out.println("성공"+num);
 		}
 	}
+	
+	
+	
 	
 }

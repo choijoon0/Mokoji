@@ -26,4 +26,10 @@ public class MemClubServiceImple implements MemClubService{
 		memClubDAOImple.joinClub(map);
 	}
 
+	@Override
+	public String checkMemClub(HashMap<String, Object> map) {
+		// TODO Auto-generated method stub
+		return memClubDAOImple.checkMemClub(map);
+	}
+
 }

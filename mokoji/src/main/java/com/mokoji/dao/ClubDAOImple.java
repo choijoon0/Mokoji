@@ -1,5 +1,6 @@
 package com.mokoji.dao;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
@@ -48,6 +49,24 @@ public class ClubDAOImple implements ClubDAO {
 		List<ClubVO> list = mybatis.selectList("ClubDAO.getOneClublist", vo);
 		
 		return list;
+	}
+
+	@Override
+	public int selectClubcode(ClubVO vo) {
+		// TODO Auto-generated method stub
+		return mybatis.selectOne("ClubDAO.selectClubcode");
+	}
+
+	@Override
+	public int insertClub(HashMap<String, Object> map) {
+		// TODO Auto-generated method stub
+		return mybatis.insert("ClubDAO.insertClub", map);
+	}
+
+	@Override
+	public int insertMemClub(HashMap<String, Object> map) {
+		// TODO Auto-generated method stub
+		return mybatis.insert("ClubDAO.insertMemClub", map);
 	}
 
 }

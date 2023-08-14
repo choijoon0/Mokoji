@@ -4,10 +4,16 @@
 <mapper namespace="CLubPaneDAO">
 
 	<insert id="insertClubPane" parameterType="hashmap">
-		INSERT INTO CLUBPANE (cp_code, cp_name, cp_content, cp_date, cp_pic, cp_cnt, cp_likes, mc_code) 
-		VALUES(seq_clubpane.nextval, #{clubpane.cp_name}, #{clubpane.cp_content}, sysdate, #{clubpane.cp_pic}, 0, 0, #{ memclub.mc_code });
+		INSERT INTO CLUBPANE (cp_code, cp_name, cp_content, cp_date, cp_pic, cp_rpic, cp_cnt, cp_likes, mc_code) 
+		VALUES(seq_clubpane.nextval, #{clubpane.cp_name}, #{clubpane.cp_content}, sysdate, #{clubpane.cp_pic}, #{clubpane.cp_rpic},0, 0, #{ memclub.mc_code });
 	</insert>
 
-
+	<select id="selectClubPaneList" parameterType="club" resultType="clubpane">
+		SELECT p.cp_code, p.cp_name, p.cp_content, p.cp_date, p.cp_pic, p.cp_rpic, p.cp_cnt, p.cp_likes FROM CLUBPANE p, MEMCLUB m 
+		WHERE p.MC_CODE = m.MC_CODE AND m.CLUB_CODE = ${ club.club_code }
+		
+		
+	</select>
 
 </mapper>
+

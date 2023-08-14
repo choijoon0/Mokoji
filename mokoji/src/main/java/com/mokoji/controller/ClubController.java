@@ -1,6 +1,7 @@
 package com.mokoji.controller;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,12 +27,33 @@ public class ClubController {
 	@Autowired
 	private CategoryService categoryService;
 
-	// 동호회등록
-	@RequestMapping(value = "/insertclub.do")
-	public String insertClub(IndexVO vo) {
-		clubService.insertClub(vo);
-		return "redirect:/insertclub.do";
+	@RequestMapping(value="/insertClub.do")
+	public String insertClub(ClubVO cvo, MemberVO mvo, CategoryVO cavo) throws IOException{
+		
+		HashMap<String, Object> map= new HashMap<String, Object>();
+		
+		
+		int num = clubService.selectClubcode(cvo);
+		System.out.println(num+"asdasdsad");
+		
+		
+		cvo.setClub_code(num);
+		
+		
+		
+		map.put("club", cvo);
+		
+		map.put("member", mvo);
+		
+		map.put("category", cavo);
+		
+		clubService.insertClub(map);
+		clubService.insertMemClub(map);
+		
+
+		return "redirect:/go.do";
 	}
+	
 
 	// index - main 연결
 	@RequestMapping(value = "/go.do")

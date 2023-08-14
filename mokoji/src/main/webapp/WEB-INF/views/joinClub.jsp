@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-씨발 쎽스!!!
+돌아간다!
 
 </body>
 </html>

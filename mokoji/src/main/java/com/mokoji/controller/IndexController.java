@@ -23,10 +23,10 @@ public class IndexController {
 	
 	
 	//기본 경로
-//	@RequestMapping({"/{step}.do"})
-//	public String viewPage(@PathVariable String step) {
-//		return step;
-//	}
+	@RequestMapping({"/{step}.do"})
+	public String viewPage(@PathVariable String step) {
+		return step;
+	}
 	
 
 	

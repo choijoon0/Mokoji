@@ -1,5 +1,7 @@
 package com.mokoji.dao;
 
+import java.util.HashMap;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -13,9 +15,9 @@ public class SocialingDAOImple implements SocialingDAO{
 	
 	//소셜링 등록
 	@Override
-	public void insertSocialing(SocialingVO vo) {
+	public int insertSocialing(HashMap<String, Object> map) {
 		// TODO Auto-generated method stub
-		mybatis.insert("SocialingDAO.insertSocialing",vo);
+		return mybatis.insert("SocialingDAO.insertSocialing",map);
 	}
 
 }

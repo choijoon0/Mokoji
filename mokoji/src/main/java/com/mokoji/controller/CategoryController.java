@@ -52,7 +52,7 @@ public class CategoryController {
 
 		// 리스트
 		model.addAttribute("clubTotList", clubService.getClubList(vo2));
-
+		
 		return "clubTotal";
 	}
 

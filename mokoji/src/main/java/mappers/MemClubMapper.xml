@@ -2,19 +2,39 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="MemClubDAO">
-	<select id="getMemCtCode" parameterType="hashmap" resultType="Integer">
+	
+	
+	
+	
+	<select id="getMemCtCode" parameterType="hashmap"
+		resultType="Integer">
 		SELECT memct_code FROM MEMCLUB where club_code = ${club.club_code} and mem_code = ${member.mem_code}
 	</select>
-	
+
 	<insert id="joinClub" parameterType="hashmap">
-	<choose>
-	<when test='club.club_signtype == "승인제"'>
-		INSERT INTO MEMCLUB (MC_CODE, CLUB_CODE, MEM_CODE, MEMCT_CODE, MC_JOINSTATE) VALUES (seq_memclub.nextval, ${club.club_code},${member.mem_code},2,'N')
-	</when>
-	<when test='club.club_signtype == "선착순"'>
-		INSERT INTO MEMCLUB (MC_CODE, CLUB_CODE, MEM_CODE, MEMCT_CODE, MC_JOINSTATE) VALUES (seq_memclub.nextval, ${club.club_code},${member.mem_code},2,'Y')
-	</when>
-	</choose>		
+		<choose>
+			<when test='club.club_signtype == "승인제"'>
+				INSERT INTO MEMCLUB (MC_CODE, CLUB_CODE, MEM_CODE, MEMCT_CODE,
+				MC_JOINSTATE) VALUES (seq_memclub.nextval,
+				${club.club_code},${member.mem_code},2,'N')
+			</when>
+			
+			
+			<when test='club.club_signtype == "선착순"'>
+				INSERT INTO MEMCLUB (MC_CODE, CLUB_CODE, MEM_CODE, MEMCT_CODE,
+				MC_JOINSTATE) VALUES (seq_memclub.nextval,
+				${club.club_code},${member.mem_code},2,'Y')
+			</when>
+		</choose>
 	</insert>
 	
+	
+	<select id="checkMemClub" parameterType="hashmap" resultType="String">
+	SELECT MC_JOINSTATE FROM MEMCLUB WHERE CLUB_CODE=${clublist.club_code} AND MEM_CODE=${member.mem_code}
+	
+	
+	</select>
+	
+	
+
 </mapper>
