@@ -21,7 +21,6 @@ import com.mokoji.service.SocialingService;
 public class SocialingController {
 	@Autowired
 	private SocialingService socialingService;
-	
 	@RequestMapping(value="/insertSocialing.do")
 	public String insertSocialing(SocialingVO vo, CategoryVO cvo, MemberVO mvo) throws IOException	{
 		HashMap<String, Object> map = new HashMap<String, Object>();
@@ -30,7 +29,6 @@ public class SocialingController {
 		map.put("member", mvo);
 		
 		socialingService.insertSocialing(map);
-		
 		return "redirect:/go.do";
 	}
 	
@@ -49,6 +47,7 @@ public class SocialingController {
 		System.out.println("하위카테고리별 리스트" + ctmid_name);
 		return socialingService.getSocialListInterest(ctmid_name);
 	}
+	
 	
 
 }
