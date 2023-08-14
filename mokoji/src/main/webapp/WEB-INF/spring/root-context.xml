@@ -27,6 +27,7 @@
          <value>com.mokoji.domain.CategoryVO</value>
          <value>com.mokoji.domain.ClubVO</value>
          <value>com.mokoji.domain.SocialingVO</value>
+         <value>com.mokoji.domain.ClubInstantVO</value>
       </list>
    </property>
  </bean>

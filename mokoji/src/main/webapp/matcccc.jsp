@@ -2,17 +2,11 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-<head>]
+<head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-
-
-
 </head>
 <body>
-메인시작!
-	<%
-	response.sendRedirect("go.do");
-	%>
+
 </body>
 </html>

@@ -1,0 +1,83 @@
+@charset "UTF-8";
+
+.templatemo-item-col .meeting-item .clubtotal img{
+  border-radius: 50%;
+  width : 70px;
+  height : 70px;
+  margin-left: 40px;
+  margin-bottom : 5px;
+}
+
+.meeting-item .clubtotal {
+  position: relative;
+}
+
+.meeting-item .clubtotal{
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+}
+
+.meeting-item .clubtotal{
+  position: absolute;
+  left: 20px;
+  top: 20px;
+}
+
+.meeting-item .clubtotal{
+  font-size: 16px;
+  color: #1f272b;
+  font-weight: 600;
+  background-color: rgba(250,250,250,0.9);
+  padding: 7px 12px;
+  border-radius: 10px;
+}
+
+.meeting-single-item .clubtotal {
+  position: relative;
+}
+
+.meeting-single-item .clubtotal{
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+}
+
+.meeting-single-item .clubtotal{
+  position: absolute;
+  left: 20px;
+  top: 20px;
+}
+
+.meeting-single-item .clubtotal{
+  font-size: 16px;
+  color: #1f272b;
+  font-weight: 600;
+  background-color: rgba(250,250,250,0.9);
+  padding: 7px 12px;
+  border-radius: 10px;
+}
+
+.meeting-single-item .clubtotal{
+  position: absolute;
+  background-color: rgba(250,250,250,0.9);
+  width: 80px;
+  height: 80px;
+  text-align: center;
+  padding: 15px 0px;
+  border-radius: 10px;
+  right: 20px;
+  top: 20px;
+}
+
+.meeting-single-item .clubtotal{
+  font-size: 13px;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: #a12c2f;
+}
+
+.meeting-single-item .clubtotal{
+  display: block;
+  color: #1f272b;
+  font-size: 22px;
+  margin-top: 7px;
+}

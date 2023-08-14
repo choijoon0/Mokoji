@@ -42,7 +42,7 @@ public class CategoryController {
             return categoryService.getCateMidList(cthigh_name);
          }
          
-//메인에서 넘길때
+         //메인에서 넘길때
          
          @RequestMapping(value = "/goclub.do")
          public String category(ClubVO vo2,CategoryVO vo, Model model) throws IOException{

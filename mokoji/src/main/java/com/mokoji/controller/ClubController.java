@@ -21,32 +21,39 @@ import com.mokoji.service.ClubService;
 public class ClubController {
 	@Autowired
 	private ClubService clubService;
-	
+
 	@Autowired
 	private CategoryService categoryService;
-	
-	//동호회등록
-	@RequestMapping(value="/insertclub.do")
+
+	// 동호회등록
+	@RequestMapping(value = "/insertclub.do")
 	public String insertClub(IndexVO vo) {
 		clubService.insertClub(vo);
 		return "redirect:/insertclub.do";
 	}
+
+	// index - main 연결
+	@RequestMapping(value = "/go.do")
+	public String goMain(CategoryVO vo1, ClubVO vo, Model model) throws IOException {
+		// 동호회 리스트 가져오기
+		model.addAttribute("clubList", clubService.getClubList(vo));
+
+		// return "main/main";
+		return "/main/testindex";
+	}
+
+	// 상위 카테고리 별 동호회 리스트 뽑기
+	@RequestMapping(value = "/clubTotal.do", method = RequestMethod.POST)
+	@ResponseBody
+	public List<ClubVO> getHighClubListInterest(@RequestParam("cthigh_name") String cthigh_name) {
+		return clubService.getHighClubListInterest(cthigh_name);
+	}
+
+	// 하위 카테고리 별 동호회 리스트 뽑기
+	@RequestMapping(value = "/clubTotal.do", method = RequestMethod.GET)
+	@ResponseBody
+	public List<ClubVO> getClubListInterest(@RequestParam("ctmid_name") String ctmid_name) {
+		return clubService.getClubListInterest(ctmid_name);
+	}
 	
-	   //index - main 연결
-	   @RequestMapping(value="/go.do")
-	   public String goMain(CategoryVO vo1 ,ClubVO vo, Model model) throws IOException{
-	      //동호회 리스트 가져오기
-	      model.addAttribute("clubList", clubService.getClubList(vo));
-	      
-	      //return "main/main";
-	     return "/main/testindex";
-	   }
-	   	   
-	   //관심사별 동호회 리스트 뽑기
-	   @RequestMapping(value = "/clubTotal.do", method = RequestMethod.GET)
-	   @ResponseBody
-	   public List<ClubVO> getClubListInterest(@RequestParam("ctmid_name") String ctmid_name){
-		  System.out.println("되냐되냐되냐");
-	      return clubService.getClubListInterest(ctmid_name);
-	   }
 }

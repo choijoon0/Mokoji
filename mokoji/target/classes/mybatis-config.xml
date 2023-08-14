@@ -13,7 +13,7 @@
 		<typeAlias alias="category" type="com.mokoji.domain.CategoryVO"/>
 		<typeAlias alias="socialing" type="com.mokoji.domain.SocialingVO"/>
 		<typeAlias alias="club" type="com.mokoji.domain.ClubVO"/>
-		
+		<typeAlias alias="instant" type="com.mokoji.domain.ClubInstantVO"/>	
 	</typeAliases>
 	
 	<!-- Sql Mapper 설정 -->

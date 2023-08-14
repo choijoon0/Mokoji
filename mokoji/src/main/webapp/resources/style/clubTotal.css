@@ -1,270 +1,189 @@
-body{
-	margin: auto;
+.grid-container {
+	display: grid;
+	grid-template-columns: auto auto auto;
+	background-color: #2196F3;
+	padding: 10px;
+}
+
+}
+a.btn {
+	background: #0096a0;
+	border-radius: 4px;
+	box-shadow: 0 2px 0px 0 rgba(0, 0, 0, 0.25);
+	color: #ffffff;
+	display: inline-block;
+	padding: 6px 30px 8px;
+	position: relative;
+	text-decoration: none;
+	transition: all 0.1s 0s ease-out;
+}
+
+.no-touch a.btn:hover {
+	background: #00a2ad;
+	box-shadow: 0px 8px 2px 0 rgba(0, 0, 0, 0.075);
+	transform: translateY(-2px);
+	transition: all 0.25s 0s ease-out;
+}
+
+.no-touch a.btn:active, a.btn:active {
+	background: #008a93;
+	box-shadow: 0 1px 0px 0 rgba(255, 255, 255, 0.25);
+	transform: translate3d(0, 1px, 0);
+	transition: all 0.025s 0s ease-out;
+}
+
+div.cards {
+	margin: 80px auto;
+	max-width: 960px;
+	text-align: center;
+}
+
+div.card {
+	background: #ffffff;
+	display: inline-block;
+	margin: 8px;
+	max-width: 300px;
+	perspective: 1000;
+	position: relative;
+	text-align: left;
+	transition: all 0.3s 0s ease-in;
+	width: 300px;
+	z-index: 1;
+}
+
+div.card img {
+	max-width: 300px;
+}
+
+div.card .card__image-holder {
+	background: rgba(0, 0, 0, 0.1);
+	height: 0;
+	padding-bottom: 75%;
+}
+
+div.card div.card-title {
+	background: #ffffff;
+	padding: 6px 15px 10px;
+	position: relative;
+	z-index: 0;
+}
+
+div.card div.card-title a.toggle-info {
+	border-radius: 32px;
+	height: 32px;
+	padding: 0;
 	position: absolute;
-	margin-top: 5%;
-	margin-left: 22%;
+	right: 15px;
+	top: 10px;
+	width: 32px;
 }
 
-.e522_33 { 
-	width:1283px;
-	height:35.471778869628906px;
-	position:absolute;
-	left:68px;
-	top:134px;
-}
-.e522_34 { 
-	width:79px;
-	height:23.63779067993164px;
-	position:absolute;
-	left:3.5rem;
-	top:6rem;
-	font-family:Inter;
-	text-align:center;
-	font-size:1.2rem;
-	letter-spacing:0;
-}
-.e522_35 { 
-	color:rgba(0, 0, 0, 1);
-	width:109px;
-	height:35.45668411254883px;
-	position:absolute;
-	left:6.5rem;
-	top:6rem;
-	font-family:Inter;
-	text-align:center;
-	font-size:1.2rem;
-	letter-spacing:0;
-}
-.e522_36 { 
-	color:rgba(0, 0, 0, 1);
-	width:65px;
-	height:32.50196075439453px;
-	position:absolute;
-	left:10.5rem;
-	top:6rem;
-	font-family:Inter;
-	text-align:center;
-	font-size:1.2rem;
-	letter-spacing:0;
-}
-.e522_37 { 
-	color:rgba(0, 0, 0, 1);
-	width:57px;
-	height:23.63779067993164px;
-	position:absolute;
-	left:13.5rem;
-	top:6rem;
-	font-family:Inter;
-	text-align:center;
-	font-size:1.2rem;
-	letter-spacing:0;
-}
-.e522_38 { 
-	color:rgba(0, 0, 0, 1);
-	width:80px;
-	height:23.63779067993164px;
-	position:absolute;
-	left:16rem;
-	top:6rem;
-	font-family:Inter;
-	text-align:center;
-	font-size:1.2rem;
-	letter-spacing:0;
-}
-.e522_39 { 
-	color:rgba(0, 0, 0, 1);
-	width:72px;
-	height:23.63779067993164px;
-	position:absolute;
-	left:19rem;
-	top:6rem;
-	font-family:Inter;
-	text-align:center;
-	font-size:1.2rem;
-	letter-spacing:0;
-}
-.e522_40 { 
-	color:rgba(0, 0, 0, 1);
-	width:100px;
-	height:32.50196075439453px;
-	position:absolute;
-	left:22rem;
-	top:6rem;
-	font-family:Inter;
-	text-align:center;
-	font-size:1.2rem;
-	letter-spacing:0;
-}
-.e522_41 { 
-	color:rgba(0, 0, 0, 1);
-	width:111px;
-	height:32.50196075439453px;
-	position:absolute;
-	left:26rem;
-	top:6rem;
-	font-family:Inter;
-	text-align:center;
-	font-size:1.2rem;
-	letter-spacing:0;
-}
-.e522_42 { 
-	color:rgba(0, 0, 0, 1);
-	width:80px;
-	height:23.63779067993164px;
-	position:absolute;
-	left:30rem;
-	top:6rem;
-	font-family:Inter;
-	text-align:center;
-	font-size:1.2rem;
-	letter-spacing:0;
-}
-.e522_43 { 
-	color:rgba(0, 0, 0, 1);
-	width:76px;
-	height:23.63779067993164px;
-	position:absolute;
-	left:33rem;
-	top:6rem;
-	font-family:Inter;
-	text-align:center;
-	font-size:1.2rem;
-	letter-spacing:0;
-}
-.e522_74 { 
-	background-color:rgba(255, 255, 255, 1);
-	width:2049px;
-	height:4590px;
-	position:absolute;
-	left:1747px;
-	top:97px;
-}
-.e522_75 { 
-	color:rgba(0, 0, 0, 1);
-	width:143px;
-	height:30px;
-	position:absolute;
-	left:123px;
-	top:1768px;
-	font-family:Inter;
-	text-align:center;
-	font-size:30px;
-	letter-spacing:0;
-}
-.e522_76 { 
-	background-color:rgba(236.00000113248825, 227.00000166893005, 211.00000262260437, 1);
-	width:1196px;
-	height:286px;
-	position:absolute;
-	left:122px;
-	top:539px;
-}
-.e522_94 { 
-	width:245px;
-	height:227px;
-	position:absolute;
-	left:168px;
-	top:569px;
-	background-image:url(images/image_23.png);
-	background-repeat:no-repeat;
-	background-size:cover;
-}
-.e522_101 { 
-	color:rgba(0, 0, 0, 1);
-	width:109px;
-	height:30px;
-	position:absolute;
-	left:123px;
-	top:3069px;
-	font-family:Inter;
-	text-align:center;
-	font-size:30px;
-	letter-spacing:0;
-}
-.e522_126 { 
-	color:rgba(0, 0, 0, 1);
-	width:163px;
-	height:31px;
-	position:absolute;
-	left:104px;
-	top:481px;
-	font-family:Inter;
-	text-align:center;
-	font-size:30px;
-	letter-spacing:0;
-}
-.e522_127 { 
-	width:219px;
-	height:46.22491455078125px;
-	position:absolute;
-	left:609px;
-	top:4256px;
-}
-.e522_129 { 
-	background-color:rgba(217.0000022649765, 217.0000022649765, 217.0000022649765, 0);
-	width:177.32179260253906px;
-	height:39.40484619140625px;
-	position:absolute;
-	left:21.217992782592773px;
-	top:3.031141757965088px;
+div.card div.card-title a.toggle-info span {
+	background: #ffffff;
+	display: block;
+	height: 2px;
+	position: absolute;
+	top: 16px;
+	transition: all 0.15s 0s ease-out;
+	width: 12px;
 }
 
-.e522_130 { 
-	width:219px;
-	height:46.22491455078125px;
-	position:absolute;
-	left:609px;
-	top:2959px;
-}
-.e522_132 { 
-	background-color:rgba(217.0000022649765, 217.0000022649765, 217.0000022649765, 0);
-	width:177.32179260253906px;
-	height:39.40484619140625px;
-	position:absolute;
-	left:21.217992782592773px;
-	top:3.031141757965088px;
-}
-.e522_133 { 
-	width:219px;
-	height:46.22491455078125px;
-	position:absolute;
-	left:610px;
-	top:1663px;
-}
-.e522_135 { 
-	background-color:rgba(217.0000022649765, 217.0000022649765, 217.0000022649765, 0);
-	width:177.32179260253906px;
-	height:39.40484619140625px;
-	position:absolute;
-	left:21.217992782592773px;
-	top:3.031141757965088px;
+div.card div.card-title a.toggle-info span.left {
+	right: 14px;
+	transform: rotate(45deg);
 }
 
-li a {
-  text-decoration: none;
-  padding: 10px;
-  display: block;
-  color: #000;
-  font-weight: bold;
-  text-align: center;
+div.card div.card-title a.toggle-info span.right {
+	left: 14px;
+	transform: rotate(-45deg);
 }
 
-li a:hover:not(.home) {
-  background-color: #333;
-  color: #fff;
+div.card div.card-title h2 {
+	font-size: 24px;
+	font-weight: 700;
+	letter-spacing: -0.05em;
+	margin: 0;
+	padding: 0;
 }
 
-
-li a:hover {
-  background: #333;
-  color: #fff;
+div.card div.card-title h2 small {
+	display: block;
+	font-size: 18px;
+	font-weight: 600;
+	letter-spacing: -0.025em;
 }
 
-li a.home {
-  background : #333;
-  color: #fff;
+div.card div.card-description {
+	padding: 0 15px 10px;
+	position: relative;
+	font-size: 14px;
 }
 
-ul, li {
-   list-style: none;
+div.card div.card-actions {
+	box-shadow: 0 2px 0px 0 rgba(0, 0, 0, 0.075);
+	padding: 10px 15px 20px;
+	text-align: center;
+}
+
+div.card div.card-flap {
+	background: #d9d9d9;
+	position: absolute;
+	width: 100%;
+	transform-origin: top;
+	transform: rotateX(-90deg);
+}
+
+div.card div.flap1 {
+	transition: all 0.3s 0.3s ease-out;
+	z-index: -1;
+}
+
+div.card div.flap2 {
+	transition: all 0.3s 0s ease-out;
+	z-index: -2;
+}
+
+div.cards.showing div.card {
+	cursor: pointer;
+	opacity: 0.6;
+	transform: scale(0.88);
+}
+
+.no-touch div.cards.showing div.card:hover {
+	opacity: 0.94;
+	transform: scale(0.92);
+}
+
+div.card.show {
+	opacity: 1 !important;
+	transform: scale(1) !important;
+}
+
+div.card.show div.card-title a.toggle-info {
+	background: #ff6666 !important;
+}
+
+div.card.show div.card-title a.toggle-info span {
+	top: 15px;
+}
+
+div.card.show div.card-title a.toggle-info span.left {
+	right: 10px;
+}
+
+div.card.show div.card-title a.toggle-info span.right {
+	left: 10px;
+}
+
+div.card.show div.card-flap {
+	background: #ffffff;
+	transform: rotateX(0deg);
+}
+
+div.card.show div.flap1 {
+	transition: all 0.3s 0s ease-out;
+}
+
+div.card.show div.flap2 {
+	transition: all 0.3s 0.2s ease-out;
 }

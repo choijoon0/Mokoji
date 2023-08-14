@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ClubInstantDAO">
+	<select id="getInstantList" parameterType="hashmap" resultType="hashmap">
+		SELECT a.cinst_code, a.cinst_name, a.cinst_date, a.cinst_content, a.cinst_memtot, a.cinst_cost, a.club_code, a.mem_code FROM CLUBINSTANT a, CLUB b
+		WHERE a.club_code = b.club_code AND a.club_code = ${clublist.club_code}
+	</select>
+
+</mapper>
