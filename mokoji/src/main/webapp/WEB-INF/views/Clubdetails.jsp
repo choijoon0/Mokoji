@@ -44,7 +44,10 @@ https://templatemo.com/tm-569-edu-meeting
 <script type="text/javascript">
 var name = <%=(String)session.getAttribute("check") %>;
 
-console.log(name);
+
+
+
+
 
 </script>
 </head>

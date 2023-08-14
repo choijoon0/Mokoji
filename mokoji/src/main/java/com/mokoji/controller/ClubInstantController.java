@@ -41,10 +41,11 @@ public class ClubInstantController {
 	      map.put("instant", vo);
 	      map.put("clublist", vo2);
 	      map.put("member", mvo);
-	      //동호회 가입 확인
 	      
+	      //동호회 가입 확인
 	      String check = memClubService.checkMemClub(map);
-	      System.out.println(check+"체크체킃케ㅡ");
+	     
+	      //확인값에 따라 세션으로 전송 
 	      if(check == null) {
 	    	  session.setAttribute("check", "태욱");
 	      }else if(check == "N") {
@@ -52,7 +53,7 @@ public class ClubInstantController {
 	      }else if(check == "Y") {
 	    	  session.setAttribute("check", "준성");
 	      }
-	      System.out.println(session.getAttribute("check")+"gllglggl");
+	     
 	      model.addAttribute("instant", clubInstantService.getInstantList(map));
 	      
 	      return "Clubdetails";
