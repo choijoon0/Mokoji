@@ -1,5 +1,6 @@
 package com.mokoji.service;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,21 +8,30 @@ import org.springframework.stereotype.Service;
 
 import com.mokoji.dao.ClubDAOImple;
 import com.mokoji.domain.ClubVO;
-import com.mokoji.domain.IndexVO;
 
 
-@Service("clubService")
+@Service("ClubService")
 public class ClubServiceImple implements ClubService{
 	
 	@Autowired
-	private ClubDAOImple clubdao;
+	private ClubDAOImple ClubDAO;
 	
 
 	//동호회 등록
 	@Override
-	public int insertClub(IndexVO vo) {
+	public int selectClubcode(ClubVO vo) {
 		// TODO Auto-generated method stub
-		return clubdao.insertClub(vo);
+		return ClubDAO.selectClubcode(vo);
+	}
+	@Override
+	public int insertClub(HashMap<String, Object> map) {
+		// TODO Auto-generated method stub
+		return ClubDAO.insertClub(map);
+	}
+	@Override
+	public int insertMemClub(HashMap<String, Object> map) {
+		// TODO Auto-generated method stub
+		return ClubDAO.insertMemClub(map);
 	}
 	
 	
@@ -31,7 +41,7 @@ public class ClubServiceImple implements ClubService{
 	@Override
 	public List<ClubVO> getClubList(ClubVO vo) {
 		// TODO Auto-generated method stub
-		return clubdao.getClubList(vo);
+		return ClubDAO.getClubList(vo);
 	}
 
 
@@ -40,7 +50,7 @@ public class ClubServiceImple implements ClubService{
 	@Override
 	public List<ClubVO> getClubListInterest(String ctmid_name) {
 		// TODO Auto-generated method stub
-		return clubdao.getClubListInterest(ctmid_name);
+		return ClubDAO.getClubListInterest(ctmid_name);
 	}
 
 
@@ -49,7 +59,7 @@ public class ClubServiceImple implements ClubService{
 	@Override
 	public List<ClubVO> getHighClubListInterest(String cthigh_name) {
 		// TODO Auto-generated method stub
-		return clubdao.getHighClubListInterest(cthigh_name);
+		return ClubDAO.getHighClubListInterest(cthigh_name);
 	}
 
 }

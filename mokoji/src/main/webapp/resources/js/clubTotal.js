@@ -31,7 +31,7 @@ $(function(){
 				$("#clubList").append('<div class="card"><div class="card__image-holder"><img class="card__image" src="' + data[i].club_rpic + '"/></div><div class="card-title"><a href="#" class="toggle-info btn"><span class="left"></span><span class="right"></span></a><h2>'+data[i].club_name + '<small>' +data[i].club_memtot +'</small></h2></div><div class="card-flap flap1"><div class="card-description">'+data[i].club_intro+'</div><div class="card-flap flap2"><div class="card-actions"><a href="#" class="btn">가입하기</a></div></div></div>');
 				
             }
-         }, error :function(){
+         }, error : function(){
             alert(ctmid_name);
          }
 		});     

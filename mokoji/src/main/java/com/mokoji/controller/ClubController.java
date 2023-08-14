@@ -1,6 +1,7 @@
 package com.mokoji.controller;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,30 +14,49 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.mokoji.domain.CategoryVO;
 import com.mokoji.domain.ClubVO;
-import com.mokoji.domain.IndexVO;
-import com.mokoji.service.CategoryService;
+import com.mokoji.domain.MemberVO;
 import com.mokoji.service.ClubService;
+
 
 @Controller
 public class ClubController {
 	@Autowired
-	private ClubService clubService;
+	private ClubService ClubService;
 
-	@Autowired
-	private CategoryService categoryService;
+	@RequestMapping(value="/insertClub.do")
+	public String insertClub(ClubVO cvo, MemberVO mvo, CategoryVO cavo) throws IOException{
+		
+		HashMap<String, Object> map= new HashMap<String, Object>();
+		
+		
+		int num = ClubService.selectClubcode(cvo);
+		System.out.println(num+"asdasdsad");
+		
+		
+		cvo.setClub_code(num);
+		
+		
+		
+		map.put("club", cvo);
+		
+		map.put("member", mvo);
+		
+		map.put("category", cavo);
+		
+		ClubService.insertClub(map);
+		ClubService.insertMemClub(map);
+		
 
-	// 동호회등록
-	@RequestMapping(value = "/insertclub.do")
-	public String insertClub(IndexVO vo) {
-		clubService.insertClub(vo);
-		return "redirect:/insertclub.do";
+		return "redirect:/go.do";
 	}
+	
+	// 동호회등록
 
 	// index - main 연결
 	@RequestMapping(value = "/go.do")
 	public String goMain(CategoryVO vo1, ClubVO vo, Model model) throws IOException {
 		// 동호회 리스트 가져오기
-		model.addAttribute("clubList", clubService.getClubList(vo));
+		model.addAttribute("clubList", ClubService.getClubList(vo));
 
 		// return "main/main";
 		return "/main/testindex";
@@ -46,13 +66,14 @@ public class ClubController {
 	@RequestMapping(value = "/clubTotal.do", method = RequestMethod.POST)
 	@ResponseBody
 	public List<ClubVO> getHighClubListInterest(@RequestParam("cthigh_name") String cthigh_name) {
-		return clubService.getHighClubListInterest(cthigh_name);
+		return ClubService.getHighClubListInterest(cthigh_name);
 	}
 
 	// 하위 카테고리 별 동호회 리스트 뽑기
 	@RequestMapping(value = "/clubTotal.do", method = RequestMethod.GET)
 	@ResponseBody
 	public List<ClubVO> getClubListInterest(@RequestParam("ctmid_name") String ctmid_name) {
-		return clubService.getClubListInterest(ctmid_name);
+		return ClubService.getClubListInterest(ctmid_name);
 	}
 }
+

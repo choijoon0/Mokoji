@@ -1,5 +1,6 @@
 package com.mokoji.dao;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
@@ -9,6 +10,8 @@ import org.springframework.stereotype.Repository;
 import com.mokoji.domain.ClubVO;
 import com.mokoji.domain.IndexVO;
 
+import lombok.Builder.ObtainVia;
+
 @Repository("ClubDAO")
 public class ClubDAOImple implements ClubDAO{
 	@Autowired
@@ -17,9 +20,20 @@ public class ClubDAOImple implements ClubDAO{
 	
 	//동호회 등록
 	@Override
-	public int insertClub(IndexVO vo) {
+	public int selectClubcode(ClubVO vo) {
 		// TODO Auto-generated method stub
-		return mybatis.insert("ClubDAO.insertClub", vo);
+		return mybatis.selectOne("ClubDAO.selectClubcode");
+	}
+	@Override
+	public int insertClub(HashMap<String, Object> map) {
+		// TODO Auto-generated method stub
+		return mybatis.insert("ClubDAO.insertClub", map);
+		
+	}
+	@Override
+	public int insertMemClub(HashMap<String, Object> map) {
+		// TODO Auto-generated method stub
+		return mybatis.insert("ClubDAO.insertMemClub", map);
 	}
 	
 	//동호회 리스트 가져오기

@@ -1,13 +1,16 @@
 package com.mokoji.service;
 
+import java.util.HashMap;
 import java.util.List;
 
 import com.mokoji.domain.ClubVO;
-import com.mokoji.domain.IndexVO;
 
 public interface ClubService {
 	// 동호회 등록
-	public int insertClub(IndexVO vo);
+	public int selectClubcode(ClubVO vo);
+	public int insertClub(HashMap<String, Object> map);
+	public int insertMemClub(HashMap<String, Object> map);
+
 
 	// 동호회 리스트 가져오기
 	public List<ClubVO> getClubList(ClubVO vo);

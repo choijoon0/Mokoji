@@ -5,7 +5,7 @@ $("#cthigh_name").blur(function(){
       type: "GET", 
       success : function(data){
             for(var i=0;i<data.length;i++){
-               $("#mem_favorite2").append("<option value="+data[i].ctmid_code+">"+data[i].ctmid_name+"</option>");
+               $("#mem_favorite2").append("<option value="+ data[i].ctmid_code +">"+ data[i].ctmid_name +"</option>");
             }
 
          }, error :function(){
@@ -29,7 +29,7 @@ $("#cthigh_name").blur(function(){
       type: "GET", 
       success : function(data){
             for(var i=0;i<data.length;i++){
-               $("#mem_favorite3").append("<option>"+data[i].ctmid_name+"</option>");
+               $("#mem_favorite3").append("<option value="+ data[i].ctmid_code +">"+ data[i].ctmid_name +"</option>");
             }
          
          
@@ -54,7 +54,7 @@ $("#cthigh_name").blur(function(){
       type: "GET", 
       success : function(data){
             for(var i=0;i<data.length;i++){
-               $("#mem_favorite4").append("<option>"+data[i].ctmid_name+"</option>");
+               $("#mem_favorite4").append("<option value="+ data[i].ctmid_code +">"+ data[i].ctmid_name +"</option>");
             }
          
          

@@ -13,8 +13,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.mokoji.domain.CategoryVO;
 import com.mokoji.domain.ClubVO;
+import com.mokoji.domain.SocialingVO;
 import com.mokoji.service.CategoryService;
 import com.mokoji.service.ClubService;
+import com.mokoji.service.SocialingService;
 
 @Controller
 public class CategoryController {
@@ -24,6 +26,9 @@ public class CategoryController {
    
    @Autowired
    private ClubService clubService;
+   
+   @Autowired
+   private SocialingService socialingService;
 
    
       //첫번째 카테고리
@@ -56,6 +61,20 @@ public class CategoryController {
         	 model.addAttribute("clubTotList", clubService.getClubList(vo2));
             
             return "clubTotal";
+         }
+         
+         @RequestMapping(value = "/gosocial.do")
+         public String social(SocialingVO vo2,CategoryVO vo, Model model) throws IOException{
+        	 //상위
+        	 model.addAttribute("highcategory", categoryService.getCateList2(vo));
+            
+        	 //85개
+        	 model.addAttribute("midcategory", categoryService.getCateList(vo));
+           
+        	 //리스트
+        	 model.addAttribute("SocialTotList", socialingService.getSocialList(vo2));
+            
+            return "Social";
          }
 
 }

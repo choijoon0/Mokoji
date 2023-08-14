@@ -21,12 +21,29 @@
 	m.cthigh_code=(select b.cthigh_code from categoryhigh b where b.cthigh_name=#{cthigh_name})
 	order by c.club_code desc
 	</select>
+
+	<select id="selectClubcode" resultType="integer">
+	select seq_club.nextval from dual
+	</select>
 	
-	<insert id="insertClub" parameterType="club">
-	INSERT INTO CLUB (club_code, club_name, club_cost, club_loc, club_intro,
-	club_signtype, club_memtot, club_pic, ctmid_code)
-	VALUES(seq_club_code.nextval, ${club_name}, ${club_cost}, ${club_loc}, ${club_intro},
-	${club_signtype}, ${club_memtot}, ${club_pic}, ${ctmid_code})
+	<insert id="insertClub" parameterType="hashmap">
+	INSERT INTO club 
+	(club_code, club_name, club_cost, club_loc, club_intro, club_signtype, club_memtot, ctmid_code, club_gender, club_maxage 
+	<if test='club.club_pic != null'>
+	, club_pic, club_rpic
+	</if>
+	)VALUES (
+	#{club.club_code},  #{club.club_name}, #{club.club_cost}, #{club.club_loc}, #{club.club_intro}, #{club.club_signtype}, #{club.club_memtot}
+	, #{category.ctmid_code}, #{club.club_gender}, #{club.club_maxage} 
+	<if test="club.club_pic != null">
+	, #{club.club_pic}, #{club.club_rpic}
+	</if>
+	)
+	</insert>
+
+	<insert id="insertMemClub" parameterType="hashmap">
+	INSERT INTO MEMCLUB (mc_code, club_code, mem_code, memct_code, mc_joinstate)
+	VALUES(seq_memclub.nextval, ${club.club_code}, ${member.mem_code}, 1, 'Y')
 	</insert>
 	
 </mapper>

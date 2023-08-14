@@ -3,6 +3,7 @@ package com.mokoji.service;
 import java.util.List;
 
 import com.mokoji.domain.CategoryVO;
+import com.mokoji.domain.SocialingVO;
 
 public interface CategoryService {
    public List<CategoryVO> getCateHighList(CategoryVO vo);

@@ -9,7 +9,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class SocialingVO {
 	private String social_name, social_content, social_loc, social_pic, social_rpic, social_gender;
-	private int social_code, social_tot, social_cost, mem_code, ctmid_code, social_maxage; 
+	private int social_code, social_tot, social_cost, social_maxage; 
 	private Date social_starttime, social_date;
 	MultipartFile socialingfile;
 	public MultipartFile getSocialingfile() {
@@ -40,7 +40,7 @@ public class SocialingVO {
 					
 					//***********************************************
 					// 해당 경로로 변경
-					File f = new File("C:\\Users\\microsoft\\git\\Mokoji\\src\\main\\webapp\\resources\\images\\"+ social_rpic);
+					File f = new File("C:\\Users\\microsoft\\git\\Mokoji\\mokoji\\src\\main\\webapp\\resources\\images\\"+ social_rpic);
 					
 					try {
 						socialingfile.transferTo(f);
@@ -113,18 +113,6 @@ public class SocialingVO {
 	}
 	public void setSocial_cost(int social_cost) {
 		this.social_cost = social_cost;
-	}
-	public int getMem_code() {
-		return mem_code;
-	}
-	public void setMem_code(int mem_code) {
-		this.mem_code = mem_code;
-	}
-	public int getCtmid_code() {
-		return ctmid_code;
-	}
-	public void setCtmid_code(int ctmid_code) {
-		this.ctmid_code = ctmid_code;
 	}
 	
 }

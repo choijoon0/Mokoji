@@ -27,7 +27,8 @@
 
 <!-- Additional CSS Files -->
 <link rel="stylesheet" href="././resources/style/fontawesome.css">
-<link rel="stylesheet" href="././resources/style/templatemo-edu-meeting.css">
+<link rel="stylesheet"
+	href="././resources/style/templatemo-edu-meeting.css">
 <link rel="stylesheet" href="././resources/style/owl.css">
 <link rel="stylesheet" href="././resources/style/lightbox.css">
 <link rel="stylesheet" href="././resources/style/createClub.css">
@@ -46,7 +47,7 @@ https://templatemo.com/tm-569-edu-meeting
 
 
 	<%@ include file="main/header.jsp"%>
-	
+
 	<section class="heading-page header-text" id="top">
 		<div class="container">
 			<div class="row">
@@ -57,33 +58,34 @@ https://templatemo.com/tm-569-edu-meeting
 			</div>
 		</div>
 	</section>
-		<section class="meetings-page" id="meetings">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-12">
-						<div class="row">
-							<div class="col-lg-12">
-								<div class="filters">
-									<ul>
-										<li data-filter=".chal" class="active">챌린지</li>
-										<li data-filter=".social">소셜링</li>
-										<li data-filter=".club">모임</li>
-										<li>${ code }</li>
-									</ul>
+	<section class="meetings-page" id="meetings">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="row">
+						<div class="col-lg-12">
+							<div class="filters">
+								<ul>
+									<li data-filter=".chal" class="active">챌린지</li>
+									<li data-filter=".social">소셜링</li>
+									<li data-filter=".club">모임</li>
+									<li>${ code }</li>
+								</ul>
 
-								</div>
 							</div>
-							
-							<div class="col-lg-12">
-								<div class="row grid">
-			<form action="insertSocialing.do" method="post" enctype="multipart/form-data">
+						</div>
+
+						<div class="col-lg-12">
+							<div class="row grid">
+								<form action="insertSocialing.do" method="post"
+									enctype="multipart/form-data">
 									<section class="contact-us" id="contact">
 										<div class="templatemo-item-col all social">
 											<div class="row">
 												<div class="col-lg-9 align-self-center">
 													<div class="row">
 														<div class="col-lg-12">
-																<div class="active" id="contact" action="" method="post">
+															<div id="contact" action="" method="post">
 																<div class="row">
 																	<div class="col-lg-12">
 																		<h2>소셜링 생성</h2>
@@ -91,24 +93,24 @@ https://templatemo.com/tm-569-edu-meeting
 																	<div class="col-lg-4">
 																		<input type="hidden" value="${ code }" name="mem_code">
 																		<fieldset>
-																			<input name="social_name" type="text" id="social_title"
-																				placeholder="소셜링 제목을입력하세요*" required autocomplete="off">
+																			<input name="social_name" type="text"
+																				id="social_title" placeholder="소셜링 제목을입력하세요*"
+																				required autocomplete="off">
 																		</fieldset>
 																	</div>
-																	
+
 																	<div class="col-lg-4">
 																		<fieldset>
-																			<input name="social_date" type="date" id="social_date"
-																				required autocomplete="off"/>
+																			<input name="social_date" type="date"
+																				id="social_date" required autocomplete="off" />
 																		</fieldset>
-																   
+
 																	</div>
 																	<div>
 																		<label class="rectangle-232-vNM">
 																			<div id="socialimage_container"></div> <input
-																			name="socialingfile"
-																			type="file" id="social_pic" accept="image/*"
-																			onchange="setThumbnail(event);"
+																			name="socialingfile" type="file" id="social_pic"
+																			accept="image/*" onchange="setThumbnail(event);"
 																			placeholder="이미지를 선택해주세요" name="socialimgup" /> <script
 																				src="././resources/js/socialuploadimg.js"></script>
 																		</label>
@@ -118,7 +120,8 @@ https://templatemo.com/tm-569-edu-meeting
 																		<fieldset>
 																			<textarea name="social_content" type="text"
 																				class="form-control" id="social_content"
-																				placeholder="소셜링을 자유롭게 소개해주세요*" required autocomplete="off"></textarea>
+																				placeholder="소셜링을 자유롭게 소개해주세요*" required
+																				autocomplete="off"></textarea>
 																		</fieldset>
 																	</div>
 																	<div>
@@ -145,9 +148,8 @@ https://templatemo.com/tm-569-edu-meeting
 																			<c:forEach items="${ catehighList }" var="category">
 																				<option value="${ category.cthigh_name }">${ category.cthigh_name }</option>
 																			</c:forEach>
-																		</select> 
-																		<select id="mem_favorite2" name="ctmid_code">
-																						
+																		</select> <select id="mem_favorite2" name="ctmid_code">
+
 																			<option value="선택">====</option>
 
 
@@ -191,15 +193,16 @@ https://templatemo.com/tm-569-edu-meeting
 																		</label> <label id="no"> <input type="radio"
 																			name="socialinfo_chpay" onclick="textDisable()"
 																			value="없음">없음
-																		</label> <input type="text" name="social_cost"
-																			id="socialpay" placeholder="금액을 작성해주세요." disabled>
+																		</label> <input type="text" name="social_cost" id="socialpay"
+																			placeholder="금액을 작성해주세요." disabled>
 																	</div>
 
 
 
 																	<label class="item5">인원 수</label>
 																	<div class="per">
-																		<input name="social_tot" type="number" min='3' max='30' step='1'>
+																		<input name="social_tot" type="number" min='3'
+																			max='30' step='1'>
 																	</div>
 
 																	<div class="item6">최소 3, 최대 인원 수는 30 입니다.</div>
@@ -210,85 +213,76 @@ https://templatemo.com/tm-569-edu-meeting
 																		</fieldset>
 																	</div>
 																</div>
+															</div>
 														</div>
 													</div>
-												</div>
-
-											</form>
-											</div>
-										</div>
-									</section>
-									
-									
-									
-									
-									
-									
-									
-									
-									
-							
-									
-
+								</form>
+							</div>
+						</div>
+	</section>
 
 
 	<section class="contact-us" id="contact">
-		<div class="col-lg-4 templatemo-item-col all chal">
+		<div class="col-lg-4 templatemo-item-col all club">
 			<div class="row">
+
 				<div class="col-lg-9 align-self-center">
 					<div class="row">
+
 						<div class="col-lg-12">
-							<form id="contact" action="" method="post">
+							<form id="contact" action="insertClub.do" method="post"
+								enctype="multipart/form-data">
 								<div class="row">
 									<div class="col-lg-12">
-										<h2>챌린지 생성</h2>
+										<h2>모임 생성</h2>
 									</div>
 									<div class="col-lg-4">
+										<input type="hidden" value="${ code }" name="mem_code">
 										<fieldset>
-											<input name="title" type="text" id="title"
-												placeholder="챌린지 제목을입력하세요*" required="">
-										</fieldset>
-									</div>
-									<div class="col-lg-4">
-										<fieldset>
-											<input name="time" type="time" id="time" placeholder=""
-												required="">
-										</fieldset>
-									</div>
-									<div class="col-lg-4">
-										<fieldset>
-											<input name="date" type="date" id="date" required="">
-										</fieldset>
-									</div>
-									<div class="col-lg-12">
-										<fieldset>
-											<textarea name="message" type="text" class="form-control"
-												id="message" placeholder="챌린지를 자유롭게 소개해주세요*" required=""></textarea>
+											<input name="club_name" type="text" id="title"
+												placeholder="모임 제목을입력하세요*" required="">
 										</fieldset>
 									</div>
 									<div>
-										<form>
+										<label class="rectangle-232-vNM">
+											<div id="clubimage_container"></div> <input
+											name="clubfile" type="file" id="club_pic"
+											accept="image/*" onchange="setThumbnail1(event);"
+											placeholder="이미지를 선택해주세요" name="clubimgup" /> <script
+												src="././resources/js/socialuploadimg.js"></script>
+
+									</div>
+
+									<div class="col-lg-12">
+										<fieldset>
+											<textarea name="club_intro" type="text" class="form-control"
+												id="message" placeholder="모임을 자유롭게 소개해주세요*" required=""></textarea>
+										</fieldset>
+									</div>
+
+									<div>
+										<div>
 											<p>어디서 만날까요?</p>
 
 											<label id="offline"> <input type="radio"
-												name="social_loc" value="오프라인">오프라인
+												name="club_loc" value="오프라인">오프라인
 											</label> <label id="online"> <input type="radio"
-												name="social_loc" value="온라인">온라인
+												name="club_loc" value="온라인">온라인
 											</label>
-										</form>
+										</div>
 									</div>
-									<label class="item--DS9">첼린지 주제를 선택해주세요!</label>
+									<label class="item--DS9">모임 주제를 선택해주세요!</label>
 									<div class="line-50-t2V"></div>
 
 
 									<div class="field-wrap">
 										<label> 관심사<span class="req"></span></label> <select
-											id="cthigh_name2" name="cthigh_name" onchange="remove2()">
+											id="cthigh_name1" name="cthigh_name1" onchange="remove1()">
 											<option value="선택" selected>====</option>
 											<c:forEach items="${ catehighList }" var="category">
 												<option value="${ category.cthigh_name }">${ category.cthigh_name }</option>
 											</c:forEach>
-										</select> <select id="mem_favorite4" name="mem_favorite2">
+										</select> <select id="mem_favorite3" name="ctmid_code">
 
 											<option value="선택" selected>====</option>
 
@@ -298,28 +292,30 @@ https://templatemo.com/tm-569-edu-meeting
 
 									<label class="item">어떻게 멤버를 모집할까요?</label>
 
-									<form>
-										<label id="com"> <input type="radio" name="memcom"
-											value="선착순">선착순
-										</label> <label id="grant"> <input type="radio" name="memcom"
-											value="승인제">승인제
+									<div>
+										<label id="com"> <input type="radio"
+											name="club_signtype" value="선착순">선착순
+										</label> <label id="grant"> <input type="radio"
+											name="club_signtype" value="승인제">승인제
 										</label>
-									</form>
+
+									</div>
 									<label class="item2">참여 조건</label>
 									<div class="line-81-zw3"></div>
 									<label class="item--ySH">성별</label>
-									<form class="gender">
-										<select name="gender">
+									<div class="gender">
+										<select name="club_gender">
 											<option value="none">=== 선택 ===</option>
-											<option value="gender">남자</option>
-											<option value="gender">여자</option>
+											<option value="남자">남자</option>
+											<option value="여자">여자</option>
+											<option value="누구나">누구나</option>
 										</select>
-									</form>
+									</div>
 
 									<div class="line-84-Zuj"></div>
 									<label class="item3">연령</label>
-									<form class="age">
-										<select name="age">
+									<div class="age">
+										<select name="club_maxage">
 											<option value="none">=== 선택 ===</option>
 											<option value="20">20대</option>
 											<option value="30">30대</option>
@@ -327,7 +323,7 @@ https://templatemo.com/tm-569-edu-meeting
 											<option value="50">50대</option>
 											<option value="60">60대</option>
 										</select>
-									</form>
+									</div>
 
 									<div class="line-85-6em"></div>
 
@@ -335,52 +331,22 @@ https://templatemo.com/tm-569-edu-meeting
 
 									<label class="item4">참여비</label>
 									<div class="line-86-7Vs"></div>
-									<form>
+									<div>
 										<label id="yes"> <input type="radio"
-											name="socialinfo_chpay" onclick="Active()" value="있음">있음
+											name="clubinfo_chpay" onclick="Active()" value="있음">있음
 										</label> <label id="no"> <input type="radio"
-											name="socialinfo_chpay" onclick="Disable()" value="없음">없음
-										</label> <input type="text" name="socialinfo_chpay" id="clubpay"
+											name="clubinfo_chpay" onclick="Disable()" value="없음">없음
+										</label> <input type="text" name="club_cost" id="clubpay"
 											placeholder="금액을 작성해주세요." disabled>
-									</form>
+									</div>
 
 
 
 									<label class="item5">인원 수</label>
-									<form class="per">
-										<select name="내" class="list">
-											<option value=1>1명</option>
-											<option value=2>2</option>
-											<option value=3>3</option>
-											<option>4</option>
-											<option>5</option>
-											<option>6</option>
-											<option>7</option>
-											<option>8</option>
-											<option>9</option>
-											<option>10</option>
-											<option>11</option>
-											<option>12</option>
-											<option>13</option>
-											<option>14</option>
-											<option>15</option>
-											<option>16</option>
-											<option>17</option>
-											<option>18</option>
-											<option>19</option>
-											<option>20</option>
-											<option>21</option>
-											<option>22</option>
-											<option>23</option>
-											<option>24</option>
-											<option>25</option>
-											<option>26</option>
-											<option>27</option>
-											<option>28</option>
-											<option>29</option>
-											<option>30</option>
-										</select>
-									</form>
+									<div class="per">
+										<input name="club_memtot" type="number" min='3' max='30'
+											step='1'>
+									</div>
 
 
 
@@ -389,9 +355,10 @@ https://templatemo.com/tm-569-edu-meeting
 
 
 
+
 									<div class="col-lg-12">
 										<fieldset>
-											<button type="submit" id="form-submit" class="button">챌린지
+											<button type="submit" id="form-submit1" class="button">모임
 												생성</button>
 										</fieldset>
 									</div>
@@ -400,10 +367,23 @@ https://templatemo.com/tm-569-edu-meeting
 						</div>
 					</div>
 				</div>
-
 			</div>
 		</div>
 	</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 	</div>
 	</div>

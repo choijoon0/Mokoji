@@ -31,6 +31,8 @@
 <link rel="stylesheet" href="././resources/style/lightbox.css">
 <link rel="stylesheet" href="././resources/style/test.css">
 <link rel="stylesheet" href="././resources/style/clubTotal.css">
+<link rel="stylesheet" href="././resources/style/heart.css">
+<link rel="stylesheet" href="././resources/style/clubTotal1.css">
 
 <script src="././resources/js/clubTotal.js"></script>
 <!--
@@ -93,7 +95,7 @@ https://templatemo.com/tm-569-edu-meeting
 									<div
 										class="col-lg-4 templatemo-item-col all ${catemid.cthigh_name}">
 										<div class="meeting-item">
-											<div class="thumb">
+											<div class="clubtotal">
 												<img src="${catemid.ctmid_pic}" />
 											</div>
 
@@ -113,40 +115,42 @@ https://templatemo.com/tm-569-edu-meeting
 		</div>
 
 
-		<div class="cards" id="clubList">
 
-			<c:forEach items="${ clubTotList }" var="clublist">
-				<div class="card" id="card">
-					<div class="card__image-holder">
-						<input type="hidden" name="club_code" value="${ clublist.club_code }">
-						<img class="card__image" src="${clublist.club_rpic}" />
-					</div>
-					<div class="card-title">
-						<a href="#" class="toggle-info btn"> <span class="left"></span>
-							<span class="right"></span>
-						</a>
-						<h2>
-							${clublist.club_name} <small>Image from unsplash.com</small>
-						</h2>
-					</div>
-					<div class="card-flap flap1">
-						<div class="card-description">${ clublist.club_intro }</div>
-						<div class="card-flap flap2">
-							<div class="card-actions">
-								<a href="#" class="btn">가입하기</a>
+<div id="cardlist">
+		<c:forEach items="${clubTotList}" var="clublist">
+			<form action="details.do">
+				<div class="cards" id="clubList">
+					<div class="card" id="card">
+						<div class="card__image-holder">
+							<input type="hidden" name="club_code"
+								value="${ clublist.club_code }"> <img
+								class="card__image" src="${clublist.club_rpic}" />
+						</div>
+						<div class="card-title">
+							<a href="#" class="product-slider__fav js-fav">
+								<div class="player-controls__item -favorite" :class="{ active : currentTrack.favorited }" @click="favorite">
+              <svg class="icon">
+                <use xlink:href="#icon-heart-o"></use>
+              </svg>
+            </div>
+							</a>
+							<h2>${clublist.club_name}
+								<small>Image from unsplash.com</small>
+							</h2>
+						</div>
+						<div class="card-flap flap1">
+							<div class="card-description">${ clublist.club_intro }</div>
+							<div class="card-flap flap2">
+								<div class="card-actions">
+									<button type="submit" class="btn">가입하기</button>
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-			</c:forEach>
-
-		</div>
-
-
-
-
-
-
+			</form>
+		</c:forEach>
+</div>
 
 		<%@ include file="main/footer.jsp"%>
 	</section>
@@ -166,55 +170,7 @@ https://templatemo.com/tm-569-edu-meeting
 	<script src="././resources/js/video.js"></script>
 	<script src="././resources/js/slick-slider.js"></script>
 	<script src="././resources/js/custom.js"></script>
-	<script>
-        //according to loftblog tut
-        $('.nav li:first').addClass('active');
-
-        var showSection = function showSection(section, isAnimate) {
-          var
-          direction = section.replace(/#/, ''),
-          reqSection = $('.section').filter('[data-section="' + direction + '"]'),
-          reqSectionPos = reqSection.offset().top - 0;
-
-          if (isAnimate) {
-            $('body, html').animate({
-              scrollTop: reqSectionPos },
-            800);
-          } else {
-            $('body, html').scrollTop(reqSectionPos);
-          }
-
-        };
-
-        var checkSection = function checkSection() {
-          $('.section').each(function () {
-            var
-            $this = $(this),
-            topEdge = $this.offset().top - 80,
-            bottomEdge = topEdge + $this.height(),
-            wScroll = $(window).scrollTop();
-            if (topEdge < wScroll && bottomEdge > wScroll) { 
-              var
-              currentId = $this.data('section'),
-              reqLink = $('a').filter('[href*=\\#' + currentId + ']');
-              reqLink.closest('li').addClass('active').
-              siblings().removeClass('active');
-            }
-          });
-        };
-
-        $('.main-menu, .responsive-menu, .scroll-to-section').on('click', 'a', function (e) {
-          e.preventDefault();
-          showSection($(this).attr('href'), true);
-        });
-
-        $(window).scroll(function () {
-          checkSection();
-        });
-    </script>
-</body>
-
-
+	<script src="././resources/js/heart.js"></script>
 </body>
 
 </html>

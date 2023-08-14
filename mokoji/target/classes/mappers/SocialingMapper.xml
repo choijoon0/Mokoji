@@ -3,21 +3,55 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="SocialingDAO">
 
-	
+
 	<insert id="insertSocialing" parameterType="socialing">
-	INSERT INTO SOCIALING
-	(social_code, social_name, social_date, social_content, social_tot, social_cost, mem_code, social_loc, social_maxage, social_gender, ctmid_code
-	<if test='social_pic != null'>
-	, social_pic, social_rpic
-	</if>
-	)VALUES(
-	seq_socialing.nextval, #{ social_name }, #{social_date}, #{social_content}, #{social_tot}, #{social_cost}, #{mem_code}, #{social_loc}, #{social_maxage}, #{social_gender}, #{ctmid_code}
-	<if test='social_pic != null'>
-	, #{social_pic}, #{social_rpic}
-	</if>
-	)
+		INSERT INTO SOCIALING
+		(social_code, social_name, social_date, social_content, social_tot, social_cost,
+		mem_code, social_loc, social_maxage, social_gender, ctmid_code
+		<if test='socialing.social_pic != null'>
+			, social_pic, social_rpic
+		</if>
+		)VALUES(
+		seq_socialing.nextval, #{ socialing.social_name }, #{socialing.social_date},
+		#{socialing.social_content}, #{socialing.social_tot},
+		#{socialing.social_cost}
+		, #{member.mem_code}, #{socialing.social_loc},
+		#{socialing.social_maxage}, #{socialing.social_gender},
+		#{category.ctmid_code}
+		<if test='socialing.social_pic != null'>
+			, #{socialling.social_pic}, #{socialling.social_rpic}
+		</if>
+		)
 	</insert>
 
-	
+	<select id="getHighSocialListInterest" resultType="socialing">
+		SELECT s.social_code, s.social_name, s.social_date, s.social_content, 
+		s.social_tot, s.social_cost, s.social_loc,
+		s.social_pic, s.social_rpic, s.social_maxage, s.social_gender
+		FROM socialing s, categorymiddle m, categoryhigh h WHERE h.cthigh_code =
+		m.cthigh_code and m.ctmid_code = s.ctmid_code and
+		m.cthigh_code=(select b.cthigh_code from categoryhigh b where
+		b.cthigh_name = #{cthigh_name})
+		order by s.social_code desc
+	</select>
+
+	<select id="getSocialListInterest" resultType="socialing">
+		SELECT s.social_code, s.social_name, s.social_date, s.social_content, 
+		s.social_tot, s.social_cost, s.social_loc,
+		s.social_pic, s.social_rpic, s.social_maxage, s.social_gender
+		FROM socialing s, categorymiddle m WHERE s.ctmid_code = m.ctmid_code AND
+		m.ctmid_name = #{ctmid_name} order by s.social_code desc
+	</select>
+
+
+	<select id="getSocialList" resultType="socialing">
+	SELECT social_code, social_name, social_date, social_content, 
+		social_tot, social_cost, social_loc,
+		social_pic, social_rpic, social_maxage, social_gender
+		FROM socialing
+	</select>
+
+
+
 
 </mapper>
