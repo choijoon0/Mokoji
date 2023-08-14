@@ -32,6 +32,7 @@
 <link rel="stylesheet" href="././resources/style/owl.css">
 <link rel="stylesheet" href="././resources/style/lightbox.css">
 <link rel="stylesheet" href="././resources/style/clubdetails.css">
+<link rel="stylesheet" href="././resources/style/pidwrite.css">
 
 
 <!--
@@ -83,8 +84,7 @@ https://templatemo.com/tm-569-edu-meeting
 												<div class="col-lg-9 align-self-center">
 													<div class="row">
 														<div class="col-lg-12">
-															<div id="contact" method
-															="post">
+															<div id="contact" method="post">
 																<div class="row">
 																	<c:forEach items="${ oneClubList }" var="clist">
 																		<div class="meeting-single-item all sang">
@@ -104,37 +104,37 @@ https://templatemo.com/tm-569-edu-meeting
 																				<a href="meeting-details.html"><h4>${ clist.club_name }</h4></a>
 																				<p>${ clist.club_memtot }</p>
 																				<p class="description">${ clist.club_intro }</p>
-																				<div class="col-lg-12">
-																					
+																				<div class="col-lg-12"></div>
+																				<div class="row">
+																					<div class="col-lg-4">
+																						<c:forEach items="${ instant }" var="instantt">
+																							<div class="hours">
+																								<h5>${ instantt.CINST_NAME }</h5>
+																								<p>${ instantt.CINST_CONTENT }</p>
+																							</div>
+																						</c:forEach>
+																					</div>
 																				</div>
-																			<div class="row">
-															                    <div class="col-lg-4">
-															                      <c:forEach items="${ instant }" var="instantt">
-															                      <div class="hours">
-															                        <h5>${ instantt.CINST_NAME }</h5>
-															                        <p>${ instantt.CINST_CONTENT }</p>
-															                      </div>
-															                      </c:forEach>
-																			</div>
-																		</div>
-																		<form action="joinClub.do">
-															                 <div class="col-lg-12">
-															                 <input type="hidden" name="club_code" value="${clist.club_code }">
-															                 <input type="hidden" name="mem_code" value="${ code }">
-															                 <input type="hidden" name="club_signtype" value="${ clist.club_signtype }">
-															              <div class="main-button-red">
-															                <button type="submit">가입하기</button>
-															              </div>
-															              </div>
-															              </form>
+																				<form action="joinClub.do">
+																					<div class="col-lg-12">
+																						<input type="hidden" name="club_code"
+																							value="${clist.club_code }"> <input
+																							type="hidden" name="mem_code" value="${ code }">
+																						<input type="hidden" name="club_signtype"
+																							value="${ clist.club_signtype }">
+																						<div class="main-button-red">
+																							<button type="submit">가입하기</button>
+																						</div>
+																					</div>
+																				</form>
 																	</c:forEach>
 																</div>
 															</div>
-</div>
 														</div>
 													</div>
 												</div>
 											</div>
+										</div>
 									</form>
 								</section>
 
@@ -193,62 +193,52 @@ https://templatemo.com/tm-569-edu-meeting
 								</section>
 
 								<section class="contact-us" id="contact">
-									<form action="insertSocialing.do" enctype="multipart/form-data">
+							<form action="insertSocialing.do" enctype="multipart/form-data">
 										<div class="templatemo-item-col all pid">
 											<div class="row">
 												<div class="col-lg-9 align-self-center">
 													<div class="row">
 														<div class="col-lg-12">
-														<button id="pidwrite">게시글 쓰기</button>	
 															<div id="contact" method="post">
 																<div class="row">
-																	<div class="meeting-single-item  pid">	
-																	<div class="cards">
+																	<div class="meeting-single-item joincurrent">
+																		<div class="thumb">
+																			<div class="date">
+																			</div>
+																			<a href="meeting-details.html"><img
+																				src="././resources/images/single-meeting.jpg" alt=""></a>
+																		</div>
+																		<div class="down-content">
+																			<a href="meeting-details.html"><h4>${ clist.club_name }</h4></a>
+																			<p>${ clist.club_memtot }</p>
+																			<p class="description">${ clist.club_intro }</p>
+																			<div class="row">
+																				<div class="col-lg-4">
+																					<div class="hours">
+																						<h5>(번개모임)</h5>
+																						<p>(번개모임 내용)</p>
+																					</div>
+																				</div>
+																			</div>
+																		</div>
+																		<div class="col-lg-12">
+																			<div class="main-button-red">
+																				<a href="meetings.html">가입신청</a>
+																			</div>
+																		</div>
 
-												 <div class="cardpidwrites">
+																	</div>
+																</div>
 
-  <div class="cardpidwrite">
-    <div class="card__image-holderpidwrite">
-      <img class="card__imagepidwrite" src="https://source.unsplash.com/300x225/?wave" alt="wave" />
-    </div>
-    <div class="card-titlepidwrite">
-      <a href="#" class="toggle-info btnpidwrite">
-        <span class="leftpidwrite"></span>
-        <span class="rightpidwrite"></span>
-      </a>
-      <h2>
-          게시판 제목
-          <small>작성자</small>
-      </h2>
-                좋아요, 조회수
-    </div>
-    <div class="card-flap flap1pidwrite">
-      <div class="card-descriptionpidwrite">
-      게시판 내용
-      </div>
-      <div>
-        댓글:ㅇㄴㅇㅁㄴㅇㅁㄴㅁㅇ
-      </div>
-        
-      <div class="card-flap flap2pidwrite">
-        <div class="card-actionspidwrite">
-          <a href="#" class="btnpidwrite">댓글달기</a>
-        </div>
-      </div>
-    </div>
-  </div>
+															</div>
+														</div>
 
-
-</div>
-
-
-
-
-
-
-
-																																	
-																
+													</div>
+												</div>
+											</div>
+										</div>
+									</form>
+									</div>
 							</div>
 						</div>
 
@@ -291,7 +281,7 @@ https://templatemo.com/tm-569-edu-meeting
 	<script src="././resources/js/custom.js"></script>
 	<script src="././resources/js/Category.js"></script>
 	<script src="././resources/js/socialloadimg.js"></script>
-	<script src="././resources/js/socialpay.js"></script>
+	<script src="././resources/js/pidwrite.js"></script>
 	<script>
         //according to loftblog tut
         $('.nav li:first').addClass('active');

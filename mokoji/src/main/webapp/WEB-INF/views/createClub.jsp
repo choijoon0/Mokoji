@@ -8,16 +8,20 @@
 <head>
 
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="">
 <meta name="author" content="Template Mo">
-<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+<link
+	href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900"
+	rel="stylesheet">
 
 <title>Education - List of Meetings</title>
 
 
 <!-- Bootstrap core CSS -->
-<link href="././resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="././resources/vendor/bootstrap/css/bootstrap.min.css"
+	rel="stylesheet">
 
 
 <!-- Additional CSS Files -->
@@ -25,7 +29,8 @@
 <link rel="stylesheet" href="././resources/style/owl.css">
 <link rel="stylesheet" href="././resources/style/lightbox.css">
 <link rel="stylesheet" href="././resources/style/createClub.css">
-<link rel="stylesheet" href="././resources/style/templatemo-edu-meeting.css">
+<link rel="stylesheet"
+	href="././resources/style/templatemo-edu-meeting.css">
 <!--
 
 TemplateMo 569 Edu Meeting
@@ -131,39 +136,44 @@ https://templatemo.com/tm-569-edu-meeting
 											<div class="col-lg-9 align-self-center">
 												<div class="row">
 													<div class="col-lg-12">
-														<form id="contact" action="insertSocialing.do" method="post">
+														<form id="contact" action="insertSocialing.do"
+															method="post">
 															<div class="row">
 																<div class="col-lg-12">
 																	<h2>소셜링 생성</h2>
 																</div>
 																<div class="col-lg-4">
 																	<fieldset>
-																		<input name="social_name" type="text" id="name" placeholder="소셜링 제목을입력하세요*" required="">
+																		<input name="social_name" type="text" id="name"
+																			placeholder="소셜링 제목을입력하세요*" required="">
 																	</fieldset>
 																</div>
 																<div class="col-lg-4">
 																	<fieldset>
-																		<input name="email" type="time" id="email" placeholder="" required="">
+																		<input name="email" type="time" id="email"
+																			placeholder="" required="">
 																	</fieldset>
 																</div>
 																<div class="col-lg-4">
 																	<fieldset>
-																		<input name="subject" type="date" id="subject" placeholder="SUBJECT...*" required="">
+																		<input name="subject" type="date" id="subject"
+																			placeholder="SUBJECT...*" required="">
 																	</fieldset>
 																</div>
 																<div class="col-lg-12">
 																	<fieldset>
-																		<textarea name="social_content" type="text" class="form-control" id="message" placeholder="소셜링을 자유롭게 소개해주세요*" required=""></textarea>
+																		<textarea name="social_content" type="text"
+																			class="form-control" id="message"
+																			placeholder="소셜링을 자유롭게 소개해주세요*" required=""></textarea>
 																	</fieldset>
 																</div>
 																<div>
 																	<form>
 																		<p>어디서 만날까요?</p>
-																		<label id="offline">
-																			<input type="radio" name="social_loc" value="오프라인">오프라인
-																		</label>
-																		<label id="online">
-																			<input type="radio" name="social_loc" value="온라인">온라인
+																		<label id="offline"> <input type="radio"
+																			name="social_loc" value="오프라인">오프라인
+																		</label> <label id="online"> <input type="radio"
+																			name="social_loc" value="온라인">온라인
 																		</label>
 																	</form>
 																</div>
@@ -185,11 +195,10 @@ https://templatemo.com/tm-569-edu-meeting
 																</form>
 																<label class="item">어떻게 멤버를 모집할까요?</label>
 																<form>
-																	<label id="com">
-																		<input type="radio" name="memcom" value="선착순">선착순
-																	</label> 
-																	<label id="grant">
-																		<input type="radio" name="memcom" value="승인제">승인제
+																	<label id="com"> <input type="radio"
+																		name="memcom" value="선착순">선착순
+																	</label> <label id="grant"> <input type="radio"
+																		name="memcom" value="승인제">승인제
 																	</label>
 																</form>
 																<label class="item2">참여 조건</label>
@@ -217,14 +226,20 @@ https://templatemo.com/tm-569-edu-meeting
 																		<option value="age">600대</option>
 																	</select>
 																</form>
-																<img class="free-icon-calendar-4511116-3-Xk5" src="./././resources/free-icon-calendar-4511116-3.png" />
+																<img class="free-icon-calendar-4511116-3-Xk5"
+																	src="./././resources/free-icon-calendar-4511116-3.png" />
 																<div class="line-85-6em"></div>
 																<label class="item4">참여비</label>
 																<div class="line-86-7Vs"></div>
 																<form>
-																	<label id="yes"> <input type="radio" name="socialinfo_chpay" onclick="textActive()" value="있음">있음</label>
-																	<label id="no"> <input type="radio" name="socialinfo_chpay" onclick="textDisable()" value="없음">없음</label>
-																	<input type="text" name="socialinfo_chpay" id="clubpay" placeholder="금액을 작성해주세요." disabled>
+																	<label id="yes"> <input type="radio"
+																		name="socialinfo_chpay" onclick="textActive()"
+																		value="있음">있음
+																	</label> <label id="no"> <input type="radio"
+																		name="socialinfo_chpay" onclick="textDisable()"
+																		value="없음">없음
+																	</label> <input type="text" name="socialinfo_chpay"
+																		id="clubpay" placeholder="금액을 작성해주세요." disabled>
 																	<script src="././resources/js/textDisable.js"></script>
 																</form>
 																<label class="item5">인원 수</label>
@@ -242,10 +257,12 @@ https://templatemo.com/tm-569-edu-meeting
 																	</select>
 																</form>
 																<div class="item6">최소 3명, 최대 인원 수는 30명 입니다.</div>
-																<img class="free-icon-exclamation-button-87980-3-WXT" src="./././resources/free-icon-exclamation-button-87980-3-Wpy.png" />
+																<img class="free-icon-exclamation-button-87980-3-WXT"
+																	src="./././resources/free-icon-exclamation-button-87980-3-Wpy.png" />
 																<div class="col-lg-12">
 																	<fieldset>
-																		<button type="submit" id="form-submit" class="button">소셜링 생성</button>
+																		<button type="submit" id="form-submit" class="button">소셜링
+																			생성</button>
 																	</fieldset>
 																</div>
 															</div>
@@ -259,7 +276,7 @@ https://templatemo.com/tm-569-edu-meeting
 
 
 
-					<%-- 동호회 가입 폼 --%>
+								<%-- 동호회 가입 폼 --%>
 								<div class="col-lg-4 templatemo-item-col all att soon">
 									<div class="row">
 										<div class="col-lg-9 align-self-center">
@@ -278,28 +295,31 @@ https://templatemo.com/tm-569-edu-meeting
 															</div>
 															<div class="col-lg-4">
 																<fieldset>
-																	<input name="email" type="time" id="email" placeholder="" required="">
+																	<input name="email" type="time" id="email"
+																		placeholder="" required="">
 																</fieldset>
 															</div>
 															<div class="col-lg-4">
 																<fieldset>
-																	<input name="subject" type="date" id="subject" placeholder="SUBJECT...*" required="">
+																	<input name="subject" type="date" id="subject"
+																		placeholder="SUBJECT...*" required="">
 																</fieldset>
 															</div>
 															<div class="col-lg-12">
 																<fieldset>
-																	<textarea name="message" type="text" class="form-control" id="message" placeholder="소셜링을 자유롭게 소개해주세요*" required=""></textarea>
+																	<textarea name="message" type="text"
+																		class="form-control" id="message"
+																		placeholder="소셜링을 자유롭게 소개해주세요*" required=""></textarea>
 																</fieldset>
 															</div>
 															<div>
 																<form>
 																	<p>어디서 만날까요?</p>
 
-																	<label id="offline">
-																		<input type="radio" name="social_loc" value="오프라인">오프라인
-																	</label>
-																	<label id="online">
-																		<input type="radio" name="social_loc" value="온라인">온라인
+																	<label id="offline"> <input type="radio"
+																		name="social_loc" value="오프라인">오프라인
+																	</label> <label id="online"> <input type="radio"
+																		name="social_loc" value="온라인">온라인
 																	</label>
 																</form>
 															</div>
@@ -321,11 +341,10 @@ https://templatemo.com/tm-569-edu-meeting
 															</form>
 															<label class="item">어떻게 멤버를 모집할까요?</label>
 															<form>
-																<label id="com">
-																	<input type="radio" name="memcom" value="선착순">선착순
-																</label>
-																<label id="grant">
-																	<input type="radio" name="memcom" value="승인제">승인제
+																<label id="com"> <input type="radio"
+																	name="memcom" value="선착순">선착순
+																</label> <label id="grant"> <input type="radio"
+																	name="memcom" value="승인제">승인제
 																</label>
 															</form>
 															<label class="item2">참여 조건</label>
@@ -338,7 +357,8 @@ https://templatemo.com/tm-569-edu-meeting
 																	<option value="gender">여자</option>
 																</select>
 															</form>
-															<img class="free-icon-gender-10283643-1-md3" src="./././resources/free-icon-gender-10283643-1.png" />
+															<img class="free-icon-gender-10283643-1-md3"
+																src="./././resources/free-icon-gender-10283643-1.png" />
 															<div class="line-84-Zuj"></div>
 															<label class="item3">연령</label>
 															<form class="age">
@@ -351,18 +371,20 @@ https://templatemo.com/tm-569-edu-meeting
 																	<option value="age">60대</option>
 																</select>
 															</form>
-															<img class="free-icon-calendar-4511116-3-Xk5" src="./././resources/free-icon-calendar-4511116-3.png" />
+															<img class="free-icon-calendar-4511116-3-Xk5"
+																src="./././resources/free-icon-calendar-4511116-3.png" />
 															<div class="line-85-6em"></div>
 															<label class="item4">참여비</label>
 															<div class="line-86-7Vs"></div>
 															<form>
-																<label id="yes">
-																	<input type="radio" name="socialinfo_chpay" onclick="textActive()" value="있음">있음
-																</label>
-																<label id="no">
-																	<input type="radio" name="socialinfo_chpay" onclick="textDisable()" value="없음">없음
-																</label>
-																	<input type="text" name="socialinfo_chpay" id="clubpay" placeholder="금액을 작성해주세요." disabled>
+																<label id="yes"> <input type="radio"
+																	name="socialinfo_chpay" onclick="textActive()"
+																	value="있음">있음
+																</label> <label id="no"> <input type="radio"
+																	name="socialinfo_chpay" onclick="textDisable()"
+																	value="없음">없음
+																</label> <input type="text" name="socialinfo_chpay" id="clubpay"
+																	placeholder="금액을 작성해주세요." disabled>
 																<script src="././resources/js/textDisable.js"></script>
 															</form>
 															<label class="item5">인원 수</label>
@@ -380,10 +402,12 @@ https://templatemo.com/tm-569-edu-meeting
 																</select>
 															</form>
 															<div class="item6">최소 3명, 최대 인원 수는 30명 입니다.</div>
-															<img class="free-icon-exclamation-button-87980-3-WXT" src="./././resources/free-icon-exclamation-button-87980-3-Wpy.png" />
+															<img class="free-icon-exclamation-button-87980-3-WXT"
+																src="./././resources/free-icon-exclamation-button-87980-3-Wpy.png" />
 															<div class="col-lg-12">
 																<fieldset>
-																	<button type="submit" id="form-submit" class="button">동호회 생성</button>
+																	<button type="submit" id="form-submit" class="button">동호회
+																		생성</button>
 																</fieldset>
 															</div>
 														</div>

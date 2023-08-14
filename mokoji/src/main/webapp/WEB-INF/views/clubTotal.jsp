@@ -30,9 +30,10 @@
 <link rel="stylesheet" href="././resources/style/owl.css">
 <link rel="stylesheet" href="././resources/style/lightbox.css">
 <link rel="stylesheet" href="././resources/style/test.css">
+<link rel="stylesheet" href="././resources/style/clubTotal1.css">
 <link rel="stylesheet" href="././resources/style/clubTotal.css">
 <link rel="stylesheet" href="././resources/style/heart.css">
-<link rel="stylesheet" href="././resources/style/clubTotal1.css">
+<link rel="stylesheet" href="././resources/style/pidwrite.css">
 
 <script src="././resources/js/clubTotal.js"></script>
 <!--
@@ -142,7 +143,7 @@ https://templatemo.com/tm-569-edu-meeting
 							<div class="card-description">${ clublist.club_intro }</div>
 							<div class="card-flap flap2">
 								<div class="card-actions">
-									<button type="submit" class="btn">가입하기</button>
+									<button type="submit" class="btn">댓글달기</button>
 								</div>
 							</div>
 						</div>
