@@ -15,6 +15,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.mokoji.domain.CategoryVO;
 import com.mokoji.domain.ClubVO;
 import com.mokoji.domain.MemberVO;
+import com.mokoji.domain.IndexVO;
+import com.mokoji.domain.MemberVO;
+import com.mokoji.service.CategoryService;
 import com.mokoji.service.ClubService;
 
 
@@ -47,10 +50,13 @@ public class ClubController {
 		ClubService.insertMemClub(map);
 		
 
+		ClubService.insertClub(map);
+		ClubService.insertMemClub(map);
+		
+
 		return "redirect:/go.do";
 	}
 	
-	// 동호회등록
 
 	// index - main 연결
 	@RequestMapping(value = "/go.do")
@@ -75,5 +81,8 @@ public class ClubController {
 	public List<ClubVO> getClubListInterest(@RequestParam("ctmid_name") String ctmid_name) {
 		return ClubService.getClubListInterest(ctmid_name);
 	}
+	
+	
+
 }
 

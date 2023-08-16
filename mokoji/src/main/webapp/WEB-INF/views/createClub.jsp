@@ -77,6 +77,139 @@ https://templatemo.com/tm-569-edu-meeting
 
 						<div class="col-lg-12">
 							<div class="row grid">
+							
+							
+								<form action="challengeinsert.do" enctype="multipart/form-data">
+									<section class="contact-us" id="contact">
+										<div class="templatemo-item-col all chal">
+											<div class="row">
+												<div class="col-lg-9 align-self-center">
+													<div class="row">
+														<div class="col-lg-12">
+															<div id="contact" method="post">
+																<div class="row">
+																	<div class="col-lg-12">
+																		<h2>챌린지 생성</h2>
+																	</div>
+																	<div class="col-lg-4">
+																		<input type="hidden" value="${ code }" name="mem_code">
+																		<fieldset>
+																			<input name="chall_name" type="text" id="chall_name"
+																				placeholder="챌린지 제목을입력하세요*" required
+																				autocomplete="off">
+																		</fieldset>
+																	</div>
+
+																	<div class="col-lg-4">
+																		<fieldset>
+																			<input name="chall_startdate" type="date"
+																				id="chall_startdate" required autocomplete="off" />
+																		</fieldset>
+																	</div>
+
+																	<div class="col-lg-4">
+																		<fieldset>
+																			<input type="date" name="chall_enddate"
+																				id="chall_enddate" required autocomplete="off" />
+																		</fieldset>
+																	</div>
+
+
+																	<div>
+																		<label class="rectangle-232-vNM">
+																			<div id="challimage_container"></div> <input
+																			name="challengefile" type="file" id="chall_pic"
+																			accept="image/*" onchange="setThumbnail1(event);"
+																			placeholder="이미지를 선택해주세요" name="challimgup" /> <script
+																				src="././resources/js/socialuploadimg.js"></script>
+																	</div>
+																	<div class="col-lg-12">
+																		<fieldset>
+																			<textarea name="chall_content" type="text"
+																				class="form-control" id="chall_content"
+																				placeholder="챌린지를 자유롭게 소개해주세요*" required
+																				autocomplete="off"></textarea>
+																		</fieldset>
+																	</div>
+																	<div>
+																		<div>
+																			<p>어디서 만날까요?</p>
+
+																			<label id="offline"> <input type="radio"
+																				id="radio" name="chall_loc" value="오프라인">오프라인
+																			</label> <label id="online"> <input type="radio"
+																				id="radio" name="chall_loc" value="온라인">온라인
+																			</label>
+																		</div>
+																	</div>
+																	<br> <label class="item--DS9">챌린지 주제를
+																		선택해주세요!</label> </br>
+																	<div class="line-50-t2V"></div>
+
+
+																	<div class="field-wrap">
+																		<label> 관심사<span class="req"></span></label> <select
+																			id="cthigh_name2" name="cthigh_name"
+																			onchange="remove2()">
+																			<option value="선택" selected>====</option>
+																			<c:forEach items="${ catehighList }" var="category">
+																				<option value="${ category.cthigh_name }">${ category.cthigh_name }</option>
+																			</c:forEach>
+																		</select> <select id="mem_favorite4" name="ctmid_code">
+
+																			<option value="선택">====</option>
+
+
+																		</select>
+																	</div>
+
+																	<label class="item">어떻게 멤버를 모집할까요?</label> <label
+																		class="item2">참여 조건</label>
+																	<div class="line-81-zw3"></div>
+																	<label class="item--ySH">성별</label>
+																	<div class="gender">
+																		<select name="chall_gender">
+																			<option value="none">=== 선택 ===</option>
+
+																			<option value="누구나">누구나</option>
+																			<option value="남자">남자</option>
+																			<option value="여자">여자</option>
+																		</select>
+																	</div>
+
+																	<div class="line-84-Zuj"></div>
+																	<label class="item3">연령</label>
+																	<div class="age">
+																		<select name="chall_age">
+																			<option value="none">=== 선택 ===</option>
+																			<option value="20">20대</option>
+																			<option value="30">30대</option>
+																			<option value="40">40대</option>
+																			<option value="50">50대</option>
+																			<option value="60">60대</option>
+																		</select>
+																	</div>
+																	<div class="line-85-6em"></div>
+
+																	<label class="item5">인원 수</label>
+																	<div class="per">
+																		<input name="chall_tot" type="number" min='3' max='30'
+																			step='1'>
+																	</div>
+
+																	<div class="item6">최소 3, 최대 인원 수는 30 입니다.</div>
+																	<div class="col-lg-12">
+																		<fieldset>
+																			<button type="submit">챌린지 생성</button>
+
+																		</fieldset>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+									</section>
+								</form>
 								<form action="insertSocialing.do" method="post"
 									enctype="multipart/form-data">
 									<section class="contact-us" id="contact">
@@ -245,14 +378,12 @@ https://templatemo.com/tm-569-edu-meeting
 									</div>
 									<div>
 										<label class="rectangle-232-vNM">
-											<div id="clubimage_container"></div> <input
-											name="clubfile" type="file" id="club_pic"
-											accept="image/*" onchange="setThumbnail1(event);"
-											placeholder="이미지를 선택해주세요" name="clubimgup" /> <script
+											<div id="clubimage_container"></div> <input name="clubfile"
+											type="file" id="club_pic" accept="image/*"
+											onchange="setThumbnail1(event);" placeholder="이미지를 선택해주세요"
+											name="clubimgup" /> <script
 												src="././resources/js/socialuploadimg.js"></script>
-
 									</div>
-
 									<div class="col-lg-12">
 										<fieldset>
 											<textarea name="club_intro" type="text" class="form-control"
@@ -409,7 +540,7 @@ https://templatemo.com/tm-569-edu-meeting
 	<script src="././resources/js/video.js"></script>
 	<script src="././resources/js/slick-slider.js"></script>
 	<script src="././resources/js/custom.js"></script>
-	<script src="././resources/js/Category.js"></script>
+	<script src="././resources/js/category.js"></script>
 	<script src="././resources/js/socialloadimg.js"></script>
 	<script src="././resources/js/socialpay.js"></script>
 	<script>

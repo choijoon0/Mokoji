@@ -3,6 +3,9 @@ package com.mokoji.controller;
 import java.io.IOException;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,12 +26,13 @@ public class createCategoryController {
     
          
          //소셜링 첫번째 카테고리
-         @RequestMapping(value="/createClub.do")
+         @RequestMapping(value="/gocreateClub.do")
          public String ClubList(CategoryVO vo, Model model) throws IOException{
 
-            model.addAttribute("catehighList", CategoryService.getCateHighList(vo));
-            
-            return "createClub";
+           model.addAttribute("catehighList", CategoryService.getCateHighList(vo));
+           
+           
+           return "createClub";
          }
          // 소셜링 두번째 카테고리
          @RequestMapping(value = "/ClubList.do", method = RequestMethod.GET)

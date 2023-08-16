@@ -16,25 +16,6 @@ public class ClubServiceImple implements ClubService{
 	@Autowired
 	private ClubDAOImple ClubDAO;
 	
-
-	//동호회 등록
-	@Override
-	public int selectClubcode(ClubVO vo) {
-		// TODO Auto-generated method stub
-		return ClubDAO.selectClubcode(vo);
-	}
-	@Override
-	public int insertClub(HashMap<String, Object> map) {
-		// TODO Auto-generated method stub
-		return ClubDAO.insertClub(map);
-	}
-	@Override
-	public int insertMemClub(HashMap<String, Object> map) {
-		// TODO Auto-generated method stub
-		return ClubDAO.insertMemClub(map);
-	}
-	
-	
 	
 	
 	//동호회 리스트
@@ -61,5 +42,42 @@ public class ClubServiceImple implements ClubService{
 		// TODO Auto-generated method stub
 		return ClubDAO.getHighClubListInterest(cthigh_name);
 	}
+
+
+
+
+	   @Override
+	   public List<ClubVO> getOneClublist(ClubVO vo) {
+	      // TODO Auto-generated method stub
+	      return ClubDAO.getOneClublist(vo);
+	   }
+
+
+
+
+	@Override
+	public int selectClubcode(ClubVO vo) {
+		// TODO Auto-generated method stub
+		return ClubDAO.selectClubcode(vo);
+	}
+
+
+
+
+	@Override
+	public int insertClub(HashMap<String, Object> map) {
+		// TODO Auto-generated method stub
+		return ClubDAO.insertClub(map);
+	}
+
+
+
+
+	@Override
+	public int insertMemClub(HashMap<String, Object> map) {
+		// TODO Auto-generated method stub
+		return ClubDAO.insertMemClub(map);
+	}
+
 
 }

@@ -110,5 +110,4 @@ public class ClubVO {
 		this.club_maxage = club_maxage;
 	}
 
-	
 }

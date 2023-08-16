@@ -121,12 +121,6 @@ $("#cthigh_name").blur(function(){
    function remove(){
       $("#mem_favorite").val("");
       $("#mem_favorite").empty();
-   }
-
-
-
-
-   
-   
+      }
    
    

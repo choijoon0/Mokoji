@@ -12,34 +12,33 @@ import com.mokoji.domain.CategoryVO;
 public class CategoryServiceImple implements CategoryService {
 
 	@Autowired
-	private CategoryDAOImple CategoryDAO;
-
+	private CategoryDAOImple categoryDAO;
+	
 	// 상위 카테고리 리스트
 	@Override
 	public List<CategoryVO> getCateHighList(CategoryVO vo) {
 		// TODO Auto-generated method stub
-		return CategoryDAO.getCateHighList(vo);
+		return categoryDAO.getCateHighList(vo);
 	}
-
+	
 	// 하위 카테고리 리스트
 	@Override
 	public List<CategoryVO> getCateMidList(String cthigh_name) {
 		// TODO Auto-generated method stub
-		return CategoryDAO.getCateMidList(cthigh_name);
+		return categoryDAO.getCateMidList(cthigh_name);
 	}
 
 	@Override
 	public List<CategoryVO> getCateList(CategoryVO vo) {
 		// TODO Auto-generated method stub
-		return CategoryDAO.getCateList(vo);
+		return categoryDAO.getCateList(vo);
 
 	}
 
 	@Override
 	public List<CategoryVO> getCateList2(CategoryVO vo) {
 		// TODO Auto-generated method stub
-		return CategoryDAO.getCateList2(vo);
-
+		return categoryDAO.getCateList2(vo);
 	}
 
 }

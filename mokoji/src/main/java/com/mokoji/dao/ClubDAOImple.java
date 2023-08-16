@@ -13,12 +13,11 @@ import com.mokoji.domain.IndexVO;
 import lombok.Builder.ObtainVia;
 
 @Repository("ClubDAO")
-public class ClubDAOImple implements ClubDAO{
+public class ClubDAOImple implements ClubDAO {
 	@Autowired
 	private SqlSessionTemplate mybatis;
 
-	
-	//동호회 등록
+	// 동호회 등록
 	@Override
 	public int selectClubcode(ClubVO vo) {
 		// TODO Auto-generated method stub
@@ -35,8 +34,8 @@ public class ClubDAOImple implements ClubDAO{
 		// TODO Auto-generated method stub
 		return mybatis.insert("ClubDAO.insertMemClub", map);
 	}
-	
-	//동호회 리스트 가져오기
+
+	// 동호회 리스트 가져오기
 	@Override
 	public List<ClubVO> getClubList(ClubVO vo) {
 		// TODO Auto-generated method stub`
@@ -44,11 +43,11 @@ public class ClubDAOImple implements ClubDAO{
 		return list;
 	}
 
-	//분류별 동호회 리스트
+	// 분류별 동호회 리스트
 	@Override
 	public List<ClubVO> getClubListInterest(String ctmid_name) {
 		// TODO Auto-generated method stub
-		  return mybatis.selectList("ClubDAO.getSelectedClubList", ctmid_name);
+		return mybatis.selectList("ClubDAO.getSelectedClubList", ctmid_name);
 	}
 
 	@Override
@@ -56,5 +55,14 @@ public class ClubDAOImple implements ClubDAO{
 		// TODO Auto-generated method stub
 		return mybatis.selectList("ClubDAO.getSelectedHighClubList", cthigh_name);
 	}
+
+	@Override
+	public List<ClubVO> getOneClublist(ClubVO vo) {
+		// TODO Auto-generated method stub
+		List<ClubVO> list = mybatis.selectList("ClubDAO.getOneClublist", vo);
+		
+		return list;
+	}
+
 
 }
