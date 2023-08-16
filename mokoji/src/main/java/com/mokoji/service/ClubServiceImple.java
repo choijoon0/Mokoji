@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import com.mokoji.dao.ClubDAOImple;
 import com.mokoji.domain.ClubVO;
-import com.mokoji.domain.IndexVO;
 
 
 @Service("clubService")

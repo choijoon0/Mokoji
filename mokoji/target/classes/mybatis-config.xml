@@ -17,6 +17,7 @@
 		<typeAlias alias="clubpane" type="com.mokoji.domain.ClubPaneVO"/>
 		<typeAlias alias="memclub" type="com.mokoji.domain.MemClubVO"/>
 		<typeAlias alias="instant" type="com.mokoji.domain.ClubInstantVO"/>
+		<typeAlias alias="challenge" type="com.mokoji.domain.ChallengeVO"/>
 		
 		
 	</typeAliases>

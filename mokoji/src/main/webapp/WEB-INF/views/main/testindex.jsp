@@ -757,6 +757,13 @@ https://templatemo.com/tm-569-edu-meeting
         $(window).scroll(function () {
           checkSection();
         });
+        
+        $(function(){
+        	$('#nonSignUp').on('click',function(){
+        		alert('로그인 시 이용 가능합니다!');
+        	});
+        	
+        });
     </script>
 </body>
 

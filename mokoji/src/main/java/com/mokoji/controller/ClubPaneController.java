@@ -3,10 +3,13 @@ package com.mokoji.controller;
 import java.io.IOException;
 import java.util.HashMap;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.mokoji.domain.ClubPaneVO;
 import com.mokoji.domain.ClubVO;
@@ -21,20 +24,22 @@ public class ClubPaneController {
 	
 	
 	//게시판 등록
-	@RequestMapping(value="/insertClubPane.do")
-	public void insertClubPane(ClubVO vo ,ClubPaneVO clubpanevo, MemberVO memvo, MemClubVO memclubvo, Model model) throws IOException{
+	@RequestMapping(value="/insertClubPane.do", method = RequestMethod.POST)
+	public String insertClubPane(ClubVO vo ,ClubPaneVO clubpanevo, MemberVO memvo, MemClubVO memclubvo, Model model,HttpSession session) throws IOException{
+		int mccode = (Integer)session.getAttribute("check");
+		System.out.println(mccode+"이번엔이거!");
+		memclubvo.setMc_code(mccode);
 		//VO여러개 해쉬맵으로
 		HashMap<String, Object> map = new HashMap<String, Object>();
-
 		map.put("clubpane", clubpanevo);
 		map.put("memclub", memclubvo);
-		
 		int num = clubPaneService.insertClubPane(map);
 		if(num==0 || num <0) {
 			System.out.println("실패"+num);
 		}else {
 			System.out.println("성공"+num);
 		}
+		return "aaa";
 	}
 	
 	

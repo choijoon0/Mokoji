@@ -79,7 +79,6 @@ public class MemberController {
 	@RequestMapping(value = "/insertMember.do")
 	public String insertMember(MemberVO vo) {
 		memberService.insertMember(vo);
-
 		return "redirect:/test.do";
 	}
 

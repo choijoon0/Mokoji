@@ -4,19 +4,17 @@ import java.util.HashMap;
 import java.util.List;
 
 import com.mokoji.domain.ClubVO;
-import com.mokoji.domain.IndexVO;
 
 public interface ClubDAO {
 
-	// 동호회 등록
+	// 동호회코드등록
 	public int selectClubcode(ClubVO vo);
 
+	// 동호회 등록
 	public int insertClub(HashMap<String, Object> map);
 
 	public int insertMemClub(HashMap<String, Object> map);
 
-	// 동호회 등록
-	public int insertClub(IndexVO vo);
 
 	// 동호회 리스트 가져오기
 	public List<ClubVO> getClubList(ClubVO vo);

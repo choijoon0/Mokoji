@@ -60,7 +60,6 @@ public class MemberVO {
 	}
 	public void setMem_age(int mem_age) {
 		this.mem_age = mem_age;
-		System.out.println(mem_age+"asdddasasdasga");
 	}
 	public String getMem_id() {
 		return mem_id;

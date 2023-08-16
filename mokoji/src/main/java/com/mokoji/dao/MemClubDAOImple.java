@@ -18,7 +18,6 @@ public class MemClubDAOImple implements MemClubDAO{
 		if(cnt == null) {
 			cnt=0;
 		}
-		System.out.println(cnt+"제발");
 		return cnt;
 	}
 
@@ -29,9 +28,14 @@ public class MemClubDAOImple implements MemClubDAO{
 	}
 
 	@Override
-	public String checkMemClub(HashMap<String, Object> map) {
+	public int checkMcCode(HashMap<String, Object> map) {
 		// TODO Auto-generated method stub
-		return mybatis.selectOne("MemClubDAO.checkMemClub", map);
+		Integer mccode = mybatis.selectOne("MemClubDAO.checkMcCode", map);
+		if(mccode == null) {
+			mccode = 0;
+		}
+		
+		return mccode;
 	}
 
 }

@@ -30,29 +30,27 @@ public class ClubInstantController {
 	private MemClubService memClubService;
 	
 	   @RequestMapping(value = "/details.do")
-	   public String getInstantList(ClubInstantVO vo, ClubVO vo2, MemberVO mvo,Model model, HttpSession session) throws IOException{
+	   public String getInstantList(ClubInstantVO vo, ClubVO vo2, MemberVO mvo, Model model, HttpSession session) throws IOException{
 		   
 		  
 	      int memcode = (int)session.getAttribute("code");
 	      mvo.setMem_code(memcode);
 	      
+	      //동아리 회장확인
 	      model.addAttribute("oneClubList", clubService.getOneClublist(vo2));
 	      HashMap<String , Object> map = new HashMap<String, Object>();
 	      map.put("instant", vo);
-	      map.put("clublist", vo2);
+	      map.put("club", vo2);
 	      map.put("member", mvo);
 	      
-	      //동호회 가입 확인
-	      String check = memClubService.checkMemClub(map);
-	     
-	      //확인값에 따라 세션으로 전송 
-	      if(check == null) {
-	    	  session.setAttribute("check", "태욱");
-	      }else if(check == "N") {
-	    	  session.setAttribute("check", "아영");
-	      }else if(check == "Y") {
-	    	  session.setAttribute("check", "준성");
-	      }
+	      int memct = memClubService.getMemCtCode(map);
+	      session.setAttribute("memct_code", memct);
+	      
+	      //mc_code확인 후 세션보내기
+	      int check = memClubService.checkMcCode(map);
+	      session.setAttribute("check", check);
+
+	      
 	     
 	      model.addAttribute("instant", clubInstantService.getInstantList(map));
 	      

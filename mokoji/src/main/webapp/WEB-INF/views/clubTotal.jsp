@@ -121,7 +121,7 @@ https://templatemo.com/tm-569-edu-meeting
                <div class="card" id="card">
                   <div class="card__image-holder">
                      <input type="hidden" name="club_code" value="${ clublist.club_code }"> 
-                     <img class="card__image" src="${clublist.club_rpic}" />
+                     <img class="card__image" src="././resources/images/${clublist.club_rpic}" />
                   </div>
                   <div class="card-title">
                      <a href="#" class="toggle-info btn"> <span class="left"></span>

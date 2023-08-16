@@ -28,6 +28,8 @@
          <value>com.mokoji.domain.ClubVO</value>
          <value>com.mokoji.domain.SocialingVO</value>
          <value>com.mokoji.domain.ClubInstantVO</value>
+         <value>com.mokoji.domain.ChallengeVO</value>
+         <value>com.mokoji.domain.ClubPaneVO</value>
       </list>
    </property>
  </bean>

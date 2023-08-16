@@ -7,7 +7,7 @@ $(function(){
       cache : false,
       success : function(data){
             for(var i=0;i<data.length;i++){
-                 $("#cardlist").append('<form action="details.do"><div class="cards" id="clubList"><div class="card"><div class="card__image-holder"><input type="hidden" name="club_code" value="' + data[i].club_code + '"/><img class="card__image" src="' + data[i].club_rpic + '"/></div><div class="card-title"><a href="#" class="toggle-info btn"><span class="left"></span><span class="right"></span></a><h2>'+data[i].club_name + '<small>' +data[i].club_memtot +'</small></h2></div><div class="card-flap flap1"><div class="card-description">'+data[i].club_intro+'</div><div class="card-flap flap2"><div class="card-actions"><input type="submit" value="가입하기"></input></div></div></div></div></form>');   
+                 $("#cardlist").append('<form action="details.do"><div class="cards" id="clubList"><div class="card"><div class="card__image-holder"><input type="hidden" name="club_code" value="' + data[i].club_code + '"/><img class="card__image" src="././resources/images/' + data[i].club_rpic + '"/></div><div class="card-title"><a href="#" class="toggle-info btn"><span class="left"></span><span class="right"></span></a><h2>'+data[i].club_name + '<small>' +data[i].club_memtot +'</small></h2></div><div class="card-flap flap1"><div class="card-description">'+data[i].club_intro+'</div><div class="card-flap flap2"><div class="card-actions"><input type="submit" value="가입하기"></input></div></div></div></div></form>');   
             }
          }, error :function(){
             alert(ctmid_name);
@@ -28,7 +28,7 @@ $(function(){
       success : function(data){
             for(var i=0;i<data.length;i++){
          
-            $("#cardlist").append('<form action="details.do"><div class="cards" id="clubList"><div class="card"><div class="card__image-holder"><input type="hidden" name="club_code" value="' + data[i].club_code + '"/><img class="card__image" src="' + data[i].club_rpic + '"/></div><div class="card-title"><a href="#" class="toggle-info btn"><span class="left"></span><span class="right"></span></a><h2>'+data[i].club_name + '<small>' +data[i].club_memtot +'</small></h2></div><div class="card-flap flap1"><div class="card-description">'+data[i].club_intro+'</div><div class="card-flap flap2"><div class="card-actions"><button type="submit" class="btn">가입하기</button></div></div></div></div></form>');
+            $("#cardlist").append('<form action="details.do"><div class="cards" id="clubList"><div class="card"><div class="card__image-holder"><input type="hidden" name="club_code" value="' + data[i].club_code + '"/><img class="card__image" src="././resources/images/' + data[i].club_rpic + '"/></div><div class="card-title"><a href="#" class="toggle-info btn"><span class="left"></span><span class="right"></span></a><h2>'+data[i].club_name + '<small>' +data[i].club_memtot +'</small></h2></div><div class="card-flap flap1"><div class="card-description">'+data[i].club_intro+'</div><div class="card-flap flap2"><div class="card-actions"><button type="submit" class="btn">가입하기</button></div></div></div></div></form>');
             
             }
          }, error :function(){

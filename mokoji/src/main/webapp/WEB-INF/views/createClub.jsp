@@ -210,8 +210,7 @@ https://templatemo.com/tm-569-edu-meeting
 													</div>
 									</section>
 								</form>
-								<form action="insertSocialing.do" method="post"
-									enctype="multipart/form-data">
+								<form action="insertSocialing.do" method="post" enctype="multipart/form-data">
 									<section class="contact-us" id="contact">
 										<div class="templatemo-item-col all social">
 											<div class="row">
@@ -363,17 +362,16 @@ https://templatemo.com/tm-569-edu-meeting
 					<div class="row">
 
 						<div class="col-lg-12">
-							<form id="contact" action="insertClub.do" method="post"
-								enctype="multipart/form-data">
+							<form id="contact" action="insertClub.do" method="post" enctype="multipart/form-data">
 								<div class="row">
 									<div class="col-lg-12">
-										<h2>모임 생성</h2>
+										<h2>동호회 생성</h2>
 									</div>
 									<div class="col-lg-4">
 										<input type="hidden" value="${ code }" name="mem_code">
 										<fieldset>
 											<input name="club_name" type="text" id="title"
-												placeholder="모임 제목을입력하세요*" required="">
+												placeholder="동호회 이름을 입력하세요*" required="">
 										</fieldset>
 									</div>
 									<div>
@@ -408,12 +406,12 @@ https://templatemo.com/tm-569-edu-meeting
 
 									<div class="field-wrap">
 										<label> 관심사<span class="req"></span></label> <select
-											id="cthigh_name1" name="cthigh_name1" onchange="remove1()">
+											id="cthigh_name2" name="cthigh_name" onchange="remove2()">
 											<option value="선택" selected>====</option>
 											<c:forEach items="${ catehighList }" var="category">
 												<option value="${ category.cthigh_name }">${ category.cthigh_name }</option>
 											</c:forEach>
-										</select> <select id="mem_favorite3" name="ctmid_code">
+										</select> <select id="mem_favorite4" name="ctmid_code">
 
 											<option value="선택" selected>====</option>
 

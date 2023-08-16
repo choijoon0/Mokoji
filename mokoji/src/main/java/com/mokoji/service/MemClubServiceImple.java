@@ -27,9 +27,9 @@ public class MemClubServiceImple implements MemClubService{
 	}
 
 	@Override
-	public String checkMemClub(HashMap<String, Object> map) {
+	public int checkMcCode(HashMap<String, Object> map) {
 		// TODO Auto-generated method stub
-		return memClubDAOImple.checkMemClub(map);
+		return memClubDAOImple.checkMcCode(map);
 	}
 
 }

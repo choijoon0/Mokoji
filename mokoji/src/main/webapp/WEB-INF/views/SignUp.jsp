@@ -138,9 +138,7 @@
                
              
 
-               <button type="submit" class="button button-block" />
-               로그인
-               </button>
+               <button type="submit" class="button button-block" />로그인</button>
 
             </form>
 

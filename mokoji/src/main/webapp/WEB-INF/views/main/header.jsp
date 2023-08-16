@@ -1,10 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Mokoji Main</title>
+
 </head>
 <body>
 	<!-- ***** Header Area Start ***** -->
@@ -28,7 +31,21 @@
 							<li><a href="#contact">기프티콘</a></li>
 							<li class="has-sub"><a href="javascript:void(0)">모임</a>
 								<ul class="sub-menu">
-									<li><a href="createClub.do">모임생성</a></li>
+								
+								
+									
+								<c:choose>
+									<c:when test="${ name != null }">
+										<li><a href="createClub.do">모임생성</a></li>
+									</c:when>
+								<c:when test="${name==null }">
+										<li id="nonSignUp"><a>모임생성</a></li>
+								</c:when>
+									
+									
+								</c:choose>
+									
+									
 									<li><a href="meeting-details.html">모임참가</a></li>
 								</ul>
 							</li>
