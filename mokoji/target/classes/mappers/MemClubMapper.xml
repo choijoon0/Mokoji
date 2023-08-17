@@ -29,6 +29,15 @@
 	SELECT MC_CODE FROM MEMCLUB WHERE CLUB_CODE=${club.club_code} AND MEM_CODE=${member.mem_code}
 	</select>
 	
+	<select id="getAllMemClub" parameterType="club" resultType="hashmap">
+		SELECT c.MC_CODE, m.MEM_ID, m.MEM_JUMIN FROM MEMCLUB c, MEMBER m where c.CLUB_CODE = ${club_code} AND c.MEM_CODE = m.MEM_CODE AND c.MC_JOINSTATE = 'N'
+	</select>
 	
+	<update id="upMemclub" parameterType="memclub">
+	UPDATE MEMCLUB SET MC_JOINSTATE= 'Y' WHERE MC_CODE= #{mc_code}
+	</update>
 
+	<delete id="delMemClub" parameterType="memclub">
+	DELETE FROM MEMCLUB WHERE MC_CODE=#{mc_code}
+	</delete>
 </mapper>

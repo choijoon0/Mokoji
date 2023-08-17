@@ -14,11 +14,14 @@ import com.mokoji.domain.ClubInstantVO;
 import com.mokoji.domain.ClubVO;
 import com.mokoji.domain.MemberVO;
 import com.mokoji.service.ClubInstantService;
+import com.mokoji.service.ClubPaneService;
 import com.mokoji.service.ClubService;
 import com.mokoji.service.MemClubService;
 
 @Controller
 public class ClubInstantController {
+	@Autowired
+	private ClubPaneService clubPaneService;
 	
 	@Autowired
 	private ClubInstantService clubInstantService;
@@ -32,7 +35,9 @@ public class ClubInstantController {
 	   @RequestMapping(value = "/details.do")
 	   public String getInstantList(ClubInstantVO vo, ClubVO vo2, MemberVO mvo, Model model, HttpSession session) throws IOException{
 		   
-		  
+		  if(session.getAttribute("clubcode")!= null) {
+			  vo2.setClub_code((int)session.getAttribute("clubcode"));
+		  }
 	      int memcode = (int)session.getAttribute("code");
 	      mvo.setMem_code(memcode);
 	      
@@ -46,14 +51,15 @@ public class ClubInstantController {
 	      int memct = memClubService.getMemCtCode(map);
 	      session.setAttribute("memct_code", memct);
 	      
-	      //mc_code확인 후 세션보내기
+
 	      int check = memClubService.checkMcCode(map);
 	      session.setAttribute("check", check);
-
-	      
 	     
-	      model.addAttribute("instant", clubInstantService.getInstantList(map));
 	      
+	      model.addAttribute("MemClubList", memClubService.getAllMemClub(vo2));
+	      model.addAttribute("clubPaneList", clubPaneService.selectClubPaneList(vo2));
+	      model.addAttribute("instant", clubInstantService.getInstantList(map));
+	      session.removeAttribute("clubcode");
 	      return "Clubdetails";
 
 	   }

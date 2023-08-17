@@ -17,13 +17,13 @@ public class ClubPaneServiceImple implements ClubPaneService{
 	private ClubPaneDAOImple clubpaneDAO;
 
 	@Override
-	public int insertClubPane(HashMap<String, Object> map) {
+	public void insertClubPane(HashMap<String, Object> map) {
 		// TODO Auto-generated method stub
-		return clubpaneDAO.insertClubPane(map);
+		clubpaneDAO.insertClubPane(map);
 	}
 
 	@Override
-	public List<ClubPaneVO> selectClubPaneList(ClubVO vo) {
+	public List<HashMap<String, Object>> selectClubPaneList(ClubVO vo) {
 		// TODO Auto-generated method stub
 		return clubpaneDAO.selectClubPaneList(vo);
 	}

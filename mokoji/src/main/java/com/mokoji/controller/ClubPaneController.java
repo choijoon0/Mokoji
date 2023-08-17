@@ -25,24 +25,22 @@ public class ClubPaneController {
 	
 	//게시판 등록
 	@RequestMapping(value="/insertClubPane.do", method = RequestMethod.POST)
-	public String insertClubPane(ClubVO vo ,ClubPaneVO clubpanevo, MemberVO memvo, MemClubVO memclubvo, Model model,HttpSession session) throws IOException{
+	public String insertClubPane(ClubPaneVO clubpanevo, MemClubVO memclubvo,HttpSession session) throws IOException{
 		int mccode = (Integer)session.getAttribute("check");
-		System.out.println(mccode+"이번엔이거!");
 		memclubvo.setMc_code(mccode);
+
 		//VO여러개 해쉬맵으로
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		map.put("clubpane", clubpanevo);
 		map.put("memclub", memclubvo);
-		int num = clubPaneService.insertClubPane(map);
-		if(num==0 || num <0) {
-			System.out.println("실패"+num);
-		}else {
-			System.out.println("성공"+num);
-		}
+		
+		clubPaneService.insertClubPane(map);
+		
 		return "aaa";
 	}
 	
 	
+
 	
 	
 }

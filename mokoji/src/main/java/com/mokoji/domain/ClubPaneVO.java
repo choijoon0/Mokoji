@@ -67,6 +67,7 @@ public class ClubPaneVO {
 	}
 	public void setCp_pic(String cp_pic) {
 		this.cp_pic = cp_pic;
+		System.out.println(cp_pic+"asdasd");
 	}
 	public int getCp_code() {
 		return cp_code;

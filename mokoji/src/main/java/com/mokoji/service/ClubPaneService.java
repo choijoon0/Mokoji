@@ -7,6 +7,6 @@ import com.mokoji.domain.ClubPaneVO;
 import com.mokoji.domain.ClubVO;
 
 public interface ClubPaneService {
-	public int insertClubPane(HashMap<String, Object> map);
-	public List<ClubPaneVO> selectClubPaneList(ClubVO vo);
+	public void insertClubPane(HashMap<String, Object> map);
+	public List<HashMap<String, Object>> selectClubPaneList(ClubVO vo);
 }

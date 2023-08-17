@@ -32,13 +32,9 @@ public class ClubController {
 		HashMap<String, Object> map= new HashMap<String, Object>();
 		
 		
-		int num = clubService.selectClubcode(cvo);
-	
-		
+		int num = clubService.selectClubcode(cvo);		
 		
 		cvo.setClub_code(num);
-		
-		
 		
 		map.put("club", cvo);
 		
@@ -65,16 +61,16 @@ public class ClubController {
 	}
 
 	// 상위 카테고리 별 동호회 리스트 뽑기
-	@RequestMapping(value = "/clubTotal.do", method = RequestMethod.POST)
+	@RequestMapping(value = "/clubTotalaaa.do", method = RequestMethod.POST)
 	@ResponseBody
 	public List<ClubVO> getHighClubListInterest(@RequestParam("cthigh_name") String cthigh_name) {
 		return clubService.getHighClubListInterest(cthigh_name);
 	}
 
 	// 하위 카테고리 별 동호회 리스트 뽑기
-	@RequestMapping(value = "/clubTotal.do", method = RequestMethod.GET)
+	@RequestMapping(value = "/clubTotalbbb.do", method = RequestMethod.GET)
 	@ResponseBody
-	public List<ClubVO> getClubListInterest(@RequestParam("ctmid_name") String ctmid_name) {
+	public List<ClubVO> getClubListInterest(@RequestParam("ctmid_name") String ctmid_name) {		
 		return clubService.getClubListInterest(ctmid_name);
 	}
 	

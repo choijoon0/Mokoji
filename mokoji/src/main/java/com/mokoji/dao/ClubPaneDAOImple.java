@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.mokoji.domain.ClubPaneVO;
@@ -11,19 +12,20 @@ import com.mokoji.domain.ClubVO;
 
 @Repository("ClubPaneDAO")
 public class ClubPaneDAOImple implements ClubPaneDAO{
-
+	@Autowired
 	private SqlSessionTemplate mybatis;
 	
 	@Override
-	public int insertClubPane(HashMap<String, Object> map) {
+	public void insertClubPane(HashMap<String, Object> map) {
 		// TODO Auto-generated method stub
-		return mybatis.insert("ClubPaneDAO.insertClubPane",map);
+		mybatis.insert("ClubPaneDAO.insertClubPane", map);
+		
 	}
 
 	@Override
-	public List<ClubPaneVO> selectClubPaneList(ClubVO vo) {
+	public List<HashMap<String, Object>> selectClubPaneList(ClubVO vo) {
 		// TODO Auto-generated method stub
-		List<ClubPaneVO> list =mybatis.selectList("ClubPaneDAO.selectClubPaneList",vo); 
+		List<HashMap<String, Object>> list =mybatis.selectList("ClubPaneDAO.selectClubPaneList",vo); 
 		return list;
 	}
 

@@ -2,7 +2,7 @@ $(function(){
    $('.club').click(function(){
    var ctmid_name = $(this).val();
       $.ajax({
-      url: 'clubTotal.do?ctmid_name='+ ctmid_name,
+      url: 'clubTotalbbb.do?ctmid_name='+ ctmid_name,
       type: "GET",
       cache : false,
       success : function(data){
@@ -21,7 +21,7 @@ $(function(){
    $('.highcate').on('click', function(){
    var cthigh_name = $(this).text();
    $.ajax({
-      url: 'clubTotal.do?cthigh_name='+ cthigh_name,
+      url: 'clubTotalaaa.do?cthigh_name='+ cthigh_name,
       type: "POST",
       cache : false,
       

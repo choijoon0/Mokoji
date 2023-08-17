@@ -1,10 +1,14 @@
 package com.mokoji.dao;
 
 import java.util.HashMap;
+import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+
+import com.mokoji.domain.ClubVO;
+import com.mokoji.domain.MemClubVO;
 @Repository("MemClubDAO")
 public class MemClubDAOImple implements MemClubDAO{
 	
@@ -36,6 +40,28 @@ public class MemClubDAOImple implements MemClubDAO{
 		}
 		
 		return mccode;
+	}
+
+	//가입 대기 중 인원 리스트
+	@Override
+	public List<HashMap<String, Object>> getAllMemClub(ClubVO vo) {
+		// TODO Auto-generated method stub
+		List<HashMap<String, Object>> list = mybatis.selectList("MemClubDAO.getAllMemClub",vo);
+		return list;
+	}
+
+	//승인 확인
+	@Override
+	public void upMemclub(MemClubVO vo) {
+		// TODO Auto-generated method stub
+		mybatis.update("MemClubDAO.upMemclub", vo);
+	}
+
+	//승인 거절
+	@Override
+	public void delMemClub(MemClubVO vo) {
+		// TODO Auto-generated method stub
+		mybatis.delete("MemClubDAO.delMemClub", vo);
 	}
 
 }

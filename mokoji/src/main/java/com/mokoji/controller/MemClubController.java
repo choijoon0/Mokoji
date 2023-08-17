@@ -2,12 +2,16 @@ package com.mokoji.controller;
 
 import java.util.HashMap;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.mokoji.domain.ClubVO;
+import com.mokoji.domain.MemClubVO;
 import com.mokoji.domain.MemberVO;
 import com.mokoji.service.MemClubService;
 
@@ -59,8 +63,21 @@ public class MemClubController {
 			
 		}
 	}
+	//승인 확인
+	@RequestMapping(value="/upMemClub.do", method = RequestMethod.POST)
+	public String upMemclub(MemClubVO vo,ClubVO cvo,HttpSession session) {
+		session.setAttribute("clubcode", cvo.getClub_code());
+		memClubService.upMemclub(vo);
+		return "redirect:/details.do";
+	}
 	
-
+	//승인 거절
+	@RequestMapping(value="/delMemClub.do", method = RequestMethod.POST)
+	public String delMemclub(MemClubVO vo) {
+		memClubService.delMemClub(vo);
+		
+		return "redirect:/details.do";
+	}
 	
 	
 }
