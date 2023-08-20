@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.mokoji.dao.ClubInstantDAOImple;
-import com.mokoji.domain.ClubInstantVO;
 
 @Service("ClubInstantService")
 public class ClubInstantServiceImple implements ClubInstantService{
@@ -19,4 +18,5 @@ public class ClubInstantServiceImple implements ClubInstantService{
 	public List<HashMap<String, Object>> getInstantList(HashMap<String, Object> map){
 		return clubInstantDAO.getInstantList(map);
 	}
+
 }

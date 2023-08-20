@@ -26,10 +26,11 @@
 							<li><a href="#apply">소셜</a></li>
 							<li><a href="goclub.do">커뮤니티</a></li>
 							<li><a href="#contact">기프티콘</a></li>
-							<li class="has-sub"><a href="javascript:void(0)">모임</a>
+							<li class="has-sub"><a href="goclub.do">모임</a>
 								<ul class="sub-menu">
 									<li><a href="createClub.do">모임생성</a></li>
 									<li><a href="createClub.do">모임참가</a></li>
+									<li><a href="match.do">매칭</a></li>
 								</ul></li>
 							<c:if test="${name != null}">
 								<li><a>${name}님</a>

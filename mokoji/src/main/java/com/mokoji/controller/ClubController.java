@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.mokoji.domain.CategoryVO;
 import com.mokoji.domain.ClubVO;
 import com.mokoji.domain.IndexVO;
-import com.mokoji.service.CategoryService;
 import com.mokoji.service.ClubService;
 
 @Controller
@@ -22,8 +21,6 @@ public class ClubController {
 	@Autowired
 	private ClubService clubService;
 
-	@Autowired
-	private CategoryService categoryService;
 
 	// 동호회등록
 	@RequestMapping(value = "/insertclub.do")
@@ -39,7 +36,7 @@ public class ClubController {
 		model.addAttribute("clubList", clubService.getClubList(vo));
 
 		// return "main/main";
-		return "/main/testindex";
+		return "main/testindex";
 	}
 
 	// 상위 카테고리 별 동호회 리스트 뽑기

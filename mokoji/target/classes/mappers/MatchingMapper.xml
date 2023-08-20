@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="MatchingDAO">
+
+		<select id="getMatchList" parameterType="hashmap" resultType="hashmap">
+			SELECT a.mat_name, a.mat_date, a.mat_time, a.mat_code, a.mat_cancle, b.club_code, b.club_name, b.club_rpic, b.ctmid_code FROM MATCHING a, CLUB b
+			WHERE a.club_code = b.club_code
+		</select>	
+			
+		<select id="selectMatching" resultType="integer">
+			SELECT SEQ_MATCHING.nextval FROM dual
+		</select>
+			
+		<insert id="insertMatching" parameterType="hashmap">
+			INSERT INTO MATCHING (mat_code, mat_name, mat_date, mat_time, mat_cancle, club_code)
+			VALUES(seq_matching.nextval, #{match.mat_name}, #{match.mat_date}, #{match.mat_time}, 'N', #{club.club_code})
+		</insert>
+		
+		<insert id="insertMatchingInfo" parameterType="hashmap">
+			INSERT INTO MATCHINGINFO (matinfo_code, mat_code, club_code, matinfo_join)
+			VALUES(seq_matchinginfo.nextval, ${match.mat_code}, ${club.club_code}, 'Y')
+		</insert>
+		
+		<insert id="insertJoinMatching" parameterType="hashmap">
+			INSERT INTO MATCHINGINFO (matinfo_code, mat_code, club_code, matinfo_join)
+			VALUES(seq_matchinginfo.nextval, ${match.mat_code}, (SELECT club_code FROM MEMCLUB WHERE MC_CODE = 1), 'N')
+		</insert>
+		
+		<select id="getAllMatch" parameterType="hashmap" resultType="hashmap">
+			SELECT b.club_name, a.matinfo_res, b.club_code FROM MATCHINGINFO a, CLUB b
+			WHERE a.club_code = b.club_code AND a.matinfo_join = 'N' AND a.mat_code = #{match.mat_code}
+		</select>
+		
+		<update id="upMemclub" parameterType="matchinginfo">
+			UPDATE MEMCLUB SET MATINFO_JOIN= 'Y' WHERE MATINFO_CODE= #{matinfo_code}
+		</update>
+
+		<delete id="delMemclub" parameterType="matchinginfo">
+			DELETE FROM MATCHINGINFO WHERE MATINFO_CODE = #{matinfo_code}
+		</delete>
+</mapper>

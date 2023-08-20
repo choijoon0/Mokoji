@@ -67,8 +67,10 @@ https://templatemo.com/tm-569-edu-meeting
 						<div class="col-lg-12">
 							<div class="filters">
 								<ul>
+									<li data-filter=".matchcurrent">매칭승인현황</li>
+									<li data-filter=".match">매칭생성</li>
 									<li data-filter=".joincurrent">승인현황</li>
-									<li data-filter=".sang" class="active">상세페이지</li>
+									<li data-filter=".sang">상세페이지</li>
 									<li data-filter=".pid">모임피드</li>
 								</ul>
 							</div>
@@ -76,9 +78,96 @@ https://templatemo.com/tm-569-edu-meeting
 
 						<div class="col-lg-12">
 							<div class="row grid">
+							
+							<section class="contact-us">
+											<div class="row">
+												<div class="col-lg-9 align-self-center">
+													<div class="row">
+														<div class="col-lg-12">
+															<div id="contact">
+																<div class="row">
+																		<div class="meeting-single-item all matchcurrent">																						
+																			<!-- Button trigger modal -->
+																			<table>
+																			<tr>
+																			<td>동호회명</td>
+																			<td>승률</td>
+																			</tr>
+																			<c:forEach items="${ allmatchList }" var="allmatchList">
+																			<input type="hidden" value="${ allmatchList.MAT_CODE }" name="mat_code">
+																			<input type="hidden" value="${ allmatchList.CLUB_CODE }" name="club_code">
+																				<tr>
+																				<td>${allmatchList.CLUB_NAME}</td>
+																				<td>승률</td>
+																				<td>
+																				<form action="upMemclub" method="post">
+																					<c:forEach items="${ oneClubList }" var="clist">
+																						<input type="hidden" name="club_code" value="${ clist.club_code }">
+																					</c:forEach>
+																					<button type="submit">수락</button>
+																					</form>
+																				</td>
+																				<td>
+																					<form action="delMemclub" method="post">
+																						<c:forEach items="${ oneClubList }" var="clist">
+																							<input type="hidden" name="club_code" value="${ clist.club_code }">
+																						</c:forEach>
+																					<button type="submit">거절</button>
+																					</form>
+																				</td>
+																				</tr>
+																			</c:forEach>
+																			</table>																	
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											</div>
+										</div>		  
+								</section>
+							
+							
+							<section class="contact-us">
+											<div class="row">
+												<div class="col-lg-9 align-self-center">
+													<div class="row">
+														<div class="col-lg-12">
+																<div class="row">
+																		<div class="meeting-single-item all match">																						
+																			<div class="down-content">
+																			<!-- Button trigger modal -->
+																			<c:forEach items="${ matchList }" var="mlist">
+																			<form action="insertMatching.do" method="post">
+																			<input type="hidden" value="${mlist.CLUB_CODE}" name="club_code">
+																			<input type="hidden" value="${mlist.MAT_CODE}" name="mat_code">
+																				<div>매칭 이름</div>
+																				<input type="text" name="mat_name">
+																				<div>매칭 희망 날짜</div>
+																				<input type="date" name="mat_date">
+																				<div>매칭 희망 시간</div>
+																				<input type="time" name="mat_time">
+																				<div>인원수 ※최소 3, 최대 인원 수는 30 입니다.</div>
+																				<input name="mat_clubmemtot" type="number" min='3' max='30' step='1'>	
+																					<div class="col-lg-12">									
+																						<div class="main-button-red">
+																							<button type="submit">매칭신청</button>
+																						</div>
+																					</div>
+																		</form>
+																		</c:forEach>
+																</div>
+															</div>
+														</div>
+												</div>
+											</div>
+											</div>
+										</div>		  
+								</section>
+							
+								
 
 								<section class="contact-us">
-									<form action="insertSocialing.do" enctype="multipart/form-data">
 										<div class="templatemo-item-col all sang">
 											<div class="row">
 												<div class="col-lg-9 align-self-center">
@@ -107,6 +196,9 @@ https://templatemo.com/tm-569-edu-meeting
 																				<div class="col-lg-12"></div>
 																				<div class="row">
 																					<div class="col-lg-4">
+																					<form action="InstantTotal.do">
+																						<input type="submit" value="목록보기">
+																					</form>																							
 																						<c:forEach items="${ instant }" var="instantt">
 																							<div class="hours">
 																								<h5>${ instantt.CINST_NAME }</h5>
@@ -135,7 +227,6 @@ https://templatemo.com/tm-569-edu-meeting
 												</div>
 											</div>
 										</div>
-									</form>
 								</section>
 
 								<section class="contact-us" id="contact">
@@ -246,23 +337,10 @@ https://templatemo.com/tm-569-edu-meeting
 				</div>
 
 			</div>
-		</div>
-		</div>
-		</div>
-		</div>
-		</div>
-		</div>
+
 	</section>
 
 
-
-	</div>
-	</div>
-
-	</div>
-	</div>
-	</div>
-	</div>
 	<%@ include file="main/footer.jsp"%>
 
 

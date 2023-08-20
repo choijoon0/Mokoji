@@ -21,13 +21,16 @@
  <property name="configLocation" value="classpath:/mybatis-config.xml"></property>
   <property name="mapperLocations" value="classpath:mappers/**/*Mapper.xml"></property>
   <property name="typeAliases">
-      <list>
+    <list>
          <value>com.mokoji.domain.IndexVO</value> <!-- BoardVO -->
          <value>com.mokoji.domain.MemberVO</value>
          <value>com.mokoji.domain.CategoryVO</value>
          <value>com.mokoji.domain.ClubVO</value>
          <value>com.mokoji.domain.SocialingVO</value>
          <value>com.mokoji.domain.ClubInstantVO</value>
+         <value>com.mokoji.domain.MatchingVO</value>
+         <value>com.mokoji.domain.MatchingInfoVO</value>
+         <value>com.mokoji.domain.MemClubVO</value>
       </list>
    </property>
  </bean>
@@ -37,4 +40,3 @@
  </bean>
        
 </beans>
-

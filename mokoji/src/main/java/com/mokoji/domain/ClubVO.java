@@ -76,7 +76,7 @@ public class ClubVO {
 		return club_code;
 	}
 	public void setClub_code(int club_code) {
-		this.club_code = club_code;	
+		this.club_code = club_code;
 	}
 	public int getClub_cost() {
 		return club_cost;

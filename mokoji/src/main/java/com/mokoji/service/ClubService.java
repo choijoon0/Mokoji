@@ -2,7 +2,6 @@ package com.mokoji.service;
 
 import java.util.List;
 
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.mokoji.domain.ClubVO;
 import com.mokoji.domain.IndexVO;

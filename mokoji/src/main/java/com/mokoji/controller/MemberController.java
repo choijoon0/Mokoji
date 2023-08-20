@@ -38,6 +38,7 @@ public class MemberController {
 			// #4. 세션에 저장
 			session.setAttribute("sessionTime", new Date().toString());
 			session.setAttribute("name", result.getMem_id());
+			session.setAttribute("code", result.getMem_code());
 		}
 		
 		return "redirect:/go.do";

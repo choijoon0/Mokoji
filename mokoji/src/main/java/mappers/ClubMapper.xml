@@ -3,14 +3,14 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="ClubDAO">
 	<select id="getClubList" parameterType="club" resultType="club">
-	SELECT a.club_code, a.club_name, a.club_cost, a.club_loc, a.club_intro, a.club_signtype, a.club_memtot, a.club_pic, a.club_rpic,a.ctmid_code FROM CLUB a ,CATEGORYMIDDLE b 
+	SELECT a.club_code, a.club_name, a.club_cost, a.club_loc, a.club_intro, a.club_signtype, a.club_memtot, a.club_pic, a.club_rpic,a.ctmid_code FROM CLUB a , CATEGORYMIDDLE b
 	WHERE a.ctmid_code = b.ctmid_code
 	order by a.club_code desc
 	</select>
 	
 	
 	<select id="getSelectedClubList" resultType="club">
-	SELECT a.club_code, a.club_name, a.club_cost, a.club_loc, a.club_intro, a.club_signtype, a.club_memtot,a.club_rpic, a.club_pic, a.ctmid_code FROM CLUB a ,CATEGORYMIDDLE b 
+	SELECT a.club_code, a.club_name, a.club_cost, a.club_loc, a.club_intro, a.club_signtype, a.club_memtot,a.club_rpic, a.club_pic, a.ctmid_code FROM CLUB a , CATEGORYMIDDLE b 
 	WHERE a.ctmid_code = b.ctmid_code AND b.ctmid_name = #{ctmid_name} order by a.club_code desc
 	</select>
 	

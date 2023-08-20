@@ -2,7 +2,8 @@ package com.mokoji.domain;
 
 public class MemClubVO {
 	private String mc_joinstate;
-	private int mc_code;
+	private int mc_code, club_code;
+	
 	public String getMc_joinstate() {
 		return mc_joinstate;
 	}
@@ -14,6 +15,12 @@ public class MemClubVO {
 	}
 	public void setMc_code(int mc_code) {
 		this.mc_code = mc_code;
+	}
+	public int getClub_code() {
+		return club_code;
+	}
+	public void setClub_code(int club_code) {
+		this.club_code = club_code;
 	}
 
 	
