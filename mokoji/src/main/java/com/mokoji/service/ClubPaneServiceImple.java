@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.mokoji.dao.ClubPaneDAOImple;
 import com.mokoji.domain.ClubPaneVO;
 import com.mokoji.domain.ClubVO;
+import com.mokoji.domain.MemberVO;
 
 @Service("ClubPaneService")
 public class ClubPaneServiceImple implements ClubPaneService{
@@ -24,9 +25,9 @@ public class ClubPaneServiceImple implements ClubPaneService{
 	}
 
 	@Override
-	public List<HashMap<String, Object>> selectClubPaneList(ClubVO vo) {
+	public List<HashMap<String, Object>> selectClubPaneList(HashMap<String, Object> map) {
 		// TODO Auto-generated method stub
-		return clubpaneDAO.selectClubPaneList(vo);
+		return clubpaneDAO.selectClubPaneList(map);
 	}
 
 	//하트 클릭 시 증가
@@ -48,6 +49,27 @@ public class ClubPaneServiceImple implements ClubPaneService{
 	public void downHeart(int cp_code) {
 		// TODO Auto-generated method stub
 		clubpaneDAO.downHeart(cp_code);
+	}
+
+	//하트 목록 insert
+	@Override
+	public void insertHeartLikes(HashMap<String, Object> map) {
+		// TODO Auto-generated method stub
+		clubpaneDAO.insertHeartLikes(map);
+	}
+
+	//하트 목록 delete
+	@Override
+	public void deleteHeartLikes(HashMap<String, Object> map) {
+		// TODO Auto-generated method stub
+		clubpaneDAO.deleteHeartLikes(map);
+	}
+
+	//내 좋아요 목록
+	@Override
+	public List<ClubPaneVO> getMyLikes(MemberVO vo) {
+		// TODO Auto-generated method stub
+		return clubpaneDAO.getMyLikes(vo);
 	}
 
 }

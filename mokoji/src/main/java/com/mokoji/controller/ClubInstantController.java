@@ -11,6 +11,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.mokoji.domain.ClubInstantVO;
+import com.mokoji.domain.ClubPaneLikesVO;
+import com.mokoji.domain.ClubPaneVO;
 import com.mokoji.domain.ClubVO;
 import com.mokoji.domain.MemberVO;
 import com.mokoji.service.ClubInstantService;
@@ -33,7 +35,7 @@ public class ClubInstantController {
 	private MemClubService memClubService;
 	
 	   @RequestMapping(value = "/details.do")
-	   public String getInstantList(ClubInstantVO vo, ClubVO vo2, MemberVO mvo, Model model, HttpSession session) throws IOException{
+	   public String getInstantList(ClubInstantVO vo, ClubVO vo2, ClubPaneLikesVO cplvo,MemberVO mvo, Model model, HttpSession session) throws IOException{
 		   
 		  if(session.getAttribute("clubcode")!= null) {
 			  vo2.setClub_code((int)session.getAttribute("clubcode"));
@@ -55,11 +57,15 @@ public class ClubInstantController {
 	      int check = memClubService.checkMcCode(map);
 	      session.setAttribute("check", check);
 	     
-	      
+	      //내 좋아요 리스트 뽑기
+	      model.addAttribute("myLikes", clubPaneService.getMyLikes(mvo));
+	      System.out.println(vo2.getClub_code()+"클럽");
+	      System.out.println(mvo.getMem_code()+"멤버");
 	      model.addAttribute("MemClubList", memClubService.getAllMemClub(vo2));
-	      model.addAttribute("clubPaneList", clubPaneService.selectClubPaneList(vo2));
+	      model.addAttribute("clubPaneList", clubPaneService.selectClubPaneList(map));
 	      model.addAttribute("instant", clubInstantService.getInstantList(map));
 	      session.removeAttribute("clubcode");
+	      
 	      return "Clubdetails";
 
 	   }

@@ -8,9 +8,13 @@
 		VALUES(seq_clubpane.nextval, #{clubpane.cp_name}, #{clubpane.cp_content}, sysdate, #{clubpane.cp_pic}, #{clubpane.cp_rpic},0, 0, #{ memclub.mc_code })
 	</insert>
 
-	<select id="selectClubPaneList" parameterType="club" resultType="hashmap">
-	SELECT p.CP_CODE, p.CP_NAME, p.CP_CONTENT, p.CP_DATE, p.CP_PIC, p.CP_CNT, p.CP_LIKES, p.MC_CODE, m.MEM_NAME, p.CP_RPIC FROM CLUBPANE p, MEMCLUB c, MEMBER m 
-	WHERE CLUB_CODE = ${club_code} AND p.MC_CODE = c.MC_CODE AND c.MEM_CODE = m.MEM_CODE
+	<select id="selectClubPaneList" parameterType="hashmap" resultType="hashmap">
+	SELECT p.CP_CODE, p.CP_NAME, p.CP_CONTENT, p.CP_DATE, p.CP_PIC, p.CP_CNT, p.CP_LIKES, p.MC_CODE, m.MEM_NAME, p.CP_RPIC, NVL(aaa.cnt,0) AS cnt FROM CLUBPANE p
+	LEFT JOIN MEMCLUB c ON c.mc_CODE=p.MC_CODE  
+	LEFT JOIN MEMBER m ON m.MEM_CODE  = c.MEM_CODE 
+	LEFT JOIN (SELECT cp_code, count(*) AS cnt FROM clubpanelikes cl WHERE mem_code = ${member.mem_code} GROUP BY cp_code) aaa
+	ON p.CP_CODE = aaa.cp_code
+	WHERE CLUB_CODE = ${club.club_code} ORDER BY cp_code desc
 	</select>
 	
 	<update id="updateHeart">
@@ -24,6 +28,18 @@
 	<update id="downHeart">
 	UPDATE CLUBPANE SET CP_LIKES = CP_LIKES - 1 WHERE CP_CODE = #{cp_code}
 	</update>
+	
+	<insert id="insertHeartLikes" parameterType="hashmap">
+	INSERT INTO CLUBPANELIKES (CPLIKE_CODE, CP_CODE, MEM_CODE) VALUES (seq_clubpanelikes.nextval, ${clubpane.cp_code}, ${member.mem_code})
+	</insert>
+	
+	<delete id="deleteHeartLikes" parameterType="hashmap">
+	DELETE FROM CLUBPANELIKES WHERE CP_CODE = ${clubpane.cp_code} AND MEM_CODE = ${member.mem_code}
+	</delete>
+	
+	<select id="getMyLikes" parameterType="member" resultType="clubpane">
+	SELECT CP_CODE FROM CLUBPANELIKES WHERE MEM_CODE = #{mem_code} ORDER BY cp_code desc
+	</select>
 	
 </mapper>
 

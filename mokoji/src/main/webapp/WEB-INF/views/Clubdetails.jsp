@@ -3,6 +3,8 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@page import="java.util.Date"%>
 <!DOCTYPE html>
 <html>
@@ -18,7 +20,7 @@
 	href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900"
 	rel="stylesheet">
 
-<title>Education - List of Meetings</title>
+<title>동호회 상세</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
 	rel="stylesheet"
@@ -86,7 +88,6 @@ https://templatemo.com/tm-569-edu-meeting
 										</c:when>
 									</c:choose>
 								</ul>
-
 							</div>
 						</div>
 
@@ -190,38 +191,50 @@ https://templatemo.com/tm-569-edu-meeting
 																			<img src="././resources/images/${clubPane.CP_RPIC }">
 																			<h3>${clubPane.CP_CONTENT }</h3>
 																			<h4>${clubPane.CP_DATE }</h4>
-																			<div id="heart" class="heart" value="${clubPane.CP_CODE}">
-																				<div class="">${clubPane.CP_LIKES}</div>
-																			</div>
+																			<c:choose>
+																				<c:when test="${ clubPane.CNT eq 1 }">
+																					<div id="heart" class="heart is-active" value="${clubPane.CP_CODE}">
+																						<div class="">${clubPane.CP_LIKES}</div>
+																					</div>
+																				</c:when>
+																				<c:otherwise>
+																					<div id="heart" class="heart" value="${clubPane.CP_CODE}">
+																						<div class="">${clubPane.CP_LIKES}</div>		
+																					</div>
+																				</c:otherwise>
+																			</c:choose>
+																			
 																		</div>
-																		<div class="tabWrapper">
-																			<div class="tab">
-																				<span>댓글</span>
-																				<div class="hidden" style="display: none;">
-																					<table class="table">
-																						<tr>
-																							<th scope="col">댓글</th>
-																						</tr>
-																						<tr>
-																							<td>작성자</td>
-																							<td>댓글</td>
-																						</tr>
-																					</table>
-																				</div>
-																			</div>
-																		</div>
-																		<fieldset>
-																			<input name="cpreple_content" type="text" id=""
-																				placeholder="댓글을 입력하세요." required autocomplete="off">
-																			<button class="datinsert" type="submit">댓글입력</button>
-																		</fieldset>
-
-
 																	</div>
+																	<div class="tabWrapper">
+																		<div class="tab">
+																			<span>댓글</span>
+																			<div class="hidden" style="display: none;">
+																				<table class="table">
+																					<tr>
+																						<th scope="col">댓글</th>
+																					</tr>
+																					<tr>
+																						<td>작성자</td>
+																						<td>댓글</td>
+																					</tr>
+																				</table>
+																			</div>
+																			<fieldset>
+																		<input name="cpreple_content" type="text" id="" placeholder="댓글을 입력하세요." required autocomplete="off">
+																		<button class="datinsert" type="submit">댓글입력</button>
+																	</fieldset>
+																		</div>
+																	
+																	</div>
+
+
+
 																</div>
 															</div>
 														</div>
 													</div>
+												</div>
 											</form>
 										</c:forEach>
 									</div>
@@ -316,10 +329,8 @@ https://templatemo.com/tm-569-edu-meeting
 												</div>
 												<div class="date">
 													<h6>
-														활동지역 <span>${ clist.club_loc }</span>
-														전체 인원수 <span>${ clist.club_memtot }</span>
-														현재 인원수 <span>${ clist.club_left }</span>
-														남은 인원수 <span>${ clist.club_memtot-clist.club_left }</span>
+														활동지역 <span>${ clist.club_loc }</span> 전체 인원수 <span>${ clist.club_memtot }</span>
+														현재 인원수 <span>${ clist.club_left }</span> 남은 인원수 <span>${ clist.club_memtot-clist.club_left }</span>
 													</h6>
 												</div>
 												<a href="meeting-details.html"><img
@@ -327,66 +338,68 @@ https://templatemo.com/tm-569-edu-meeting
 											</div>
 											<div class="down-content">
 												<h4>${ clist.club_name }</h4>
-												<img id="person" src="././resources/images/free-icon-group-2911099.png">
+												<img id="person"
+													src="././resources/images/free-icon-group-2911099.png">
 												<p class="per">${ clist.club_memtot }</p>
 												<p class="description">${ clist.club_intro }</p>
 												<div class="col-lg-12"></div>
 												<div class="row">
 													<div class="col-lg-4">
 		</form>
-	</div>
-	</div>
-	<form action="joinClub.do">
-		<div class="col-lg-12">
-			<input type="hidden" name="club_code" value="${clist.club_code }">
-			<input type="hidden" name="mem_code" value="${ code }"> <input
-				type="hidden" name="club_signtype" value="${ clist.club_signtype }">
-			<br>
-
-			<h2 class="bun">번개모임</h2>
-
-			<table class="table">
-				<thead>
-					<tr>
-
-					</tr>
-				</thead>
-				<tbody>
-					<c:forEach items="${ instant }" var="instantt">
-						<tr>
-							<th scope="row">${ instantt.CINST_NAME }</th>
-							<td scope="colspan="2">${ instantt.CINST_CONTENT }</td>
-							<td><button id="grant" type="button">자세히</button>
-								<button id="grant" type="submit">신청하기</button></td>
-						</tr>
-					</c:forEach>
-
-				</tbody>
-			</table>
-		
-			<c:forEach items="${ oneClubList }" var="clist">
-				<c:choose>
-                     <c:when test="${(clist.club_gender eq gender and clist.club_memtot-clist.club_left > 0 and clist.club_maxage+10 > age) or (clist.club_gender eq '누구나'  and clist.club_memtot-clist.club_left > 0 and clist.club_maxage+10 > age) or (clist.club_maxage eq 0 and clist.club_gender eq gender and clist.club_memtot-clist.club_left > 0) or (clist.club_maxage eq 0 and clist.club_gender eq '누구나' and clist.club_memtot-clist.club_left > 0)}">
-                     	<button type="submit" class="btn">가입하기</button>	
-                     </c:when>
-                     <c:otherwise>
-                       	<button type="button" class="nono">가입하기</button>
-                     </c:otherwise>
-                </c:choose>				
-			</c:forEach>
-			
-			
 		</div>
-	</div>
-	</form>
-	</c:forEach>
-	</div>
-	</div>
-	</div>
-	</div>
-	</div>
-	</div>
-	</div>
+		</div>
+		<form action="joinClub.do">
+			<div class="col-lg-12">
+				<input type="hidden" name="club_code" value="${clist.club_code }">
+				<input type="hidden" name="mem_code" value="${ code }"> <input
+					type="hidden" name="club_signtype" value="${ clist.club_signtype }">
+				<br>
+
+				<h2 class="bun">번개모임</h2>
+
+				<table class="table">
+					<thead>
+						<tr>
+
+						</tr>
+					</thead>
+					<tbody>
+						<c:forEach items="${ instant }" var="instantt">
+							<tr>
+								<th scope="row">${ instantt.CINST_NAME }</th>
+								<td scope="colspan="2">${ instantt.CINST_CONTENT }</td>
+								<td><button id="grant" type="button">자세히</button>
+									<button id="grant" type="submit">신청하기</button></td>
+							</tr>
+						</c:forEach>
+
+					</tbody>
+				</table>
+
+				<c:forEach items="${ oneClubList }" var="clist">
+					<c:choose>
+						<c:when
+							test="${(clist.club_gender eq gender and clist.club_memtot-clist.club_left > 0 and clist.club_maxage+10 > age) or (clist.club_gender eq '누구나'  and clist.club_memtot-clist.club_left > 0 and clist.club_maxage+10 > age) or (clist.club_maxage eq 0 and clist.club_gender eq gender and clist.club_memtot-clist.club_left > 0) or (clist.club_maxage eq 0 and clist.club_gender eq '누구나' and clist.club_memtot-clist.club_left > 0)}">
+							<button type="submit" class="btn">가입하기</button>
+						</c:when>
+						<c:otherwise>
+							<button type="button" class="nono">가입하기</button>
+						</c:otherwise>
+					</c:choose>
+				</c:forEach>
+
+
+			</div>
+			</div>
+		</form>
+		</c:forEach>
+		</div>
+		</div>
+		</div>
+		</div>
+		</div>
+		</div>
+		</div>
 	</section>
 
 

@@ -50,7 +50,7 @@
 								</ul>
 							</li>
 							<c:if test="${name != null}">
-								<li><a>${name}님</a>
+								<li><a href="test.jsp">${name}님</a>
 								<li><a id="gnb_logout_button">로그아웃</a></li>
 								</li>
 							</c:if>

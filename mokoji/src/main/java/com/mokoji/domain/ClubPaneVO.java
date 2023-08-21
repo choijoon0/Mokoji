@@ -40,21 +40,18 @@ public class ClubPaneVO {
 			}
 		}
 	}
-	
-	
+
 	public String getCp_name() {
 		return cp_name;
 	}
 	public void setCp_name(String cp_name) {
 		this.cp_name = cp_name;
-		System.out.println(cp_name+"제목");
 	}
 	public String getCp_content() {
 		return cp_content;
 	}
 	public void setCp_content(String cp_content) {
 		this.cp_content = cp_content;
-		System.out.println(cp_content+"컨턴");
 	}
 	public String getCp_date() {
 		return cp_date;
@@ -67,7 +64,6 @@ public class ClubPaneVO {
 	}
 	public void setCp_pic(String cp_pic) {
 		this.cp_pic = cp_pic;
-		System.out.println(cp_pic+"asdasd");
 	}
 	public int getCp_code() {
 		return cp_code;

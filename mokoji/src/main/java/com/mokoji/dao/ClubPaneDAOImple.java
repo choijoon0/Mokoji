@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import com.mokoji.domain.ClubPaneVO;
 import com.mokoji.domain.ClubVO;
+import com.mokoji.domain.MemberVO;
 
 @Repository("ClubPaneDAO")
 public class ClubPaneDAOImple implements ClubPaneDAO{
@@ -23,9 +24,9 @@ public class ClubPaneDAOImple implements ClubPaneDAO{
 	}
 
 	@Override
-	public List<HashMap<String, Object>> selectClubPaneList(ClubVO vo) {
+	public List<HashMap<String, Object>> selectClubPaneList(HashMap<String, Object> map) {
 		// TODO Auto-generated method stub
-		List<HashMap<String, Object>> list =mybatis.selectList("ClubPaneDAO.selectClubPaneList",vo); 
+		List<HashMap<String, Object>> list =mybatis.selectList("ClubPaneDAO.selectClubPaneList",map); 
 		return list;
 	}
 
@@ -47,6 +48,28 @@ public class ClubPaneDAOImple implements ClubPaneDAO{
 	public void downHeart(int cp_code) {
 		// TODO Auto-generated method stub
 		mybatis.update("ClubPaneDAO.downHeart", cp_code);
+	}
+
+	//하트 목록 insert
+	@Override
+	public void insertHeartLikes(HashMap<String, Object> map) {
+		// TODO Auto-generated method stub
+		mybatis.insert("ClubPaneDAO.insertHeartLikes", map);
+	}
+
+	//하트 목록 delete
+	@Override
+	public void deleteHeartLikes(HashMap<String, Object> map) {
+		// TODO Auto-generated method stub
+		mybatis.delete("ClubPaneDAO.deleteHeartLikes", map);
+	}
+
+	//내 좋아요 목록
+	@Override
+	public List<ClubPaneVO> getMyLikes(MemberVO vo) {
+		// TODO Auto-generated method stub
+		List<ClubPaneVO> list = mybatis.selectList("ClubPaneDAO.getMyLikes", vo);
+		return list;
 	}
 
 }
