@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ClubPaneReple">
+	
+	<select id="getCommentList" resultType="hashmap">
+		SELECT r.CPREPLE_CODE, r.CPREPLE_CONTENT, r.CPREPLE_DATE, m.MEM_NAME FROM CLUBPANEREPLE r, MEMBER m WHERE r.MEM_CODE = m.MEM_CODE AND CP_CODE = ${cp_code}
+	</select>
+
+	<insert id="insertComment" parameterType="hashmap">
+		INSERT INTO CLUBPANEREPLE (CPREPLE_CODE, CPREPLE_CONTENT, CPREPLE_DATE, MEM_CODE, CP_CODE) VALUES 
+		(seq_clubpanreple.nextval, '${cpreple.cpreple_content}', sysdate, ${member.mem_code}, ${clubpane.cp_code})
+	</insert>
+</mapper>

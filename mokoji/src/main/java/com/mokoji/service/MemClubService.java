@@ -20,4 +20,7 @@ public interface MemClubService {
 	
 	//승인 거절
 	public void delMemClub(MemClubVO vo);
+	
+	//동호회장인지 확인
+	public int checkClubJang(int memcode);
 }

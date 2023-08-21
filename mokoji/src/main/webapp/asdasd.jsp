@@ -3,154 +3,38 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-.autocomplete {
-  position: relative;
-  display: inline-block;
-}
-
-
-.autocomplete-items {
-  position: absolute;
-  border: 1px solid #d4d4d4;
-  border-bottom: none;
-  border-top: none;
-  z-index: 99;
-  top: 100%;
-  left: 0;
-  right: 0;
-}
-
-.autocomplete-items div {
-  padding: 10px;
-  cursor: pointer;
-  background-color: #fff; 
-  border-bottom: 1px solid #d4d4d4; 
-}
-
-.autocomplete-items div:hover {
-  background-color: #e9e9e9; 
-}
-
-.autocomplete-active {
-  background-color: DodgerBlue !important; 
-  color: #ffffff; 
-}
-</style>
-</head>     
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
 <body>
-
-<h2>Autocomplete</h2>
-
-<p>Start typing:</p>
-
-<!--Make sure the form has the autocomplete function switched off:-->
-
-  <div class="autocomplete">
-    <input id="search" type="text"  placeholder="Country">
-  </div>
- 
-
-
-<script>
-function autocomplete(inp, arr) {
-
-  var currentFocus;
-
-  inp.addEventListener("input", function(e) {
-      var a, b, i, val = this.value;
-
-      closeAllLists();
-      if (!val) { return false;}
-      currentFocus = -1;
-
-      a = document.createElement("DIV");
-      a.setAttribute("id", this.id + "autocomplete-list");
-      a.setAttribute("class", "autocomplete-items");
-  
-      this.parentNode.appendChild(a);
-  
-      for (i = 0; i < arr.length; i++) {
-  
-        if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
-  
-          b = document.createElement("DIV");
-  
-          b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
-          b.innerHTML += arr[i].substr(val.length);
-  
-          b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
-  
-          b.addEventListener("click", function(e) {
-  
-              inp.value = this.getElementsByTagName("input")[0].value;
-  
-              closeAllLists();
-          });
-          a.appendChild(b);
-        }
-      }
-  });
-  
-  inp.addEventListener("keydown", function(e) {
-      var x = document.getElementById(this.id + "autocomplete-list");
-      if (x) x = x.getElementsByTagName("div");
-      if (e.keyCode == 40) {
-      
-        currentFocus++;
-      
-        addActive(x);
-      } else if (e.keyCode == 38) { 
-      
-        currentFocus--;
-        
-        addActive(x);
-      } else if (e.keyCode == 13) {
-        
-        e.preventDefault();
-        if (currentFocus > -1) {
-        
-          if (x) x[currentFocus].click();
-        }
-      }
-  });
-  function addActive(x) {
-    
-    if (!x) return false;
-    
-    removeActive(x);
-    if (currentFocus >= x.length) currentFocus = 0;
-    if (currentFocus < 0) currentFocus = (x.length - 1);
-    
-    x[currentFocus].classList.add("autocomplete-active");
-  }
-  function removeActive(x) {
-    
-    for (var i = 0; i < x.length; i++) {
-      x[i].classList.remove("autocomplete-active");
-    }
-  }
-  function closeAllLists(elmnt) {
-    
-    var x = document.getElementsByClassName("autocomplete-items");
-    for (var i = 0; i < x.length; i++) {
-      if (elmnt != x[i] && elmnt != inp) {
-        x[i].parentNode.removeChild(x[i]);
-      }
-    }
-  }
-  
-  document.addEventListener("click", function (e) {
-      closeAllLists(e.target);
-  });
-}
-
-
-var countries = ["Afghanistan","Albania","Algeria","Andorra","Angola","Anguilla","Antigua & Barbuda","Argentina","Armenia","Aruba","Australia","Austria","Azerbaijan","Bahamas","Bahrain","Bangladesh","Barbados","Belarus","Belgium","Belize","Benin","Bermuda","Bhutan","Bolivia","Bosnia & Herzegovina","Botswana","Brazil","British Virgin Islands","Brunei","Bulgaria","Burkina Faso","Burundi","Cambodia","Cameroon","Canada","Cape Verde","Cayman Islands","Central Arfrican Republic","Chad","Chile","China","Colombia","Congo","Cook Islands","Costa Rica","Cote D Ivoire","Croatia","Cuba","Curacao","Cyprus","Czech Republic","Denmark","Djibouti","Dominica","Dominican Republic","Ecuador","Egypt","El Salvador","Equatorial Guinea","Eritrea","Estonia","Ethiopia","Falkland Islands","Faroe Islands","Fiji","Finland","France","French Polynesia","French West Indies","Gabon","Gambia","Georgia","Germany","Ghana","Gibraltar","Greece","Greenland","Grenada","Guam","Guatemala","Guernsey","Guinea","Guinea Bissau","Guyana","Haiti","Honduras","Hong Kong","Hungary","Iceland","India","Indonesia","Iran","Iraq","Ireland","Isle of Man","Israel","Italy","Jamaica","Japan","Jersey","Jordan","Kazakhstan","Kenya","Kiribati","Kosovo","Kuwait","Kyrgyzstan","Laos","Latvia","Lebanon","Lesotho","Liberia","Libya","Liechtenstein","Lithuania","Luxembourg","Macau","Macedonia","Madagascar","Malawi","Malaysia","Maldives","Mali","Malta","Marshall Islands","Mauritania","Mauritius","Mexico","Micronesia","Moldova","Monaco","Mongolia","Montenegro","Montserrat","Morocco","Mozambique","Myanmar","Namibia","Nauro","Nepal","Netherlands","Netherlands Antilles","New Caledonia","New Zealand","Nicaragua","Niger","Nigeria","North Korea","Norway","Oman","Pakistan","Palau","Palestine","Panama","Papua New Guinea","Paraguay","Peru","Philippines","Poland","Portugal","Puerto Rico","Qatar","Reunion","Romania","Russia","Rwanda","Saint Pierre & Miquelon","Samoa","San Marino","Sao Tome and Principe","Saudi Arabia","Senegal","Serbia","Seychelles","Sierra Leone","Singapore","Slovakia","Slovenia","Solomon Islands","Somalia","South Africa","South Korea","South Sudan","Spain","Sri Lanka","St Kitts & Nevis","St Lucia","St Vincent","Sudan","Suriname","Swaziland","Sweden","Switzerland","Syria","Taiwan","Tajikistan","Tanzania","Thailand","Timor L'Este","Togo","Tonga","Trinidad & Tobago","Tunisia","Turkey","Turkmenistan","Turks & Caicos","Tuvalu","Uganda","Ukraine","United Arab Emirates","United Kingdom","United States of America","Uruguay","Uzbekistan","Vanuatu","Vatican City","Venezuela","Vietnam","Virgin Islands (US)","Yemen","Zambia","Zimbabwe"];
-
-autocomplete(document.getElementById("search"), countries);
-</script>
-
+<div class="collapse" id="reply_card1">
+    <section class="modal-section">
+        <div class="card card-body">
+            <!-- 댓글 목록 -->
+            <div class="reply-list reply-list1">
+                <!-- 댓글이 목록이 들어가는 곳 -->
+            </div>
+            <!-- 댓글 작성 => 로그인한 상태여야만 댓글작성 칸이 나온다. -->
+            
+                <div class="row reply_write">
+                    <div class="col-1">
+                        <a href="other_profile.do?other_nick=">
+                            <img id="write_reply_profileImage"
+                                src="./upload/profile/" />
+                        </a>
+                    </div>
+                    <div class="col-8" class="input_reply_div">
+                        <input class="w-100 form-control" id="input_reply2"
+                            type="text" placeholder="댓글입력...">
+                    </div>
+                    <div class="col-3 ">
+                        <button type="button" idx="2"
+                            class="btn btn-success mb-1 write_reply">댓글&nbsp;달기</button>
+                    </div>
+                </div>
+            
+        </div>
+    </section>
+</div>
 </body>
 </html>

@@ -128,14 +128,18 @@ https://templatemo.com/tm-569-edu-meeting
                         <span class="right"></span>
                      </a>
                      <h2>${clublist.club_name}
-                        <small>Image from unsplash.com</small>
+                        <small>전체${clublist.club_memtot}</small>
+                        <small>가입한애들${clublist.club_left}</small>
+                        <small>남은자리${clublist.club_memtot-clublist.club_left}</small>
                      </h2>
                   </div>
                   <div class="card-flap flap1">
                      <div class="card-description">${ clublist.club_intro }</div>
                      <div class="card-flap flap2">
                         <div class="card-actions">
-                           <button type="submit" class="btn">가입하기</button>
+                        	<button type="submit" class="btn">가입하기</button>	
+                           
+                           
                         </div>
                      </div>
                   </div>

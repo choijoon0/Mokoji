@@ -10,8 +10,20 @@
 
 	<select id="selectClubPaneList" parameterType="club" resultType="hashmap">
 	SELECT p.CP_CODE, p.CP_NAME, p.CP_CONTENT, p.CP_DATE, p.CP_PIC, p.CP_CNT, p.CP_LIKES, p.MC_CODE, m.MEM_NAME, p.CP_RPIC FROM CLUBPANE p, MEMCLUB c, MEMBER m 
-	WHERE CLUB_CODE = 604 AND p.MC_CODE = c.MC_CODE AND c.MEM_CODE = m.MEM_CODE
+	WHERE CLUB_CODE = ${club_code} AND p.MC_CODE = c.MC_CODE AND c.MEM_CODE = m.MEM_CODE
 	</select>
+	
+	<update id="updateHeart">
+	UPDATE CLUBPANE SET CP_LIKES = CP_LIKES + 1 WHERE CP_CODE = #{cp_code}
+	</update>
 
+	<select id="getOneClubPane" resultType="clubpane" parameterType="integer">
+	SELECT CP_CODE, CP_NAME, CP_CONTENT, CP_DATE, CP_PIC, CP_CNT, CP_LIKES, MC_CODE FROM CLUBPANE WHERE CP_CODE = #{cp_code}
+	</select>
+	
+	<update id="downHeart">
+	UPDATE CLUBPANE SET CP_LIKES = CP_LIKES - 1 WHERE CP_CODE = #{cp_code}
+	</update>
+	
 </mapper>
 

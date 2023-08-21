@@ -56,4 +56,11 @@ public class MemClubServiceImple implements MemClubService{
 		memClubDAOImple.delMemClub(vo);
 	}
 
+	//동호회장 검사
+	@Override
+	public int checkClubJang(int memcode) {
+		// TODO Auto-generated method stub
+		return memClubDAOImple.checkClubJang(memcode);
+	}
+
 }

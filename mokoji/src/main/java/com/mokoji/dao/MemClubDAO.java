@@ -16,4 +16,7 @@ public interface MemClubDAO {
 	
 	//승인 거절
 	public void delMemClub(MemClubVO vo);
+	
+	//동호회 검사
+	public int checkClubJang(int memcode);
 }

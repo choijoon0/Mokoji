@@ -64,4 +64,15 @@ public class MemClubDAOImple implements MemClubDAO{
 		mybatis.delete("MemClubDAO.delMemClub", vo);
 	}
 
+	//동호회장 확인
+	@Override
+	public int checkClubJang(int memcode) {
+		// TODO Auto-generated method stub
+		Integer chnum = mybatis.selectOne("MemClubDAO.checkClubJang",memcode);
+		if(chnum==null) {
+			chnum = 0;
+		}
+		return chnum;
+	}
+
 }

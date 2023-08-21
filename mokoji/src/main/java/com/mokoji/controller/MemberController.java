@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.mokoji.domain.MemberVO;
+import com.mokoji.service.MemClubService;
 import com.mokoji.service.MemberService;
 
 @Controller
@@ -23,6 +24,9 @@ public class MemberController {
 	@Autowired
 	private MemberService memberService;
 
+	@Autowired
+	private MemClubService memClubService;
+	
 	// 로그인
 	@RequestMapping(value = "/checkMember.do")
 	public String checkMember(MemberVO vo, HttpSession session) throws IOException {
@@ -35,25 +39,31 @@ public class MemberController {
 		LocalDate now = LocalDate.now();
 		int year = now.getYear();
 
-		// 주민번호로 성별구하기
+		// 주민번호로 성별구하고 나이 뽑기
 		if (juminsex == '1' || juminsex == '3') {
 			vo.setMem_sex("남자");
+			session.setAttribute("gender", "남자");
 			if (juminsex == '1') {
 				int realage = year - (Integer.parseInt(juminage) + 1900)+1;
 				vo.setMem_age(realage);
+				session.setAttribute("age", realage);
 			} else if (juminsex == '3') {
 				int realage = year - (Integer.parseInt(juminage) + 2000) + 1;
 				vo.setMem_age(realage);
+				session.setAttribute("age", realage);
 			}
 
 		} else if (juminsex == '2' || juminsex == '4') {
 			vo.setMem_sex("여자");
+			session.setAttribute("gender", "여자");
 			if (juminsex == '2') {
 				int realage = year - (Integer.parseInt(juminage) + 1900) + 1;
 				vo.setMem_age(realage);
+				session.setAttribute("age", realage);
 			} else if (juminsex == '4') {
 				int realage = year - (Integer.parseInt(juminage) + 2000) + 1;
 				vo.setMem_age(realage);
+				session.setAttribute("age", realage);
 			}
 		}
 
@@ -68,10 +78,13 @@ public class MemberController {
 			session.setAttribute("sessionTime", new Date().toString());
 			session.setAttribute("name", result.getMem_id());
 			session.setAttribute("code", result.getMem_code());
-
 		}
-
+		
+		int chnum = memClubService.checkClubJang((int)session.getAttribute("code"));
+		session.setAttribute("checknum", chnum);
+		
 		return "redirect:/go.do";
+		
 
 	}
 

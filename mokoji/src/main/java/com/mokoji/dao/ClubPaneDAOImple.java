@@ -29,4 +29,24 @@ public class ClubPaneDAOImple implements ClubPaneDAO{
 		return list;
 	}
 
+	//하트 클릭 시 증가
+	@Override
+	public void updateHeart(int cp_code) {
+		// TODO Auto-generated method stub
+		mybatis.update("ClubPaneDAO.updateHeart", cp_code);
+	}
+
+	//하트 클릭 후 리스트
+	@Override
+	public List<ClubPaneVO> getOneClubPane(int cp_code) {
+		// TODO Auto-generated method stub
+		return mybatis.selectList("ClubPaneDAO.getOneClubPane",cp_code);
+	}
+	//하트 클릭 시 감소
+	@Override
+	public void downHeart(int cp_code) {
+		// TODO Auto-generated method stub
+		mybatis.update("ClubPaneDAO.downHeart", cp_code);
+	}
+
 }

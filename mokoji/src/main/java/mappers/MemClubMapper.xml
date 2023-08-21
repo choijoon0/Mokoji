@@ -40,4 +40,8 @@
 	<delete id="delMemClub" parameterType="memclub">
 	DELETE FROM MEMCLUB WHERE MC_CODE=#{mc_code}
 	</delete>
+	
+	<select id="checkClubJang" parameterType="integer" resultType="integer">
+	SELECT MEMCT_CODE FROM MEMCLUB WHERE MEM_CODE = #{mem_code} AND MEMCT_CODE=1
+	</select>
 </mapper>

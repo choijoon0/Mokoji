@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,6 +19,7 @@ import com.mokoji.domain.ClubVO;
 import com.mokoji.domain.MemberVO;
 import com.mokoji.service.CategoryService;
 import com.mokoji.service.ClubService;
+import com.mokoji.service.MemClubService;
 
 @Controller
 public class ClubController {
@@ -25,9 +28,12 @@ public class ClubController {
 
 	@Autowired
 	private CategoryService categoryService;
+	
+	
 
+	//동호회 생성
 	@RequestMapping(value="/insertClub.do")
-	public String insertClub(ClubVO cvo, MemberVO mvo, CategoryVO cavo) throws IOException{
+	public String insertClub(ClubVO cvo, MemberVO mvo, CategoryVO cavo, HttpSession session) throws IOException{
 		
 		HashMap<String, Object> map= new HashMap<String, Object>();
 		
@@ -44,6 +50,7 @@ public class ClubController {
 		
 		clubService.insertClub(map);
 		clubService.insertMemClub(map);
+		
 		
 
 		return "redirect:/go.do";
