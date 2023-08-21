@@ -64,8 +64,6 @@ public class MatchingServiceImple implements MatchingService{
 		// TODO Auto-generated method stub
 		matchingDAO.delMatching(vo);
 	}
-
-
 	
 	
 }

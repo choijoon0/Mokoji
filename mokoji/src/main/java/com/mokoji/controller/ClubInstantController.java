@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.mokoji.domain.ClubInstantVO;
 import com.mokoji.domain.ClubVO;
+import com.mokoji.domain.MatchingInfoVO;
 import com.mokoji.domain.MatchingVO;
 import com.mokoji.service.ClubInstantService;
 import com.mokoji.service.ClubService;
@@ -28,7 +29,7 @@ public class ClubInstantController {
 	private MatchingService matchingService;
 	
 	@RequestMapping(value = "/details.do")
-	public String getInstantList(ClubInstantVO vo, ClubVO vo2, MatchingVO vo3, Model model) throws IOException{
+	public String getInstantList(ClubInstantVO vo, ClubVO vo2, MatchingVO vo3 ,Model model) throws IOException{
 		
 		model.addAttribute("oneClubList", clubService.getOneClublist(vo2));
 		HashMap<String , Object> map = new HashMap<String, Object>();

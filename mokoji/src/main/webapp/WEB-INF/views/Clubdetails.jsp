@@ -90,6 +90,7 @@ https://templatemo.com/tm-569-edu-meeting
 																			<!-- Button trigger modal -->
 																			<table>
 																			<tr>
+																			<td>매칭이름</td>
 																			<td>동호회명</td>
 																			<td>승률</td>
 																			</tr>
@@ -97,21 +98,24 @@ https://templatemo.com/tm-569-edu-meeting
 																			<input type="hidden" value="${ allmatchList.MAT_CODE }" name="mat_code">
 																			<input type="hidden" value="${ allmatchList.CLUB_CODE }" name="club_code">
 																				<tr>
+																				<td>${allmatchList.MAT_NAME}</td>
 																				<td>${allmatchList.CLUB_NAME}</td>
 																				<td>승률</td>
 																				<td>
-																				<form action="upMemclub" method="post">
+																				<form action="upMatching.do" method="post">
 																					<c:forEach items="${ oneClubList }" var="clist">
 																						<input type="hidden" name="club_code" value="${ clist.club_code }">
 																					</c:forEach>
+																					<input type="hidden" name="matinfo_code" value="${allmatchList.MATINFO_CODE}">
 																					<button type="submit">수락</button>
 																					</form>
 																				</td>
 																				<td>
-																					<form action="delMemclub" method="post">
+																					<form action="delMatching.do" method="post">
 																						<c:forEach items="${ oneClubList }" var="clist">
 																							<input type="hidden" name="club_code" value="${ clist.club_code }">
 																						</c:forEach>
+																					<input type="hidden" name="matinfo_code" value="${allmatchList.MATINFO_CODE}">
 																					<button type="submit">거절</button>
 																					</form>
 																				</td>
@@ -137,10 +141,9 @@ https://templatemo.com/tm-569-edu-meeting
 																		<div class="meeting-single-item all match">																						
 																			<div class="down-content">
 																			<!-- Button trigger modal -->
-																			<c:forEach items="${ matchList }" var="mlist">
+																			<c:forEach items="${ oneClubList }" var="clist">
 																			<form action="insertMatching.do" method="post">
-																			<input type="hidden" value="${mlist.CLUB_CODE}" name="club_code">
-																			<input type="hidden" value="${mlist.MAT_CODE}" name="mat_code">
+																			<input type="hidden" value="${clist.club_code}" name="club_code">
 																				<div>매칭 이름</div>
 																				<input type="text" name="mat_name">
 																				<div>매칭 희망 날짜</div>

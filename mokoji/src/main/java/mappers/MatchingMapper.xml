@@ -11,10 +11,10 @@
 		<select id="selectMatching" resultType="integer">
 			SELECT SEQ_MATCHING.nextval FROM dual
 		</select>
-			
+		
 		<insert id="insertMatching" parameterType="hashmap">
 			INSERT INTO MATCHING (mat_code, mat_name, mat_date, mat_time, mat_cancle, club_code)
-			VALUES(seq_matching.nextval, #{match.mat_name}, #{match.mat_date}, #{match.mat_time}, 'N', #{club.club_code})
+			VALUES(#{match.mat_code}, #{match.mat_name}, #{match.mat_date}, #{match.mat_time}, 'N', #{club.club_code})
 		</insert>
 		
 		<insert id="insertMatchingInfo" parameterType="hashmap">
@@ -28,15 +28,16 @@
 		</insert>
 		
 		<select id="getAllMatch" parameterType="hashmap" resultType="hashmap">
-			SELECT b.club_name, a.matinfo_res, b.club_code FROM MATCHINGINFO a, CLUB b
-			WHERE a.club_code = b.club_code AND a.matinfo_join = 'N' AND a.mat_code = #{match.mat_code}
+			SELECT b.club_name, a.matinfo_res, b.club_code, m.MAT_NAME, a.matinfo_code FROM MATCHINGINFO a, CLUB b, MATCHING m
+			WHERE a.club_code = b.club_code AND m.MAT_CODE = a.MAT_CODE AND a.matinfo_join = 'N' AND m.CLUB_CODE = ${clublist.club_code}
+			AND m.MAT_DATE > SYSDATE 
 		</select>
 		
-		<update id="upMemclub" parameterType="matchinginfo">
-			UPDATE MEMCLUB SET MATINFO_JOIN= 'Y' WHERE MATINFO_CODE= #{matinfo_code}
+		<update id="upMatching" parameterType="matchinginfo">
+			UPDATE MEMCLUB SET MATINFO_JOIN= 'Y' WHERE matinfo_code= #{matinfo_code}
 		</update>
 
-		<delete id="delMemclub" parameterType="matchinginfo">
-			DELETE FROM MATCHINGINFO WHERE MATINFO_CODE = #{matinfo_code}
+		<delete id="delMatching" parameterType="matchinginfo">
+			DELETE FROM MATCHINGINFO WHERE matinfo_code = #{matinfo_code}
 		</delete>
 </mapper>

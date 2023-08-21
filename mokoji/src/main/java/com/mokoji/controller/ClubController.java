@@ -18,9 +18,9 @@ import com.mokoji.service.ClubService;
 
 @Controller
 public class ClubController {
+		
 	@Autowired
 	private ClubService clubService;
-
 
 	// 동호회등록
 	@RequestMapping(value = "/insertclub.do")
@@ -38,6 +38,7 @@ public class ClubController {
 		// return "main/main";
 		return "main/testindex";
 	}
+	
 
 	// 상위 카테고리 별 동호회 리스트 뽑기
 	@RequestMapping(value = "/clubTotal.do", method = RequestMethod.POST)

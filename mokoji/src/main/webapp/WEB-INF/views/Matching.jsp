@@ -76,11 +76,20 @@ https://templatemo.com/tm-569-edu-meeting
                     <form action="joinmatch.do">
                     <input type="hidden" value="${matchList.MAT_CODE}" name="mat_code">
                     <input type="hidden" value="${matchList.CLUB_CODE}" name="club_code">
+                    <input type="hidden" value="${memct_code}" name="memct_code">
                       <h4>${ matchList.MAT_NAME }</h4>
                       <div>동호회 명 : ${ matchList.CLUB_NAME }</div>
                       <div>희망 매칭 일자 : ${ matchList.MAT_DATE }</div>
                       <div>희망 매칭 시간 : ${ matchList.MAT_TIME }</div>
+                      <c:if test="${ memct_code == 15 and matchList.CTMID_CODE == 15 }">
     				  <button type="submit" class="matching-button-red" onclick="match()">참가하기</button>
+					  </c:if>
+					  <c:if test="${ memct_code == 10 and matchList.CTMID_CODE == 10 }">
+    				  <button type="submit" class="matching-button-red" onclick="match()">참가하기</button>
+					  </c:if>
+					  <c:if test="${ memct_code == 28 and matchList.CTMID_CODE == 28 }">
+    				  <button type="submit" class="matching-button-red" onclick="match()">참가하기</button>
+					  </c:if>                    
                     </form>
                     </div>
                   </div>

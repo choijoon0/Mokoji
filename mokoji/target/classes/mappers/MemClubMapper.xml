@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="MemClubDAO">
+
+	<select id="getMemCtCode" parameterType="hashmap" resultType="Integer">
+		SELECT c.ctmid_code FROM CLUB c, MEMCLUB m WHERE c.club_code = m.club_code AND m.mem_code=${member.mem_code} AND m.memct_code = 1
+	</select>
+	
+	<select id="checkClubJang" parameterType="integer" resultType="integer">
+	SELECT MEMCT_CODE FROM MEMCLUB WHERE MEM_CODE = #{mem_code} AND MEMCT_CODE=1
+	</select>
+
+</mapper>

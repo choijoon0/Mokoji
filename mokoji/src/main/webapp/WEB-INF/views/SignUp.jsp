@@ -118,6 +118,7 @@
          <div id="login">
 
             <form action="checkMember.do" method="post">
+            <input type="hidden" value="${memct_code}" name="memct_code">
 
                <div class="field-wrap">
                   <label> 아이디<span class="req"></span>

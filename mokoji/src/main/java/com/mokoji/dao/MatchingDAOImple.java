@@ -7,6 +7,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.mokoji.domain.ClubVO;
 import com.mokoji.domain.MatchingInfoVO;
 import com.mokoji.domain.MatchingVO;
 
@@ -69,7 +70,7 @@ public class MatchingDAOImple implements MatchingDAO{
 		@Override
 		public void delMatching(MatchingInfoVO vo) {
 			// TODO Auto-generated method stub
-			mybatis.update("MatchingDAO.delMatching", vo);
+			mybatis.delete("MatchingDAO.delMatching", vo);
 		}
 
 
