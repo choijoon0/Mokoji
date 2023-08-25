@@ -1,11 +1,9 @@
 package com.mokoji.controller;
 
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.request;
-
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,10 +13,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.mokoji.domain.CategoryVO;
 import com.mokoji.domain.ClubVO;
+import com.mokoji.domain.MemInterClubVO;
+import com.mokoji.domain.MemberVO;
 import com.mokoji.domain.SocialingVO;
 import com.mokoji.service.CategoryService;
 import com.mokoji.service.ClubService;
@@ -39,14 +38,13 @@ public class CategoryController {
          @RequestMapping(value = "/gosocial.do")
          public String social(SocialingVO vo2,CategoryVO vo, Model model) throws IOException{
         	 
-        	
-        	 
+        	 HashMap<String, Object> map= new HashMap<String, Object>();
         	 //상위
         	 model.addAttribute("highcategory", categoryService.getCateList2(vo));
             
         	 //85개
         	 model.addAttribute("midcategory", categoryService.getCateList(vo));
-           
+        	 
         	 //리스트
         	 model.addAttribute("SocialTotList", socialingService.getSocialList(vo2));
             
@@ -71,7 +69,17 @@ public class CategoryController {
 
 	//메인에서 넘길때
 	@RequestMapping(value = "/goclub.do")
-	public String category(ClubVO vo2, CategoryVO vo, Model model) throws IOException {
+	public String category(ClubVO vo2, CategoryVO vo, MemInterClubVO mivo, MemberVO mvo, HttpSession session, Model model) throws IOException {
+		
+		int code = (int)session.getAttribute("code");
+		mvo.setMem_code(code);
+		
+		HashMap<String, Object> map = new HashMap<String, Object> ();
+		map.put("clublist", vo2);
+		map.put("member", mvo);
+		map.put("meminter", mivo);
+		
+		
 		// 상위
 		model.addAttribute("highcategory", categoryService.getCateList2(vo));
 
@@ -79,7 +87,8 @@ public class CategoryController {
 		model.addAttribute("midcategory", categoryService.getCateList(vo));
 
 		// 리스트
-		model.addAttribute("clubTotList", clubService.getClubList(vo2));
+		model.addAttribute("clubTotList", clubService.getClubList(map));
+		
 		
 		return "clubTotal";
 	}

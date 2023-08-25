@@ -13,10 +13,12 @@
 		<typeAlias alias="member" type="com.mokoji.domain.MemberVO"/>
 		<typeAlias alias="category" type="com.mokoji.domain.CategoryVO"/>
 		<typeAlias alias="socialing" type="com.mokoji.domain.SocialingVO"/>
+		<typeAlias alias="Socialinginfo" type="com.mokoji.domain.SocialingInfoVO"/>
 		<typeAlias alias="club" type="com.mokoji.domain.ClubVO"/>
 		<typeAlias alias="clubpane" type="com.mokoji.domain.ClubPaneVO"/>
 		<typeAlias alias="memclub" type="com.mokoji.domain.MemClubVO"/>
 		<typeAlias alias="instant" type="com.mokoji.domain.ClubInstantVO"/>
+		<typeAlias alias="meminterclub" type="com.mokoji.domain.MemInterClubVO"/>
 		
 		
 	</typeAliases>

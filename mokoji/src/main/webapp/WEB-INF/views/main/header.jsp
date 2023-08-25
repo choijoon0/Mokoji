@@ -29,7 +29,7 @@
 							<li class="has-sub"><a href="javascript:void(0)">모임</a>
 								<ul class="sub-menu">
 									
-									<li><a href="createClub.do">모임생성</a></li>
+									<li><a href="gocreateClub.do">모임생성</a></li>
 									<li><a href="meeting-details.html">모임참가</a></li>
 								</ul>
 							</li>

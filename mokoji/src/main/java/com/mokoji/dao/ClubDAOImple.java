@@ -8,9 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.mokoji.domain.ClubVO;
-import com.mokoji.domain.IndexVO;
-
-import lombok.Builder.ObtainVia;
 
 @Repository("ClubDAO")
 public class ClubDAOImple implements ClubDAO {
@@ -37,23 +34,28 @@ public class ClubDAOImple implements ClubDAO {
 
 	// 동호회 리스트 가져오기
 	@Override
-	public List<ClubVO> getClubList(ClubVO vo) {
+	public List<ClubVO> getClubCard(ClubVO vo){
+		return mybatis.selectList("ClubDAO.getClubCard", vo);
+	}
+	
+	@Override
+	public List<HashMap<String, Object>> getClubList(HashMap<String, Object> map) {
 		// TODO Auto-generated method stub`
-		List<ClubVO> list = mybatis.selectList("ClubDAO.getClubList", vo);
+		List<HashMap<String, Object>> list = mybatis.selectList("ClubDAO.getClubList", map);
 		return list;
 	}
 
 	// 분류별 동호회 리스트
 	@Override
-	public List<ClubVO> getClubListInterest(String ctmid_name) {
+	public List<HashMap<String, Object>> getClubListInterest(HashMap<String, Object> map) {
 		// TODO Auto-generated method stub
-		return mybatis.selectList("ClubDAO.getSelectedClubList", ctmid_name);
+		return mybatis.selectList("ClubDAO.getSelectedClubList", map);
 	}
 
 	@Override
-	public List<ClubVO> getHighClubListInterest(String cthigh_name) {
+	public List<HashMap<String, Object>> getHighClubListInterest(HashMap<String, Object> map) {
 		// TODO Auto-generated method stub
-		return mybatis.selectList("ClubDAO.getSelectedHighClubList", cthigh_name);
+		return mybatis.selectList("ClubDAO.getSelectedHighClubList", map);
 	}
 
 	@Override

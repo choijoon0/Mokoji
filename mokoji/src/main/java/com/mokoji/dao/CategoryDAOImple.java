@@ -44,4 +44,10 @@ public class CategoryDAOImple implements CategoryDAO {
 		return list;
 
 	}
+	
+	@Override
+	public String getCateMidName(int ctmid_code) {
+		String ctmid_name = mybatis.selectOne("CategoryDAO.getCateMidName", ctmid_code);		
+		return ctmid_name;
+	}
 }

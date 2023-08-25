@@ -8,4 +8,5 @@ public interface MemClubService {
 	public void joinClub(HashMap<String, Object> map);
 	//동호회가입확인
 	public String checkMemClub(HashMap<String, Object> map);
+	
 }

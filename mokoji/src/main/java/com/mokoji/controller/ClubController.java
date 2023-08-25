@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,10 +16,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.mokoji.domain.CategoryVO;
 import com.mokoji.domain.ClubVO;
+import com.mokoji.domain.MemInterClubVO;
 import com.mokoji.domain.MemberVO;
-import com.mokoji.domain.IndexVO;
-import com.mokoji.domain.MemberVO;
-import com.mokoji.service.CategoryService;
 import com.mokoji.service.ClubService;
 
 
@@ -25,7 +25,7 @@ import com.mokoji.service.ClubService;
 public class ClubController {
 	@Autowired
 	private ClubService ClubService;
-
+	
 	@RequestMapping(value="/insertClub.do")
 	public String insertClub(ClubVO cvo, MemberVO mvo, CategoryVO cavo) throws IOException{
 		
@@ -37,8 +37,6 @@ public class ClubController {
 		
 		
 		cvo.setClub_code(num);
-		
-		
 		
 		map.put("club", cvo);
 		
@@ -60,9 +58,9 @@ public class ClubController {
 
 	// index - main 연결
 	@RequestMapping(value = "/go.do")
-	public String goMain(CategoryVO vo1, ClubVO vo, Model model) throws IOException {
+	public String goMain(CategoryVO vo1, ClubVO vo,  Model model) throws IOException {
 		// 동호회 리스트 가져오기
-		model.addAttribute("clubList", ClubService.getClubList(vo));
+		model.addAttribute("clubList", ClubService.getClubCard(vo));
 
 		// return "main/main";
 		return "/main/testindex";
@@ -71,18 +69,44 @@ public class ClubController {
 	// 상위 카테고리 별 동호회 리스트 뽑기
 	@RequestMapping(value = "/clubTotal.do", method = RequestMethod.POST)
 	@ResponseBody
-	public List<ClubVO> getHighClubListInterest(@RequestParam("cthigh_name") String cthigh_name) {
-		return ClubService.getHighClubListInterest(cthigh_name);
+	public List<HashMap<String, Object>> getHighClubListInterest(@RequestParam("cthigh_name") String cthigh_name, ClubVO vo,MemInterClubVO mivo, CategoryVO cvo,MemberVO mvo, HttpSession session) {
+		
+		System.out.println("ㅗㅗ");
+		int code = (int)session.getAttribute("code");
+		System.out.println(code + "회원코드");
+		System.out.println(cthigh_name + "하이카테이름");
+		mvo.setMem_code(code);
+		cvo.setCthigh_name(cthigh_name);
+		
+		HashMap<String, Object> map = new HashMap<String, Object> ();
+		map.put("club", vo);
+		map.put("cate", cvo);
+		map.put("member", mvo);
+		map.put("meminter", mivo);
+		
+		return ClubService.getHighClubListInterest(map);
 	}
 
 	// 하위 카테고리 별 동호회 리스트 뽑기
 	@RequestMapping(value = "/clubTotal.do", method = RequestMethod.GET)
 	@ResponseBody
-	public List<ClubVO> getClubListInterest(@RequestParam("ctmid_name") String ctmid_name) {
-		return ClubService.getClubListInterest(ctmid_name);
+	public List<HashMap<String, Object>> getClubListInterest(@RequestParam("ctmid_name") String ctmid_name, ClubVO vo, MemInterClubVO mivo, CategoryVO cvo,MemberVO mvo, HttpSession session) {
+		
+		System.out.println("ㅗㅗ");
+		int code = (int)session.getAttribute("code");
+		System.out.println(code + "회원코드");
+		System.out.println(ctmid_name + "하이카테이름");
+		mvo.setMem_code(code);
+		cvo.setCthigh_name(ctmid_name);
+		
+		HashMap<String, Object> map = new HashMap<String, Object> ();
+		map.put("club", vo);
+		map.put("cate", cvo);
+		map.put("member", mvo);
+		map.put("meminter", mivo);
+		
+		return ClubService.getClubListInterest(map);
 	}
-	
-	
-
+		
 }
 

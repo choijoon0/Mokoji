@@ -77,8 +77,8 @@ https://templatemo.com/tm-569-edu-meeting
 
 						<div class="col-lg-12">
 							<div class="row grid">
-							
-							
+
+
 								<form action="challengeinsert.do" enctype="multipart/form-data">
 									<section class="contact-us" id="contact">
 										<div class="templatemo-item-col all chal">
@@ -120,8 +120,7 @@ https://templatemo.com/tm-569-edu-meeting
 																			<div id="challimage_container"></div> <input
 																			name="challengefile" type="file" id="chall_pic"
 																			accept="image/*" onchange="setThumbnail1(event);"
-																			placeholder="이미지를 선택해주세요" name="challimgup" /> <script
-																				src="././resources/js/socialuploadimg.js"></script>
+																			placeholder="이미지를 선택해주세요" name="challimgup" />
 																	</div>
 																	<div class="col-lg-12">
 																		<fieldset>
@@ -149,13 +148,13 @@ https://templatemo.com/tm-569-edu-meeting
 
 																	<div class="field-wrap">
 																		<label> 관심사<span class="req"></span></label> <select
-																			id="cthigh_name2" name="cthigh_name"
-																			onchange="remove2()">
+																			id="cthigh_name" name="cthigh_name"
+																			onchange="remove()">
 																			<option value="선택" selected>====</option>
 																			<c:forEach items="${ catehighList }" var="category">
 																				<option value="${ category.cthigh_name }">${ category.cthigh_name }</option>
 																			</c:forEach>
-																		</select> <select id="mem_favorite4" name="ctmid_code">
+																		</select> <select id="mem_favorite2" name="ctmid_code">
 
 																			<option value="선택">====</option>
 
@@ -244,8 +243,7 @@ https://templatemo.com/tm-569-edu-meeting
 																			<div id="socialimage_container"></div> <input
 																			name="socialingfile" type="file" id="social_pic"
 																			accept="image/*" onchange="setThumbnail(event);"
-																			placeholder="이미지를 선택해주세요" name="socialimgup" /> <script
-																				src="././resources/js/socialuploadimg.js"></script>
+																			placeholder="이미지를 선택해주세요" name="socialimgup" />
 																		</label>
 
 																	</div>
@@ -275,22 +273,30 @@ https://templatemo.com/tm-569-edu-meeting
 
 																	<div class="field-wrap">
 																		<label> 관심사<span class="req"></span></label> <select
-																			id="cthigh_name" name="cthigh_name"
-																			onchange="remove()">
+																			id="cthigh_name1" name="cthigh_name"
+																			onchange="remove1()">
 																			<option value="선택" selected>====</option>
 																			<c:forEach items="${ catehighList }" var="category">
 																				<option value="${ category.cthigh_name }">${ category.cthigh_name }</option>
 																			</c:forEach>
-																		</select> <select id="mem_favorite2" name="ctmid_code">
-
+																		</select> <select id="mem_favorite3" name="ctmid_code">
 																			<option value="선택">====</option>
 
 
 																		</select>
 																	</div>
 
-																	<label class="item">어떻게 멤버를 모집할까요?</label> <label
-																		class="item2">참여 조건</label>
+																	<label class="item">어떻게 멤버를 모집할까요?</label>
+
+																	<div>
+																		<label id="com"> <input type="radio"
+																			name="social_signtype" value="선착순">선착순
+																		</label> <label id="grant"> <input type="radio"
+																			name="social_signtype" value="승인제">승인제
+																		</label>
+
+																	</div>
+																	<label class="item2">참여 조건</label>
 																	<div class="line-81-zw3"></div>
 																	<label class="item--ySH">성별</label>
 																	<div class="gender">
@@ -380,9 +386,8 @@ https://templatemo.com/tm-569-edu-meeting
 										<label class="rectangle-232-vNM">
 											<div id="clubimage_container"></div> <input name="clubfile"
 											type="file" id="club_pic" accept="image/*"
-											onchange="setThumbnail1(event);" placeholder="이미지를 선택해주세요"
-											name="clubimgup" /> <script
-												src="././resources/js/socialuploadimg.js"></script>
+											onchange="setThumbnail2(event);" placeholder="이미지를 선택해주세요"
+											name="clubimgup" />
 									</div>
 									<div class="col-lg-12">
 										<fieldset>
@@ -408,12 +413,12 @@ https://templatemo.com/tm-569-edu-meeting
 
 									<div class="field-wrap">
 										<label> 관심사<span class="req"></span></label> <select
-											id="cthigh_name1" name="cthigh_name1" onchange="remove1()">
+											id="cthigh_name2" name="cthigh_name" onchange="remove2()">
 											<option value="선택" selected>====</option>
 											<c:forEach items="${ catehighList }" var="category">
 												<option value="${ category.cthigh_name }">${ category.cthigh_name }</option>
 											</c:forEach>
-										</select> <select id="mem_favorite3" name="ctmid_code">
+										</select> <select id="mem_favorite4" name="ctmid_code">
 
 											<option value="선택" selected>====</option>
 
@@ -543,6 +548,7 @@ https://templatemo.com/tm-569-edu-meeting
 	<script src="././resources/js/category.js"></script>
 	<script src="././resources/js/socialloadimg.js"></script>
 	<script src="././resources/js/socialpay.js"></script>
+	<script src="././resources/js/category.js"></script>
 	<script>
         //according to loftblog tut
         $('.nav li:first').addClass('active');

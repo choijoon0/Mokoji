@@ -43,7 +43,7 @@
                   </div>
 
                   <div class="field-wrap">
-                     <input type="password" id="userpasschk" name="mem_pw" placeholder="비밀번호 확인" maxlength="14" title="14자 까지 입력" required autofocus /> 
+                     <input type="password" id="userpasschk" name="mem_pw2" placeholder="비밀번호 확인" maxlength="14" title="14자 까지 입력" required autofocus /> 
                      <span class="point successPwChk"></span> 
                      <input type="hidden" id="PwDoubleChk" />
                   </div>

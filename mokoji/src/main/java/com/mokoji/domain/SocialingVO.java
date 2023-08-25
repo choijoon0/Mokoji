@@ -8,9 +8,16 @@ import java.util.UUID;
 import org.springframework.web.multipart.MultipartFile;
 
 public class SocialingVO {
-	private String social_name, social_content, social_loc, social_pic, social_rpic, social_gender;
+	private String social_name, social_content, social_loc, social_pic, social_rpic, social_gender, social_signtype;
 	private int social_code, social_tot, social_cost, social_maxage; 
 	private Date social_starttime, social_date;
+	
+	public String getSocial_signtype() {
+		return social_signtype;
+	}
+	public void setSocial_signtype(String social_signtype) {
+		this.social_signtype = social_signtype;
+	}
 	MultipartFile socialingfile;
 	public MultipartFile getSocialingfile() {
 		return socialingfile;

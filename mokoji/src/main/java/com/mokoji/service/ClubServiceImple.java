@@ -16,31 +16,34 @@ public class ClubServiceImple implements ClubService{
 	@Autowired
 	private ClubDAOImple ClubDAO;
 	
-	
-	
 	//동호회 리스트
 	@Override
-	public List<ClubVO> getClubList(ClubVO vo) {
+	public List<ClubVO> getClubCard(ClubVO vo){
+		return ClubDAO.getClubCard(vo);
+	}
+	
+	@Override
+	public List<HashMap<String, Object>> getClubList(HashMap<String, Object> map) {
 		// TODO Auto-generated method stub
-		return ClubDAO.getClubList(vo);
+		return ClubDAO.getClubList(map);
 	}
 
 
 
 	//동호회 관심사 리스트 가져오기
 	@Override
-	public List<ClubVO> getClubListInterest(String ctmid_name) {
+	public List<HashMap<String, Object>> getClubListInterest(HashMap<String, Object> map) {
 		// TODO Auto-generated method stub
-		return ClubDAO.getClubListInterest(ctmid_name);
+		return ClubDAO.getClubListInterest(map);
 	}
 
 
 
 
 	@Override
-	public List<ClubVO> getHighClubListInterest(String cthigh_name) {
+	public List<HashMap<String, Object>> getHighClubListInterest(HashMap<String, Object> map) {
 		// TODO Auto-generated method stub
-		return ClubDAO.getHighClubListInterest(cthigh_name);
+		return ClubDAO.getHighClubListInterest(map);
 	}
 
 

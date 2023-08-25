@@ -41,4 +41,8 @@ public class CategoryServiceImple implements CategoryService {
 		return categoryDAO.getCateList2(vo);
 	}
 
+	@Override
+	public String getCateMidName(int ctmid_code) {
+		return categoryDAO.getCateMidName(ctmid_code);
+	}
 }

@@ -19,5 +19,9 @@
 	<select id="getCateList2" resultType="category">
 	SELECT cthigh_name from CATEGORYHIGH
 	</select>
+	
+	<select id="getCateMidName" resultType="String">
+	SELECT ctmid_name FROM CATEGORYMIDDLE WEHRE ctmid_code = #{ctmid_code}
+	</select>
 
 </mapper>

@@ -7,8 +7,9 @@ import java.util.UUID;
 import org.springframework.web.multipart.MultipartFile;
 
 public class MemberVO {
-	private String mem_id, mem_pw, mem_name, mem_jumin, mem_tel, mem_favorite, mem_loc, mem_addr, mem_email, mem_fname, mem_realfname, mem_addrdetail;
-	private int mem_code, mem_point;
+	private String mem_id, mem_pw, mem_name, mem_jumin, mem_tel, mem_favorite, mem_loc, mem_addr, mem_email, mem_fname, mem_realfname, mem_addrdetail,mem_sex;
+	private int mem_code, mem_point, mem_age;
+	
 	//*************************************************
 	MultipartFile file;	// write.jsp에 파일첨부시 name="file"과 동일한 변수명
 	
@@ -42,6 +43,20 @@ public class MemberVO {
 						e.printStackTrace();
 					}
 				}
+	}
+	
+	public String getMem_sex() {
+		return mem_sex;
+	}
+	public void setMem_sex(String mem_sex) {
+		this.mem_sex = mem_sex;
+	}
+	public int getMem_age() {
+		return mem_age;
+	}
+	public void setMem_age(int mem_age) {
+		this.mem_age = mem_age;
+		System.out.println(mem_age+"asdddasasdasga");
 	}
 	public String getMem_id() {
 		return mem_id;

@@ -28,6 +28,9 @@
          <value>com.mokoji.domain.ClubVO</value>
          <value>com.mokoji.domain.SocialingVO</value>
          <value>com.mokoji.domain.ClubInstantVO</value>
+         <value>com.mokoji.domain.SocialingInfoVO</value>
+         <value>com.mokoji.domain.MemInterClubVO</value>
+         
       </list>
    </property>
  </bean>
