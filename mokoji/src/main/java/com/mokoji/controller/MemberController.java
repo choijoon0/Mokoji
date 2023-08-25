@@ -1,5 +1,7 @@
 package com.mokoji.controller;
 
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
+
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.Date;
@@ -10,6 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -18,6 +21,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.mokoji.domain.ClubVO;
 import com.mokoji.domain.MemClubVO;
 import com.mokoji.domain.MemberVO;
+import com.mokoji.service.MatchingService;
 import com.mokoji.service.MemClubService;
 import com.mokoji.service.MemberService;
 
@@ -30,9 +34,10 @@ public class MemberController {
 	@Autowired
 	private MemClubService memClubService;
 	
+	
 	// 로그인
 	@RequestMapping(value = "/checkMember.do")
-	public String checkMember(MemberVO vo, MemClubVO mvo, ClubVO cvo , HttpSession session) throws IOException {
+	public String checkMember(MemberVO vo, MemClubVO mvo, ClubVO cvo , HttpSession session, Model model) throws IOException {
 		MemberVO result = memberService.checkMember(vo);
 
 		char juminsex = result.getMem_jumin().charAt(6);

@@ -25,7 +25,7 @@
 							<li><a href="meetings.html">챌린지</a></li>
 							<li><a href="#apply">소셜</a></li>
 							<li><a href="goclub.do">커뮤니티</a></li>
-							<li><a href="#contact">기프티콘</a></li>
+							<li><a href="chart.do">기프티콘</a></li>
 							<li class="has-sub"><a href="goclub.do">모임</a>
 								<ul class="sub-menu">
 									<li><a href="createClub.do">모임생성</a></li>

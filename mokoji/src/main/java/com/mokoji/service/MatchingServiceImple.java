@@ -65,5 +65,15 @@ public class MatchingServiceImple implements MatchingService{
 		matchingDAO.delMatching(vo);
 	}
 	
+	@Override
+	public int getwincount(ClubVO vo) {
+		return matchingDAO.getwincount(vo);
+	}
+	
+	@Override
+	public int getlostcount(ClubVO vo) {
+		return matchingDAO.getlostcount(vo);
+	}
+	
 	
 }

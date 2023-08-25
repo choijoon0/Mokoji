@@ -4,8 +4,12 @@
 <mapper namespace="MatchingDAO">
 
 		<select id="getMatchList" parameterType="hashmap" resultType="hashmap">
-			SELECT a.mat_name, a.mat_date, a.mat_time, a.mat_code, a.mat_cancle, b.club_code, b.club_name, b.club_rpic, b.ctmid_code FROM MATCHING a, CLUB b
-			WHERE a.club_code = b.club_code
+			  SELECT a.mat_name, a.mat_date, a.mat_time, a.mat_code, a.mat_cancle, b.club_code, b.club_name, b.club_rpic, b.ctmid_code, nvl(aaa.cnt , 0) AS wincount, nvl(bbb.cnt1 , 0) AS lostcount FROM MATCHING a
+			  LEFT JOIN CLUB b ON a.club_code = b.club_code
+			  LEFT JOIN (SELECT CLUB_CODE, count(*) AS cnt FROM  MATCHINGINFO m2 WHERE  m2.MATINFO_RES='승' GROUP BY CLUB_CODE) aaa
+			  ON a.CLUB_CODE = aaa.club_code
+			  LEFT JOIN (SELECT CLUB_CODE, count(*) AS cnt1 FROM  MATCHINGINFO m2 WHERE  m2.MATINFO_RES='패' GROUP BY CLUB_CODE) bbb
+			  ON a.CLUB_CODE = bbb.club_code
 		</select>	
 			
 		<select id="selectMatching" resultType="integer">
@@ -40,4 +44,12 @@
 		<delete id="delMatching" parameterType="matchinginfo">
 			DELETE FROM MATCHINGINFO WHERE matinfo_code = #{matinfo_code}
 		</delete>
+		
+		<select id="getwincount" parameterType="club" resultType="int">
+		SELECT COUNT(MATINFO_CODE) FROM MATCHINGINFO WHERE CLUB_CODE = #{ club_code } AND MATINFO_RES='승' 
+		</select>
+		
+		<select id="getlostcount" parameterType="club" resultType="int">
+		SELECT COUNT(MATINFO_CODE) FROM MATCHINGINFO WHERE CLUB_CODE = #{club_code} AND MATINFO_RES='패'
+		</select>
 </mapper>

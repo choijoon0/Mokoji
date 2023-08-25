@@ -27,4 +27,8 @@ public interface MatchingDAO {
 		// 승인 거절
 		public void delMatching(MatchingInfoVO vo);
 		
+		public int getwincount(ClubVO vo);
+		
+		public int getlostcount(ClubVO vo);
+		
 }

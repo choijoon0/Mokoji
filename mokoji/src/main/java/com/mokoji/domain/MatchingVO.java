@@ -3,7 +3,7 @@ package com.mokoji.domain;
 public class MatchingVO {
 
 	private String mat_name, mat_date, mat_time, mat_cancle;
-	private int mat_code, mat_clubtot, mat_clubmemtot;
+	private int mat_code, mat_clubtot, mat_clubmemtot, wincount, lostcount;
 	
 	public String getMat_name() {
 		return mat_name;
@@ -47,7 +47,18 @@ public class MatchingVO {
 	public void setMat_clubmemtot(int mat_clubmemtot) {
 		this.mat_clubmemtot = mat_clubmemtot;
 	}
-
+	public int getWincount() {
+		return wincount;
+	}
+	public void setWincount(int wincount) {
+		this.wincount = wincount;
+	}
+	public int getLostcount() {
+		return lostcount;
+	}
+	public void setLostcount(int lostcount) {
+		this.lostcount = lostcount;
+	}
 
 	
 }

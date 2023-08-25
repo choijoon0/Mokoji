@@ -5,6 +5,10 @@ import java.util.HashMap;
 
 import javax.servlet.http.HttpSession;
 
+import org.python.core.PyFunction;
+import org.python.core.PyInteger;
+import org.python.core.PyObject;
+import org.python.util.PythonInterpreter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,7 +21,6 @@ import com.mokoji.domain.MatchingInfoVO;
 import com.mokoji.domain.MatchingVO;
 import com.mokoji.domain.MemClubVO;
 import com.mokoji.domain.MemberVO;
-import com.mokoji.service.ClubService;
 import com.mokoji.service.MatchingService;
 import com.mokoji.service.MemClubService;
 
@@ -29,6 +32,7 @@ public class MatchingController {
 	
 	@Autowired
 	private MemClubService memClubService;
+	
 	
 	// 매칭 등록
 	@RequestMapping(value = "/insertMatching.do", method = RequestMethod.POST)
@@ -51,7 +55,7 @@ public class MatchingController {
 	
 	
 	// 매칭 리스트
-	@RequestMapping(value = "/match.do")
+	@RequestMapping(value = "/match.do", method = RequestMethod.GET)
 	public String getMatchList(MatchingVO mvo, ClubVO cvo, CategoryVO ctvo, MemberVO mbvo, Model model, HttpSession session) throws IOException{
 		
 		if(session.getAttribute("clubcode")!= null) {
@@ -73,9 +77,9 @@ public class MatchingController {
 		
 		int memct = memClubService.getMemCtCode(map);
 	    session.setAttribute("memct_code", memct);
-
+	    
 	    model.addAttribute("matchList", matchingService.getMatchList(map));
-
+	    
 		return "Matching";
 	}
 	
@@ -111,4 +115,6 @@ public class MatchingController {
 			
 			return "redirect:/details.do";
 		}
+		
+		
 }
