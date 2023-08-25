@@ -44,25 +44,44 @@ figure, header, nav, section, article, aside, footer, figcaption {
   outline: 0;
 }
 
+.col-lg-120{
+   margin-left: 80px;
+    padding-bottom: 30px;
+    width: 100%;
+}
+
+
 .bun{
    solid:0px;
+}
+
+.modal{
+   width:100%;
+}
+
+#newCisnt{
+   position: absolute;
+    width: 10px;
+    top: 205px;
+    left: 135px;
+   
+}
+
+.do{
+   position: absolute;
+    left: 25rem;
+    top: 47.1rem;
+   
 }
 
 #newpid{
    position: absolute;
    left: 440px;
-    top: 950px;
+    top: 100%;
    height: 40px;
     width: 150px;
 }
 
-.datinsert{
-   bottom: 76px;
-    left: 820px;
-    height: 30px;
-    width: 120px;
-    position: absolute;
-}
 
 #grant{
    width:115px;
@@ -1450,8 +1469,8 @@ section.contact-us {
 
 section.contact-us #contact {
     position: relative;
-    margin-bottom: 30px;
-   left: 155px;
+    margin-bottom:30px;
+   left: 525px;
    width:1000px;
   background-color: #fff;
   border-radius: 20px;
@@ -1500,7 +1519,7 @@ section.contact-us #contact textarea {
 }
 
 section.contact-us #contact button {
-   margin-right: 10px;
+   margin-right: 3px;
   font-size: 13px;
   color: #fff;
   background-color: #a12c2f;
@@ -1982,7 +2001,7 @@ responsive
     }
 
     &:before {
-      content: "++";
+      content: "";
       position: absolute;
       right: 1em;
       top: 1.5em;
@@ -1992,7 +2011,7 @@ responsive
     }
 
     &:after {
-      content: "--";
+      content: "";
       position: absolute;
       right: 1.25em;
       top: 1.25em;

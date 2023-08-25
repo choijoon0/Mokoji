@@ -20,7 +20,7 @@
 	href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900"
 	rel="stylesheet">
 
-<title>동호회 상세</title>
+<title>Education - List of Meetings</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
 	rel="stylesheet"
@@ -37,7 +37,10 @@
 <link rel="stylesheet" href="././resources/style/fontawesome.css">
 <link rel="stylesheet" href="././resources/style/owl.css">
 <link rel="stylesheet" href="././resources/style/lightbox.css">
-<link rel="stylesheet" href="././resources/style/clubdetails.css">
+<link rel="stylesheet" href="././resources/style/clubtest.css">
+<link rel="stylesheet" href="././resources/style/reply.css">
+<script src="https://code.jquery.com/jquery-1.9.1.js" integrity="sha256-e9gNBsAcA0DBuRWbm0oZfbiCyhjLrI6bmqAl5o+ZjUA=" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 
 <!--
@@ -58,7 +61,6 @@ https://templatemo.com/tm-569-edu-meeting
 			<div class="row">
 				<div class="col-lg-12">
 					<h6>Here are our upcoming meetings</h6>
-					<h2>${ clist.club_name }</h2>
 				</div>
 			</div>
 		</div>
@@ -73,122 +75,133 @@ https://templatemo.com/tm-569-edu-meeting
 								<ul>
 									<c:choose>
 										<c:when test="${ memct_code eq 1 }">
-											<li data-filter=".joincurrent">승인현황</li>
+											<!-- Button trigger modal -->
+											<li type="button" class="btn" data-bs-toggle="modal" data-bs-target="#joincurrentModal">승인현황</li>
 											<li data-filter=".sang" class="active">상세페이지</li>
-											<li data-filter=".pid">모임피드</li>
+											<li type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModalToggle">모임피드</li>
 										</c:when>
 
 										<c:when test="${ memct_code eq 2 }">
 											<li data-filter=".sang" class="active">상세페이지</li>
-											<li data-filter=".pid">모임피드</li>
+											<li type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModalToggle">모임피드</li>
 										</c:when>
 
 										<c:when test="${ memct_code eq 0 }">
 											<li data-filter=".sang" class="active">상세페이지</li>
 										</c:when>
+
 									</c:choose>
 								</ul>
+
 							</div>
 						</div>
 
-						<div class="col-lg-12">
-							<div class="row grid">
 
-								<section class="contact-us" method="post">
 
-									<div class="templatemo-item-col all joincurrent">
-										<div class="row">
-											<div class="col-lg-9 align-self-center">
+
+
+
+						<!-- 승인현황 -->
+						<div class="modal fade" id="joincurrentModal" tabindex="-1"
+							aria-labelledby="ModalLabel" aria-hidden="true">
+							<div class="modal-dialog modal-xl">
+								<div class="modal-content">
+									<div class="modal-header">
+										<h1 class="modal-title fs-5" id="exampleModalLabel">승인현황</h1>
+										<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+									</div>
+
+									<div class="modal-body1">
+										<div class="col-lg-12">
+											<div id="contact">
 												<div class="row">
-													<div class="col-lg-12">
-														<div id="contact">
-															<div class="row">
-																<div class="col-lg-12">
-																	<h2>승인현황</h2>
-																</div>
-																<table class="table">
-																	<tr>
-																		<th scope="col"></th>
-																		<th scope="col">아이디</th>
-																		<th scope="col">성별</th>
-																		<th scope="col">나이</th>
-																		<th scope="col">승인</th>
-																	</tr>
+													<div class="col-lg-12"></div>
+													<table class="table">
+														<tr>
+															<th scope="col"></th>
+															<th scope="col">이름</th>
+															<th scope="col">아이디</th>
+															<th scope="col">성별</th>
+															<th scope="col">나이</th>
+															<th scope="col">승인</th>
+														</tr>
 
-																	<c:forEach items="${MemClubList}" var="memclub">
-																		<c:set var="i" value="${i+1}"></c:set>
-																		<tr>
-																			<th scope="row">${i}</th>
-																			<td>${memclub.MEM_ID}</td>
+														<c:forEach items="${MemClubList}" var="memclub">
+															<c:set var="i" value="${i+1}"></c:set>
+															<tr>
+																<th scope="row">${i}</th>
+																<td>${memclub.MEM_NAME }</td>
+																<td>${memclub.MEM_ID}</td>
 
-																			<c:if
-																				test="${Integer.parseInt(memclub.MEM_JUMIN.charAt(6)) eq '1' or Integer.parseInt(memclub.MEM_JUMIN.charAt(6)) eq '3'}">
-																				<td>남자</td>
-																			</c:if>
+																<c:if test="${Integer.parseInt(memclub.MEM_JUMIN.charAt(6)) eq '1' or Integer.parseInt(memclub.MEM_JUMIN.charAt(6)) eq '3'}">
+																	<td>남자</td>
+																</c:if>
 
-																			<c:if
-																				test="${Integer.parseInt(memclub.MEM_JUMIN.charAt(6)) eq '2' or Integer.parseInt(memclub.MEM_JUMIN.charAt(6)) eq '4'}">
-																				<td>여자</td>
-																			</c:if>
+																<c:if test="${Integer.parseInt(memclub.MEM_JUMIN.charAt(6)) eq '2' or Integer.parseInt(memclub.MEM_JUMIN.charAt(6)) eq '4'}">
+																	<td>여자</td>
+																</c:if>
 
-																			<c:if
-																				test="${Integer.parseInt(memclub.MEM_JUMIN.charAt(6)) eq '1' or Integer.parseInt(memclub.MEM_JUMIN.charAt(6)) eq '2'}">
-																				<c:set var="now" value="<%=new java.util.Date()%>" />
-																				<c:set var="sysYear">
-																					<fmt:formatDate value="${now}" pattern="yyyy" />
-																				</c:set>
-																				<td>${sysYear-(Integer.parseInt(memclub.MEM_JUMIN.substring(0, 2))+1900)+1}</td>
-																			</c:if>
-																			<td>
-																				<form action="upMemClub.do" method="post">
-																					<c:forEach items="${ oneClubList }" var="clist">
-																						<input type="hidden" name="club_code"
-																							value="${clist.club_code }">
-																					</c:forEach>
-																					<input type="hidden" name="mc_code"
-																						value="${memclub.MC_CODE}" />
-																					<button class="grant" type="submit" value="승인">승인</button>
-																				</form>
-																				<form action="delMemClub.do" method="post">
-																					<c:forEach items="${ oneClubList }" var="clist">
-																						<input type="hidden" name="club_code"
-																							value="${clist.club_code }">
-																					</c:forEach>
-																					<input type="hidden" name="mc_code"
-																						value="${memclub.MC_CODE}" />
-																					<button class="grant" type="submit" value="거절">거절</button>
-																				</form>
-																			</td>
-																		</tr>
-																	</c:forEach>
-																</table>
-															</div>
-														</div>
-													</div>
+																<c:if test="${Integer.parseInt(memclub.MEM_JUMIN.charAt(6)) eq '1' or Integer.parseInt(memclub.MEM_JUMIN.charAt(6)) eq '2'}">
+																	<c:set var="now" value="<%=new java.util.Date()%>" />
+																	<c:set var="sysYear">
+																		<fmt:formatDate value="${now}" pattern="yyyy" />
+																	</c:set>
+																	<td>${sysYear-(Integer.parseInt(memclub.MEM_JUMIN.substring(0, 2))+1900)+1}</td>
+																</c:if>
+																<td>
+																	<form action="upMemClub.do" method="post">
+																		<c:forEach items="${ oneClubList }" var="clist">
+																			<input type="hidden" name="club_code" value="${clist.club_code }">
+																		</c:forEach>
+																		<input type="hidden" name="mc_code" value="${memclub.MC_CODE}" />
+																		<button class="grant" type="submit" value="승인">승인</button>
+																	</form>
+																	<form action="delMemClub.do" method="post">
+																		<c:forEach items="${ oneClubList }" var="clist">
+																			<input type="hidden" name="club_code" value="${clist.club_code }">
+																		</c:forEach>
+																		<input type="hidden" name="mc_code" value="${memclub.MC_CODE}" />
+																		<button class="grant" type="submit" value="거절">거절</button>
+																	</form>
+																</td>
+															</tr>
+														</c:forEach>
+													</table>
 												</div>
-								</section>
+											</div>
+										</div>
+
+									</div>
+								</div>
+							</div>
+						</div>
 
 
 
+						<!-- 모임피드 -->
+						<div class="modal" id="exampleModalToggle" aria-hidden="true"
+							aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+							<div class="modal-dialog modal-dialog-centered modal-lg">
+								<div class="modal-content">
+									<div class="modal-header">
+										<h1 class="modal-title fs-5" id="exampleModalToggleLabel">동호회 게시판</h1>
+										<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+									</div>
 
-
-
-								<section class="contact-us" id="contact">
-									<div class="templatemo-item-col all pid">
+									<div class="modal-body">
 										<c:forEach items="${clubPaneList }" var="clubPane">
-											<form method="post" action="insertcomment.do">
+											<form method="post" action="insertComment.do">
 												<div class="row">
 													<div class="col-lg-9 align-self-center">
 														<div class="row">
 															<div class="col-lg-12">
-																<div id="contact" action="">
+																<div id="contact">
 																	<div class="row">
-																		<div class="col-lg-12">
-																			<input type="hidden" name="cp_code"
-																				value="${clubPane.CP_CODE }">
+																		<div class="col-lg-120">
+																			<input type="hidden" name="cp_code" value="${clubPane.CP_CODE }">
 																			<h1>${clubPane.CP_NAME }</h1>
-																			<h3>${ clubPane.MEM_NAME }</h3>
-																			<img src="././resources/images/${clubPane.CP_RPIC }">
+																			<h2>${ clubPane.MEM_NAME }</h2>
+																			<img src="././resources/images/${clubPane.CP_PIC }">
 																			<h3>${clubPane.CP_CONTENT }</h3>
 																			<h4>${clubPane.CP_DATE }</h4>
 																			<c:choose>
@@ -199,37 +212,48 @@ https://templatemo.com/tm-569-edu-meeting
 																				</c:when>
 																				<c:otherwise>
 																					<div id="heart" class="heart" value="${clubPane.CP_CODE}">
-																						<div class="">${clubPane.CP_LIKES}</div>		
+																						<div class="">${clubPane.CP_LIKES}</div>
 																					</div>
 																				</c:otherwise>
 																			</c:choose>
-																			
-																		</div>
-																	</div>
-																	<div class="tabWrapper">
-																		<div class="tab">
-																			<span>댓글</span>
-																			<div class="hidden" style="display: none;">
-																				<table class="table">
-																					<tr>
-																						<th scope="col">댓글</th>
-																					</tr>
-																					<tr>
-																						<td>작성자</td>
-																						<td>댓글</td>
-																					</tr>
-																				</table>
+
+																			<div class="container">
+
+																				<div class="container-inner">
+
+
+																					<!-- Tab / Collapse Section -->
+
+																					<div class="tab-container">
+
+																						<!-- Tab 1 -->
+
+																						<div class="tab-accordian">
+																							<input type="hidden" class="memcode" value="${code }"/>	
+																							<div class="titleWrapper inactive">
+																								<h3>댓글보기!</h3>
+																								<div class="collapse-icon">
+																									<div class="acc-close"></div>
+																									<div class="acc-open"></div>
+																								</div>
+																							</div>
+																							<div id="wrapper" class="desWrapper">
+																									<div class="repleupdel" name="${ clubPane.CP_CODE }">
+																										
+																										
+																										
+																										
+																									</div>
+																									<input name="cpreple_content" type="text" class="reple" placeholder="댓글을 입력하세요." required autocomplete="off">
+																									<button class="replyinsert" type="button" value="${code }">댓글입력</button>
+																									<input type="hidden" class="cpcode" value="${clubPane.CP_CODE }"/>
+																							</div>
+																						</div>
+																					</div>
+																				</div>
 																			</div>
-																			<fieldset>
-																		<input name="cpreple_content" type="text" id="" placeholder="댓글을 입력하세요." required autocomplete="off">
-																		<button class="datinsert" type="submit">댓글입력</button>
-																	</fieldset>
 																		</div>
-																	
 																	</div>
-
-
-
 																</div>
 															</div>
 														</div>
@@ -238,36 +262,39 @@ https://templatemo.com/tm-569-edu-meeting
 											</form>
 										</c:forEach>
 									</div>
+									<div class="modal-footer">
+										<button class="btn btn-primary"
+											data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">게시글
+											작성</button>
+									</div>
+								</div>
 							</div>
-
 						</div>
-						<!-- Button trigger modal -->
-						<button id="newpid" type="button" class="btn btn-primary"
-							data-bs-toggle="modal" data-bs-target="#exampleModal">새
-							피드 작성</button>
 
-						<!-- Modal -->
-						<form action="insertClubPane.do" method="post"
-							enctype="multipart/form-data">
-							<div class="modal fade" id="exampleModal" tabindex="-1"
-								aria-labelledby="exampleModalLabel" style="display: none;"
-								aria-hidden="true">
-								<div class="modal-dialog modal-lg">
-									<div class="modal-content">
-										<div class="modal-header">
-											<h1 class="modal-title fs-5" id="exampleModalLabel">게시글
-												작성</h1>
-										</div>
-										<div class="modal-body">
+
+
+
+						<div class="modal" id="exampleModalToggle2" aria-hidden="true"
+							aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+							<div class="modal-dialog modal-dialog-centered ">
+								<div class="modal-content">
+									<div class="modal-header">
+										<h1 class="modal-title fs-5" id="exampleModalToggleLabel2">게시글
+											작성</h1>
+										<button type="button" class="btn-close"
+											data-bs-dismiss="modal" aria-label="Close"></button>
+									</div>
+									<div class="modal-body">
+										<!-- 새 피드 작성모달 -->
+										<form action="insertClubPane.do" method="post" enctype="multipart/form-data">
 											<fieldset>
 												<input name="cp_name" type="text" id="cp_name"
 													placeholder="게시글 제목을 입력하세요*" required autocomplete="off">
 											</fieldset>
 											<label class="rectangle-232-vNM">
-												<div id="socialimage_container"></div> <input type="file"
-												name="clubpanefile" onchange="setThumbnail(event);"
-												placeholder="이미지를 선택해주세요" /> <script
-													src="././resources/js/socialuploadimg.js"></script>
+												<div id="socialimage_container"></div>
+												<input id="bbb" type="file" name="clubpanefile" onchange="setThumbnail(event);" placeholder="이미지를 선택해주세요" />
+												<script src="././resources/js/socialuploadimg.js"></script>
 											</label>
 											<div class="col-lg-12">
 												<fieldset>
@@ -276,77 +303,69 @@ https://templatemo.com/tm-569-edu-meeting
 														placeholder="게시글을 써주세요." required autocomplete="off"></textarea>
 												</fieldset>
 											</div>
-
-										</div>
+											<c:forEach items="${ oneClubList }" var="list">
+												<input id="clubcode" type="hidden" name="club_code" class="clubcode" value="${list.club_code }">
+											</c:forEach>
+											<button id="btn" class="btn btn-primary" type="submit" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">피드 올리기</button>
+												
+										</form>
 										<div class="modal-footer">
-											<button type="submit" class="btn btn-primary">새 게시글
-												작성</button>
-											<button type="button" class="btn btn-secondary"
-												data-bs-dismiss="modal">닫기</button>
+											<button class="btn btn-primary"
+												data-bs-target="#exampleModalToggle" data-bs-toggle="modal">게시판
+												돌아가기</button>
+												
 										</div>
 									</div>
 								</div>
 							</div>
-						</form>
-	</section>
+						</div>
 
-
-
-	<!-- Modal -->
-	<div class="modal fade" id="exampleModal" tabindex="-1"
-		aria-labelledby="exampleModalLabel" aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h1 class="modal-title fs-5" id="exampleModalLabel">Modal
-						title</h1>
-					<button type="button" class="btn-close" data-bs-dismiss="modal"
-						aria-label="Close"></button>
-				</div>
-				<div class="modal-body">...</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary"
-						data-bs-dismiss="modal">Close</button>
-					<button type="button" class="btn btn-primary">Save changes</button>
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
 
-	<section class="contact-us">
-		<form action="insertSocialing.do" enctype="multipart/form-data">
-			<div class="templatemo-item-col all sang">
-				<div class="row">
-					<div class="col-lg-9 align-self-center">
-						<div class="row">
-							<div class="col-lg-12">
-								<div id="contact" method="post">
+
+
+
+
+
+		<div class="col-lg-12">
+			<div class="row grid">
+				<section class="contact-us">
+					<form action="insertSocialing.do" enctype="multipart/form-data">
+						<div class="templatemo-item-col all sang">
+							<div class="row">
+								<div class="col-lg-9 align-self-center">
 									<div class="row">
-										<c:forEach items="${ oneClubList }" var="clist">
-											<div class="thumb">
-												<div class="price">
-													<span>${ clist.club_signtype }</span>
-												</div>
-												<div class="date">
-													<h6>
-														활동지역 <span>${ clist.club_loc }</span> 전체 인원수 <span>${ clist.club_memtot }</span>
-														현재 인원수 <span>${ clist.club_left }</span> 남은 인원수 <span>${ clist.club_memtot-clist.club_left }</span>
-													</h6>
-												</div>
-												<a href="meeting-details.html"><img
-													src="././resources/images/${ clist.club_rpic }"></a>
-											</div>
-											<div class="down-content">
-												<h4>${ clist.club_name }</h4>
-												<img id="person"
-													src="././resources/images/free-icon-group-2911099.png">
-												<p class="per">${ clist.club_memtot }</p>
-												<p class="description">${ clist.club_intro }</p>
-												<div class="col-lg-12"></div>
+										<div class="col-lg-12">
+											<div id="contact" method="post">
 												<div class="row">
-													<div class="col-lg-4">
-		</form>
-		</div>
+													<c:forEach items="${ oneClubList }" var="clist">
+														<div class="thumb">
+															<div class="price">
+																<span>${ clist.club_signtype }</span>
+															</div>
+															<div class="date">
+																<h6>
+																	활동지역 <span>${ clist.club_loc }</span> 전체 인원수 <span>${ clist.club_memtot }</span>
+																	현재 인원수 <span>${ clist.club_left }</span> 남은 인원수 <span>${ clist.club_memtot-clist.club_left }</span>
+																</h6>
+															</div>
+															<a href="meeting-details.html"><img
+																src="././resources/images/${ clist.club_rpic }"></a>
+														</div>
+														<div class="down-content">
+															<h4>${ clist.club_name }</h4>
+															<img id="person"
+																src="././resources/images/free-icon-group-2911099.png">
+															<p class="per">${ clist.club_memtot }</p>
+															<p class="description">${ clist.club_intro }</p>
+															<div class="col-lg-12"></div>
+															<div class="row">
+																<div class="col-lg-4">
+					</form>
+			</div>
 		</div>
 		<form action="joinClub.do">
 			<div class="col-lg-12">
@@ -356,6 +375,9 @@ https://templatemo.com/tm-569-edu-meeting
 				<br>
 
 				<h2 class="bun">번개모임</h2>
+
+
+
 
 				<table class="table">
 					<thead>
@@ -376,27 +398,87 @@ https://templatemo.com/tm-569-edu-meeting
 					</tbody>
 				</table>
 
-				<c:forEach items="${ oneClubList }" var="clist">
-					<c:choose>
-						<c:when
-							test="${(clist.club_gender eq gender and clist.club_memtot-clist.club_left > 0 and clist.club_maxage+10 > age) or (clist.club_gender eq '누구나'  and clist.club_memtot-clist.club_left > 0 and clist.club_maxage+10 > age) or (clist.club_maxage eq 0 and clist.club_gender eq gender and clist.club_memtot-clist.club_left > 0) or (clist.club_maxage eq 0 and clist.club_gender eq '누구나' and clist.club_memtot-clist.club_left > 0)}">
-							<button type="submit" class="btn">가입하기</button>
-						</c:when>
-						<c:otherwise>
-							<button type="button" class="nono">가입하기</button>
-						</c:otherwise>
-					</c:choose>
-				</c:forEach>
 
-
-			</div>
+				<div>
+					<c:forEach items="${ oneClubList }" var="clist">
+						<c:choose>
+							<c:when
+								test="${(clist.club_gender eq gender and clist.club_memtot-clist.club_left > 0 and clist.club_maxage+10 > age) or (clist.club_gender eq '누구나'  and clist.club_memtot-clist.club_left > 0 and clist.club_maxage+10 > age) or (clist.club_maxage eq 0 and clist.club_gender eq gender and clist.club_memtot-clist.club_left > 0) or (clist.club_maxage eq 0 and clist.club_gender eq '누구나' and clist.club_memtot-clist.club_left > 0)}">
+								<button type="submit" class="btn">가입하기</button>
+							</c:when>
+							<c:otherwise>
+								<button type="button" class="nono">가입하기</button>
+							</c:otherwise>
+						</c:choose>
+					</c:forEach>
+				</div>
 			</div>
 		</form>
+		<!-- Button trigger modal -->
+		<button id="newCinst" type="button" class="btn btn-primary"
+			data-bs-toggle="modal" data-bs-target="#cinstModal">+</button>
+
+		<!-- Modal -->
+		<form action="insertClubInstant.do" method="post">
+			<div class="modal fade" id="cinstModal" tabindex="-1"
+				aria-labelledby="exampleModalLabel" style="display: none;"
+				aria-hidden="true">
+				<div class="modal-dialog modal-lg">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h1 class="modal-title fs-5" id="exampleModalLabel">새 번개모임
+								생성</h1>
+						</div>
+						<div class="modal-body">
+							<input type="hidden" value="${ code }" name="mem_code"> <input
+								type="hidden" name="club_code" value="${ clist.club_code }">
+							<fieldset>
+								<input name="cinst_name" type="text" id="cinst_name"
+									placeholder="번개모임 제목을 입력하세요*" required autocomplete="off">
+							</fieldset>
+							<fieldset>
+								<input name="cinst_date" type="date" id="cinst_date" required
+									autocomplete="off" />
+							</fieldset>
+
+
+							<label class="item4">참여비</label>
+							<div class="line-86-7Vs"></div>
+							<div>
+								<label id="yes"> <input type="radio" name="cinstcost"
+									onclick="textActive1()" value="있음">있음
+								</label> <label id="no"> <input type="radio" name="cinstcost"
+									onclick="textDisable1()" value="없음">없음
+								</label> <input type="text" name="cinst_cost" id="cinstpay"
+									placeholder="금액을 작성해주세요.">
+							</div>
+							<div class="col-lg-12">
+								<fieldset>
+									<textarea name="cinst_content" type="text" class="form-control"
+										id="cinst_content" placeholder="번개글을 써주세요." required
+										autocomplete="off"></textarea>
+								</fieldset>
+							</div>
+							<div class="per1">
+								<input name="cinst_memtot" type="number" min='3' max='30'
+									step='1' placeholder="3명이상부터 30명 미만까지 작성해주세요.">
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button type="submit" class="btn btn-primary">새 번개모임 생성</button>
+							<button type="button" class="btn btn-secondary"
+								data-bs-dismiss="modal">닫기</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+
+		</div>
+		</div>
+		</div>
+		</div>
 		</c:forEach>
-		</div>
-		</div>
-		</div>
-		</div>
 		</div>
 		</div>
 		</div>
@@ -418,7 +500,8 @@ https://templatemo.com/tm-569-edu-meeting
 	<!-- Bootstrap core JavaScript -->
 	<script src="././resources/vendor/jquery/jquery.min.js"></script>
 	<script src="././resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script>
+    <script src="http://malsup.github.com/jquery.form.js"></script>
 	<script src="././resources/js/isotope.min.js"></script>
 	<script src="././resources/js/owl-carousel.js"></script>
 	<script src="././resources/js/lightbox.js"></script>
@@ -432,6 +515,10 @@ https://templatemo.com/tm-569-edu-meeting
 	<script src="././resources/js/pidwrite.js"></script>
 	<script src="././resources/js/heartClick.js"></script>
 	<script src="././resources/js/createClub.js"></script>
+	<script src="././resources/js/reply.js"></script>
+	<script src="././resources/js/repleUpDel.js"></script>
+	
+	
 	<script>
         //according to loftblog tut
         $('.nav li:first').addClass('active');
@@ -478,16 +565,20 @@ https://templatemo.com/tm-569-edu-meeting
           checkSection();
         });
         $('.tab').each(function(index, element){
-        	  $(this).on('click',function(){
-        	    if($(this).hasClass("active")){
-        	    	$(this).removeClass("active").children(".hidden").slideToggle();
-        	    }else{
-        	    	$(this).addClass("active").children(".hidden").slideToggle();
-        	      
-        	    }
-        	  });
-        	});
+      	  $(this).on('click',function(){
+      	    if($(this).hasClass("active")){
+      	    	$(this).removeClass("active").children(".hidden").slideToggle();
+      	    }else{
+      	    	$(this).addClass("active").children(".hidden").slideToggle();
+      	      
+      	    }
+      	  });
+      	});
         
+
+
+                	
+
     </script>
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"

@@ -16,29 +16,24 @@ import com.mokoji.service.CategoryService;
 
 @Controller
 public class createCategoryController {
-   
-   @Autowired
-   private CategoryService CategoryService;
-   
-    
-         
-         //소셜링 첫번째 카테고리
-         @RequestMapping(value="/createClub.do")
-         public String ClubList(CategoryVO vo, Model model) throws IOException{
 
-            model.addAttribute("catehighList", CategoryService.getCateHighList(vo));
-            
-            return "createClub";
-         }
-         // 소셜링 두번째 카테고리
-         @RequestMapping(value = "/ClubList.do", method = RequestMethod.GET)
-         @ResponseBody
-         public List<CategoryVO> getSocialSelect(@RequestParam("cthigh_name") String cthigh_name){
-            return CategoryService.getCateMidList(cthigh_name);
-         }
-         
-       
-         
+	@Autowired
+	private CategoryService CategoryService;
+
+	// 소셜링 첫번째 카테고리
+	@RequestMapping(value = "/createClub.do")
+	public String ClubList(CategoryVO vo, Model model) throws IOException {
+
+		model.addAttribute("catehighList", CategoryService.getCateHighList(vo));
+
+		return "createClub";
+	}
+
+	// 소셜링 두번째 카테고리
+	@RequestMapping(value = "/ClubList.do", method = RequestMethod.GET)
+	@ResponseBody
+	public List<CategoryVO> getSocialSelect(@RequestParam("cthigh_name") String cthigh_name) {
+		return CategoryService.getCateMidList(cthigh_name);
+	}
+
 }
-
-

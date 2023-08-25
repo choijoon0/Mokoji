@@ -30,7 +30,7 @@
 	</select>
 	
 	<select id="getAllMemClub" parameterType="club" resultType="hashmap">
-		SELECT c.MC_CODE, m.MEM_ID, m.MEM_JUMIN FROM MEMCLUB c, MEMBER m where c.CLUB_CODE = ${club_code} AND c.MEM_CODE = m.MEM_CODE AND c.MC_JOINSTATE = 'N'
+		SELECT c.MC_CODE, m.MEM_NAME,m.MEM_ID, m.MEM_JUMIN FROM MEMCLUB c, MEMBER m where c.CLUB_CODE = ${club_code} AND c.MEM_CODE = m.MEM_CODE AND c.MC_JOINSTATE = 'N'
 	</select>
 	
 	<update id="upMemclub" parameterType="memclub">

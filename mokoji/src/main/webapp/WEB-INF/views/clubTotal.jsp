@@ -137,6 +137,7 @@ https://templatemo.com/tm-569-edu-meeting
                      <div class="card-description">${ clublist.club_intro }</div>
                      <div class="card-flap flap2">
                         <div class="card-actions">
+                        
                         	<button type="submit" class="btn">가입하기</button>	
                            
                            

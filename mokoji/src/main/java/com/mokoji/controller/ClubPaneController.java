@@ -1,8 +1,10 @@
 package com.mokoji.controller;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
+import java.util.UUID;
 
 import javax.servlet.http.HttpSession;
 
@@ -12,7 +14,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
+import com.mokoji.domain.ClubPaneRepleVO;
 import com.mokoji.domain.ClubPaneVO;
 import com.mokoji.domain.ClubVO;
 import com.mokoji.domain.MemClubVO;
@@ -27,18 +31,28 @@ public class ClubPaneController {
 	
 	//게시판 등록
 	@RequestMapping(value="/insertClubPane.do", method = RequestMethod.POST)
-	public String insertClubPane(ClubPaneVO clubpanevo, MemClubVO memclubvo,HttpSession session) throws IOException{
+	public String insertClubPane(MemberVO mvo, ClubVO cvo, ClubPaneVO clubpanevo, MemClubVO memclubvo,HttpSession session) throws IOException{
 		int mccode = (Integer)session.getAttribute("check");
 		memclubvo.setMc_code(mccode);
+		
+		int memcode = (Integer)session.getAttribute("code");
+		mvo.setMem_code(memcode);
 
+		
+		
+		
+		session.setAttribute("clubcode", cvo.getClub_code());
+		
 		//VO여러개 해쉬맵으로
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		map.put("clubpane", clubpanevo);
 		map.put("memclub", memclubvo);
-		
+		map.put("club", cvo);
+		map.put("member", mvo);
 		clubPaneService.insertClubPane(map);
 		
-		return "aaa";
+		
+		return "redirect:/details.do";
 	}
 	
 	//하트 업데이트
@@ -70,6 +84,7 @@ public class ClubPaneController {
 		map.put("clubpane", cpvo);
 		int mem_code = (int)session.getAttribute("code");
 		mvo.setMem_code(mem_code);
+		
 		map.put("member", mvo);
 		
 		//하트수 -1
@@ -81,5 +96,6 @@ public class ClubPaneController {
 		//하트수 감소 후 리스트
 		return clubPaneService.getOneClubPane(cp_code);
 	}
+	
 	
 }

@@ -1,13 +1,11 @@
-/**
- * 
- */
+
  var animated = false;
   $(".heart").each(function(index,element){
   	$(this).on("click", function() {
   		if($(this).hasClass("is-active")){
     		$(this).removeClass("is-active");
 				var cp_code = $(this).attr("value");
-				$('#heart').empty();
+				$(this).empty();
 					$.ajax({
 		     			 url: 'downHeart.do?cp_code=' + cp_code,
 		     			 type: "POST", 
@@ -23,7 +21,7 @@
 		            }else{
 						$(this).addClass("is-active");
 		            	var cp_code = $(this).attr("value");
-		            	$('#heart').empty();
+		            	$(this).empty();
 							$.ajax({
 		     			 		url: 'updateHeart.do?cp_code=' + cp_code,
 		     			 		type: "POST", 

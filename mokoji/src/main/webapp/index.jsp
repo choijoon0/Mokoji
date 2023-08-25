@@ -11,6 +11,7 @@
 </head>
 <body>
 메인시작!
+
 	<%
 	response.sendRedirect("go.do");
 	%>

@@ -3,6 +3,7 @@ package com.mokoji.domain;
 public class ClubPaneRepleVO {
 	private int cpreple_code;
 	private String cpreple_date, cpreple_content;
+	
 	public int getCpreple_code() {
 		return cpreple_code;
 	}

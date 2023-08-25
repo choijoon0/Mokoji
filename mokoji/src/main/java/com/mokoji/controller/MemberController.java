@@ -108,6 +108,7 @@ public class MemberController {
 	public void logoutPOST(HttpServletRequest request) throws Exception {
 
 		HttpSession session = request.getSession();
+		
 
 		session.invalidate();
 

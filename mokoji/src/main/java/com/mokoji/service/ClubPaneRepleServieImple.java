@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 
 import com.mokoji.dao.ClubPaneRepleDAO;
 import com.mokoji.dao.ClubPaneRepleDAOImple;
+import com.mokoji.domain.ClubPaneRepleVO;
+import com.mokoji.domain.ClubPaneVO;
 
 @Service("clubPaneRepleService")
 public class ClubPaneRepleServieImple implements ClubPaneRepleService{
@@ -24,9 +26,23 @@ public class ClubPaneRepleServieImple implements ClubPaneRepleService{
 
 	//댓글 목록 가져오기
 	@Override
-	public List<HashMap<String, Object>> getCommentList(int cp_code) {
+	public List<HashMap<String, Object>> getCommentList(ClubPaneVO vo) {
 		// TODO Auto-generated method stub
-		return clubPaneRepleDAO.getCommentList(cp_code);
+		return clubPaneRepleDAO.getCommentList(vo);
+	}
+
+	//댓글 수정
+	@Override
+	public void updateReple(ClubPaneRepleVO cprvo) {
+		// TODO Auto-generated method stub
+		clubPaneRepleDAO.updateReple(cprvo);
+	}
+
+	//댓글 삭제
+	@Override
+	public void deleteReple(ClubPaneRepleVO cprvo) {
+		// TODO Auto-generated method stub
+		clubPaneRepleDAO.deleteReple(cprvo);
 	}
 	
 }
