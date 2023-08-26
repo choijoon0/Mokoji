@@ -34,4 +34,8 @@
 			WHERE a.ctmid_code = b.ctmid_code AND b.club_code = #{club_code}
 	</select>
 	
+	<select id="getClubCode" parameterType="hashmap" resultType="Integer">
+		SELECT club_code FROM CLUB where club_code = ${club.club_code}
+	</select>
+	
 </mapper>

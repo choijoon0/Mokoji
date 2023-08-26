@@ -22,11 +22,10 @@ public class winningrateContoller {
 	    @RequestMapping(value = "/chart.do", method = RequestMethod.GET)
 	    @ResponseBody
 	    public String showChart(@RequestParam("club_code") int club_code, ClubVO vo, MatchingInfoVO mvo ,Model model) {
-	    	System.out.println("시발차트");
 	    	vo.setClub_code(club_code);
-	    	System.out.println(club_code + "클럽코드");
 	        model.addAttribute("winCount", matService.getwincount(vo));
 	        model.addAttribute("lostCount", matService.getlostcount(vo));
+	        model.addAttribute("winning", matService.getwinning(vo));
 
 	        return "winningrate";
 	    }

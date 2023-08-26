@@ -5,10 +5,7 @@ import java.util.HashMap;
 
 import javax.servlet.http.HttpSession;
 
-import org.python.core.PyFunction;
-import org.python.core.PyInteger;
-import org.python.core.PyObject;
-import org.python.util.PythonInterpreter;
+import org.python.apache.commons.compress.harmony.archive.internal.nls.Messages;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,6 +18,7 @@ import com.mokoji.domain.MatchingInfoVO;
 import com.mokoji.domain.MatchingVO;
 import com.mokoji.domain.MemClubVO;
 import com.mokoji.domain.MemberVO;
+import com.mokoji.service.ClubService;
 import com.mokoji.service.MatchingService;
 import com.mokoji.service.MemClubService;
 
@@ -33,10 +31,13 @@ public class MatchingController {
 	@Autowired
 	private MemClubService memClubService;
 	
+	@Autowired
+	private ClubService clubService;
+	
 	
 	// 매칭 등록
 	@RequestMapping(value = "/insertMatching.do", method = RequestMethod.POST)
-	public String insertMatching(MatchingVO mvo, ClubVO cvo, MatchingInfoVO mivo) throws IOException{
+	public String insertMatching(MatchingVO mvo, ClubVO cvo, MatchingInfoVO mivo, HttpSession session) throws IOException{
 		
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		
@@ -50,6 +51,8 @@ public class MatchingController {
 		matchingService.insertMatching(map);
 		matchingService.insertMatchingInfo(map);
 		
+		session.setAttribute("clubcode", cvo.getClub_code());
+		
 		return "redirect:/details.do";
 	}
 	
@@ -61,6 +64,7 @@ public class MatchingController {
 		if(session.getAttribute("clubcode")!= null) {
 			  cvo.setClub_code((int)session.getAttribute("clubcode"));
 		  }
+		
 		
 		int memcode = (int)session.getAttribute("code");
 	    mbvo.setMem_code(memcode);
@@ -78,6 +82,8 @@ public class MatchingController {
 		int memct = memClubService.getMemCtCode(map);
 	    session.setAttribute("memct_code", memct);
 	    
+	    session.setAttribute("clubcode", matchingService.getClubCode(map));
+	    System.out.println(session.getAttribute("clubcode") + "세션에 클럽코드");
 	    model.addAttribute("matchList", matchingService.getMatchList(map));
 	    
 		return "Matching";
@@ -88,30 +94,47 @@ public class MatchingController {
 	public String insertJoinMatching(MatchingVO mvo, ClubVO cvo, MemClubVO mcvo, MemberVO mbvo , HttpSession session) throws IOException{
 		
 		HashMap<String, Object> map = new HashMap<String, Object>();  
+				
+		int num = (int)session.getAttribute("clubcode");
 		
 		map.put("match", mvo);
 		map.put("club", cvo);
 		map.put("memclub", mcvo);
 		map.put("mem", mbvo);				
 		
-		matchingService.insertJoinMatching(map);
+		String message = "";
 		
-		return "redirect:/match.do";
+		if(num == 0) {
+			matchingService.insertJoinMatching(map);
+			message = "<script>alert('참가신청을 완료했습니다!.');location.href='joinmatch.do';</script>";
+			return "redirect:/match.do";
+		}else{	
+			message = "<script>alert('이미 참가신청을 했습니다.');location.href='joinmatch.do';</script>";
+			return "redirect:/match.do";
+		}
+		
 	}
 	
 	
 		//승인 확인
 		@RequestMapping(value="/upMatching.do", method = RequestMethod.POST)
 		public String upMatching(MatchingInfoVO vo,ClubVO cvo,HttpSession session) {
+		
+			
 			session.setAttribute("clubcode", cvo.getClub_code());
+			
 			matchingService.upMatching(vo);
+			
 			return "redirect:/details.do";
+			
 		}
 		
 		//승인 거절
 		@RequestMapping(value="/delMatching.do", method = RequestMethod.POST)
-		public String delMatching(MatchingInfoVO vo) {
+		public String delMatching(MatchingInfoVO vo, ClubVO cvo, HttpSession session) {
 			matchingService.delMatching(vo);
+			
+			session.setAttribute("clubcode", cvo.getClub_code());
 			
 			return "redirect:/details.do";
 		}

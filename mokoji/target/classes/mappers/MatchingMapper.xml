@@ -4,12 +4,14 @@
 <mapper namespace="MatchingDAO">
 
 		<select id="getMatchList" parameterType="hashmap" resultType="hashmap">
-			  SELECT a.mat_name, a.mat_date, a.mat_time, a.mat_code, a.mat_cancle, b.club_code, b.club_name, b.club_rpic, b.ctmid_code, nvl(aaa.cnt , 0) AS wincount, nvl(bbb.cnt1 , 0) AS lostcount FROM MATCHING a
-			  LEFT JOIN CLUB b ON a.club_code = b.club_code
-			  LEFT JOIN (SELECT CLUB_CODE, count(*) AS cnt FROM  MATCHINGINFO m2 WHERE  m2.MATINFO_RES='승' GROUP BY CLUB_CODE) aaa
+			 SELECT a.mat_name, a.mat_date, a.mat_time, a.mat_code, a.mat_cancle, b.club_code, b.club_name, b.club_rpic, b.ctmid_code, nvl(aaa.cnt , 0) AS wincount, nvl(bbb.cnt1 , 0) AS lostcount, nvl(ccc.winning, 0) AS winning FROM MATCHING a
+			  LEFT JOIN CLUB b ON a.club_code = b.club_code 
+			  LEFT JOIN (SELECT CLUB_CODE, count(*) AS cnt FROM  MATCHINGINFO m2 WHERE  m2.MATINFO_RES='승' GROUP BY CLUB_CODE) aaa 
 			  ON a.CLUB_CODE = aaa.club_code
-			  LEFT JOIN (SELECT CLUB_CODE, count(*) AS cnt1 FROM  MATCHINGINFO m2 WHERE  m2.MATINFO_RES='패' GROUP BY CLUB_CODE) bbb
-			  ON a.CLUB_CODE = bbb.club_code
+			  LEFT JOIN (SELECT CLUB_CODE, count(*) AS cnt1 FROM  MATCHINGINFO m2 WHERE  m2.MATINFO_RES='패' GROUP BY CLUB_CODE) bbb 
+			  ON a.CLUB_CODE = bbb.club_code 
+			  LEFT JOIN (SELECT a.CLUB_CODE, a.club_name, COUNT(b.MATINFO_RES) AS gamenum, (SELECT COUNT(b.MATINFO_RES) FROM MATCHINGINFO b WHERE MATINFO_RES = '승') / COUNT(b.MATINFO_RES) * 100 || '%' AS winning FROM CLUB a,  MATCHINGINFO b WHERE a.CLUB_code = b.CLUB_CODE AND a.CLUB_CODE = ${club.club_code} GROUP BY a.club_name, a.CLUB_CODE) ccc
+			  ON a.CLUB_CODE = ccc.club_code WHERE a.MAT_DATE > SYSDATE
 		</select>	
 			
 		<select id="selectMatching" resultType="integer">
@@ -52,4 +54,16 @@
 		<select id="getlostcount" parameterType="club" resultType="int">
 		SELECT COUNT(MATINFO_CODE) FROM MATCHINGINFO WHERE CLUB_CODE = #{club_code} AND MATINFO_RES='패'
 		</select>
+		
+		<select id="getwinning" parameterType="club" resultType="int">
+			SELECT a.club_name, COUNT(b.MATINFO_RES) AS 경기수, (SELECT COUNT(b.MATINFO_RES) FROM MATCHINGINFO b WHERE MATINFO_RES = '승') / COUNT(b.MATINFO_RES) * 100 || '%' AS 승률 FROM CLUB a,  MATCHINGINFO b
+			WHERE a.CLUB_code = b.CLUB_CODE AND a.CLUB_CODE = #{club_code}
+			GROUP BY a.CLUB_NAME;
+		</select>
+		
+		<select id="getClubCode" parameterType="hashmap" resultType="Integer">
+			SELECT c.club_code FROM CLUB c, MEMCLUB m WHERE c.CLUB_CODE = m.CLUB_CODE AND m.MEM_CODE = ${member.mem_code} AND m.MEMCT_CODE = 1
+		</select>
+		
+		
 </mapper>

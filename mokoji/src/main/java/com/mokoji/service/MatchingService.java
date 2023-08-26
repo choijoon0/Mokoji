@@ -31,5 +31,9 @@ public interface MatchingService {
 		
 		public int getlostcount(ClubVO vo);
 		
+		public int getwinning(ClubVO vo);
+		
+		public int getClubCode(HashMap<String,Object> map);
+		
 		
 }

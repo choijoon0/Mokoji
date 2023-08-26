@@ -1,5 +1,6 @@
 package com.mokoji.service;
 
+import java.util.HashMap;
 import java.util.List;
 
 
@@ -21,6 +22,8 @@ public interface ClubService {
 	
 	//동호회 코드로 동호회 1개 검색
 	public List<ClubVO> getOneClublist(ClubVO vo);
+	
+	public int getClubCode(HashMap<String, Object> map);
 	
 
 }

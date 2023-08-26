@@ -31,4 +31,8 @@ public interface MatchingDAO {
 		
 		public int getlostcount(ClubVO vo);
 		
+		public int getwinning(ClubVO vo);
+		
+		// 참가 중복 방지
+		public int getClubCode(HashMap<String, Object> map);
 }

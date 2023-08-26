@@ -86,5 +86,22 @@ public class MatchingDAOImple implements MatchingDAO{
 			return lost;
 		}
 
+		@Override
+		public int getwinning(ClubVO vo) {
+			int winning = mybatis.selectOne("MatchingDAO.getwinning", vo);
+			System.out.println(winning);
+			return winning;
+		}
+
+		@Override
+		public int getClubCode(HashMap<String, Object> map) {
+			// TODO Auto-generated method stub	
+			Integer num = mybatis.selectOne("MatchingDAO.getClubCode", map);
+			if(num == null) {
+				num=0;
+			}
+			return num;
+		}
+
 
 }

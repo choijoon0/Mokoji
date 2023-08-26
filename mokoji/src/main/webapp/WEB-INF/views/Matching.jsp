@@ -22,6 +22,8 @@
 <!-- Bootstrap core CSS -->
 <link href="././resources/vendor/bootstrap/css/bootstrap.min.css"
 	rel="stylesheet">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	
 
 
 <!-- Additional CSS Files -->
@@ -35,7 +37,6 @@
 
 	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 	<script type="text/javascript">
-	
 	// Google Visualization API 스크립트 로드
 	google.load('visualization', '1.0', {'packages':['corechart']});
 
@@ -48,8 +49,11 @@
 	    
 	    for (var i = 0; i < btnModalList.length; i++) {
 	        btnModalList[i].addEventListener('click', function() {
-	            var winCount = this.previousElementSibling.previousElementSibling.value;
-	            var lostCount = this.previousElementSibling.value;
+	            var winCount = this.previousElementSibling.value;
+	            var lostCount = this.previousElementSibling.previousElementSibling.value;
+	            var winning = this.previousElementSibling.previousElementSibling.previousElementSibling.value;
+
+	            
 	            
 	            var data = new google.visualization.DataTable();
 	            data.addColumn('string', 'Topping');
@@ -62,10 +66,32 @@
 	            var options = {
 	                'width': 400,
 	                'height': 300,
+	                vAxis: {title: 'number'},
+	                hAxis: {title: 'number'},
+	                animation: {
+	                    duration: 1000,
+	                    easing: 'in',
+	                   startup: true
+	             }
 	            };
 
 	            var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
 	            chart.draw(data, options);
+	            
+	            var percent = 0;
+	            var handler = setInterval(function(){
+	                // values increment
+	                percent += 1;
+	                // apply new values
+	                data.setValue(0, 1, percent);
+	                data.setValue(1, 1, 100 - percent);
+	                // update the pie
+	                chart.draw(data, options);
+	                // check if we have reached the desired value
+	                if (percent > parseInt(winning))
+	                    // stop the loop
+	                    clearInterval(handler);
+	            }, 30);
 	            
 	        });
 	    }
@@ -127,6 +153,7 @@
 													<div>동호회 명 : ${ matchList.CLUB_NAME }</div>
 													<div>희망 매칭 일자 : ${ matchList.MAT_DATE }</div>
 													<div>희망 매칭 시간 : ${ matchList.MAT_TIME }</div>
+													<input type="hidden" value="${checkmat }">
 													<c:if test="${ memct_code == 15 and matchList.CTMID_CODE == 15 }">
 														<button type="submit" class="matching-button-red" onclick="match()">참가하기</button>
 													</c:if>
@@ -137,9 +164,10 @@
 														<button type="submit" class="matching-button-red" onclick="match()">참가하기</button>
 													</c:if>
 												</form>
-												<input type="hidden" value="${matchList.WINCOUNT}" class="matchwin" ></input>
+												<input type="hidden" value="${matchList.WINNING}" class="winning" ></input>
 												<input type="hidden" value="${matchList.LOSTCOUNT}" class="matchlost" ></input>
-												<button type="button" class="btn_modal" value="${matchList.CLUB_CODE }" data-bs-toggle="modal" data-bs-target="#exampleModal">버튼</button>
+												<input type="hidden" value="${matchList.WINCOUNT}" class="matchwin" ></input>
+												<button type="button" class="btn_modal" data-bs-toggle="modal" data-bs-target="#exampleModal">버튼</button>
 												<!-- Modal -->
 												<div class="modal fade" id="exampleModal" tabindex="-1"
 													aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -188,7 +216,9 @@
 	<script src="././resources/vendor/jquery/jquery.min.js"></script>
 	<script src="././resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 	<!--Load the AJAX API-->
-	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 
 	

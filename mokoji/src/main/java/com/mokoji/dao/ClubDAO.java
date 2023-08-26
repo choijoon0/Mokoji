@@ -1,5 +1,6 @@
 package com.mokoji.dao;
 
+import java.util.HashMap;
 import java.util.List;
 
 import com.mokoji.domain.ClubVO;
@@ -20,4 +21,6 @@ public interface ClubDAO {
 	
 	//동호회코드로 동호회 1개
 	public List<ClubVO> getOneClublist(ClubVO vo);
+	
+	public int getClubCode(HashMap<String, Object> map);
 }

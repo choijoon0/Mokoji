@@ -3,15 +3,15 @@ package com.mokoji.controller;
 import java.io.IOException;
 import java.util.HashMap;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.mokoji.domain.ClubInstantVO;
 import com.mokoji.domain.ClubVO;
-import com.mokoji.domain.MatchingInfoVO;
 import com.mokoji.domain.MatchingVO;
 import com.mokoji.service.ClubInstantService;
 import com.mokoji.service.ClubService;
@@ -30,7 +30,11 @@ public class ClubInstantController {
 	private MatchingService matchingService;
 	
 	@RequestMapping(value = "/details.do")
-	public String getInstantList(ClubInstantVO vo, ClubVO vo2, MatchingVO vo3 ,Model model) throws IOException{
+	public String getInstantList(ClubInstantVO vo, ClubVO vo2, MatchingVO vo3 ,Model model, HttpSession session) throws IOException{
+	
+		if(session.getAttribute("clubcode")!= null) {
+			  vo2.setClub_code((int)session.getAttribute("clubcode"));
+		  }
 		
 		model.addAttribute("oneClubList", clubService.getOneClublist(vo2));
 		HashMap<String , Object> map = new HashMap<String, Object>();
@@ -40,6 +44,8 @@ public class ClubInstantController {
 		
 		model.addAttribute("instant", clubInstantService.getInstantList(map));
 		model.addAttribute("allmatchList", matchingService.getAllMatch(map));
+		
+		session.removeAttribute("clubcode");
 		
 		
 		return "Clubdetails";

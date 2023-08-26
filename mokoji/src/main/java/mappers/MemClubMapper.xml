@@ -3,7 +3,7 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="MemClubDAO">
 
-	<select id="getMemCtCode" parameterType="hashmap" resultType="Integer">
+	<select id="getMemCtCode" parameterType="hashmap" resultType="integer">
 		SELECT c.ctmid_code FROM CLUB c, MEMCLUB m WHERE c.club_code = m.club_code AND m.mem_code=${member.mem_code} AND m.memct_code = 1
 	</select>
 	

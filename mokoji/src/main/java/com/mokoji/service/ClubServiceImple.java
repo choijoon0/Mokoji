@@ -1,5 +1,6 @@
 package com.mokoji.service;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -60,6 +61,17 @@ public class ClubServiceImple implements ClubService{
 		// TODO Auto-generated method stub
 		return clubdao.getOneClublist(vo);
 	}
+
+
+
+
+	@Override
+	public int getClubCode(HashMap<String, Object> map) {
+		// TODO Auto-generated method stub
+		return clubdao.getClubCode(map);
+	}
+
+
 
 
 
