@@ -1,11 +1,12 @@
 package com.mokoji.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.HashMap;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.python.apache.commons.compress.harmony.archive.internal.nls.Messages;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,7 +19,6 @@ import com.mokoji.domain.MatchingInfoVO;
 import com.mokoji.domain.MatchingVO;
 import com.mokoji.domain.MemClubVO;
 import com.mokoji.domain.MemberVO;
-import com.mokoji.service.ClubService;
 import com.mokoji.service.MatchingService;
 import com.mokoji.service.MemClubService;
 
@@ -31,8 +31,6 @@ public class MatchingController {
 	@Autowired
 	private MemClubService memClubService;
 	
-	@Autowired
-	private ClubService clubService;
 	
 	
 	// 매칭 등록
@@ -80,7 +78,10 @@ public class MatchingController {
 		map.put("member", mbvo);
 		
 		int memct = memClubService.getMemCtCode(map);
-	    session.setAttribute("memct_code", memct);
+	    session.setAttribute("memct_code", memct);   
+	    
+	    int matcode = matchingService.getMatCode(map);
+	    session.setAttribute("mat_code", matcode);
 	    
 	    session.setAttribute("clubcode", matchingService.getClubCode(map));
 	    System.out.println(session.getAttribute("clubcode") + "세션에 클럽코드");
@@ -91,7 +92,7 @@ public class MatchingController {
 	
 	// 등록된 매칭 참가하기
 	@RequestMapping(value = "/joinmatch.do")
-	public String insertJoinMatching(MatchingVO mvo, ClubVO cvo, MemClubVO mcvo, MemberVO mbvo , HttpSession session) throws IOException{
+	public String insertJoinMatching(MatchingVO mvo, ClubVO cvo, MemClubVO mcvo, MemberVO mbvo , HttpSession session, HttpServletResponse response) throws IOException{
 		
 		HashMap<String, Object> map = new HashMap<String, Object>();  
 				
@@ -102,14 +103,27 @@ public class MatchingController {
 		map.put("memclub", mcvo);
 		map.put("mem", mbvo);				
 		
-		String message = "";
 		
 		if(num == 0) {
 			matchingService.insertJoinMatching(map);
-			message = "<script>alert('참가신청을 완료했습니다!.');location.href='joinmatch.do';</script>";
+			response.setContentType("text/html; charset=UTF-8");
+			 
+			PrintWriter out = response.getWriter();
+			 
+			out.println("<script>alert('매칭 신청이 완료되었습니다.'); location.href='match.do';</script>");
+			 
+			out.flush();
+
 			return "redirect:/match.do";
 		}else{	
-			message = "<script>alert('이미 참가신청을 했습니다.');location.href='joinmatch.do';</script>";
+			response.setContentType("text/html; charset=UTF-8");
+			 
+			PrintWriter out = response.getWriter();
+			 
+			out.println("<script>alert('이미 신청한 매칭입니다!'); location.href='match.do';</script>");
+			 
+			out.flush();
+
 			return "redirect:/match.do";
 		}
 		

@@ -98,6 +98,12 @@ public class MatchingServiceImple implements MatchingService{
 		// TODO Auto-generated method stub
 		return matchingDAO.getClubCode(map);
 	}
+
+	@Override
+	public int getMatCode(HashMap<String, Object> map) {
+		// TODO Auto-generated method stub
+		return matchingDAO.getMatCode(map);
+	}
 	
 	
 	

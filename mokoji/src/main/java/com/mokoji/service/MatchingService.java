@@ -35,5 +35,6 @@ public interface MatchingService {
 		
 		public int getClubCode(HashMap<String,Object> map);
 		
-		
+		// 중복신청 방지
+		public int getMatCode(HashMap<String, Object> map);
 }

@@ -33,6 +33,11 @@ public interface MatchingDAO {
 		
 		public int getwinning(ClubVO vo);
 		
-		// 참가 중복 방지
+		// 인서트 할때 자기 클럽코드 받아오기
 		public int getClubCode(HashMap<String, Object> map);
+		
+		// 중복신청 방지
+		public int getMatCode(HashMap<String, Object> map);
+		
+		
 }

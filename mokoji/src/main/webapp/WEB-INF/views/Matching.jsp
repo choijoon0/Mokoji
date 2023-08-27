@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 
@@ -151,17 +152,17 @@
 													<input type="hidden" value="${memct_code}" name="memct_code">
 													<h4>${ matchList.MAT_NAME }</h4>
 													<div>동호회 명 : ${ matchList.CLUB_NAME }</div>
-													<div>희망 매칭 일자 : ${ matchList.MAT_DATE }</div>
+													<fmt:formatDate var="newFormattedDateString" value="${ matchList.MAT_DATE }" pattern="yyyy-MM-dd"/>
+													<div>희망 매칭 날짜 : ${ newFormattedDateString }</div>
 													<div>희망 매칭 시간 : ${ matchList.MAT_TIME }</div>
-													<input type="hidden" value="${checkmat }">
 													<c:if test="${ memct_code == 15 and matchList.CTMID_CODE == 15 }">
-														<button type="submit" class="matching-button-red" onclick="match()">참가하기</button>
+														<button type="submit" class="matching-button-red">참가하기</button>
 													</c:if>
 													<c:if test="${ memct_code == 10 and matchList.CTMID_CODE == 10 }">
-														<button type="submit" class="matching-button-red" onclick="match()">참가하기</button>
+														<button type="submit" class="matching-button-red">참가하기</button>
 													</c:if>
 													<c:if test="${ memct_code == 28 and matchList.CTMID_CODE == 28 }">
-														<button type="submit" class="matching-button-red" onclick="match()">참가하기</button>
+														<button type="submit" class="matching-button-red">참가하기</button>
 													</c:if>
 												</form>
 												<input type="hidden" value="${matchList.WINNING}" class="winning" ></input>

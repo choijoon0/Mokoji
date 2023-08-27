@@ -65,5 +65,9 @@
 			SELECT c.club_code FROM CLUB c, MEMCLUB m WHERE c.CLUB_CODE = m.CLUB_CODE AND m.MEM_CODE = ${member.mem_code} AND m.MEMCT_CODE = 1
 		</select>
 		
+		<select id="getMatCode" parameterType="hashmap" resultType="Integer">
+			SELECT * FROM MATCHINGINFO m WHERE CLUB_CODE = ${club.club_code} AND MAT_CODE = ${match.MAT_CODE}
+		</select>
+		
 		
 </mapper>
