@@ -23,4 +23,7 @@ public interface MemClubService {
 	
 	//동호회장인지 확인
 	public int checkClubJang(int memcode);
+	
+	//동호회장 매칭
+	public int getMemJangCtCode(HashMap<String, Object> map);
 }

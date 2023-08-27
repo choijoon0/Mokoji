@@ -4,8 +4,11 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -24,14 +27,18 @@ public class ChallengeController {
 
 	// 챌린지 등록
 	@RequestMapping(value = "/inserting.do")
-	public String insertClub(ChallengeVO cvo, MemberVO mvo, CategoryVO cavo) throws IOException {
+	public String insertClub(ChallengeVO cvo, MemberVO mvo, CategoryVO cavo, HttpSession session) throws IOException {
 
+		cvo.setChall_code(challengeService.getchallcode(cvo));
+
+		mvo.setMem_code((int) session.getAttribute("code"));
 		HashMap<String, Object> paramap = new HashMap<String, Object>();
 
 		paramap.put("challenge", cvo);
 		paramap.put("member", mvo);
 		paramap.put("category", cavo);
 		challengeService.insertChallenge(paramap);
+		challengeService.insertMemChallenge(paramap);
 
 		return "redirect:/go.do";
 	}
@@ -49,4 +56,13 @@ public class ChallengeController {
 	public List<ChallengeVO> getClubListInterest(@RequestParam("ctmid_name") String ctmid_name) {
 		return challengeService.getChallengeList(ctmid_name);
 	}
+
+	@RequestMapping(value = "/ChallengeOne.do")
+	public String getOneChallengelist(ChallengeVO vo, Model model) throws IOException {
+
+		model.addAttribute("challenge", challengeService.getOneChallengelist(vo));
+
+		return "Challengedetails";
+	}
+
 }

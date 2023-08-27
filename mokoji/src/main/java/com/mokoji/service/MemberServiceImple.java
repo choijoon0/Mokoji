@@ -1,8 +1,11 @@
 package com.mokoji.service;
 
+import java.util.HashMap;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.mokoji.dao.MemClubDAOImple;
 import com.mokoji.dao.MemberDAOImple;
 import com.mokoji.domain.MemberVO;
 
@@ -11,6 +14,9 @@ public class MemberServiceImple implements MemberService{
 	
 	@Autowired
 	private MemberDAOImple memberDAO;
+	
+	@Autowired
+	private MemClubDAOImple memClubDAOImple;
 	
 	//로그인
 	@Override
@@ -31,5 +37,7 @@ public class MemberServiceImple implements MemberService{
 		// TODO Auto-generated method stub
 		return memberDAO.nameCheck(mem_id);
 	}
+	
+
 
 }

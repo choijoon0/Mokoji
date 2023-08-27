@@ -15,8 +15,16 @@ public class ClubInstantServiceImple implements ClubInstantService{
 	@Autowired
 	private ClubInstantDAOImple clubInstantDAO;
 	
+	//번개모임 불러오기
 	@Override
 	public List<HashMap<String, Object>> getInstantList(HashMap<String, Object> map){
 		return clubInstantDAO.getInstantList(map);
+	}
+
+	//번개모임 등록
+	@Override
+	public int insertClubInstant(HashMap<String, Object> map) {
+		// TODO Auto-generated method stub
+		return clubInstantDAO.insertClubInstant(map);
 	}
 }

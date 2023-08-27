@@ -30,4 +30,16 @@ public interface ClubPaneService {
 	
 	//내 좋아요 목록
 	public List<ClubPaneVO> getMyLikes(MemberVO vo);
+	
+	
+	public List<HashMap<String, Object>> selectMyClubPaneList(HashMap<String, Object>map);
+	
+	public List<HashMap<String, Object>> selectMyClub(HashMap<String, Object>map);
+	
+	public List<HashMap<String, Object>> selectMySocialing(HashMap<String, Object>map);
+	
+	public List<HashMap<String, Object>> selectMyChallenge(HashMap<String, Object>map);
+	
+	public List<MemberVO> selectInfo(MemberVO vo);
+	
 }

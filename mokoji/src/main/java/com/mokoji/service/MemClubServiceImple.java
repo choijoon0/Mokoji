@@ -62,5 +62,12 @@ public class MemClubServiceImple implements MemClubService{
 		// TODO Auto-generated method stub
 		return memClubDAOImple.checkClubJang(memcode);
 	}
+	
+	//동호회 매칭 검사
+	@Override
+	public int getMemJangCtCode(HashMap<String, Object> map) {
+		// TODO Auto-generated method stub
+		return memClubDAOImple.getMemJangCtCode(map);
+	}
 
 }

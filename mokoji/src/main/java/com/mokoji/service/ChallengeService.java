@@ -7,7 +7,12 @@ import com.mokoji.domain.ChallengeVO;
 
 public interface ChallengeService {
 	// 챌린지 등록
+	
+	public int getchallcode(ChallengeVO cvo);
+	
 	public int insertChallenge(HashMap<String, Object> paramap);
+	
+	public int insertMemChallenge(HashMap<String, Object> paramap);
 
 	// 동호회 리스트 가져오기
 	public List<ChallengeVO> getChallengeList(ChallengeVO vo);

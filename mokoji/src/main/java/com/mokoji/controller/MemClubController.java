@@ -48,15 +48,7 @@ public class MemClubController {
 			
 		}else{
 			//null이면서 동호회 가입유형이 승인제면 N으로 아님 Y로
-			
-			
-			
-			
-			
-			
-			
-			
-			
+				
 			
 			memClubService.joinClub(map);
 			

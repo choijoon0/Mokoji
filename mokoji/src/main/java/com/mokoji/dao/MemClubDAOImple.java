@@ -74,5 +74,17 @@ public class MemClubDAOImple implements MemClubDAO{
 		}
 		return chnum;
 	}
+	
+	//동호회장 매칭
+	@Override
+	public int getMemJangCtCode(HashMap<String, Object> map) {
+		// TODO Auto-generated method stub
+		
+		Integer cnt = mybatis.selectOne("MemClubDAO.getMemJangCtCode", map);
+		if(cnt == null) {
+			cnt=0;
+		}
+		return cnt;
+	}
 
 }

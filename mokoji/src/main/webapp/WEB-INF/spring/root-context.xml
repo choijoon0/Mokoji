@@ -30,6 +30,8 @@
          <value>com.mokoji.domain.ClubInstantVO</value>
          <value>com.mokoji.domain.ChallengeVO</value>
          <value>com.mokoji.domain.ClubPaneVO</value>
+         <value>com.mokoji.domain.MemInterClubVO</value>
+         <value>com.mokoji.domain.MemChallengeVO</value>
       </list>
    </property>
  </bean>

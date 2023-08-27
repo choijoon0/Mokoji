@@ -1,32 +1,44 @@
 package com.mokoji.controller;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
-import java.util.UUID;
 
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.multipart.MultipartFile;
 
-import com.mokoji.domain.ClubPaneRepleVO;
+import com.mokoji.domain.CategoryVO;
+import com.mokoji.domain.ChallengeVO;
+import com.mokoji.domain.ClubInstantVO;
 import com.mokoji.domain.ClubPaneVO;
 import com.mokoji.domain.ClubVO;
 import com.mokoji.domain.MemClubVO;
 import com.mokoji.domain.MemberVO;
+import com.mokoji.domain.SocialingVO;
+import com.mokoji.service.CategoryService;
+import com.mokoji.service.ClubInstantService;
 import com.mokoji.service.ClubPaneService;
+import com.mokoji.service.MemberService;
 
 @Controller
 public class ClubPaneController {
+	
+	
 	@Autowired
 	private ClubPaneService clubPaneService;
+	@Autowired
+	private MemberService memberService;
+	@Autowired
+	private CategoryService categoryService;
+	@Autowired
+	private ClubInstantService clubinstantService;
 	
 	
 	//게시판 등록
@@ -95,6 +107,32 @@ public class ClubPaneController {
 		
 		//하트수 감소 후 리스트
 		return clubPaneService.getOneClubPane(cp_code);
+	}
+	
+	@RequestMapping(value ="/goMyPage.do")
+	public String selectMyClubPaneList(MemberVO vo, ClubPaneVO cpvo, SocialingVO svo, ChallengeVO chvo ,ClubVO cvo, ClubInstantVO civo, CategoryVO cavo, HttpSession session, Model model) {
+
+		int memcode = (int)session.getAttribute("code");
+		
+		vo.setMem_code(memcode);
+		
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		
+		map.put("member", vo);
+		map.put("clubpane", cpvo);
+		map.put("club", cvo);
+		map.put("instant", civo);
+		map.put("midcategory", cavo);
+		map.put("socialing", svo);
+		map.put("challenge", chvo);
+		
+		model.addAttribute("mychallenge", clubPaneService.selectMyChallenge(map));
+		model.addAttribute("mysocialing", clubPaneService.selectMySocialing(map));
+		model.addAttribute("myclubpane", clubPaneService.selectMyClubPaneList(map));
+		model.addAttribute("myinfo", clubPaneService.selectInfo(vo));
+		model.addAttribute("myclub",clubPaneService.selectMyClub(map));
+		return "myPage";
+	
 	}
 	
 	

@@ -14,13 +14,16 @@ public interface ClubService {
 	public int insertMemClub(HashMap<String, Object> map);
 
 	// 동호회 리스트 가져오기
-	public List<ClubVO> getClubList(ClubVO vo);
+	public List<ClubVO> getClubCard(ClubVO vo);
+
+
+	public List<HashMap<String, Object>> getClubList(HashMap<String, Object> map);
 
 	// 하위 카테고리로 동호회 리스트
-	public List<ClubVO> getClubListInterest(String ctmid_name);
+	public List<HashMap<String, Object>> getClubListInterest(HashMap<String, Object> map);
 
 	// 상위 카테고리로 동호회 리스트
-	public List<ClubVO> getHighClubListInterest(String cthigh_name);
+	public List<HashMap<String, Object>> getHighClubListInterest(HashMap<String, Object> map);
 
 	// 동호회 코드로 동호회 1개 검색
 	public List<ClubVO> getOneClublist(ClubVO vo);

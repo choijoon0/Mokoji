@@ -79,6 +79,8 @@ https://templatemo.com/tm-569-edu-meeting
 											<li type="button" class="btn" data-bs-toggle="modal" data-bs-target="#joincurrentModal">승인현황</li>
 											<li data-filter=".sang" class="active">상세페이지</li>
 											<li type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModalToggle">모임피드</li>
+											<li data-filter=".matchcurrent">매칭승인현황</li>
+											<li data-filter=".match">매칭생성</li>
 										</c:when>
 
 										<c:when test="${ memct_code eq 2 }">
@@ -96,6 +98,162 @@ https://templatemo.com/tm-569-edu-meeting
 							</div>
 						</div>
 
+
+
+
+
+									<section class="contact-us">
+											<div class="row">
+												<div class="col-lg-9 align-self-center">
+													<div class="row">
+														<div class="col-lg-12">
+															<div id="contact">
+																<div class="row">
+																		<div class="meeting-single-item all matchcurrent">																						
+																			<!-- Button trigger modal -->
+																			<table>
+																			<tr>
+																			<td>매칭이름</td>
+																			<td>동호회명</td>
+																			<td>승률</td>
+																			</tr>
+																			<c:forEach items="${ allmatchList }" var="allmatchList">
+																			<input type="hidden" value="${ allmatchList.MAT_CODE }" name="mat_code">
+																			<input type="hidden" value="${ allmatchList.CLUB_CODE }" name="club_code">
+																				<tr>
+																				<td>${allmatchList.MAT_NAME}</td>
+																				<td>${allmatchList.CLUB_NAME}</td>
+																				<td>승률</td>
+																				<td>
+																				<form action="upMatching.do" method="post">
+																					<c:forEach items="${ oneClubList }" var="clist">
+																						<input type="hidden" name="club_code" value="${ clist.club_code }">
+																					</c:forEach>
+																					<input type="hidden" name="matinfo_code" value="${allmatchList.MATINFO_CODE}">
+																					<button type="submit">수락</button>
+																					</form>
+																				</td>
+																				<td>
+																					<form action="delMatching.do" method="post">
+																						<c:forEach items="${ oneClubList }" var="clist">
+																							<input type="hidden" name="club_code" value="${ clist.club_code }">
+																						</c:forEach>
+																					<input type="hidden" name="matinfo_code" value="${allmatchList.MATINFO_CODE}">
+																					<button type="submit">거절</button>
+																					</form>
+																				</td>
+																				</tr>
+																			</c:forEach>
+																			</table>																	
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											</div>
+										</div>		  
+								</section>
+							
+							
+									<section class="contact-us">
+											<div class="row">
+												<div class="col-lg-9 align-self-center">
+													<div class="row">
+														<div class="col-lg-12">
+																<div class="row">
+																		<div class="meeting-single-item all match">																						
+																			<div class="down-content">
+																			<!-- Button trigger modal -->
+																			<c:forEach items="${ oneClubList }" var="clist">
+																			<form action="insertMatching.do" method="post">
+																			<input type="hidden" value="${clist.club_code}" name="club_code">
+																				<div>매칭 이름</div>
+																				<input type="text" name="mat_name">
+																				<div>매칭 희망 날짜</div>
+																				<input type="date" name="mat_date">
+																				<div>매칭 희망 시간</div>
+																				<input type="time" name="mat_time">
+																				<div>인원수 ※최소 3, 최대 인원 수는 30 입니다.</div>
+																				<input name="mat_clubmemtot" type="number" min='3' max='30' step='1'>	
+																					<div class="col-lg-12">									
+																						<div class="main-button-red">
+																							<button type="submit">매칭신청</button>
+																						</div>
+																					</div>
+																		</form>
+																		</c:forEach>
+																</div>
+															</div>
+														</div>
+												</div>
+											</div>
+											</div>
+										</div>		  
+								</section>
+							
+								
+
+								<section class="contact-us">
+										<div class="templatemo-item-col all sang">
+											<div class="row">
+												<div class="col-lg-9 align-self-center">
+													<div class="row">
+														<div class="col-lg-12">
+															<div id="contact" method="post">
+																<div class="row">
+																	<c:forEach items="${ oneClubList }" var="clist">
+																		<div class="meeting-single-item all sang">
+																			<div class="thumb">
+																				<div class="price">
+																					<span>${ clist.club_signtype }</span>
+																				</div>
+																				<div class="date">
+																					<h6>
+																						활동지역 <span>${ clist.club_loc }</span>
+																					</h6>
+																				</div>
+																				<a href="meeting-details.html"><img
+																					src="${ clist.club_rpic }"></a>
+																			</div>
+																			<div class="down-content">
+																				<a href="meeting-details.html"><h4>${ clist.club_name }</h4></a>
+																				<p>${ clist.club_memtot }</p>
+																				<p class="description">${ clist.club_intro }</p>
+																				<div class="col-lg-12"></div>
+																				<div class="row">
+																					<div class="col-lg-4">
+																					<form action="InstantTotal.do">
+																						<input type="submit" value="목록보기">
+																					</form>																							
+																						<c:forEach items="${ instant }" var="instantt">
+																							<div class="hours">
+																								<h5>${ instantt.CINST_NAME }</h5>
+																								<p>${ instantt.CINST_CONTENT }</p>
+																							</div>
+																						</c:forEach>
+																					</div>
+																				</div>
+																				<form action="joinClub.do">
+																					<div class="col-lg-12">
+																						<input type="hidden" name="club_code"
+																							value="${clist.club_code }"> <input
+																							type="hidden" name="mem_code" value="${ code }">
+																						<input type="hidden" name="club_signtype"
+																							value="${ clist.club_signtype }">
+																						<div class="main-button-red">
+																							<button type="submit">가입하기</button>
+																						</div>
+																					</div>
+																				</form>
+																	</c:forEach>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+								</section>
 
 
 

@@ -19,7 +19,11 @@
 		<typeAlias alias="instant" type="com.mokoji.domain.ClubInstantVO"/>
 		<typeAlias alias="challenge" type="com.mokoji.domain.ChallengeVO"/>
 		<typeAlias alias="clubpanereple" type="com.mokoji.domain.ClubPaneRepleVO"/>
-		
+		<typeAlias alias="Socialinginfo" type="com.mokoji.domain.SocialingInfoVO"/>
+		<typeAlias alias="matching" type="com.mokoji.domain.MatchingVO"/>
+		<typeAlias alias="matchinginfo" type="com.mokoji.domain.MatchingInfoVO"/>
+		<typeAlias alias="meminterclub" type="com.mokoji.domain.MemInterClubVO"/>
+		<typeAlias alias="memchallenge" type="com.mokoji.domain.MemChallengeVO"/>
 		
 	</typeAliases>
 	

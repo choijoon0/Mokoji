@@ -1,26 +1,26 @@
 $(function(){
-	$('.chall').click(function(){
-	var ctmid_name = $(this).val();
-	   $.ajax({
+   $('.chall').click(function(){
+   var ctmid_name = $(this).val();
+      $.ajax({
       url: 'challengeTotal.do?ctmid_name='+ ctmid_name,
       type: "GET",
       cache : false,
       success : function(data){
             for(var i=0;i<data.length;i++){
-                 $("#challengeList").append('<div class="card"><div class="card__image-holder"><img class="card__image" src="' + data[i].chall_rpic + '"/></div><div class="card-title"><a href="#" class="toggle-info btn"><span class="left"></span><span class="right"></span></a><h2>'+data[i].chall_name + '<small>' +data[i].chall_tot +'</small></h2></div><div class="card-flap flap1"><div class="card-description">'+data[i].chall_content+'</div><div class="card-flap flap2"><div class="card-actions"><a href="#" class="btn">가입하기</a></div></div></div>');	
+                 $("#challengeList").append('<form action="ChallengeOne.do"><div class="card" id="card"><div class="card__image-holder"><img class="card__image" src="' + data[i].chall_rpic + '"/></div><input type="hidden" name="chall_code" value="'+data[i].chall_code+'" ><div class="card-title"><a class="toggle-info btn"><span class="left"></span><span class="right"></span></a><h2>'+data[i].chall_name + '<small>' +data[i].chall_tot +'</small></h2></div><div class="card-flap flap1"><div class="card-description">'+data[i].chall_content+'</div><div class="card-flap flap2"><div class="card-actions"><button type="submit" class="btn">가입하기</button></div></div></div></div></form>');   
             }
          }, error :function(){
             alert(ctmid_name);
          }
    });     
-	});
-	});
-	
-	
+   });
+   });
+   
+   
 $(function(){
-	$('.highcate').click(function(){
-	var cthigh_name = $(this).text();
-	$.ajax({
+   $('.highcate').click(function(){
+   var cthigh_name = $(this).text();
+   $.ajax({
       url: 'challengeTotal.do?cthigh_name='+ cthigh_name,
       type: "POST",
       cache : false,
@@ -28,21 +28,20 @@ $(function(){
       success : function(data){
             for(var i=0;i<data.length;i++){
          
-				$("#challengeList").append('<div class="card"><div class="card__image-holder"><img class="card__image" src="' + data[i].chall_rpic + '"/></div><div class="card-title"><a href="#" class="toggle-info btn"><span class="left"></span><span class="right"></span></a><h2>'+data[i].chall_name + '<small>' +data[i].chall_tot +'</small></h2></div><div class="card-flap flap1"><div class="card-description">'+data[i].chall_content+'</div><div class="card-flap flap2"><div class="card-actions"><a href="#" class="btn">가입하기</a></div></div></div>');
-				
+            $("#challengeList").append('<form action="ChallengeOne.do"><div class="card" id="card"><div class="card__image-holder"><img class="card__image" src="' + data[i].chall_rpic + '"/></div><input type="hidden" name="chall_code" value="'+data[i].chall_code +'" ><div class="card-title"><a class="toggle-info btn"><span class="left"></span><span class="right"></span></a><h2>'+data[i].chall_name + '<small>' +data[i].chall_tot +'</small></h2></div><div class="card-flap flap1"><div class="card-description">'+data[i].chall_content+'</div><div class="card-flap flap2"><div class="card-actions"><button type="submit" class="btn">가입하기</button></div></div></div></div></form>');
+            
             }
          }, error :function(){
             alert(ctmid_name);
          }
-		});     
-	});
+      });     
+   });
 });
 
 $(document).ready(function(){
   var zindex = 10;
   
   $(document).on('click','.card',function(e){
-    e.preventDefault();
 
     var isShowing = false;
 

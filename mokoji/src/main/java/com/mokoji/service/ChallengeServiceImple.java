@@ -16,10 +16,20 @@ public class ChallengeServiceImple implements ChallengeService {
 	private ChallengeDAOImple challengeDAO;
 
 	@Override
+	public int getchallcode(ChallengeVO cvo) {
+		return challengeDAO.getchallcode(cvo);
+	}
+	
+	@Override
 	public int insertChallenge(HashMap<String, Object> paramap) {
 		System.out.println(challengeDAO + "서비스넘어옴");
 		return challengeDAO.insertChallenge(paramap);
 	}
+	@Override
+	public int insertMemChallenge(HashMap<String, Object> paramap) {
+		return challengeDAO.insertMemChallenge(paramap);
+	}
+	
 
 	// 챌린지 리스트
 	@Override

@@ -7,6 +7,10 @@
 		SELECT memct_code FROM MEMCLUB where club_code = ${club.club_code} and mem_code = ${member.mem_code}
 	</select>
 
+	<select id="getMemJangCtCode" parameterType="hashmap" resultType="Integer">
+		SELECT c.ctmid_code FROM CLUB c, MEMCLUB m WHERE c.club_code = m.club_code AND m.mem_code=${member.mem_code} AND m.memct_code = 1
+	</select>
+
 	<insert id="joinClub" parameterType="hashmap">
 		<choose>
 			<when test='club.club_signtype == "승인제"'>

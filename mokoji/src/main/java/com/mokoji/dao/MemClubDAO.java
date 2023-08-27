@@ -19,4 +19,7 @@ public interface MemClubDAO {
 	
 	//동호회 검사
 	public int checkClubJang(int memcode);
+	
+	
+	public int getMemJangCtCode(HashMap<String, Object> map);
 }

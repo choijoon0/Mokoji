@@ -21,4 +21,11 @@ public class ClubInstantDAOImple implements ClubInstantDAO{
 		System.out.println(list);
 		return list;
 	}
+
+
+	@Override
+	public int insertClubInstant(HashMap<String, Object> map) {
+		// TODO Auto-generated method stub
+		return mybatis.insert("ClubInstantDAO.insertClubInstant", map);
+	}
 }

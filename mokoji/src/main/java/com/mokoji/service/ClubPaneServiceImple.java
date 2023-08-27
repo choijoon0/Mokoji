@@ -72,4 +72,34 @@ public class ClubPaneServiceImple implements ClubPaneService{
 		return clubpaneDAO.getMyLikes(vo);
 	}
 
+	@Override
+	public List<HashMap<String, Object>> selectMyClubPaneList(HashMap<String, Object> map) {
+		// TODO Auto-generated method stub
+		return clubpaneDAO.selectMyClubPaneList(map);
+	}
+
+	@Override
+	public List<HashMap<String, Object>> selectMyClub(HashMap<String, Object> map) {
+		// TODO Auto-generated method stub
+		return clubpaneDAO.selectMyClub(map);
+	}
+
+	@Override
+	public List<HashMap<String, Object>> selectMySocialing(HashMap<String, Object> map) {
+		// TODO Auto-generated method stub
+		return clubpaneDAO.selectMySocialing(map);
+	}
+
+	@Override
+	public List<HashMap<String, Object>> selectMyChallenge(HashMap<String, Object> map) {
+		// TODO Auto-generated method stub
+		return clubpaneDAO.selectMyChallenge(map);
+	}
+
+	@Override
+	public List<MemberVO> selectInfo(MemberVO vo) {
+		// TODO Auto-generated method stub
+		return clubpaneDAO.selectInfo(vo);
+	}
+
 }

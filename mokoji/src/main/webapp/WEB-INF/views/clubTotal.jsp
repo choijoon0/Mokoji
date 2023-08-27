@@ -29,8 +29,8 @@
    href="././resources/style/templatemo-edu-meeting.css">
 <link rel="stylesheet" href="././resources/style/owl.css">
 <link rel="stylesheet" href="././resources/style/lightbox.css">
-<link rel="stylesheet" href="././resources/style/test.css">
 <link rel="stylesheet" href="././resources/style/clubTotal.css">
+<link rel="stylesheet" href="././resources/style/test.css">
 
 <script src="././resources/js/clubTotal.js"></script>
 <!--
@@ -120,21 +120,32 @@ https://templatemo.com/tm-569-edu-meeting
             <div class="cards" id="clubList">
                <div class="card" id="card">
                   <div class="card__image-holder">
-                     <input type="hidden" name="club_code" value="${ clublist.club_code }"> 
-                     <img class="card__image" src="././resources/images/${clublist.club_rpic}" />
+                     <input type="hidden" name="club_code" value="${ clublist.CLUB_CODE }"> 
+                     <img class="card__image" src="././resources/images/${clublist.CLUB_RPIC}" />
                   </div>
                   <div class="card-title">
                      <a href="#" class="toggle-info btn"> <span class="left"></span>
                         <span class="right"></span>
                      </a>
-                     <h2>${clublist.club_name}
-                        <small>전체${clublist.club_memtot}</small>
-                        <small>가입한애들${clublist.club_left}</small>
-                        <small>남은자리${clublist.club_memtot-clublist.club_left}</small>
+                    
+                     
+                     <h2>${clublist.CLUB_NAME}
+                        <small>전체${clublist.CLUB_MEMTOT}</small>
+                        <small>가입한애들${clublist.CLUB_LEFT}</small>
+                        <small>남은자리${clublist.CLUB_MEMTOT - clublist.CLUB_LEFT}</small>
                      </h2>
                   </div>
+                     <c:if test="${ clublist.MIC_LIKES == 1 }">
+                       <div id="heart" class="heart is-active" 
+                            value="${clublist.CLUB_CODE}">
+                       </div>
+                     </c:if>
+                     <c:if test="${ clublist.MIC_LIKES != 1 }">
+                       <div id="heart" class="heart" value="${clublist.CLUB_CODE}">
+                       </div>
+                     </c:if>
                   <div class="card-flap flap1">
-                     <div class="card-description">${ clublist.club_intro }</div>
+                     <div class="card-description">${ clublist.CLUB_INTRO }</div>
                      <div class="card-flap flap2">
                         <div class="card-actions">
                         
@@ -159,7 +170,9 @@ https://templatemo.com/tm-569-edu-meeting
    <script src="././resources/vendor/jquery/jquery.min.js"></script>
    <script src="././resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
    <script src="././resources/js/jquery-1.9.1.min.js"></script>
+	
 
+   <script src="././resources/js/clubHeartClick.js"></script>
    <script src="././resources/js/clubTotal.js"></script>
    <script src="././resources/js/isotope.min.js"></script>
    <script src="././resources/js/owl-carousel.js"></script>

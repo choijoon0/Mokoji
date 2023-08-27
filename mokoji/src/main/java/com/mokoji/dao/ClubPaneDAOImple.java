@@ -72,4 +72,39 @@ public class ClubPaneDAOImple implements ClubPaneDAO{
 		return list;
 	}
 
+	@Override
+	public List<HashMap<String, Object>> selectMyChallenge(HashMap<String, Object> map) {
+		// TODO Auto-generated method stub
+		List<HashMap<String, Object>> list = mybatis.selectList("ClubPaneDAO.selectMyChallenge", map);
+		return list;
+	}
+
+	@Override
+	public List<HashMap<String, Object>> selectMySocialing(HashMap<String, Object> map) {
+		// TODO Auto-generated method stub
+		List<HashMap<String, Object>> list=mybatis.selectList("ClubPaneDAO.selectMySocialing", map);
+		return list;
+	}
+
+	@Override
+	public List<HashMap<String, Object>> selectMyClub(HashMap<String, Object> map) {
+		// TODO Auto-generated method stub
+		List<HashMap<String, Object>> list=mybatis.selectList("ClubPaneDAO.selectMyClub", map);
+		return list;
+	}
+
+	@Override
+	public List<MemberVO> selectInfo(MemberVO vo) {
+		// TODO Auto-generated method stub
+		List<MemberVO> list=mybatis.selectList("ClubPaneDAO.selectInfo", vo);
+		return list;
+	}
+
+	@Override
+	public List<HashMap<String, Object>> selectMyClubPaneList(HashMap<String, Object> map) {
+		// TODO Auto-generated method stub
+		List<HashMap<String, Object>> list=mybatis.selectList("ClubPaneDAO.selectMyClubPaneList", map);
+		return list;
+	}
+
 }
