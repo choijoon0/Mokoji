@@ -148,35 +148,27 @@
                                  <div class="down-content">
                                     <form action="joinmatch.do">
                                        <input type="hidden" value="${matchList.MAT_CODE}" name="mat_code">
-                                       <input type="hidden" value="${matchList.CLUB_CODE}" name="club_code">
-                                       <input type="hidden" value="${memct_code}" name="memct_code">
+                                       <input type="hidden" value="${matchList.CLUB_CODE}" name="club_code" />
+                                       <input type="hidden" value="${memctmid_code}" name="memct_code">
                                        <h4>${ matchList.MAT_NAME }</h4>
                                        <div>동호회 명 : ${ matchList.CLUB_NAME }</div>
                                        <fmt:formatDate var="newFormattedDateString" value="${ matchList.MAT_DATE }" pattern="yyyy-MM-dd"/>
                                        <div>희망 매칭 날짜 : ${ newFormattedDateString }</div>
                                        <div>희망 매칭 시간 : ${ matchList.MAT_TIME }</div>
-                                       <c:if test="${ memct_code == 15 and matchList.CTMID_CODE == 15 and matchList.MAT_CODE != matchList.MAT_CODE}">
-                                          <button type="submit" class="matching-button-red join">참가하기</button>
+                                       <c:if test="${ memctmid_code == 15 and matchList.CTMID_CODE == 15 }">
+                                          <button type="submit" class="matching-button-red">참가하기</button>
                                        </c:if>
-                                       <c:if test="${ memct_code == 10 and matchList.CTMID_CODE == 10 and matchList.MAT_CODE != matchList.MAT_CODE}">
-                                          <button type="submit" class="matching-button-red join">참가하기</button>
+                                       <c:if test="${ memctmid_code == 10 and matchList.CTMID_CODE == 10 }">
+                                          <button type="submit" class="matching-button-red">참가하기</button>
                                        </c:if>
-                                       <c:if test="${ memct_code == 28 and matchList.CTMID_CODE == 28 and matchList.MAT_CODE != matchList.MAT_CODE}">
-                                          <button type="submit" class="matching-button-red join">참가하기</button>
+                                       <c:if test="${ memctmid_code == 28 and matchList.CTMID_CODE == 28 }">
+                                          <button type="submit" class="matching-button-red">참가하기</button>
                                        </c:if>
-                                       <c:if test="${ memct_code == 15 and matchList.CTMID_CODE == 15 and matchList.MAT_CODE == matchList.MAT_CODE}">
-                                          <button type="button" class="matching-button-red nojoin">참가하기</button>
-                                       </c:if>   
-                                       <c:if test="${ memct_code == 10 and matchList.CTMID_CODE == 10 and matchList.MAT_CODE == matchList.MAT_CODE}">
-                                          <button type="button" class="matching-button-red nojoin">참가하기</button>
-                                       </c:if>   
-                                       <c:if test="${ memct_code == 28 and matchList.CTMID_CODE == 28 and matchList.MAT_CODE == matchList.MAT_CODE}">
-                                          <button type="button" class="matching-button-red nojoin">참가하기</button>
-                                       </c:if>                                    
                                     </form>
                                     <input type="hidden" value="${matchList.WINNING}" class="winning" ></input>
                                     <input type="hidden" value="${matchList.LOSTCOUNT}" class="matchlost" ></input>
                                     <input type="hidden" value="${matchList.WINCOUNT}" class="matchwin" ></input>
+                                    
                                     <button type="button" class="btn_modal" data-bs-toggle="modal" data-bs-target="#exampleModal">버튼</button>
                                     <!-- Modal -->
                                     <div class="modal fade" id="exampleModal" tabindex="-1"
@@ -240,7 +232,6 @@
    <script src="././resources/js/video.js"></script>
    <script src="././resources/js/slick-slider.js"></script>
    <script src="././resources/js/custom.js"></script>
-   <script src="././resources/js/Matching.js"></script>
 
 
 

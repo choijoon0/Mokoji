@@ -103,5 +103,15 @@ public class MatchingDAOImple implements MatchingDAO{
          return num;
       }
 
+	@Override
+	public int getMatCode(HashMap<String, Object> map) {
+		// TODO Auto-generated method stub
+	    Integer num = mybatis.selectOne("MatchingDAO.getMatCode", map);
+        if(num == null) {
+           num=0;
+        }
+        return num;
+	}
+
 
 }

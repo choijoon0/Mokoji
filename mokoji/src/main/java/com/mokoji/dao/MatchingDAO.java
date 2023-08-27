@@ -35,4 +35,6 @@ public interface MatchingDAO {
       
       // 참가 중복 방지
       public int getClubCode(HashMap<String, Object> map);
+      
+      public int getMatCode(HashMap<String, Object> map);
 }

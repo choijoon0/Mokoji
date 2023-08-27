@@ -70,4 +70,10 @@ public class MemClubServiceImple implements MemClubService{
 		return memClubDAOImple.getMemJangCtCode(map);
 	}
 
+	@Override
+	public int getMemCtMidCode(HashMap<String, Object> map) {
+		// TODO Auto-generated method stub
+		return memClubDAOImple.getMemCtMidCode(map);
+	}
+
 }

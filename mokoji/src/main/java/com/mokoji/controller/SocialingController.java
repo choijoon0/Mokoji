@@ -1,9 +1,11 @@
 package com.mokoji.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.List;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -59,13 +61,16 @@ public class SocialingController {
 	      return socialingService.getSocialListInterest(ctmid_name);
 	   }
 	   
-	   //소셜링페이지에서 가입하기를 누르면
+	   //소셜링디테일 페이지 열기
 	   @RequestMapping(value="/gosocialdetails.do")
 	   public String getSocialdetails(SocialingVO vo, SocialingInfoVO svo, MemberVO mvo, Model model, HttpSession session) throws IOException{
 	      
 	      int memcode = (int)session.getAttribute("code");
 	      mvo.setMem_code(memcode);
 	      
+	      if(session.getAttribute("socialcode") != null) {
+	         vo.setSocial_code((int)session.getAttribute("socialcode"));
+	      }
 	      
 	      model.addAttribute("OneSocialList", socialingService.getOneSocialList(vo));
 	      
@@ -81,21 +86,23 @@ public class SocialingController {
 	      session.setAttribute("memct_code", memctcode);
 	      
 	      //소셜링 입금 안된 목록  추출
-	      
-	      
 	      model.addAttribute("MemSocialList", socialingService.getAllMemSocial(vo));
 	      //소셜링 입금내역확인목록
 	      model.addAttribute("Socialpay", socialingService.getsocialpay(map));
+	      
+	      session.removeAttribute("socialcode");
 	      
 	      return "Socialdetails";
 	   }
 	   
 	   @RequestMapping(value = "/socialjoin.do")
-	   public String joinsocialinsert(SocialingVO vo, SocialingInfoVO svo,MemberVO mvo,  HttpSession session) {
+	   public String joinsocialinsert(SocialingVO vo, SocialingInfoVO svo,MemberVO mvo,  HttpSession session,  HttpServletResponse response) throws IOException {
 	      HashMap<String, Object> map = new HashMap<String, Object>();
 	      
 	      int memcode = (int)session.getAttribute("code");
 	      mvo.setMem_code(memcode);
+	      
+	      session.setAttribute("socialcode", vo.getSocial_code());
 	      
 	      
 	      int cost = vo.getSocial_cost();
@@ -116,21 +123,42 @@ public class SocialingController {
 	      
 	      if(num==2) {
 	         //2면이미 가입한 동호회
-	         System.out.println("이미 가입한 동호회에여");
+	            response.setContentType("text/html; charset=UTF-8");
+	                
+	               PrintWriter out = response.getWriter();
+	                
+	               out.println("<script>alert('이미 가입한 소셜링입니다.'); location.href='gosocialdetails.do';</script>");
+	                
+	               out.flush();
+
 	         
 	         
 	      }else if(num==1) {
 	         //null이면 가입가능
-	         System.out.println("니가 만들었어요");
+	            response.setContentType("text/html; charset=UTF-8");
+	                
+	               PrintWriter out = response.getWriter();
+	                
+	               out.println("<script>alert('당신이만든 소셜링입니다.'); location.href='gosocialdetails.do';</script>");
+	                
+	               out.flush();
+
 	         
 	         
 	      }else if(num==0){
 	         //null이면서 동호회 가입유형이 승인제면 N으로 아님 Y로
-	         System.out.println("join소셜실행");
+	            response.setContentType("text/html; charset=UTF-8");
+	                
+	               PrintWriter out = response.getWriter();
+	                
+	               out.println("<script>alert('소셜링 신청이 완료되었습니다.'); location.href='gosocialdetails.do';</script>");
+	                
+	               out.flush();
+
 	         socialingService.joinsocial(map);
 	      }
 	      
-	      return "redirect:/go.do";
+	      return "redirect:/gosocialdetails.do";
 	   }
 	         //소셜링 입금 확인
 	         @RequestMapping(value="/upsocialpay.do")

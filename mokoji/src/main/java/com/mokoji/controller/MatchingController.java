@@ -19,7 +19,6 @@ import com.mokoji.domain.MatchingInfoVO;
 import com.mokoji.domain.MatchingVO;
 import com.mokoji.domain.MemClubVO;
 import com.mokoji.domain.MemberVO;
-import com.mokoji.service.ClubService;
 import com.mokoji.service.MatchingService;
 import com.mokoji.service.MemClubService;
 
@@ -32,8 +31,6 @@ public class MatchingController {
    @Autowired
    private MemClubService memClubService;
    
-   @Autowired
-   private ClubService clubService;
    
    
    // 매칭 등록
@@ -80,22 +77,26 @@ public class MatchingController {
    
       map.put("member", mbvo);
       
-      int memct = memClubService.getMemCtCode(map);
-       session.setAttribute("memct_code", memct);
-       System.out.println(session.getAttribute("memct_code")+"sexsex");
-       session.setAttribute("clubcode", matchingService.getClubCode(map));
+      int memct = memClubService.getMemCtMidCode(map);
+       session.setAttribute("memctmid_code", memct);   
        
+       
+       session.setAttribute("clubcode", matchingService.getClubCode(map));
+       System.out.println(session.getAttribute("clubcode") + "세션에 클럽코드");
        model.addAttribute("matchList", matchingService.getMatchList(map));
+       
+      
        
       return "Matching";
    }
    
    // 등록된 매칭 참가하기
    @RequestMapping(value = "/joinmatch.do")
-   public String insertJoinMatching(MatchingVO mvo, ClubVO cvo, MemClubVO mcvo, MemberVO mbvo , HttpSession session, HttpServletResponse response) throws IOException{
+   public void insertJoinMatching(MatchingVO mvo, ClubVO cvo, MemClubVO mcvo, MemberVO mbvo , HttpSession session, HttpServletResponse response) throws IOException{
       
       HashMap<String, Object> map = new HashMap<String, Object>();  
-            
+      
+      
       int num = (int)session.getAttribute("clubcode");
       
       map.put("match", mvo);
@@ -103,15 +104,39 @@ public class MatchingController {
       map.put("memclub", mcvo);
       map.put("mem", mbvo);            
       
+      HashMap<String, Object> mat = new HashMap<String, Object>();
       
-      if(num == 0) {
+      cvo.setClub_code(num);
+      System.out.println(cvo.getClub_code()+ "클럽코드");
+      mat.put("club", cvo);
+      System.out.println(mvo.getMat_code() + "맷코드");
+      mat.put("matching", mvo);
+      
+      int matCheck = matchingService.getMatCode(mat);
+      System.out.println(matCheck + "맷코드");
+      if(matCheck == 0) {
          matchingService.insertJoinMatching(map);
-         return "redirect:/match.do";
+         response.setContentType("text/html; charset=UTF-8");
+          
+         PrintWriter out = response.getWriter();
+          
+         out.println("<script>alert('매칭 신청이 완료되었습니다.');history.back();</script>");
+          
+         out.flush();
+
       }else{   
-         return "redirect:/match.do";
+         response.setContentType("text/html; charset=UTF-8");
+          
+         PrintWriter out = response.getWriter();
+          
+         out.println("<script>alert('이미 신청한 매칭입니다!');history.back();</script>");
+          
+         out.flush();
+
       }
       
    }
+
    
    
       //승인 확인

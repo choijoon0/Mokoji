@@ -87,4 +87,14 @@ public class MemClubDAOImple implements MemClubDAO{
 		return cnt;
 	}
 
+	@Override
+	public int getMemCtMidCode(HashMap<String, Object> map) {
+		// TODO Auto-generated method stub
+		Integer cnt = mybatis.selectOne("MemClubDAO.getMemCtMidCode", map);
+		if(cnt == null) {
+			cnt=0;
+		}
+		return cnt;
+	}
+
 }

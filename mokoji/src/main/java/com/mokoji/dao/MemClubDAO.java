@@ -22,4 +22,7 @@ public interface MemClubDAO {
 	
 	
 	public int getMemJangCtCode(HashMap<String, Object> map);
+	
+	// 동호회장 기준으로 카테고리 미드 코드 뽑기
+	public int getMemCtMidCode(HashMap<String, Object> map);
 }

@@ -35,5 +35,6 @@ public interface MatchingService {
       
       public int getClubCode(HashMap<String,Object> map);
       
+      public int getMatCode(HashMap<String, Object> map);
       
 }
