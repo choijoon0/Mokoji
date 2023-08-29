@@ -76,27 +76,35 @@ https://templatemo.com/tm-569-edu-meeting
                                                             </div>
                                                             <div class="date">
                                                                <h6>
-                                                                  	활동지역 <span>${ chlist.chall_loc }</span>
+                                                                     활동지역 <span>${ chlist.chall_loc }</span>
                                                                </h6>
+                                                               <div>나이 : ${ chlist.chall_age }</div>
+                                                               <div>성별 : ${ chlist.chall_gender }</div>
                                                             </div>
                                                             <a href="meeting-details.html"><img
                                                                src="${ chlist.chall_rpic }"></a>
                                                          </div>
                                                          <div class="down-content">
-                                                            <a href="meeting-details.html"><h4>${ chlist.chall_name }</h4></a>
-                                                            <p>${ chlist.chall_tot }</p>
+                                                            <h4>${ chlist.chall_name }</h4>
+                                                            <p>총 인원 : ${ chlist.chall_tot }</p>
+                                                            <p>현재 인원 : ${ chlist.chall_left }</p>
                                                             <p class="description">${ chlist.chall_content }</p>
                                                             <div class="col-lg-12"></div>
                                                             <div class="row">
                                                             </div>
                                                             <form action="joinChallenge.do">
                                                                <div class="col-lg-12">
-                                                                  <input type="hidden" name="chall_code"
-                                                                     value="${chlist.chall_code }"/> <input
-                                                                     type="hidden" name="mem_code" value="${ code }"/>
-                                                                  <div class="main-button-red">
-                                                                     <button type="submit">가입하기</button>
-                                                                  </div>
+                                                                  <input type="hidden" name="chall_code" value="${chlist.chall_code }"/> 
+                                                                     <input type="hidden" name="mem_code" value="${ code }"/>
+                                                                  <c:choose>
+                                                <c:when
+                                                   test="${(chlist.chall_gender eq gender and chlist.chall_tot-chlist.chall_left > 0 and chlist.chall_age+10 > age) or (chlist.chall_gender eq '누구나'  and chlist.chall_tot-chlist.chall_left > 0 and chlist.chall_age+10 > age) or (chlist.chall_age eq 0 and chlist.chall_gender eq gender and chlist.chall_tot-chlist.chall_left > 0) or (chlist.chall_age eq 0 and chlist.chall_gender eq '누구나' and chlist.chall_tot-chlist.chall_left > 0)}">
+                                                   <button type="submit" class="btn">가입하기</button>
+                                                </c:when>
+                                                <c:otherwise>
+                                                   <button type="button" class="nochall">가입하기</button>
+                                                </c:otherwise>
+                                             </c:choose>
                                                                </div>
                                                             </form>
                                                    </c:forEach>

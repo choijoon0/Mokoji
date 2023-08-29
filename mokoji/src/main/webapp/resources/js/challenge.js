@@ -93,3 +93,9 @@ $('.card').remove();
 
 });
 });
+
+$(function(){
+   $('.nochall').on('click',function(){
+      alert('참여 조건을 확인해주세요!');   
+   });
+});

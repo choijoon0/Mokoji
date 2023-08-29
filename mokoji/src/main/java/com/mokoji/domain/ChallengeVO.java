@@ -9,7 +9,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class ChallengeVO {
 	private String chall_name, chall_content, chall_loc, chall_gender, chall_pic, chall_rpic;
-	private int chall_code, chall_age, chall_tot, chall_week;
+	private int chall_code, chall_age, chall_tot, chall_week, chall_left;
 	private String chall_startdate, chall_enddate;
 	MultipartFile challengefile;
 	
@@ -27,7 +27,7 @@ public class ChallengeVO {
 			UUID uuid = UUID.randomUUID();
 			chall_rpic = uuid.toString() + "_" + chall_pic;
 			
-			File f = new File("C:\\Users\\강의실2\\git\\Mokoji\\mokoji\\src\\main\\webapp\\resources\\images\\"+ chall_rpic);
+			File f = new File("C:\\Users\\04-09\\git\\Mokoji\\mokoji\\src\\main\\webapp\\resources\\images\\"+ chall_rpic);
 			
 			try {
 				challengefile.transferTo(f);
@@ -120,6 +120,14 @@ public class ChallengeVO {
 
 	public void setChall_enddate(String chall_enddate) {
 		this.chall_enddate = chall_enddate;
+	}
+
+	public int getChall_left() {
+		return chall_left;
+	}
+
+	public void setChall_left(int chall_left) {
+		this.chall_left = chall_left;
 	}
 
 	

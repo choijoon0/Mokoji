@@ -677,6 +677,7 @@ https://templatemo.com/tm-569-edu-meeting
 	<script src="././resources/js/repleUpDel.js"></script>
 	
 	
+	
 	<script>
         //according to loftblog tut
         $('.nav li:first').addClass('active');

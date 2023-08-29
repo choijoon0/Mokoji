@@ -170,8 +170,6 @@ https://templatemo.com/tm-569-edu-meeting
    <script src="././resources/vendor/jquery/jquery.min.js"></script>
    <script src="././resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
    <script src="././resources/js/jquery-1.9.1.min.js"></script>
-	
-
    <script src="././resources/js/clubHeartClick.js"></script>
    <script src="././resources/js/clubTotal.js"></script>
    <script src="././resources/js/isotope.min.js"></script>

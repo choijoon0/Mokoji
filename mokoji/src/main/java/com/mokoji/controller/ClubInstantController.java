@@ -87,7 +87,7 @@ public class ClubInstantController {
 		map.put("club", cvo);
 
 		clubInstantService.insertClubInstant(map);
-		System.out.println("번개생성");
+		
 		return "redirect:/go.do";
 
 	}

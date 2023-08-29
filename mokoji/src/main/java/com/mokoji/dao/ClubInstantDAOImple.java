@@ -18,7 +18,7 @@ public class ClubInstantDAOImple implements ClubInstantDAO{
 	
 	public List<HashMap<String, Object>> getInstantList(HashMap<String, Object> map){
 		List<HashMap<String, Object>> list = mybatis.selectList("ClubInstantDAO.getInstantList", map);
-		System.out.println(list);
+		
 		return list;
 	}
 

@@ -9,7 +9,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class SocialingVO {
 	private String social_name, social_content, social_loc, social_pic, social_rpic, social_gender, social_signtype;
-	private int social_code, social_tot, social_cost, social_maxage; 
+	private int social_code, social_tot, social_cost, social_maxage, social_left; 
 	private Date social_starttime, social_date;
 	MultipartFile socialingfile;
 	public MultipartFile getSocialingfile() {
@@ -119,6 +119,12 @@ public class SocialingVO {
 	}
 	public void setSocial_signtype(String social_signtype) {
 		this.social_signtype = social_signtype;
+	}
+	public int getSocial_left() {
+		return social_left;
+	}
+	public void setSocial_left(int social_left) {
+		this.social_left = social_left;
 	}
 	
 }

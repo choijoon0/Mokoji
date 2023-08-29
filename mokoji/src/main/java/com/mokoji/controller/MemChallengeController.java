@@ -47,13 +47,13 @@ public class MemChallengeController {
 
 		if (num == 2) {
 			// 2면이미 가입한 동호회
-			System.out.println("이미 가입한 동호회에여");
+			
 			w.write("<script>alert('" + msg + "');history.back();</script>");
 			w.flush();
 			w.close();
 		} else if (num == 1) {
 			// null이면 가입가능
-			System.out.println("니가 만들었어요");
+			
 			w.write("<script>alert('" + msg1 + "');history.back();</script>");
 			w.flush();
 			w.close();

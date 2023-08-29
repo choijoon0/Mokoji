@@ -22,7 +22,6 @@ public class ChallengeServiceImple implements ChallengeService {
 	
 	@Override
 	public int insertChallenge(HashMap<String, Object> paramap) {
-		System.out.println(challengeDAO + "서비스넘어옴");
 		return challengeDAO.insertChallenge(paramap);
 	}
 	@Override

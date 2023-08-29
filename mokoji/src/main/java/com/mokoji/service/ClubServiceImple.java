@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.mokoji.dao.ClubDAOImple;
+import com.mokoji.domain.CategoryVO;
 import com.mokoji.domain.ClubVO;
 
 
@@ -81,6 +82,29 @@ public class ClubServiceImple implements ClubService{
 	public int insertMemClub(HashMap<String, Object> map) {
 		// TODO Auto-generated method stub
 		return clubdao.insertMemClub(map);
+	}
+	
+	//카테고리 검색 위해 카테코리pk받아오기
+	@Override
+	public int getSearchClubCate(CategoryVO catevo) {
+		// TODO Auto-generated method stub
+		return clubdao.getSearchClubCate(catevo);
+	}
+	
+	//활동 지역으로 클럽 리스트 검색
+	@Override
+	public List<HashMap<String, Object>> selectClubByClubLoc(HashMap<String, Object> map) {
+		// TODO Auto-generated method stub
+		
+		
+		return clubdao.selectClubByClubLoc(map);
+	}
+	//카테고리로 클럽 리스트 검색
+	@Override
+	public List<HashMap<String, Object>> selectClubByCategory(HashMap<String, Object> map) {
+		// TODO Auto-generated method stub
+		
+		return clubdao.selectClubByCategory(map);
 	}
 
 

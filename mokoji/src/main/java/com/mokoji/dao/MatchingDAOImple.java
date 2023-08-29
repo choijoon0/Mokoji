@@ -75,21 +75,21 @@ public class MatchingDAOImple implements MatchingDAO{
       @Override
       public int getwincount(ClubVO vo) {
          int win = mybatis.selectOne("MatchingDAO.getwincount", vo);
-         System.out.println(win);
+         
          return win;
       }
       
       @Override
       public int getlostcount(ClubVO vo) {
          int lost = mybatis.selectOne("MatchingDAO.getlostcount", vo);
-         System.out.println(lost);
+         
          return lost;
       }
 
       @Override
       public int getwinning(ClubVO vo) {
          int winning = mybatis.selectOne("MatchingDAO.getwinning", vo);
-         System.out.println(winning);
+         
          return winning;
       }
 

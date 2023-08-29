@@ -34,7 +34,7 @@ public class MemClubController {
 		
 		//회원분류
 		int num = memClubService.getMemCtCode(map);
-		System.out.println(num+"회원분류료");
+		
 		
 		if(num==2) {
 			//2면이미 가입한 동호회

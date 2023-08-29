@@ -115,6 +115,7 @@ https://templatemo.com/tm-569-edu-meeting
 									<input type="hidden" ${ code }>
 									<c:forEach items="${ myclub }" begin="0" end="3"
 										var="myclublist">
+										 <form action="details.do">
 										<input type="hidden" value="${ myclublist.MEM_CODE }"
 											name="mem_code">
 										<c:if test="${ empty myclublist  }">
@@ -134,14 +135,17 @@ https://templatemo.com/tm-569-edu-meeting
 														</a>
 														<h2>${myclublist.CLUB_NAME}</h2>
 													</div>
+													<input type="hidden" value="${myclublist.CLUB_CODE}" name="club_code">
 													<div class="card-flap flap1">
 														<div class="card-description">${ myclublist.CLUB_INTRO }</div>
-														<div class="card-flap flap2"></div>
+														<div class="card-flap flap2">
+														<button type="submit" class="btn"> + 더보기</button>	
+														</div>
 													</div>
 												</div>
 											</div>
 										</c:if>
-
+										</form>
 									</c:forEach>
 								</div>
 
@@ -152,6 +156,7 @@ https://templatemo.com/tm-569-edu-meeting
 								<div id="cardlist">
 									<input type="hidden" ${ code }>
 									<c:forEach items="${ mysocialing }" begin="0" end="3" var="mysocialing">
+									<form action="gosocialdetails.do">
 										<input type="hidden" value="${ mysocialing.MEM_CODE }"
 											name="mem_code">
 										<c:if test="${ empty mysocialing  }">
@@ -171,14 +176,16 @@ https://templatemo.com/tm-569-edu-meeting
 														</a>
 														<h2>${mysocialing.SOCIAL_NAME}</h2>
 													</div>
+													<input type="hidden" value="${mysocialing.SOCIAL_CODE}", name="social_code" />
 													<div class="card-flap flap1">
 														<div class="card-description">${ mysocialing.SOCIAL_CONTENT }</div>
 														<div class="card-flap flap2"></div>
+														<button type="submit" class="btn"> + 더보기</button>	
 													</div>
 												</div>
 											</div>
 										</c:if>
-
+									</form>
 									</c:forEach>
 								</div>
 

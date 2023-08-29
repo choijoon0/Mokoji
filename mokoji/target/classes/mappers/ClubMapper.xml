@@ -98,5 +98,36 @@
 		(mc_code, club_code, mem_code, memct_code, mc_joinstate)
 		VALUES(seq_memclub.nextval, ${club.club_code}, ${member.mem_code}, 1, 'Y')
 	</insert>
+	
+	
+	<select id="getSearchClubCate" parameterType="category" resultType="Integer">
+		SELECT CTMID_CODE FROM CATEGORYMIDDLE WHERE CTMID_NAME = #{ctmid_name}
+	</select>
+	
+	
+	<select id="selectClubByClubLoc" parameterType="hashmap" resultType="hashmap">
+SELECT DISTINCT a.club_code, a.club_name, a.club_cost, a.club_loc, a.club_intro,
+a.club_signtype, a.club_memtot, a.club_pic, a.club_rpic, a.ctmid_code,
+(SELECT count(m.mc_joinstate) FROM MEMCLUB m WHERE a.club_code = m.club_code AND m.mc_joinstate ='Y') AS club_left,
+nvl(aaa.cnt, 0) AS mic_likes
+FROM CLUB a
+LEFT JOIN MEMCLUB c ON a.CLUB_CODE = c.CLUB_CODE
+LEFT JOIN (SELECT CLUB_CODE, count(*) AS cnt FROM MEMINTERCLUB m2 WHERE mem_code = ${member.mem_code} GROUP BY CLUB_CODE) aaa ON c.CLUB_CODE = aaa.club_code
+WHERE a.club_loc = '${category.ctmid_name}'
+ORDER BY CLUB_CODE DESC
+	</select>
+	
+	<select id="selectClubByCategory" parameterType="hashmap" resultType="hashmap">
+	SELECT DISTINCT a.club_code, a.club_name, a.club_cost, a.club_loc, a.club_intro,
+a.club_signtype, a.club_memtot, a.club_pic, a.club_rpic, a.ctmid_code,
+(SELECT count(m.mc_joinstate) FROM MEMCLUB m WHERE a.club_code = m.club_code AND m.mc_joinstate ='Y') AS club_left,
+nvl(aaa.cnt, 0) AS mic_likes
+FROM CLUB a
+LEFT JOIN MEMCLUB c ON a.CLUB_CODE = c.CLUB_CODE
+LEFT JOIN (SELECT CLUB_CODE, count(*) AS cnt FROM MEMINTERCLUB m2 WHERE mem_code = ${member.mem_code} GROUP BY CLUB_CODE) aaa ON c.CLUB_CODE = aaa.club_code
+WHERE a.ctmid_code = ${category.ctmid_code}
+ORDER BY CLUB_CODE DESC
+	</select>
+	
 
 </mapper>

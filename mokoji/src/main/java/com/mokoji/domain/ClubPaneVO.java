@@ -89,7 +89,7 @@ public class ClubPaneVO {
 	}
 	public void setCp_rpic(String cp_rpic) {
 		this.cp_rpic = cp_rpic;
-		System.out.println(cp_rpic+"rpic임");
+		
 	}
 	
 	

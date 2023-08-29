@@ -3,6 +3,7 @@ package com.mokoji.service;
 import java.util.HashMap;
 import java.util.List;
 
+import com.mokoji.domain.CategoryVO;
 import com.mokoji.domain.SocialingInfoVO;
 import com.mokoji.domain.SocialingVO;
 
@@ -44,4 +45,10 @@ public interface SocialingService {
 
 	// 승인 거절
 	public void delsocialing(SocialingInfoVO vo);
+	
+	//지역으로 소셜링 리스트
+	public List<HashMap<String, Object>> searchSocialByLoc(SocialingVO svo);
+	
+	//카테고리 중분류로 소셜링 리스트
+	public List<HashMap<String,Object>> searchSocialByCate(CategoryVO ctvo);
 }

@@ -20,7 +20,7 @@
 <title>Education - List of Meetings</title>
 
 
-<!-- Bootstrap core CSS -->
+<!-- Bootstrap core CSS -->`
 <link href="././resources/vendor/bootstrap/css/bootstrap.min.css"
 	rel="stylesheet">
 
@@ -93,80 +93,94 @@ https://templatemo.com/tm-569-edu-meeting
                               <div class="col-lg-4">
                                  <input type="hidden" value="${ code }" name="mem_code">
                                  <fieldset>
-                                    <input name="chall_name" type="text" id="chall_name"
-                                       placeholder="챌린지 제목을입력하세요*" required autocomplete="off">
+                                    <input name="chall_name" type="text" id="chall_name" placeholder="챌린지 제목을입력하세요*" required autocomplete="off">
                                  </fieldset>
                               </div>
 
                               <div class="col-lg-4">
                                  <fieldset>
-                                    <input name="chall_startdate" type="date"
-                                       id="chall_startdate" required autocomplete="off" />
+                                    <input name="chall_startdate" type="date" id="chall_startdate" required autocomplete="off" />
                                  </fieldset>
                               </div>
 
                               <div class="col-lg-4">
                                  <fieldset>
-                                    <input type="date" name="chall_enddate" id="chall_enddate"
-                                       required autocomplete="off" />
+                                    <input type="date" name="chall_enddate" id="chall_enddate" required autocomplete="off" />
                                  </fieldset>
                               </div>
 
 
-                                                         <div>
+                              <div>
                               <label class="rectangle-232-vNM">
                                  <div id="challimage_container">
-                                 
                                  </div>
                                  <input name="challengefile" type="file" id="chall_pic" accept="image/*" onchange="setThumbnail3(event)" placeholder="이미지를 선택해주세요" />
 							</label>
                            </div>
                               <div class="col-lg-12">
                                  <fieldset>
-                                    <textarea name="chall_content" type="text"
-                                       class="form-control" id="chall_content"
-                                       placeholder="챌린지를 자유롭게 소개해주세요*" required autocomplete="off"></textarea>
+                                    <textarea name="chall_content" type="text" class="form-control" id="chall_content" placeholder="챌린지를 자유롭게 소개해주세요*" required autocomplete="off"></textarea>
                                  </fieldset>
                               </div>
                               <div>
                                  <div>
-                                    <p>어디서 만날까요?</p>
-
-                                    <label id="offline"> <input type="radio" id="radio"
-                                       name="chall_loc" value="오프라인">오프라인
-                                    </label> <label id="online"> <input type="radio"
-                                       name="chall_loc" value="온라인">온라인
-                                    </label>
+																		<p>주 활동 지역을 선택해주세요!</p>
+																			<select name="chall_loc">
+																					<option value="전체">전체</option>
+																					<option value="강남구">강남구</option>
+																					<option value="강동구">강동구</option>
+																					<option value="강북구">강북구</option>
+																					<option value="강서구">강서구</option>
+																					<option value="관악구">관악구</option>
+																					<option value="광진구">광진구</option>
+																					<option value="구로구">구로구</option>
+																					<option value="금천구">금천구</option>
+																					<option value="노원구">노원구</option>
+																					<option value="도봉구">도봉구</option>
+																					<option value="동대문구">동대문구</option>
+																					<option value="동작구">동작구</option>
+																					<option value="마포구">마포구</option>
+																					<option value="서대문구">서대문구</option>
+																					<option value="서초구">서초구</option>
+																					<option value="성동구">성동구</option>
+																					<option value="성북구">성북구</option>
+																					<option value="송파구">송파구</option>
+																					<option value="양천구">양천구</option>
+																					<option value="영등포구">영등포구</option>
+																					<option value="용산구">용산구</option>
+																					<option value="은평구">은평구</option>
+																					<option value="종로구">종로구</option>
+																					<option value="중구">중구</option>
+																					<option value="중랑구">중랑구</option>																		
+																			</select>		
                                  </div>
                               </div>
-                              <br> <label class="item--DS9">챌린지 주제를 선택해주세요!</label> </br>
+                              </br>
+                              <label class="item--DS9">챌린지 주제를 선택해주세요!</label>
+                              </br>
                               <div class="line-50-t2V"></div>
 
 
                               <div class="field-wrap">
-                                 <label> 관심사<span class="req"></span></label> <select
-                                    id="cthigh_name" name="cthigh_name" onchange="remove()">
+                                 <label> 관심사<span class="req"></span></label>
+                                 	<select id="cthigh_name" name="cthigh_name" onchange="remove()">
                                     <option value="선택" selected>====</option>
-                                    <c:forEach items="${ catehighList }" var="category">
-                                       <option value="${ category.cthigh_name }">${ category.cthigh_name }</option>
-                                    </c:forEach>
-                                 </select>
-                                 <select id="mem_favorite2" name="ctmid_code">
-
-                                    <option value="선택">====</option>
-
-
-                                 </select>
+                                    	<c:forEach items="${ catehighList }" var="category">
+                                       	<option value="${ category.cthigh_name }">${ category.cthigh_name }</option>
+                                    	</c:forEach>
+                                 	</select>
+                                 	<select id="mem_favorite2" name="ctmid_code">
+                                    	<option value="선택">====</option>
+                               		</select>
                               </div>
 
-                              <label class="item">어떻게 멤버를 모집할까요?</label> <label
-                                 class="item2">참여 조건</label>
+                              <label class="item">어떻게 멤버를 모집할까요?</label>
+                              <label class="item2">참여 조건</label>
                               <div class="line-81-zw3"></div>
                               <label class="item--ySH">성별</label>
                               <div class="gender">
                                  <select name="chall_gender">
                                     <option value="none">=== 선택 ===</option>
-
                                     <option value="누구나">누구나</option>
                                     <option value="남자">남자</option>
                                     <option value="여자">여자</option>
@@ -178,6 +192,7 @@ https://templatemo.com/tm-569-edu-meeting
                               <div class="age">
                                  <select name="chall_age">
                                     <option value="none">=== 선택 ===</option>
+                                    <option value="999">무관</option>
                                     <option value="20">20대</option>
                                     <option value="30">30대</option>
                                     <option value="40">40대</option>
@@ -189,8 +204,7 @@ https://templatemo.com/tm-569-edu-meeting
 
                               <label class="item5">인원 수</label>
                               <div class="per">
-                                 <input name="chall_tot" type="number" min='3' max='30'
-                                    step='1'>
+                                 <input name="chall_tot" type="number" min='2' step='1'>
                               </div>
 
                               <div class="item6">최소 3, 최대 인원 수는 30 입니다.</div>
@@ -249,42 +263,62 @@ https://templatemo.com/tm-569-edu-meeting
 																	</div>
 																	<div>
 																		<div>
-																			<p>어디서 만날까요?</p>
-
-																			<label id="offline">
-																				<input type="radio" name="social_loc" value="오프라인">오프라인
-																			</label>
-																			<label id="online">
-																				<input type="radio" name="social_loc" value="온라인">온라인
-																			</label>
+																			<p>주 활동 지역을 선택해주세요!</p>
+																			<select name="social_loc">
+																					<option value="전체">전체</option>
+																					<option value="강남구">강남구</option>
+																					<option value="강동구">강동구</option>
+																					<option value="강북구">강북구</option>
+																					<option value="강서구">강서구</option>
+																					<option value="관악구">관악구</option>
+																					<option value="광진구">광진구</option>
+																					<option value="구로구">구로구</option>
+																					<option value="금천구">금천구</option>
+																					<option value="노원구">노원구</option>
+																					<option value="도봉구">도봉구</option>
+																					<option value="동대문구">동대문구</option>
+																					<option value="동작구">동작구</option>
+																					<option value="마포구">마포구</option>
+																					<option value="서대문구">서대문구</option>
+																					<option value="서초구">서초구</option>
+																					<option value="성동구">성동구</option>
+																					<option value="성북구">성북구</option>
+																					<option value="송파구">송파구</option>
+																					<option value="양천구">양천구</option>
+																					<option value="영등포구">영등포구</option>
+																					<option value="용산구">용산구</option>
+																					<option value="은평구">은평구</option>
+																					<option value="종로구">종로구</option>
+																					<option value="중구">중구</option>
+																					<option value="중랑구">중랑구</option>																		
+																			</select>		
 																		</div>
 																	</div>
-																	<br> <label class="item--DS9">소셜링 주제를
-																		선택해주세요!</label> </br>
+																	<br> <label class="item--DS9">소셜링 주제를 선택해주세요!</label> </br>
 																	<div class="line-50-t2V"></div>
 
 
 																	<div class="field-wrap">
-																		<label> 관심사<span class="req"></span></label> <select
-																			id="cthigh_name" name="cthigh_name"
-																			onchange="remove()">
+																		<label> 관심사<span class="req"></span></label>
+																		<select id="cthigh_name1" name="cthigh_name" onchange="remove1()">
 																			<option value="선택" selected>====</option>
 																			<c:forEach items="${ catehighList }" var="category">
 																				<option value="${ category.cthigh_name }">${ category.cthigh_name }</option>
 																			</c:forEach>
-																		</select> <select id="mem_favorite2" name="ctmid_code">
+																		</select>
+																		<select id="mem_favorite3" name="ctmid_code">
 																			<option value="선택">====</option>
 																		</select>
 																	</div>
 
 																	<label class="item">어떻게 멤버를 모집할까요?</label>
 																	<div>
-                                                      <label id="com"> <input type="radio"
-                                                         name="social_signtype" value="선착순">선착순
-                                                      </label> <label id="grant"> <input type="radio"
-                                                         name="social_signtype" value="승인제">승인제
-                                                      </label>
-
+														<label id="com">
+															<input type="radio" name="social_signtype" value="선착순">선착순
+														</label>
+														<label id="grant">
+                                                      		<input type="radio" name="social_signtype" value="승인제">승인제
+                                                        </label>
                                                    </div>
 																	<label class="item2">참여 조건</label>
 																	<div class="line-81-zw3"></div>
@@ -294,6 +328,7 @@ https://templatemo.com/tm-569-edu-meeting
 																			<option value="none">=== 선택 ===</option>
 																			<option value="남자">남자</option>
 																			<option value="여자">여자</option>
+																			<option value="누구나">누구나</option>
 																		</select>
 																	</div>
 
@@ -302,6 +337,7 @@ https://templatemo.com/tm-569-edu-meeting
 																	<div class="age">
 																		<select name="social_maxage">
 																			<option value="none">=== 선택 ===</option>
+																			<option value="999">무관</option>
 																			<option value="20">20대</option>
 																			<option value="30">30대</option>
 																			<option value="40">40대</option>
@@ -380,9 +416,34 @@ https://templatemo.com/tm-569-edu-meeting
 									<div>
 										<div>
 											<p>어디서 만날까요?</p>
-
-											<label id="offline"> <input type="radio" name="club_loc" value="오프라인">오프라인</label>
-											<label id="online"> <input type="radio" name="club_loc" value="온라인">온라인</label>
+<select name="social_loc">
+																					<option value="전체">전체</option>
+																					<option value="강남구">강남구</option>
+																					<option value="강동구">강동구</option>
+																					<option value="강북구">강북구</option>
+																					<option value="강서구">강서구</option>
+																					<option value="관악구">관악구</option>
+																					<option value="광진구">광진구</option>
+																					<option value="구로구">구로구</option>
+																					<option value="금천구">금천구</option>
+																					<option value="노원구">노원구</option>
+																					<option value="도봉구">도봉구</option>
+																					<option value="동대문구">동대문구</option>
+																					<option value="동작구">동작구</option>
+																					<option value="마포구">마포구</option>
+																					<option value="서대문구">서대문구</option>
+																					<option value="서초구">서초구</option>
+																					<option value="성동구">성동구</option>
+																					<option value="성북구">성북구</option>
+																					<option value="송파구">송파구</option>
+																					<option value="양천구">양천구</option>
+																					<option value="영등포구">영등포구</option>
+																					<option value="용산구">용산구</option>
+																					<option value="은평구">은평구</option>
+																					<option value="종로구">종로구</option>
+																					<option value="중구">중구</option>
+																					<option value="중랑구">중랑구</option>																		
+																			</select>		
 										</div>
 									</div>
 									<label class="item--DS9">모임 주제를 선택해주세요!</label>

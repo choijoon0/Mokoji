@@ -19,12 +19,17 @@ import com.mokoji.domain.ChallengeVO;
 import com.mokoji.domain.ClubVO;
 import com.mokoji.domain.MemInterClubVO;
 import com.mokoji.domain.MemberVO;
+import com.mokoji.domain.SocialingVO;
 import com.mokoji.service.CategoryService;
 import com.mokoji.service.ChallengeService;
 import com.mokoji.service.ClubService;
+import com.mokoji.service.SocialingService;
 
 @Controller
 public class ClubController {
+	@Autowired
+	private SocialingService socialingService;
+	
 	@Autowired
 	private ClubService clubService;
 
@@ -107,6 +112,43 @@ public class ClubController {
 	      return clubService.getClubListInterest(map);
 	   }
 	
+	//검색류
+	@RequestMapping("SearchClub.do")
+	public String getSearchClubList(@RequestParam("search") String search, Model model, MemberVO mvo, CategoryVO catevo, SocialingVO svo,HttpSession session) {
+		
+		//로그인한 멤버코드 가져오기
+		mvo.setMem_code((int)session.getAttribute("code"));
+		
+		//검색어 가져오기
+		svo.setSocial_loc(search);
+		catevo.setCtmid_name(search);
+		HashMap<String, Object> map = new HashMap<String, Object> ();
+		
+		
+		int ctnum = clubService.getSearchClubCate(catevo);
+		catevo.setCtmid_code(ctnum);
+		
+		map.put("member", mvo);
+		map.put("category", catevo);
+		
+		
+		
+		//0이면 지역
+		if(ctnum == 0) {
+			model.addAttribute("clubLocList", clubService.selectClubByClubLoc(map));
+			model.addAttribute("socialLocList", socialingService.searchSocialByLoc(svo));
+			
+		}else {
+			//0이 아니면 카테고리
+			model.addAttribute("clubCtList", clubService.selectClubByCategory(map));
+			model.addAttribute("socialCtList", socialingService.searchSocialByCate(catevo));
+			
+		}
+		
+		
+		return "searchPage";
+		
+	}
 	
 
 }

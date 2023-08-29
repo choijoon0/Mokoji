@@ -49,7 +49,7 @@ public class SocialingController {
 	   @RequestMapping(value = "/Social.do", method = RequestMethod.POST)
 	   @ResponseBody
 	   public List<SocialingVO> getHighSocialListInterest(@RequestParam("cthigh_name") String cthigh_name) {
-	      System.out.println("상위카테고리별 리스트" + cthigh_name);
+	      
 	      return socialingService.getHighSocialListInterest(cthigh_name);
 	   }
 
@@ -57,7 +57,7 @@ public class SocialingController {
 	   @RequestMapping(value = "/Social.do", method = RequestMethod.GET)
 	   @ResponseBody
 	   public List<SocialingVO> getSocialListInterest(@RequestParam("ctmid_name") String ctmid_name) {
-	      System.out.println("하위카테고리별 리스트" + ctmid_name);
+	      
 	      return socialingService.getSocialListInterest(ctmid_name);
 	   }
 	   
@@ -68,8 +68,10 @@ public class SocialingController {
 	      int memcode = (int)session.getAttribute("code");
 	      mvo.setMem_code(memcode);
 	      
+	      
 	      if(session.getAttribute("socialcode") != null) {
 	         vo.setSocial_code((int)session.getAttribute("socialcode"));
+	         
 	      }
 	      
 	      model.addAttribute("OneSocialList", socialingService.getOneSocialList(vo));
@@ -81,6 +83,7 @@ public class SocialingController {
 	      
 	      int check = socialingService.checkMemSocial(map);
 	      session.setAttribute("check", check);
+	      
 	      
 	      int memctcode = socialingService.getmemctcode(map);
 	      session.setAttribute("memct_code", memctcode);
@@ -119,7 +122,7 @@ public class SocialingController {
 	      map.put("socialinfo", svo);
 	      
 	      int num = socialingService.getmemctcode(map);
-	      System.out.println(num+"회원분류료");
+	      
 	      
 	      if(num==2) {
 	         //2면이미 가입한 동호회
