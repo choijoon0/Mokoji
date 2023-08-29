@@ -113,7 +113,7 @@ https://templatemo.com/tm-569-edu-meeting
 		</div>
 
 
-
+			
 			<div id="cardlist">
 			<c:forEach items="${clubTotList}" var="clublist">
 				<form action="details.do">
@@ -132,13 +132,14 @@ https://templatemo.com/tm-569-edu-meeting
 								<small>Image from unsplash.com</small>
 							</h2>
 						</div>
-					<c:if test="${ clublist.MIC_LIKES == 1 }">
-						<div id="heart" class="heart is-active" value="${clublist.CLUB_CODE}">
-						</div>
-					</c:if>
-					<c:if test="${ clublist.MIC_LIKES != 1 }">
+					<c:if test="${ clublist.MIC_LIKES == 0 }">
 						<div id="heart" class="heart" value="${clublist.CLUB_CODE}">
 						</div>
+					</c:if>
+					<c:if test="${ clublist.MIC_LIKES != 0 }">
+					<div id="heart" class="heart is-active" value="${clublist.CLUB_CODE}">
+						</div>
+			
 					</c:if>
 						<div class="card-flap flap1">
 							<div class="card-description">${ clublist.CLUB_INTRO }
@@ -154,7 +155,6 @@ https://templatemo.com/tm-569-edu-meeting
 			</form>
 			</c:forEach>
 			</div>
-
 		<%@ include file="main/footer.jsp"%>
 	</section>
 

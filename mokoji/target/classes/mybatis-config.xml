@@ -20,8 +20,7 @@
 		<typeAlias alias="instant" type="com.mokoji.domain.ClubInstantVO"/>
 		<typeAlias alias="meminterclub" type="com.mokoji.domain.MemInterClubVO"/>
 		<typeAlias alias="gifticon" type="com.mokoji.domain.GifticonVO"/>
-		
-		
+		<typeAlias alias="giftcategory" type="com.mokoji.domain.GiftCategoryVO"/>
 	</typeAliases>
 	
 	<!-- Sql Mapper 설정 -->
