@@ -11,10 +11,9 @@
 <meta name="viewport"
    content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="">
-<meta name="author" content="Template Mo">
-<link
-   href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900"
-   rel="stylesheet">
+<meta name="author" content="TemplateMo">
+<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900"
+rel="stylesheet">
 
 <title>Education - List of Meetings</title>
 
@@ -124,7 +123,7 @@ https://templatemo.com/tm-569-edu-meeting
                      <img class="card__image" src="././resources/images/${clublist.CLUB_RPIC}" />
                   </div>
                   <div class="card-title">
-                     <a href="#" class="toggle-info btn"> <span class="left"></span>
+                     <a class="toggle-info btn"> <span class="left"></span>
                         <span class="right"></span>
                      </a>
                     

@@ -47,11 +47,11 @@ https://templatemo.com/tm-569-edu-meeting
       <div class="container">
          <div class="row">
             <div class="col-lg-12">
-               <h2>모임</h2>
+               <h2>챌린지</h2>
             </div>
          </div>
       </div>
-   </section>
+   </section> 
 
    <section class="meetings-page" id="meetings">
       <div class="container">
@@ -107,13 +107,14 @@ https://templatemo.com/tm-569-edu-meeting
       <div class="cards" id="challengeList">
 
          <c:forEach items="${ challengeTotList }" var="challengeList">
+         <form action="ChallengeOne.do">
             <div class="card" id="card">
                <div class="card__image-holder">
-                  <input type="hidden" name="challenge_code" value="${ challengeList.chall_code }">
+                  <input type="hidden" name="chall_code" value="${ challengeList.chall_code }">
                   <img class="card__image" src="${challengeList.chall_rpic}" />
                </div>
                <div class="card-title">
-                  <a href="#" class="toggle-info btn"> <span class="left"></span>
+                  <a class="toggle-info btn"> <span class="left"></span>
                      <span class="right"></span>
                   </a>
                   <h2>
@@ -124,11 +125,12 @@ https://templatemo.com/tm-569-edu-meeting
                   <div class="card-description">${ challengeList.chall_content }</div>
                   <div class="card-flap flap2">
                      <div class="card-actions">
-                        <a href="#" class="btn">가입하기</a>
+                        <button type="submit" class="btn">가입하기</button>
                      </div>
                   </div>
                </div>
             </div>
+            </form>
          </c:forEach>
 
       </div>
@@ -205,6 +207,5 @@ https://templatemo.com/tm-569-edu-meeting
 </body>
 
 
-</body>
 
 </html>

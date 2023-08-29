@@ -5,10 +5,11 @@
 
 html {
   overflow-y: scroll;
+  
 }
 
 body {
-  background: #c1bdba;
+	background-image: url(../images/meetings-page-bg.jpg);
   font-family: 'Titillium Web', sans-serif;
 }
 

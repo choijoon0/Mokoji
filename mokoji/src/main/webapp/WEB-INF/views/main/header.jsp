@@ -6,6 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+
 <title>Mokoji Main</title>
 
 </head>
@@ -28,7 +29,7 @@
 							<li><a href="gochallenge.do">챌린지</a></li>
 							<li><a href="gosocial.do">소셜</a></li>
 							<li><a href="goclub.do">커뮤니티</a></li>
-							<li><a href="#contact">기프티콘</a></li>
+							<li><a href="Giftshop.do">기프티콘</a></li>
 							<li class="has-sub"><a href="javascript:void(0)">모임</a>
 								<ul class="sub-menu">
 								

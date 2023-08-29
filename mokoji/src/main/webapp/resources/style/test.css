@@ -54,11 +54,17 @@ body {
 /*---------------------------------------
   TYPOGRAPHY               
 -----------------------------------------*/
+#cate{
+	margin-left: 85px;
+}
 
+#category{
+	margin-left: 70px;
+}
 
 img{
-	width:120px;
-	height:auto;
+	width:100px;
+	height:100px;
 }
 
 h2,
