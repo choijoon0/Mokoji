@@ -1,9 +1,11 @@
 package com.mokoji.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.List;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +17,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.mokoji.domain.CategoryVO;
-import com.mokoji.domain.ClubVO;
 import com.mokoji.domain.MemberVO;
 import com.mokoji.domain.SocialingInfoVO;
 import com.mokoji.domain.SocialingVO;
@@ -27,7 +28,7 @@ public class SocialingController {
 	@Autowired
 	private SocialingService socialingService;
 	
-	
+	//소셜링 인서트
 	@RequestMapping(value="/insertSocialing.do")
 	public String insertSocialing(SocialingVO vo, CategoryVO cvo, MemberVO mvo) throws IOException	{
 		HashMap<String, Object> map = new HashMap<String, Object>();
@@ -60,13 +61,16 @@ public class SocialingController {
 		return socialingService.getSocialListInterest(ctmid_name);
 	}
 	
-	//소셜링페이지에서 가입하기를 누르면
+	//소셜링디테일 페이지 열기
 	@RequestMapping(value="/gosocialdetails.do")
 	public String getSocialdetails(SocialingVO vo, SocialingInfoVO svo, MemberVO mvo, Model model, HttpSession session) throws IOException{
 		
 		int memcode = (int)session.getAttribute("code");
 		mvo.setMem_code(memcode);
 		
+		if(session.getAttribute("socialcode") != null) {
+			vo.setSocial_code((int)session.getAttribute("socialcode"));
+		}
 		
 		model.addAttribute("OneSocialList", socialingService.getOneSocialList(vo));
 		
@@ -82,21 +86,23 @@ public class SocialingController {
 		session.setAttribute("memct_code", memctcode);
 		
 		//소셜링 입금 안된 목록  추출
-		
-		
 		model.addAttribute("MemSocialList", socialingService.getAllMemSocial(vo));
 		//소셜링 입금내역확인목록
 		model.addAttribute("Socialpay", socialingService.getsocialpay(map));
+		
+		session.removeAttribute("socialcode");
 		
 		return "Socialdetails";
 	}
 	
 	@RequestMapping(value = "/socialjoin.do")
-	public String joinsocialinsert(SocialingVO vo, SocialingInfoVO svo,MemberVO mvo,  HttpSession session) {
+	public String joinsocialinsert(SocialingVO vo, SocialingInfoVO svo,MemberVO mvo,  HttpSession session,  HttpServletResponse response) throws IOException {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		
 		int memcode = (int)session.getAttribute("code");
 		mvo.setMem_code(memcode);
+		
+		session.setAttribute("socialcode", vo.getSocial_code());
 		
 		
 		int cost = vo.getSocial_cost();
@@ -117,40 +123,72 @@ public class SocialingController {
 		
 		if(num==2) {
 			//2면이미 가입한 동호회
-			System.out.println("이미 가입한 동호회에여");
+			   response.setContentType("text/html; charset=UTF-8");
+		          
+		         PrintWriter out = response.getWriter();
+		          
+		         out.println("<script>alert('이미 가입한 소셜링입니다.'); location.href='gosocialdetails.do';</script>");
+		          
+		         out.flush();
+
 			
 			
 		}else if(num==1) {
 			//null이면 가입가능
-			System.out.println("니가 만들었어요");
+			   response.setContentType("text/html; charset=UTF-8");
+		          
+		         PrintWriter out = response.getWriter();
+		          
+		         out.println("<script>alert('회원님이 만드신 소셜링입니다.'); location.href='gosocialdetails.do';</script>");
+		          
+		         out.flush();
+
 			
 			
 		}else if(num==0){
 			//null이면서 동호회 가입유형이 승인제면 N으로 아님 Y로
-			System.out.println("join소셜실행");
+			   response.setContentType("text/html; charset=UTF-8");
+		          
+		         PrintWriter out = response.getWriter();
+		          
+		         out.println("<script>alert('소셜링 신청이 완료되었습니다.'); location.href='gosocialdetails.do';</script>");
+		          
+		         out.flush();
+
 			socialingService.joinsocial(map);
 		}
 		
-		return "redirect:/go.do";
+		return "redirect:/gosocialdetails.do";
 	}
 			//소셜링 입금 확인
 			@RequestMapping(value="/upsocialpay.do")
-			public String upsocialpay(SocialingInfoVO vo) {
+			public String upsocialpay(SocialingInfoVO vo, SocialingVO vo1, HttpSession session) {
+				
+				session.setAttribute("socialcode", vo1.getSocial_code());
+				System.out.println(session.getAttribute("socialcode"));
 				socialingService.upsocialpay(vo);
+				
 				return "redirect:/gosocialdetails.do";
+				
 			}
 	
 			//승인 확인
 			@RequestMapping(value="/upsocialing.do", method = RequestMethod.POST)
-			public String upsocialing(SocialingInfoVO vo, MemberVO mvo,HttpSession session) {
-				session.setAttribute("memcode", mvo.getMem_code());
+			public String upsocialing(SocialingInfoVO vo, SocialingVO vo1, HttpSession session) {
+				
+				session.setAttribute("socialcode", vo1.getSocial_code());
+				
 				socialingService.upsocialing(vo);
+				
 				return "redirect:/gosocialdetails.do";
 			}
 			
 			//승인 거절
 			@RequestMapping(value="/delsocialing.do", method = RequestMethod.POST)
-			public String delsocialing(SocialingInfoVO vo) {
+			public String delsocialing(SocialingInfoVO vo, SocialingVO vo1, HttpSession session) {
+				
+				session.setAttribute("socialcode", vo.getSocial_code());
+				
 				socialingService.delsocialing(vo);
 				
 				return "redirect:/gosocialdetails.do";

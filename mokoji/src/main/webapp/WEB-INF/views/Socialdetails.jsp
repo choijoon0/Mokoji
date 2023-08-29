@@ -138,7 +138,7 @@ https://templatemo.com/tm-569-edu-meeting
 																<td>
 																	<form action="upsocialing.do" method="post">
 																		<c:forEach items="${ OneSocialList }" var="clist">
-																			<input type="hidden" name="scoial_code"
+																			<input type="hidden" name="social_code"
 																				value="${clist.social_code }">
 																		</c:forEach>
 																		<input type="hidden" name="socialinfo_code"
@@ -147,7 +147,7 @@ https://templatemo.com/tm-569-edu-meeting
 																	</form>
 																</td>
 																<td>
-																	<form action="upsocialing.do" method="post">
+																	<form action="delsocialing.do" method="post">
 																		<c:forEach items="${ OneSocialList }" var="clist">
 																			<input type="hidden" name="social_code"
 																				value="${clist.social_code }">
@@ -175,7 +175,7 @@ https://templatemo.com/tm-569-edu-meeting
 																<td>
 																	<form action="upsocialpay.do" method="post">
 																		<c:forEach items="${ OneSocialList }" var="clist">
-																			<input type="hidden" name="scoial_code"
+																			<input type="hidden" name="social_code"
 																				value="${clist.social_code }">
 																		</c:forEach>
 																		<input type="hidden" name="socialinfo_code"

@@ -19,6 +19,7 @@
 		<typeAlias alias="memclub" type="com.mokoji.domain.MemClubVO"/>
 		<typeAlias alias="instant" type="com.mokoji.domain.ClubInstantVO"/>
 		<typeAlias alias="meminterclub" type="com.mokoji.domain.MemInterClubVO"/>
+		<typeAlias alias="gifticon" type="com.mokoji.domain.GifticonVO"/>
 		
 		
 	</typeAliases>

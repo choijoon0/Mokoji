@@ -178,8 +178,9 @@ div.card.show div.flap2 {
   &.is-active {
     transition-duration: 1s;
     background-position: -2800px 0;
-  }
+	}
 }
+
 
 
 

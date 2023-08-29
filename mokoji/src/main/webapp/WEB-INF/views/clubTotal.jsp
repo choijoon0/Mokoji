@@ -114,50 +114,46 @@ https://templatemo.com/tm-569-edu-meeting
 
 
 
-		<div id="cardlist">
+			<div id="cardlist">
 			<c:forEach items="${clubTotList}" var="clublist">
-			
-			
-			
 				<form action="details.do">
 					<div class="cards" id="clubList">
 						<div class="card" id="card">
 							<div class="card__image-holder">
 							<input type="hidden" name="mem_code" value="${ clublist.MEM_CODE }">
-								<input type="hidden" name="club_code"
-									value="${ clublist.CLUB_CODE }"> <img
-									class="card__image" src="${clublist.CLUB_RPIC}" />
+							<input type="hidden" name="club_code" value="${ clublist.CLUB_CODE }">
+							<img class="card__image" src="${clublist.CLUB_RPIC}" />
+						</div>
+						<div class="card-title">
+							<a class="toggle-info btn"> <span class="left"></span>
+								<span class="right"></span>
+							</a>
+							<h2>${clublist.CLUB_NAME}
+								<small>Image from unsplash.com</small>
+							</h2>
+						</div>
+					<c:if test="${ clublist.MIC_LIKES == 1 }">
+						<div id="heart" class="heart is-active" value="${clublist.CLUB_CODE}">
+						</div>
+					</c:if>
+					<c:if test="${ clublist.MIC_LIKES != 1 }">
+						<div id="heart" class="heart" value="${clublist.CLUB_CODE}">
+						</div>
+					</c:if>
+						<div class="card-flap flap1">
+							<div class="card-description">${ clublist.CLUB_INTRO }
 							</div>
-							<div class="card-title">
-								<a class="toggle-info btn"> <span class="left"></span>
-									<span class="right"></span>
-								</a>
-								<h2>${clublist.CLUB_NAME}
-									<small>Image from unsplash.com</small>
-								</h2>
-							</div>
-								<c:if test="${ clublist.MIC_LIKES == 1 }">
-									<div id="heart" class="heart is-active" 
-										value="${clublist.CLUB_CODE}">
-									</div>
-								</c:if>
-								<c:if test="${ clublist.MIC_LIKES != 1 }">
-									<div id="heart" class="heart" value="${clublist.CLUB_CODE}">
-									</div>
-								</c:if>
-							<div class="card-flap flap1">
-								<div class="card-description">${ clublist.CLUB_INTRO }</div>
-								<div class="card-flap flap2">
-									<div class="card-actions">
-										<button type="submit" class="btn">가입하기</button>
-									</div>
+							<div class="card-flap flap2">
+								<div class="card-actions">
+									<button type="submit" class="btn">가입하기</button>
 								</div>
 							</div>
 						</div>
 					</div>
-				</form>
+				</div>
+			</form>
 			</c:forEach>
-		</div>
+			</div>
 
 		<%@ include file="main/footer.jsp"%>
 	</section>
@@ -169,8 +165,8 @@ https://templatemo.com/tm-569-edu-meeting
 	<script src="././resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 	<script src="././resources/js/jquery-1.9.1.min.js"></script>
 
-	<script src="././resources/js/clubTotal.js"></script>
 	<script src="././resources/js/clubHeartClick.js"></script>
+	<script src="././resources/js/clubTotal.js"></script>
 	<script src="././resources/js/isotope.min.js"></script>
 	<script src="././resources/js/owl-carousel.js"></script>
 	<script src="././resources/js/lightbox.js"></script>

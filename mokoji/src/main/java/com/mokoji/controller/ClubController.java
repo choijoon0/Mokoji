@@ -47,11 +47,6 @@ public class ClubController {
 		ClubService.insertClub(map);
 		ClubService.insertMemClub(map);
 		
-
-		ClubService.insertClub(map);
-		ClubService.insertMemClub(map);
-		
-
 		return "redirect:/go.do";
 	}
 	
@@ -71,10 +66,7 @@ public class ClubController {
 	@ResponseBody
 	public List<HashMap<String, Object>> getHighClubListInterest(@RequestParam("cthigh_name") String cthigh_name, ClubVO vo,MemInterClubVO mivo, CategoryVO cvo,MemberVO mvo, HttpSession session) {
 		
-		System.out.println("ㅗㅗ");
 		int code = (int)session.getAttribute("code");
-		System.out.println(code + "회원코드");
-		System.out.println(cthigh_name + "하이카테이름");
 		mvo.setMem_code(code);
 		cvo.setCthigh_name(cthigh_name);
 		
@@ -92,10 +84,7 @@ public class ClubController {
 	@ResponseBody
 	public List<HashMap<String, Object>> getClubListInterest(@RequestParam("ctmid_name") String ctmid_name, ClubVO vo, MemInterClubVO mivo, CategoryVO cvo,MemberVO mvo, HttpSession session) {
 		
-		System.out.println("ㅗㅗ");
 		int code = (int)session.getAttribute("code");
-		System.out.println(code + "회원코드");
-		System.out.println(ctmid_name + "하이카테이름");
 		mvo.setMem_code(code);
 		cvo.setCthigh_name(ctmid_name);
 		

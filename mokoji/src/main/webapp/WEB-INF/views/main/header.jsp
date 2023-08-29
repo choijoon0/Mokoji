@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+
 	<!-- ***** Header Area Start ***** -->
 	<header class="header-area header-sticky">
 		<div class="container">
@@ -25,7 +26,7 @@
 							<li><a href="meetings.html">챌린지</a></li>
 							<li><a href="gosocial.do">소셜</a></li>
 							<li><a href="goclub.do">커뮤니티</a></li>
-							<li><a href="#contact">기프티콘</a></li>
+							<li><a href="goGiftshop.do">기프티콘</a></li>
 							<li class="has-sub"><a href="javascript:void(0)">모임</a>
 								<ul class="sub-menu">
 									

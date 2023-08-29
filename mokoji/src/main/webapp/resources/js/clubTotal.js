@@ -1,25 +1,4 @@
-$(function(){
-   $('.club').click(function(){
-   var ctmid_name = $(this).val();
-      $.ajax({
-      url: 'clubTotal.do?ctmid_name='+ ctmid_name,
-      type: "GET",
-      cache : false,
-      success : function(data){
-            for(var i=0;i<data.length;i++){
-           if(data[i].MIC_LIKES == 1){
-$('#cardlist').append('<form action="details.do"><div class="cards" id="clubList"><div class="card" id="card"><div class="card__image-holder"><input type="hidden" name="mem_code" value="'+data[i].MEM_CODE +'"><input type="hidden" name="club_code" value="'+data[i].CLUB_CODE +'"><img class="card__image" src="'+data[i].CLUB_RPIC+'" /></div><div class="card-title"><a class="toggle-info btn"> <span class="left"></span><span class="right"></span></a><h2>'+data[i].CLUB_NAME+'<small>Image from unsplash.com</small></h2></div><div id="heart" class="heart is-active"  value="'+data[i].CLUB_CODE+'"></div><div class="card-flap flap1"><div class="card-description">'+data[i].CLUB_INTRO +'</div><div class="card-flap flap2"><div class="card-actions"><button type="submit" class="btn">가입하기</button></div></div></div></div></div></form>')
-}else{
-$('#cardlist').append('<form action="details.do"><div class="cards" id="clubList"><div class="card" id="card"><div class="card__image-holder"><input type="hidden" name="mem_code" value="'+data[i].MEM_CODE +'"><input type="hidden" name="club_code" value="'+data[i].CLUB_CODE +'"><img class="card__image" src="'+data[i].CLUB_RPIC+'" /></div><div class="card-title"><a class="toggle-info btn"> <span class="left"></span><span class="right"></span></a><h2>'+data[i].CLUB_NAME+'<small>Image from unsplash.com</small></h2></div><div id="heart" class="heart" value="'+data[i].CLUB_CODE+'"></div><div class="card-flap flap1"><div class="card-description">'+data[i].CLUB_INTRO +'</div><div class="card-flap flap2"><div class="card-actions"><button type="submit" class="btn">가입하기</button></div></div></div></div></div></form>')
-}  
 
-		}
-         }, error :function(){
-            alert(ctmid_name);
-         }
-   });     
-   });
-   });
    
    
 $(function(){
@@ -33,9 +12,9 @@ $(function(){
       success : function(data){
             for(var i=0;i<data.length;i++){
            if(data[i].MIC_LIKES == 1){
-$('#cardlist').append('<form action="details.do"><div class="cards" id="clubList"><div class="card" id="card"><div class="card__image-holder"><input type="hidden" name="mem_code" value="'+data[i].MEM_CODE +'"><input type="hidden" name="club_code" value="'+data[i].CLUB_CODE +'"><img class="card__image" src="'+data[i].CLUB_RPIC+'" /></div><div class="card-title"><a class="toggle-info btn"> <span class="left"></span><span class="right"></span></a><h2>'+data[i].CLUB_NAME+'<small>Image from unsplash.com</small></h2></div><div id="heart" class="heart is-active"  value="'+data[i].CLUB_CODE+'"></div><div class="card-flap flap1"><div class="card-description">'+data[i].CLUB_INTRO +'</div><div class="card-flap flap2"><div class="card-actions"><button type="submit" class="btn">가입하기</button></div></div></div></div></div></form>')
+$('#cardlist').append('<form action="details.do"><div class="cards" id="clubList"><div class="card" id="card"><div class="card__image-holder"><input type="hidden" name="mem_code" value="'+data[i].MEM_CODE+'"><input type="hidden" name="club_code" value="'+data[i].CLUB_CODE+'"> <img class="card__image" src="'+data[i].CLUB_RPIC+'" /></div><div class="card-title"><a class="toggle-info btn"> <span class="left"></span><span class="right"></span></a><h2>'+data[i].CLUB_NAME+'<small>Image from unsplash.com</small></h2></div><div id="heart" class="heart is-active"  value="'+data[i].CLUB_CODE+'"></div><div class="card-flap flap1"><div class="card-description">'+data[i].CLUB_INTRO+'</div><div class="card-flap flap2"><div class="card-actions"><button type="submit" class="btn">가입하기</button></div></div></div></div></div></form>')
 }else{
-$('#cardlist').append('<form action="details.do"><div class="cards" id="clubList"><div class="card" id="card"><div class="card__image-holder"><input type="hidden" name="mem_code" value="'+data[i].MEM_CODE +'"><input type="hidden" name="club_code" value="'+data[i].CLUB_CODE +'"><img class="card__image" src="'+data[i].CLUB_RPIC+'" /></div><div class="card-title"><a class="toggle-info btn"> <span class="left"></span><span class="right"></span></a><h2>'+data[i].CLUB_NAME+'<small>Image from unsplash.com</small></h2></div><div id="heart" class="heart" value="'+data[i].CLUB_CODE+'"></div><div class="card-flap flap1"><div class="card-description">'+data[i].CLUB_INTRO +'</div><div class="card-flap flap2"><div class="card-actions"><button type="submit" class="btn">가입하기</button></div></div></div></div></div></form>')
+$('#cardlist').append('<form action="details.do"><div class="cards" id="clubList"><div class="card" id="card"><div class="card__image-holder"><input type="hidden" name="mem_code" value="'+data[i].MEM_CODE+'"><input type="hidden" name="club_code" value="'+data[i].CLUB_CODE+'"> <img class="card__image" src="'+data[i].CLUB_RPIC+'" /></div><div class="card-title"><a class="toggle-info btn"> <span class="left"></span><span class="right"></span></a><h2>'+data[i].CLUB_NAME+'<small>Image from unsplash.com</small></h2></div><div id="heart" class="heart" value="'+data[i].CLUB_CODE+'"></div><div class="card-flap flap1"><div class="card-description">'+data[i].CLUB_INTRO+'</div><div class="card-flap flap2"><div class="card-actions"><button type="submit" class="btn">가입하기</button></div></div></div></div></div></form>')
 }  
             }
          }, error : function(){
@@ -44,6 +23,36 @@ $('#cardlist').append('<form action="details.do"><div class="cards" id="clubList
       });     
    });
 });
+
+
+
+   
+$(function(){
+$('.club').on('click',function(){
+   var ctmid_name = $(this).val();
+      $.ajax({
+      url: 'clubTotal.do?ctmid_name='+ ctmid_name,
+      type: "GET",
+      cache : false,
+      success : function(data){
+            for(var i=0;i<data.length;i++){
+           if(data[i].MIC_LIKES == 1){
+$('#cardlist').append('<form action="details.do"><div class="cards" id="clubList"><div class="card" id="card"><div class="card__image-holder"><input type="hidden" name="mem_code" value="'+data[i].MEM_CODE+'"><input type="hidden" name="club_code" value="'+data[i].CLUB_CODE+'"> <img class="card__image" src="'+data[i].CLUB_RPIC+'" /></div><div class="card-title"><a class="toggle-info btn"> <span class="left"></span><span class="right"></span></a><h2>'+data[i].CLUB_NAME+'<small>Image from unsplash.com</small></h2></div><div id="heart" class="heart is-active"  value="'+data[i].CLUB_CODE+'"></div><div class="card-flap flap1"><div class="card-description">'+data[i].CLUB_INTRO+'</div><div class="card-flap flap2"><div class="card-actions"><button type="submit" class="btn">가입하기</button></div></div></div></div></div></form>')
+}else{
+$('#cardlist').append('<form action="details.do"><div class="cards" id="clubList"><div class="card" id="card"><div class="card__image-holder"><input type="hidden" name="mem_code" value="'+data[i].MEM_CODE+'"><input type="hidden" name="club_code" value="'+data[i].CLUB_CODE+'"> <img class="card__image" src="'+data[i].CLUB_RPIC+'" /></div><div class="card-title"><a class="toggle-info btn"> <span class="left"></span><span class="right"></span></a><h2>'+data[i].CLUB_NAME+'<small>Image from unsplash.com</small></h2></div><div id="heart" class="heart" value="'+data[i].CLUB_CODE+'"></div><div class="card-flap flap1"><div class="card-description">'+data[i].CLUB_INTRO+'</div><div class="card-flap flap2"><div class="card-actions"><button type="submit" class="btn">가입하기</button></div></div></div></div></div></form>')
+}  
+
+		}
+         }, error :function(){
+            alert(ctmid_name);
+         }
+   });     
+   });
+
+
+});   
+   
+
 
 $(document).ready(function(){
   var zindex = 10;

@@ -30,6 +30,7 @@
          <value>com.mokoji.domain.ClubInstantVO</value>
          <value>com.mokoji.domain.SocialingInfoVO</value>
          <value>com.mokoji.domain.MemInterClubVO</value>
+         <value>com.mokoji.domain.GifticonVO</value>
          
       </list>
    </property>

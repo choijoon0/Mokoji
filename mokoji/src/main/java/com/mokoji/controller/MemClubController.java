@@ -1,6 +1,11 @@
 package com.mokoji.controller;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.HashMap;
+
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,18 +25,24 @@ public class MemClubController {
 	
 	//동호회 가입
 	@RequestMapping(value = "/joinClub.do")
-	public void joinClubInsert(ClubVO clubvo, MemberVO memvo, Model model) {
+	public void joinClubInsert(ClubVO clubvo, MemberVO memvo, Model model, HttpSession session, HttpServletResponse response)throws IOException {
 		//가져온 회원코드, 동호회 코드로 회원별동호회 테이블에 회원분류 코드찾기 그거 값이 1이면 이미 회장임
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		map.put("member", memvo);
 		map.put("club", clubvo);
 		int num = memClubService.getMemCtCode(map);
+		session.setAttribute("check", num);
 		if(num==2) {
 			//2면이미 가입한 동호회
-			System.out.println("이미 가입한 동호회에여");
+			 PrintWriter out = response.getWriter();
+	          
+	         out.println("<script>alert('이미 가입한 동호회입니다.'); location.href='match.do';</script>");
+
 		}else if(num==1) {
 			//null이면 가입가능
-			System.out.println("니가 만들었어요");
+			PrintWriter out = response.getWriter();
+	          
+	         out.println("<script>alert('당신이 만든 동호회입니다.'); location.href='match.do';</script>");
 		}else{
 			//null이면서 동호회 가입유형이 승인제면 N으로 아님 Y로
 			memClubService.joinClub(map);

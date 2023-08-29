@@ -7,7 +7,6 @@ $("#cthigh_name").blur(function(){
             for(var i=0;i<data.length;i++){
                $("#mem_favorite2").append("<option value="+ data[i].ctmid_code +">"+ data[i].ctmid_name +"</option>");
             }
-
          }, error :function(){
             alert("request error!");
          }
@@ -31,8 +30,6 @@ $("#cthigh_name").blur(function(){
             for(var i=0;i<data.length;i++){
                $("#mem_favorite3").append("<option value="+ data[i].ctmid_code +">"+ data[i].ctmid_name +"</option>");
             }
-         
-         
          }, error :function(){
             alert("request error!");	
          }
