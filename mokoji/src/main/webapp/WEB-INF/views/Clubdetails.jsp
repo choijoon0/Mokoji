@@ -118,7 +118,6 @@ https://templatemo.com/tm-569-edu-meeting
 																			<td>승률</td>
 																			</tr>
 																			<c:forEach items="${ allmatchList }" var="allmatchList">
-																			<input type="hidden" value="${ allmatchList.MAT_CODE }" name="mat_code">
 																			<input type="hidden" value="${ allmatchList.CLUB_CODE }" name="club_code">
 																				<tr>
 																				<td>${allmatchList.MAT_NAME}</td>
@@ -548,8 +547,12 @@ https://templatemo.com/tm-569-edu-meeting
 							<tr>
 								<th scope="row">${ instantt.CINST_NAME }</th>
 								<td scope="colspan="2">${ instantt.CINST_CONTENT }</td>
+								<c:choose>
+								<c:when test="${ memct_code eq 1 or memct_code eq 2}">
 								<td><button id="grant" type="button">자세히</button>
 									<button id="grant" type="submit">신청하기</button></td>
+								</c:when>
+								</c:choose>
 							</tr>
 						</c:forEach>
 
@@ -573,8 +576,12 @@ https://templatemo.com/tm-569-edu-meeting
 			</div>
 		</form>
 		<!-- Button trigger modal -->
+		<c:choose>
+		<c:when test="${ memct_code eq 1 or memct_code eq 2}">
 		<button id="newCinst" type="button" class="btn btn-primary"
 			data-bs-toggle="modal" data-bs-target="#cinstModal">+</button>
+		</c:when>
+		</c:choose>
 
 		<!-- Modal -->
 		<form action="insertClubInstant.do" method="post">

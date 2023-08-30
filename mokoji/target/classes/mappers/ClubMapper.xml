@@ -18,8 +18,7 @@
     </select>
 
 	<select id="getClubCard" parameterType="club" resultType="club">
-      SELECT
-      club_name, club_intro FROM club
+      SELECT club_name, club_intro, club_loc FROM club
     </select>
 	
    <select id="getSelectedClubList" parameterType="hashmap" resultType="hashmap">

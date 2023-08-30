@@ -6,5 +6,6 @@
 		SELECT a.cinst_code, a.cinst_name, a.cinst_date, a.cinst_content, a.cinst_memtot, a.cinst_cost, a.club_code, a.mem_code FROM CLUBINSTANT a, CLUB b
 		WHERE a.club_code = b.club_code AND a.club_code = ${ club.club_code }
 	</select>
+	
 
 </mapper>

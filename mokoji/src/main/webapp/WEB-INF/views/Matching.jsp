@@ -143,7 +143,7 @@
                               class="col-lg-4 templatemo-item-col all ${matchList.CTMID_CODE}">
                               <div class="meeting-item">
                                  <div class="thumb">
-                                    <img class="img" src="${matchList.CLUB_RPIC}">
+                                    <img class="img" src="././resources/images/${matchList.CLUB_RPIC}">
                                  </div>
                                  <div class="down-content">
                                     <form action="joinmatch.do">
@@ -164,12 +164,12 @@
                                        <c:if test="${ memctmid_code == 28 and matchList.CTMID_CODE == 28 }">
                                           <button type="submit" class="matching-button-red">참가하기</button>
                                        </c:if>
-                                    </form>
                                     <input type="hidden" value="${matchList.WINNING}" class="winning" ></input>
                                     <input type="hidden" value="${matchList.LOSTCOUNT}" class="matchlost" ></input>
                                     <input type="hidden" value="${matchList.WINCOUNT}" class="matchwin" ></input>
                                     
-                                    <button type="button" class="btn_modal" data-bs-toggle="modal" data-bs-target="#exampleModal">버튼</button>
+                                    <button type="button" class="btn_modal winning-button-blue" data-bs-toggle="modal" data-bs-target="#exampleModal">승률보기</button>
+                                    </form>
                                     <!-- Modal -->
                                     <div class="modal fade" id="exampleModal" tabindex="-1"
                                        aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -232,6 +232,8 @@
    <script src="././resources/js/video.js"></script>
    <script src="././resources/js/slick-slider.js"></script>
    <script src="././resources/js/custom.js"></script>
+   <script src="././resources/js/logOut.js"></script>
+   
 
 
 

@@ -10,7 +10,7 @@
            ON a.CLUB_CODE = aaa.club_code
            LEFT JOIN (SELECT CLUB_CODE, count(*) AS cnt1 FROM  MATCHINGINFO m2 WHERE  m2.MATINFO_RES='패' GROUP BY CLUB_CODE) bbb 
            ON a.CLUB_CODE = bbb.club_code 
-           LEFT JOIN (SELECT a.CLUB_CODE, a.club_name, COUNT(b.MATINFO_RES) AS gamenum, NVL((SELECT COUNT(b.MATINFO_RES) FROM MATCHINGINFO b WHERE MATINFO_RES = '승') / DECODE((COUNT(b.MATINFO_RES)), 0, NULL, (COUNT(b.MATINFO_RES)))*100, 0) || '%' AS winning FROM CLUB a,  MATCHINGINFO b WHERE a.CLUB_code = b.CLUB_CODE GROUP BY a.club_name, a.CLUB_CODE) ccc
+           LEFT JOIN (SELECT a.CLUB_CODE, a.club_name, COUNT(b.MATINFO_RES) AS gamenum, NVL((SELECT COUNT(b.MATINFO_RES) FROM MATCHINGINFO b WHERE MATINFO_RES = '승' AND a.club_code = b.club_code) / DECODE((COUNT(b.MATINFO_RES)), 0, NULL, (COUNT(b.MATINFO_RES)))*100, 0) || '%' AS winning FROM CLUB a,  MATCHINGINFO b WHERE a.CLUB_code = b.CLUB_CODE GROUP BY a.club_name, a.CLUB_CODE) ccc
            ON a.CLUB_CODE = ccc.club_code WHERE a.MAT_DATE > SYSDATE
       </select>   
          
@@ -35,7 +35,7 @@
       
       <select id="getAllMatch" parameterType="hashmap" resultType="hashmap">
          SELECT b.club_name, a.matinfo_res, b.club_code, m.MAT_NAME, a.matinfo_code FROM MATCHINGINFO a, CLUB b, MATCHING m
-         WHERE a.club_code = b.club_code AND m.MAT_CODE = a.MAT_CODE AND a.matinfo_join = 'N' AND m.CLUB_CODE = ${clublist.club_code}
+         WHERE a.club_code = b.club_code AND m.MAT_CODE = a.MAT_CODE AND a.matinfo_join = 'N' AND m.CLUB_CODE = ${club.club_code}
          AND m.MAT_DATE > SYSDATE 
       </select>
       

@@ -13,12 +13,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.mokoji.domain.ClubInstantVO;
 import com.mokoji.domain.ClubPaneLikesVO;
-import com.mokoji.domain.ClubPaneVO;
 import com.mokoji.domain.ClubVO;
+import com.mokoji.domain.MatchingVO;
 import com.mokoji.domain.MemberVO;
 import com.mokoji.service.ClubInstantService;
 import com.mokoji.service.ClubPaneService;
 import com.mokoji.service.ClubService;
+import com.mokoji.service.MatchingService;
 import com.mokoji.service.MemClubService;
 
 @Controller
@@ -34,15 +35,16 @@ public class ClubInstantController {
 
 	@Autowired
 	private MemClubService memClubService;
+	
+	@Autowired
+	private MatchingService matchingService;
 
 	// 동호회 상세 페이지 이동
 	@RequestMapping(value = "/details.do")
-	public String getInstantList(ClubInstantVO vo, ClubVO vo2, ClubPaneLikesVO cplvo, MemberVO mvo, Model model,
-			HttpSession session) throws IOException {
+	public String getInstantList(ClubInstantVO vo, ClubVO vo2, ClubPaneLikesVO cplvo, MemberVO mvo, MatchingVO vo3, Model model,HttpSession session) throws IOException {
 
 		if (session.getAttribute("clubcode") != null) {
 			vo2.setClub_code((int) session.getAttribute("clubcode"));
-			session.setAttribute("ccode", session.getAttribute("clubcode"));
 		}
 
 		int memcode = (int) session.getAttribute("code");
@@ -54,6 +56,7 @@ public class ClubInstantController {
 		map.put("instant", vo);
 		map.put("club", vo2);
 		map.put("member", mvo);
+		map.put("match", vo3);
 
 		int memct = memClubService.getMemCtCode(map);
 		session.setAttribute("memct_code", memct);
@@ -66,6 +69,8 @@ public class ClubInstantController {
 		model.addAttribute("MemClubList", memClubService.getAllMemClub(vo2));
 		model.addAttribute("clubPaneList", clubPaneService.selectClubPaneList(map));
 		model.addAttribute("instant", clubInstantService.getInstantList(map));
+		// 클럽 승인현황
+		model.addAttribute("allmatchList", matchingService.getAllMatch(map));
 
 		// 페이지를 나갔다 들어왔을때 각 클럽코드 적용되야함으로 지워줌
 		// 멤버클럽컨트롤러에서 가입 승인시 세션에 보내줌

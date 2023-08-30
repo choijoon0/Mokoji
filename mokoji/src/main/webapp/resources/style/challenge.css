@@ -45,9 +45,12 @@ figure, header, nav, section, article, aside, footer, figcaption {
   outline: 0;
 }
 
-.club{
+.chall{
    display:block;
    margin:auto;
+   border: 0;
+   background-color: transparent;
+   color: #fff;
 }
 
 #mcate{
@@ -1916,8 +1919,8 @@ responsive
 
 
 #cardlist{
-   margin-left:350px;
-display: grid;
+    margin-left: 24%;
+	display: grid;
     grid-template-columns: repeat(4, 130px);
     grid-auto-rows: minmax(100px, auto);
     grid-gap: 200px;
@@ -2096,4 +2099,11 @@ div.card.show div.flap2 {
     transition-duration: 1s;
     background-position: -2800px 0;
    }
+}
+
+.footer {
+  text-align: center;
+  margin-top: 100%;
+  border-top: 1px solid rgba(250,250,250,0.15);
+  padding: 50px 0px;
 }

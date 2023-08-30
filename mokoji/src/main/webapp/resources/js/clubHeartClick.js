@@ -2,6 +2,7 @@
  * 
  */
  var animated = false;
+  $("#cardlist").parents().click(function(){
   $(".heart").each(function(index,element){
      $(this).on("click", function() {
         if($(this).hasClass("is-active")){
@@ -37,5 +38,6 @@
                 }
          });        
         }
+      });
       });
    }); 

@@ -218,9 +218,13 @@ https://templatemo.com/tm-569-edu-meeting
                                                          </div>
                                                          <div class="date">
                                                             <h6>
-                                                               활동지역 <span>${ clist.social_loc }</span>
+                                                           		    활동지역 <span>${ clist.social_loc }</span>
                                                             </h6>
                                                          </div>
+                                                         <div>성별 : ${clist.social_gender }</div>
+                                                         <div>나이 : ${clist.social_maxage }</div>
+                                                         <div>총인원 : ${clist.social_tot }</div>
+                                                         <div>현재인원 : ${clist.social_left }</div>
                                                          <a href="meeting-details.html"><img
                                                             src="././resources/images/${ clist.social_rpic }"></a>
                                                       </div>
@@ -233,16 +237,22 @@ https://templatemo.com/tm-569-edu-meeting
                                                          <div class="col-lg-12"></div>
                                                          <div class="row">
                                                             <div class="col-lg-4">
-                                                               <div>
-                                                                  <button type="submit">가입하기</button>
-                                                               </div>
+											<c:choose>
+												<c:when
+													test="${(clist.social_gender eq gender and clist.social_tot-clist.social_left > 0 and clist.social_maxage+10 > age) or (clist.social_gender eq '누구나'  and clist.social_tot-clist.social_left > 0 and clist.social_maxage+10 > age) or (clist.social_maxage eq 0 and clist.social_gender eq gender and clist.social_tot-clist.social_left > 0) or (clist.social_maxage eq 0 and clist.social_gender eq '누구나' and clist.social_tot-clist.social_left > 0)}">
+													<button type="submit" class="btn">가입하기</button>
+												</c:when>
+												<c:otherwise>
+													<button type="button" class="nosocial">가입하기</button>
+												</c:otherwise>
+											</c:choose>
+							</c:forEach>
                            </form>
                      </div>
                   </div>
    </section>
    </div>
    </div>
-   </c:forEach>
    </div>
    </div>
    </div>
@@ -267,6 +277,7 @@ https://templatemo.com/tm-569-edu-meeting
    <script src="././resources/js/Category.js"></script>
    <script src="././resources/js/socialloadimg.js"></script>
    <script src="././resources/js/pidwrite.js"></script>
+   <script src="././resources/js/social.js"></script>
    <script>
         //according to loftblog tut
         $('.nav li:first').addClass('active');
@@ -340,6 +351,7 @@ https://templatemo.com/tm-569-edu-meeting
 <script src="././resources/js/Category.js"></script>
 <script src="././resources/js/socialloadimg.js"></script>
 <script src="././resources/js/pidwrite.js"></script>
+sc
 <script>
         //according to loftblog tut
         $('.nav li:first').addClass('active');

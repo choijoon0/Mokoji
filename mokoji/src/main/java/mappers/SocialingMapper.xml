@@ -84,13 +84,12 @@
       FROM socialing
    </select>
 
-   <select id="getOneSocialList" parameterType="socialing"
-      resultType="socialing">
-      SELECT social_code, social_name, social_date,
-      social_content, social_tot, social_cost, social_loc, social_pic,
-      social_rpic, social_maxage, social_gender, social_signtype
-      FROM
-      socialing WHERE social_code = ${social_code}
+   <select id="getOneSocialList" parameterType="socialing" resultType="socialing">
+      	SELECT social_code, social_name, social_date,
+      	social_content, social_tot, social_cost, social_loc, social_pic,
+      	social_rpic, social_maxage, social_gender, social_signtype, (SELECT count(s.ms_joinstate) FROM 
+     	SOCIALINGINFO s WHERE s.SOCIAL_CODE = s2.SOCIAL_CODE  AND s.ms_joinstate ='Y') AS SOCIAL_LEFT FROM
+     	SOCIALING s2 WHERE s2.SOCIAL_CODE = #{social_code}
    </select>
 
 

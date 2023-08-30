@@ -11,10 +11,9 @@
 <meta name="viewport"
    content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="">
-<meta name="author" content="Template Mo">
-<link
-   href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900"
-   rel="stylesheet">
+<meta name="author" content="TemplateMo">
+<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900"
+rel="stylesheet">
 
 <title>Education - List of Meetings</title>
 
@@ -86,7 +85,7 @@ https://templatemo.com/tm-569-edu-meeting
                         </ul>
                      </div>
                   </div>
-                  <div class="col-lg-12">
+                  <div class="col-lg-12" id="mcate">
                      <div class="row grid">
                         <c:forEach items="${ midcategory }" var="catemid">
 
@@ -124,15 +123,13 @@ https://templatemo.com/tm-569-edu-meeting
                      <img class="card__image" src="././resources/images/${clublist.CLUB_RPIC}" />
                   </div>
                   <div class="card-title">
-                     <a href="#" class="toggle-info btn"> <span class="left"></span>
+                     <a class="toggle-info btn"> <span class="left"></span>
                         <span class="right"></span>
                      </a>
-                    
-                     
                      <h2>${clublist.CLUB_NAME}
-                        <small>전체${clublist.CLUB_MEMTOT}</small>
-                        <small>가입한애들${clublist.CLUB_LEFT}</small>
-                        <small>남은자리${clublist.CLUB_MEMTOT - clublist.CLUB_LEFT}</small>
+                     <br>
+                     <br>
+                        <small>  ${clublist.CLUB_LEFT}/${clublist.CLUB_MEMTOT}</small>
                      </h2>
                   </div>
                      <c:if test="${ clublist.MIC_LIKES == 1 }">
@@ -148,10 +145,7 @@ https://templatemo.com/tm-569-edu-meeting
                      <div class="card-description">${ clublist.CLUB_INTRO }</div>
                      <div class="card-flap flap2">
                         <div class="card-actions">
-                        
-                        	<button type="submit" class="btn">가입하기</button>	
-                           
-                           
+                           <button type="submit" class="btn">가입하기</button>   
                         </div>
                      </div>
                   </div>
@@ -170,7 +164,7 @@ https://templatemo.com/tm-569-edu-meeting
    <script src="././resources/vendor/jquery/jquery.min.js"></script>
    <script src="././resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
    <script src="././resources/js/jquery-1.9.1.min.js"></script>
-	
+   
 
    <script src="././resources/js/clubHeartClick.js"></script>
    <script src="././resources/js/clubTotal.js"></script>

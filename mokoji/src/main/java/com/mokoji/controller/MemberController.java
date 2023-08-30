@@ -1,5 +1,6 @@
 package com.mokoji.controller;
 
+import java.awt.Point;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.Date;
@@ -9,6 +10,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -92,7 +94,7 @@ public class MemberController {
 	@RequestMapping(value = "/insertMember.do")
 	public String insertMember(MemberVO vo) {
 		memberService.insertMember(vo);
-		return "redirect:/test.do";
+		return "redirect:/go.do";
 	}
 
 	// 아이디 중복 체크
@@ -105,12 +107,16 @@ public class MemberController {
 	// 로그아웃
 	@RequestMapping(value = "logout.do", method = RequestMethod.POST)
 	@ResponseBody
-	public void logoutPOST(HttpServletRequest request) throws Exception {
+	public String logoutPOST(HttpServletRequest request) throws IOException {
 
 		HttpSession session = request.getSession();
 		
 
-		session.invalidate();
+		session.invalidate();	
+		
+		return "redirect:/go.do";
 
 	}
+	
+	
 }
