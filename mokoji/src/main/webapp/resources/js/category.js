@@ -78,7 +78,7 @@ $("#cthigh_name").blur(function(){
   function Disable()  {
     const target = document.getElementById('clubpay');
     target.disabled = true;
-          $("#clubpay").val("");
+      $("#clubpay").val("");
       $("#clubpay").empty();
     
   }

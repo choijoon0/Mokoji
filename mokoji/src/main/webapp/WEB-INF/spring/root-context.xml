@@ -31,6 +31,9 @@
          <value>com.mokoji.domain.SocialingInfoVO</value>
          <value>com.mokoji.domain.MemInterClubVO</value>
          <value>com.mokoji.domain.GifticonVO</value>
+         <value>com.mokoji.domain.GiftCategoryVO</value>
+         
+         
          
       </list>
    </property>

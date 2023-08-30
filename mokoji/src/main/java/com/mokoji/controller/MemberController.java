@@ -67,6 +67,7 @@ public class MemberController {
 			session.setAttribute("sessionTime", new Date().toString());
 			session.setAttribute("name", result.getMem_id());
 			session.setAttribute("code", result.getMem_code());
+			session.setAttribute("point", result.getMem_point());
 
 		}
 
