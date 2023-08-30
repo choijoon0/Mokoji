@@ -13,83 +13,88 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.mokoji.domain.ClubInstantVO;
 import com.mokoji.domain.ClubPaneLikesVO;
-import com.mokoji.domain.ClubPaneVO;
 import com.mokoji.domain.ClubVO;
+import com.mokoji.domain.MatchingVO;
 import com.mokoji.domain.MemberVO;
 import com.mokoji.service.ClubInstantService;
 import com.mokoji.service.ClubPaneService;
 import com.mokoji.service.ClubService;
+import com.mokoji.service.MatchingService;
 import com.mokoji.service.MemClubService;
 
 @Controller
 public class ClubInstantController {
-	@Autowired
-	private ClubPaneService clubPaneService;
+   @Autowired
+   private ClubPaneService clubPaneService;
 
-	@Autowired
-	private ClubInstantService clubInstantService;
+   @Autowired
+   private ClubInstantService clubInstantService;
 
-	@Autowired
-	private ClubService clubService;
+   @Autowired
+   private ClubService clubService;
 
-	@Autowired
-	private MemClubService memClubService;
+   @Autowired
+   private MemClubService memClubService;
+   
+   @Autowired
+   private MatchingService matchingService;
 
-	// 동호회 상세 페이지 이동
-	@RequestMapping(value = "/details.do")
-	public String getInstantList(ClubInstantVO vo, ClubVO vo2, ClubPaneLikesVO cplvo, MemberVO mvo, Model model,
-			HttpSession session) throws IOException {
+   // 동호회 상세 페이지 이동
+   @RequestMapping(value = "/details.do")
+   public String getInstantList(ClubInstantVO vo, ClubVO vo2, ClubPaneLikesVO cplvo, MemberVO mvo, MatchingVO vo3, Model model,HttpSession session) throws IOException {
 
-		if (session.getAttribute("clubcode") != null) {
-			vo2.setClub_code((int) session.getAttribute("clubcode"));
-			session.setAttribute("ccode", session.getAttribute("clubcode"));
-		}
+      if (session.getAttribute("clubcode") != null) {
+         vo2.setClub_code((int) session.getAttribute("clubcode"));
+      }
 
-		int memcode = (int) session.getAttribute("code");
-		mvo.setMem_code(memcode);
+      int memcode = (int) session.getAttribute("code");
+      mvo.setMem_code(memcode);
 
-		// 동아리 회장확인
-		model.addAttribute("oneClubList", clubService.getOneClublist(vo2));
-		HashMap<String, Object> map = new HashMap<String, Object>();
-		map.put("instant", vo);
-		map.put("club", vo2);
-		map.put("member", mvo);
+      // 동아리 회장확인
+      model.addAttribute("oneClubList", clubService.getOneClublist(vo2));
+      HashMap<String, Object> map = new HashMap<String, Object>();
+      map.put("instant", vo);
+      map.put("club", vo2);
+      map.put("member", mvo);
+      map.put("match", vo3);
 
-		int memct = memClubService.getMemCtCode(map);
-		session.setAttribute("memct_code", memct);
+      int memct = memClubService.getMemCtCode(map);
+      session.setAttribute("memct_code", memct);
 
-		int check = memClubService.checkMcCode(map);
-		session.setAttribute("check", check);
+      int check = memClubService.checkMcCode(map);
+      session.setAttribute("check", check);
 
-		// 내 좋아요 리스트 뽑기
-		model.addAttribute("myLikes", clubPaneService.getMyLikes(mvo));
-		model.addAttribute("MemClubList", memClubService.getAllMemClub(vo2));
-		model.addAttribute("clubPaneList", clubPaneService.selectClubPaneList(map));
-		model.addAttribute("instant", clubInstantService.getInstantList(map));
+      // 내 좋아요 리스트 뽑기
+      model.addAttribute("myLikes", clubPaneService.getMyLikes(mvo));
+      model.addAttribute("MemClubList", memClubService.getAllMemClub(vo2));
+      model.addAttribute("clubPaneList", clubPaneService.selectClubPaneList(map));
+      model.addAttribute("instant", clubInstantService.getInstantList(map));
+      // 클럽 승인현황
+      model.addAttribute("allmatchList", matchingService.getAllMatch(map));
 
-		// 페이지를 나갔다 들어왔을때 각 클럽코드 적용되야함으로 지워줌
-		// 멤버클럽컨트롤러에서 가입 승인시 세션에 보내줌
-		session.removeAttribute("clubcode");
+      // 페이지를 나갔다 들어왔을때 각 클럽코드 적용되야함으로 지워줌
+      // 멤버클럽컨트롤러에서 가입 승인시 세션에 보내줌
+      session.removeAttribute("clubcode");
 
-		return "Clubdetails";
+      return "Clubdetails";
 
-	}
+   }
 
-	@RequestMapping(value = "/insertClubInstant.do", method = RequestMethod.POST)
-	public String insertClubInstant(ClubInstantVO vo, MemberVO mvo, ClubVO cvo) throws IOException {
+   @RequestMapping(value = "/insertClubInstant.do", method = RequestMethod.POST)
+   public String insertClubInstant(ClubInstantVO vo, MemberVO mvo, ClubVO cvo) throws IOException {
 
-		HashMap<String, Object> map = new HashMap<String, Object>();
+      HashMap<String, Object> map = new HashMap<String, Object>();
 
-		map.put("clubinstant", vo);
+      map.put("clubinstant", vo);
 
-		map.put("member", mvo);
+      map.put("member", mvo);
 
-		map.put("club", cvo);
+      map.put("club", cvo);
 
-		clubInstantService.insertClubInstant(map);
-		System.out.println("번개생성");
-		return "redirect:/go.do";
+      clubInstantService.insertClubInstant(map);
+      System.out.println("번개생성");
+      return "redirect:/go.do";
 
-	}
+   }
 
 }

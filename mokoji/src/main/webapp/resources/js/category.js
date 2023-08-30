@@ -34,7 +34,7 @@ $("#cthigh_name").blur(function(){
          
          
          }, error :function(){
-            alert("request error!");	
+            alert("request error!");
          }
    });     
 });

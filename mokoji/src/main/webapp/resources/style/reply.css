@@ -1,14 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 
 .container-inner {
-	width: 90%;
+	width: 100%;
 	max-width: 1200px;
     margin: 0 auto;
     padding: 60px 0;
 }
 
 .tab-container{
-    padding: 20px 7rem;
+	position: relative;
+	bottom: 150px;
+    padding: 20px;
 }
 
 /* Tab Accordian */
@@ -52,6 +54,7 @@
     display: none;
     padding: 20px;
     transition: max-height 1s ease-in;
+    overflow: auto;  
 }
 
 /* Collapse Icon */

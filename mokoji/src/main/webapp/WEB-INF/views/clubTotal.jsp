@@ -85,7 +85,7 @@ https://templatemo.com/tm-569-edu-meeting
                         </ul>
                      </div>
                   </div>
-                  <div class="col-lg-12">
+                  <div class="col-lg-12" id="mcate">
                      <div class="row grid">
                         <c:forEach items="${ midcategory }" var="catemid">
 
@@ -129,9 +129,10 @@ https://templatemo.com/tm-569-edu-meeting
                     
                      
                      <h2>${clublist.CLUB_NAME}
-                        <small>전체${clublist.CLUB_MEMTOT}</small>
-                        <small>가입한애들${clublist.CLUB_LEFT}</small>
-                        <small>남은자리${clublist.CLUB_MEMTOT - clublist.CLUB_LEFT}</small>
+                     <br>
+                     <br>
+                     
+                        <small>  ${clublist.CLUB_LEFT}/${clublist.CLUB_MEMTOT}</small>
                      </h2>
                   </div>
                      <c:if test="${ clublist.MIC_LIKES == 1 }">

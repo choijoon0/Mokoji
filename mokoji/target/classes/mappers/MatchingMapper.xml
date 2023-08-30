@@ -3,16 +3,16 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="MatchingDAO">
 
-      <select id="getMatchList" parameterType="hashmap" resultType="hashmap">
+          <select id="getMatchList" parameterType="hashmap" resultType="hashmap">
             SELECT a.mat_name, a.mat_date, a.mat_time, a.mat_code, a.mat_cancle, b.club_code, b.club_name, b.club_rpic, b.ctmid_code, nvl(aaa.cnt , 0) AS wincount, nvl(bbb.cnt1 , 0) AS lostcount, nvl(ccc.winning, 0) AS winning FROM MATCHING a
            LEFT JOIN CLUB b ON a.club_code = b.club_code 
            LEFT JOIN (SELECT CLUB_CODE, count(*) AS cnt FROM  MATCHINGINFO m2 WHERE  m2.MATINFO_RES='승' GROUP BY CLUB_CODE) aaa 
            ON a.CLUB_CODE = aaa.club_code
            LEFT JOIN (SELECT CLUB_CODE, count(*) AS cnt1 FROM  MATCHINGINFO m2 WHERE  m2.MATINFO_RES='패' GROUP BY CLUB_CODE) bbb 
            ON a.CLUB_CODE = bbb.club_code 
-           LEFT JOIN (SELECT a.CLUB_CODE, a.club_name, COUNT(b.MATINFO_RES) AS gamenum, NVL((SELECT COUNT(b.MATINFO_RES) FROM MATCHINGINFO b WHERE MATINFO_RES = '승') / DECODE((COUNT(b.MATINFO_RES)), 0, NULL, (COUNT(b.MATINFO_RES)))*100, 0) || '%' AS winning FROM CLUB a,  MATCHINGINFO b WHERE a.CLUB_code = b.CLUB_CODE GROUP BY a.club_name, a.CLUB_CODE) ccc
-           ON a.CLUB_CODE = ccc.club_code WHERE a.MAT_DATE > SYSDATE
-      </select>   
+           LEFT JOIN (SELECT a.CLUB_CODE, a.club_name, COUNT(b.MATINFO_RES) AS gamenum, NVL((SELECT COUNT(b.MATINFO_RES) FROM MATCHINGINFO b WHERE MATINFO_RES = '승' AND a.CLUB_CODE = b.CLUB_CODE ) / DECODE((COUNT(b.MATINFO_RES)), 0, NULL, (COUNT(b.MATINFO_RES)))*100, 0) || '%' AS winning FROM CLUB a,  MATCHINGINFO b WHERE a.CLUB_code = b.CLUB_CODE GROUP BY a.club_name, a.CLUB_CODE) ccc
+           ON a.CLUB_CODE = ccc.club_code WHERE a.MAT_DATE > SYSDATE 
+      </select>  
          
       <select id="selectMatching" resultType="integer">
          SELECT SEQ_MATCHING.nextval FROM dual
@@ -34,9 +34,11 @@
       </insert>
       
       <select id="getAllMatch" parameterType="hashmap" resultType="hashmap">
-         SELECT b.club_name, a.matinfo_res, b.club_code, m.MAT_NAME, a.matinfo_code FROM MATCHINGINFO a, CLUB b, MATCHING m
-         WHERE a.club_code = b.club_code AND m.MAT_CODE = a.MAT_CODE AND a.matinfo_join = 'N' AND m.CLUB_CODE = ${clublist.club_code}
-         AND m.MAT_DATE > SYSDATE 
+         SELECT b.club_name, a.club_code, m.MAT_NAME, a.matinfo_code, nvl(ccc.winning, 0) AS winning FROM CLUB b
+         LEFT JOIN MATCHING m ON b.CLUB_CODE = m.CLUB_CODE
+         LEFT JOIN MATCHINGINFO a ON a.MAT_CODE = m.MAT_CODE 
+         LEFT JOIN (SELECT a.CLUB_CODE, a.club_name, COUNT(b.MATINFO_RES) AS gamenum, NVL((SELECT COUNT(b.MATINFO_RES) FROM MATCHINGINFO b WHERE MATINFO_RES = '승' AND CLUB_CODE = a.CLUB_CODE) / DECODE((COUNT(b.MATINFO_RES)), 0, NULL, (COUNT(b.MATINFO_RES)))*100, 0) || '%' AS winning FROM CLUB a,  MATCHINGINFO b WHERE a.CLUB_code = b.CLUB_CODE GROUP BY a.club_name, a.CLUB_CODE) ccc
+         ON a.CLUB_CODE = ccc.club_code WHERE m.MAT_DATE > SYSDATE AND a.matinfo_join = 'N' AND m.CLUB_CODE = ${club.club_code}
       </select>
       
       <update id="upMatching" parameterType="matchinginfo">
@@ -66,7 +68,7 @@
       </select>
       
       <select id="getMatCode" parameterType="hashmap" resultType="Integer">
-      		SELECT mat_code FROM MATCHINGINFO WHERE club_code = ${club.club_code} AND mat_code = ${matching.mat_code}
+            SELECT mat_code FROM MATCHINGINFO WHERE club_code = ${club.club_code} AND mat_code = ${matching.mat_code}
       </select>
       
       

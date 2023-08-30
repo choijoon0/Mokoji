@@ -1,0 +1,9 @@
+@charset "UTF-8";
+
+ .clubtotal{
+  border-radius: 50%;
+  width : 70px;
+  height : 70px;
+  margin-left: 40px;
+  margin-bottom : 5px;
+}

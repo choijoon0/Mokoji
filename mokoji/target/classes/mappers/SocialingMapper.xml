@@ -86,11 +86,12 @@
 
    <select id="getOneSocialList" parameterType="socialing"
       resultType="socialing">
-      SELECT social_code, social_name, social_date,
-      social_content, social_tot, social_cost, social_loc, social_pic,
-      social_rpic, social_maxage, social_gender, social_signtype
-      FROM
-      socialing WHERE social_code = ${social_code}
+     SELECT b.social_code, b.social_name, b.social_cost, b.social_loc,
+		b.social_content, b.social_tot, b.social_pic, b.social_gender, b.social_maxage,
+		a.ctmid_code, b.social_rpic, (SELECT count(s.ms_joinstate) FROM SOCIALINGINFO s WHERE
+		b.social_code = s.social_code AND s.ms_joinstate ='Y') AS social_left FROM
+		CATEGORYMIDDLE a, SOCIALING b WHERE
+		a.ctmid_code = b.ctmid_code AND b.social_code = ${social_code}
    </select>
 
 
