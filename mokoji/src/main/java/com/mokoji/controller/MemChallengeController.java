@@ -34,9 +34,9 @@ public class MemChallengeController {
 		map.put("member", mvo);
 		map.put("challenge", vo);
 
-		String msg = "이미 가입한 동호회입니다";
-		String msg1 = "본인이 생성한 동호회입니다";
-		String msg2 = "동호회 가입 신청이 완료되었습니다!";
+		String msg = "이미 가입한  챌린지입니다";
+		String msg1 = "본인이 생성한 챌린지입니다";
+		String msg2 = "챌린지 가입 신청이 완료되었습니다!";
 		response.setContentType("text/html; charset=utf-8");
 		PrintWriter w = response.getWriter();
 		

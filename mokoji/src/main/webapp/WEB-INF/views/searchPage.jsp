@@ -27,6 +27,7 @@
 <link rel="stylesheet" href="././resources/style/MyPage.css">
 <link rel="stylesheet" href="././resources/style/owl.css">
 <link rel="stylesheet" href="././resources/style/lightbox.css">
+<link rel="stylesheet" href="././resources/style/searchPage.css">
 <!--
 
 TemplateMo 569 Edu Meeting

@@ -5,7 +5,7 @@ import java.util.Date;
 public class ClubInstantVO {
 	private String cinst_name, cinst_content;
 	private int cinst_code, cinst_memtot, cinst_cost;
-	private Date cinst_date;
+	private String cinst_date;
 	
 	public String getCinst_name() {
 		return cinst_name;
@@ -37,12 +37,13 @@ public class ClubInstantVO {
 	public void setCinst_cost(int cinst_cost) {
 		this.cinst_cost = cinst_cost;
 	}
-	public Date getCinst_date() {
+	public String getCinst_date() {
 		return cinst_date;
 	}
-	public void setCinst_date(Date cinst_date) {
+	public void setCinst_date(String cinst_date) {
 		this.cinst_date = cinst_date;
 	}
+
 	
 	
 	

@@ -20,7 +20,7 @@
 	href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900"
 	rel="stylesheet">
 
-<title>Education - List of Meetings</title>
+<title>동호회 상세</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
 	rel="stylesheet"
@@ -548,8 +548,12 @@ https://templatemo.com/tm-569-edu-meeting
 							<tr>
 								<th scope="row">${ instantt.CINST_NAME }</th>
 								<td scope="colspan="2">${ instantt.CINST_CONTENT }</td>
+								<c:choose>
+								<c:when test="${ memct_code eq 1 or  memct_code eq 2}">
 								<td><button id="grant" type="button">자세히</button>
 									<button id="grant" type="submit">신청하기</button></td>
+								</c:when>
+								</c:choose>
 							</tr>
 						</c:forEach>
 
@@ -573,64 +577,18 @@ https://templatemo.com/tm-569-edu-meeting
 			</div>
 		</form>
 		<!-- Button trigger modal -->
-		<button id="newCinst" type="button" class="btn btn-primary"
-			data-bs-toggle="modal" data-bs-target="#cinstModal">+</button>
-
-		<!-- Modal -->
-		<form action="insertClubInstant.do" method="post">
-			<div class="modal fade" id="cinstModal" tabindex="-1"
-				aria-labelledby="exampleModalLabel" style="display: none;"
-				aria-hidden="true">
-				<div class="modal-dialog modal-lg">
-					<div class="modal-content">
-						<div class="modal-header">
-							<h1 class="modal-title fs-5" id="exampleModalLabel">새 번개모임
-								생성</h1>
-						</div>
-						<div class="modal-body">
-							<input type="hidden" value="${ code }" name="mem_code"> <input
-								type="hidden" name="club_code" value="${ clist.club_code }">
-							<fieldset>
-								<input name="cinst_name" type="text" id="cinst_name"
-									placeholder="번개모임 제목을 입력하세요*" required autocomplete="off">
-							</fieldset>
-							<fieldset>
-								<input name="cinst_date" type="date" id="cinst_date" required
-									autocomplete="off" />
-							</fieldset>
+		<c:choose>
+		<c:when test="${ memct_code eq 1 or  memct_code eq 2}">
+		<c:forEach items="${oneClubList }" var="onecode">
+			<button id="newCinst" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#cinstModal">+</button>
+			<a class="main_bt read_bt" href="javascript:void(0);" onclick="openfullcalendarPopup('${onecode.club_code}')">예약하기</a>
+		</c:forEach> 
+		
+		
+		</c:when>
+		</c:choose>
 
 
-							<label class="item4">참여비</label>
-							<div class="line-86-7Vs"></div>
-							<div>
-								<label id="yes"> <input type="radio" name="cinstcost"
-									onclick="textActive1()" value="있음">있음
-								</label> <label id="no"> <input type="radio" name="cinstcost"
-									onclick="textDisable1()" value="없음">없음
-								</label> <input type="text" name="cinst_cost" id="cinstpay"
-									placeholder="금액을 작성해주세요.">
-							</div>
-							<div class="col-lg-12">
-								<fieldset>
-									<textarea name="cinst_content" type="text" class="form-control"
-										id="cinst_content" placeholder="번개글을 써주세요." required
-										autocomplete="off"></textarea>
-								</fieldset>
-							</div>
-							<div class="per1">
-								<input name="cinst_memtot" type="number" min='3' max='30'
-									step='1' placeholder="3명이상부터 30명 미만까지 작성해주세요.">
-							</div>
-						</div>
-						<div class="modal-footer">
-							<button type="submit" class="btn btn-primary">새 번개모임 생성</button>
-							<button type="button" class="btn btn-secondary"
-								data-bs-dismiss="modal">닫기</button>
-						</div>
-					</div>
-				</div>
-			</div>
-		</form>
 
 		</div>
 		</div>
@@ -675,6 +633,7 @@ https://templatemo.com/tm-569-edu-meeting
 	<script src="././resources/js/createClub.js"></script>
 	<script src="././resources/js/reply.js"></script>
 	<script src="././resources/js/repleUpDel.js"></script>
+	<script src="././resources/js/openClubInstantCal.js"></script>
 	
 	
 	

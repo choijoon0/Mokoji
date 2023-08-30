@@ -124,9 +124,10 @@ https://templatemo.com/tm-569-edu-meeting
                      <img class="card__image" src="././resources/images/${clublist.CLUB_RPIC}" />
                   </div>
                   <div class="card-title">
-                     <a href="#" class="toggle-info btn"> <span class="left"></span>
-                        <span class="right"></span>
-                     </a>
+                     <a href="#" class="toggle-info btn">
+                     <span class="left"></span>
+                      <span class="right"></span>
+                    </a>
                     
                      
                      <h2>${clublist.CLUB_NAME}
@@ -135,12 +136,11 @@ https://templatemo.com/tm-569-edu-meeting
                         <small>남은자리${clublist.CLUB_MEMTOT - clublist.CLUB_LEFT}</small>
                      </h2>
                   </div>
-                     <c:if test="${ clublist.MIC_LIKES == 1 }">
-                       <div id="heart" class="heart is-active" 
-                            value="${clublist.CLUB_CODE}">
+                     <c:if test="${ clublist.MIC_LIKES eq 1 }">
+                       <div id="heart" class="heart is-active" value="${clublist.CLUB_CODE}">
                        </div>
                      </c:if>
-                     <c:if test="${ clublist.MIC_LIKES != 1 }">
+                     <c:if test="${ clublist.MIC_LIKES ne 1 }">
                        <div id="heart" class="heart" value="${clublist.CLUB_CODE}">
                        </div>
                      </c:if>

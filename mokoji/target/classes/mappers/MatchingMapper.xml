@@ -4,14 +4,14 @@
 <mapper namespace="MatchingDAO">
 
       <select id="getMatchList" parameterType="hashmap" resultType="hashmap">
-            SELECT a.mat_name, a.mat_date, a.mat_time, a.mat_code, a.mat_cancle, b.club_code, b.club_name, b.club_rpic, b.ctmid_code, nvl(aaa.cnt , 0) AS wincount, nvl(bbb.cnt1 , 0) AS lostcount, nvl(ccc.winning, 0) AS winning FROM MATCHING a
+           SELECT a.mat_name, a.mat_date, a.mat_time, a.mat_code, a.mat_cancle, b.club_code, b.club_name, b.club_rpic, b.ctmid_code, nvl(aaa.cnt , 0) AS wincount, nvl(bbb.cnt1 , 0) AS lostcount, nvl(ccc.winning, 0) AS winning FROM MATCHING a
            LEFT JOIN CLUB b ON a.club_code = b.club_code 
            LEFT JOIN (SELECT CLUB_CODE, count(*) AS cnt FROM  MATCHINGINFO m2 WHERE  m2.MATINFO_RES='승' GROUP BY CLUB_CODE) aaa 
            ON a.CLUB_CODE = aaa.club_code
            LEFT JOIN (SELECT CLUB_CODE, count(*) AS cnt1 FROM  MATCHINGINFO m2 WHERE  m2.MATINFO_RES='패' GROUP BY CLUB_CODE) bbb 
            ON a.CLUB_CODE = bbb.club_code 
-           LEFT JOIN (SELECT a.CLUB_CODE, a.club_name, COUNT(b.MATINFO_RES) AS gamenum, NVL((SELECT COUNT(b.MATINFO_RES) FROM MATCHINGINFO b WHERE MATINFO_RES = '승') / DECODE((COUNT(b.MATINFO_RES)), 0, NULL, (COUNT(b.MATINFO_RES)))*100, 0) || '%' AS winning FROM CLUB a,  MATCHINGINFO b WHERE a.CLUB_code = b.CLUB_CODE GROUP BY a.club_name, a.CLUB_CODE) ccc
-           ON a.CLUB_CODE = ccc.club_code WHERE a.MAT_DATE > SYSDATE
+           LEFT JOIN (SELECT a.CLUB_CODE, a.club_name, COUNT(b.MATINFO_RES) AS gamenum, NVL((SELECT COUNT(b.MATINFO_RES) FROM MATCHINGINFO b WHERE MATINFO_RES = '승' AND a.CLUB_CODE = b.CLUB_CODE ) / DECODE((COUNT(b.MATINFO_RES)), 0, NULL, (COUNT(b.MATINFO_RES)))*100, 0) || '%' AS winning FROM CLUB a,  MATCHINGINFO b WHERE a.CLUB_code = b.CLUB_CODE GROUP BY a.club_name, a.CLUB_CODE) ccc
+           ON a.CLUB_CODE = ccc.club_code WHERE a.MAT_DATE > SYSDATE 
       </select>   
          
       <select id="selectMatching" resultType="integer">
@@ -30,7 +30,7 @@
       
       <insert id="insertJoinMatching" parameterType="hashmap">
         INSERT INTO MATCHINGINFO (matinfo_code, mat_code, club_code, matinfo_join)
-         VALUES(seq_matchinginfo.nextval, ${match.mat_code}, ${club.club_code}, 'N')
+        VALUES(seq_matchinginfo.nextval, ${match.mat_code}, ${club.club_code}, 'N')
       </insert>
       
       <select id="getAllMatch" parameterType="hashmap" resultType="hashmap">

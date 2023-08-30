@@ -57,7 +57,7 @@ $('.replyinsert').each(function(index,element){
 		     	type: "POST", 
 		      	success : function(data){
 		      		
-		        			      			  for(var i=0;i<data.length;i++){   	
+		  for(var i=0;i<data.length;i++){   	
 		      	if(data[i].MEM_CODE == memcode){
 		   
 		                 	

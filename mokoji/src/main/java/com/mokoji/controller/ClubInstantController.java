@@ -1,8 +1,11 @@
 package com.mokoji.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,10 +13,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.mokoji.domain.ClubInstantVO;
 import com.mokoji.domain.ClubPaneLikesVO;
-import com.mokoji.domain.ClubPaneVO;
 import com.mokoji.domain.ClubVO;
 import com.mokoji.domain.MemberVO;
 import com.mokoji.service.ClubInstantService;
@@ -75,21 +78,92 @@ public class ClubInstantController {
 
 	}
 
+	//번개 등록
 	@RequestMapping(value = "/insertClubInstant.do", method = RequestMethod.POST)
-	public String insertClubInstant(ClubInstantVO vo, MemberVO mvo, ClubVO cvo) throws IOException {
-
+	public String insertClubInstant(ClubInstantVO vo, MemberVO mvo, ClubVO cvo) throws UnsupportedEncodingException{
+		
 		HashMap<String, Object> map = new HashMap<String, Object>();
 
+		int nextcode = clubInstantService.getNextClubInstantCode();
+		vo.setCinst_code(nextcode);
 		map.put("clubinstant", vo);
 
 		map.put("member", mvo);
 
 		map.put("club", cvo);
-
+		
 		clubInstantService.insertClubInstant(map);
+		
+		clubInstantService.insertClubInstantInfo(map);
+		
+		
 		
 		return "redirect:/go.do";
 
 	}
+
+	//번개 전체 일정
+	@RequestMapping(value="/ClubInstantCal.do")
+	public String thisClubInstantList(@RequestParam("club_code") int club_code,Model model, ClubVO cvo) {
+		
+		cvo.setClub_code(club_code);
+		model.addAttribute("clubInstant", clubInstantService.thisClubInstantList(cvo));
+		
+		
+		return "ClubInstantCal";
+	}
+	
+	//번개 상세 보기
+	@RequestMapping(value="/dodo.do")
+	public String showClubInstDetail(@RequestParam("cinst_code") int cinst_code, ClubInstantVO civo, Model model) {
+		model.addAttribute("thisClubInst", clubInstantService.thisClubInstantInfo(civo));
+		model.addAttribute("applyMember", clubInstantService.getApplyMember(civo));
+		return "clubInstantDetail";
+	}
+	
+	//번개 신청
+	@RequestMapping(value="/applyClubInst.do", method = RequestMethod.POST)
+	public void insertClubInstantInfo(Model model, ClubInstantVO civo, MemberVO mvo, HttpSession session,HttpServletResponse response) throws IOException {
+		int memcode = (int)session.getAttribute("code");
+		mvo.setMem_code(memcode);
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		
+		map.put("member", mvo);
+		map.put("clubinstant", civo);
+		int checkapply = clubInstantService.checkAlreadyApply(map);
+		
+		
+		
+		if(checkapply >= 1) {
+			response.setContentType("text/html; charset=UTF-8");
+
+			PrintWriter out = response.getWriter();
+
+			out.println("<script>alert('이미 신청을 한 번개모임 입니다!');history.back();</script>");
+
+			out.flush();
+		}else {
+			
+			clubInstantService.insertClubInstantInfo(map);
+			
+			response.setContentType("text/html; charset=UTF-8");
+
+			PrintWriter out = response.getWriter();
+
+			out.println("<script>alert('신청이 완료되었습니다!');history.back();</script>");
+
+			out.flush();
+			
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+
 
 }

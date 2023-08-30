@@ -4,8 +4,8 @@
 <mapper namespace="meminterclubDAO">
 	
 	<insert id="insertHeartLikes" parameterType="hashmap">
-		INSERT INTO MEMINTERCLUB (mic_code, mem_code, club_code)
-		VALUES (seq_meminterclub.nextval, ${member.mem_code}, ${club.club_code})
+		INSERT INTO MEMINTERCLUB (mic_code, mem_code, club_code, mic_date)
+		VALUES (seq_meminterclub.nextval, ${member.mem_code}, ${club.club_code}, sysdate)
 	</insert>
 	
 	<delete id="deleteHeartLikes" parameterType="hashmap">

@@ -8,7 +8,7 @@
 				$(this).empty();
 					$.ajax({
 		     			 url: 'downHeart.do?cp_code=' + cp_code,
-		     			 type: "POST", 
+		     			 type: "POST",
 		      			 success : function(data){
 		            	 for(var i=0;i<data.length;i++){
 		                 $("[value="+data[i].cp_code+"]").append('<div class="cnt">'+data[i].cp_likes+'</div>');
@@ -27,7 +27,7 @@
 		     			 		type: "POST", 
 		      			 		success : function(data){
 		            	 			for(var i=0;i<data.length;i++){
-		                 				$("[value="+data[i].cp_code+"]").append('<div class="cnt">'+data[i].cp_likes+'</div>');
+		                 			$("[value="+data[i].cp_code+"]").append('<div class="cnt">'+data[i].cp_likes+'</div>');
 		            		}
 		     	    },error:function(request,status,error){
 		     	  

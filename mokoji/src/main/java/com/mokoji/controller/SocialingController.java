@@ -163,28 +163,41 @@ public class SocialingController {
 	      
 	      return "redirect:/gosocialdetails.do";
 	   }
-	         //소셜링 입금 확인
-	         @RequestMapping(value="/upsocialpay.do")
-	         public String upsocialpay(SocialingInfoVO vo) {
-	            socialingService.upsocialpay(vo);
-	            return "redirect:/gosocialdetails.do";
-	         }
-	   
+		       //소셜링 입금 확인
+		       @RequestMapping(value="/upsocialpay.do")
+		       public String upsocialpay(SocialingInfoVO vo, SocialingVO vo1, HttpSession session) {
+		          
+		          session.setAttribute("socialcode", vo1.getSocial_code());
+		          System.out.println(session.getAttribute("socialcode"));
+		          socialingService.upsocialpay(vo);
+		          
+		          return "redirect:/gosocialdetails.do";
+		          
+		       }
+
 	         //승인 확인
 	         @RequestMapping(value="/upsocialing.do", method = RequestMethod.POST)
-	         public String upsocialing(SocialingInfoVO vo, MemberVO mvo,HttpSession session) {
-	            session.setAttribute("memcode", mvo.getMem_code());
+	         public String upsocialing(SocialingInfoVO vo, SocialingVO vo1, HttpSession session) {
+	            
+	            session.setAttribute("socialcode", vo1.getSocial_code());
+	            
 	            socialingService.upsocialing(vo);
+	            
 	            return "redirect:/gosocialdetails.do";
 	         }
+
 	         
 	         //승인 거절
 	         @RequestMapping(value="/delsocialing.do", method = RequestMethod.POST)
-	         public String delsocialing(SocialingInfoVO vo) {
+	         public String delsocialing(SocialingInfoVO vo, SocialingVO vo1, HttpSession session) {
+	            
+	            session.setAttribute("socialcode", vo.getSocial_code());
+	            
 	            socialingService.delsocialing(vo);
 	            
 	            return "redirect:/gosocialdetails.do";
 	         }
+
 	   
 
 }
