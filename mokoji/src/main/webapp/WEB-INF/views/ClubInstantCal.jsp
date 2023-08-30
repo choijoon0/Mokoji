@@ -100,7 +100,7 @@
                            var club_code = "<%=club_code %>"; // 상담사 이름 추출
                            var url = "applyClubInstant.do?club_code=" + encodeURIComponent(club_code);
                            var name = "ReservePopup";
-                           var option ="width = 600, height = 600 left = 100, top = 400, location = no";
+                           var option ="width = 700, height = 700 left = 100, top = 400, location = no";
                            window.open(url,name,option)
                          } 
                      },    
@@ -198,7 +198,6 @@
     </div>
 
 </body>
- 
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.7.2/main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.7.2/locales-all.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
