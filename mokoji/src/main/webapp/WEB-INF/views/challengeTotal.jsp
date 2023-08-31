@@ -110,7 +110,7 @@ https://templatemo.com/tm-569-edu-meeting
             <input type="hidden" name="chall_code" value="${ challengeList.chall_code }">
             <div class="card" id="card">
                <div class="card__image-holder">
-                  <img class="card__image" src="${challengeList.chall_rpic}" />
+                  <img class="card__image" src="././resources/images/${challengeList.chall_rpic}" />
                </div>
                <div class="card-title">
                   <a href="#" class="toggle-info btn"> <span class="left"></span>

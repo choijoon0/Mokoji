@@ -414,7 +414,7 @@ https://templatemo.com/tm-569-edu-meeting
                            <div>
                               <div>
                                  <p style="font-weight:bold;">주 활동 지역을 선택해주세요!</p>
-												<select name="social_loc" class="create">
+												<select name="club_loc" class="create">
                                                                <option value="전체">전체</option>
                                                                <option value="강남구">강남구</option>
                                                                <option value="강동구">강동구</option>

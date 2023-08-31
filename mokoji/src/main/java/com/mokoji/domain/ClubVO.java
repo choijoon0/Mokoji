@@ -28,8 +28,7 @@ public class ClubVO {
 
 			// ***********************************************
 			// 해당 경로로 변
-			File f = new File(
-					"C:\\Users\\04-09\\git\\Mokoji\\mokoji\\src\\main\\webapp\\resources\\images\\" + club_rpic);
+			File f = new File("C:\\Users\\04-09\\git\\Mokoji\\mokoji\\src\\main\\webapp\\resources\\images\\" + club_rpic);
 
 			try {
 				clubfile.transferTo(f);

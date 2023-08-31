@@ -77,14 +77,14 @@
 			, club_pic, club_rpic
 		</if>
 		)VALUES (
-		#{club.club_code}, #{club.club_name}, #{club.club_cost},
-		#{club.club_loc},
-		#{club.club_intro}, #{club.club_signtype},
-		#{club.club_memtot}
-		, #{category.ctmid_code}, #{club.club_gender},
-		#{club.club_maxage}
+		${club.club_code}, '${club.club_name}', ${club.club_cost},
+		'${club.club_loc}',
+		'${club.club_intro}', '${club.club_signtype}',
+		${club.club_memtot}
+		, ${category.ctmid_code}, '${club.club_gender}',
+		${club.club_maxage}
 		<if test="club.club_pic != null">
-			, #{club.club_pic}, #{club.club_rpic}
+			, '${club.club_pic}', '${club.club_rpic}'
 		</if>
 		)
 	</insert>

@@ -93,7 +93,7 @@ public class MemberController {
 	@RequestMapping(value = "/insertMember.do")
 	public String insertMember(MemberVO vo) {
 		memberService.insertMember(vo);
-		return "redirect:/test.do";
+		return "redirect:/go.do";
 	}
 
 	// 아이디 중복 체크

@@ -44,7 +44,7 @@ public class MemChallengeController {
 		// 회원분류
 		int num = memChallengeService.checkMtCode(map);
 		System.out.println(num + "회원분류료");
-
+		System.out.println(vo.getChall_code()+"챌코");
 		if (num == 2) {
 			// 2면이미 가입한 동호회
 			

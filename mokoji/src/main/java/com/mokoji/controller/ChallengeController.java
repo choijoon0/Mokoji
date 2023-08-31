@@ -18,12 +18,15 @@ import com.mokoji.domain.CategoryVO;
 import com.mokoji.domain.ChallengeVO;
 import com.mokoji.domain.MemberVO;
 import com.mokoji.service.ChallengeService;
+import com.mokoji.service.MemberService;
 
 @Controller
 public class ChallengeController {
 
 	@Autowired
 	private ChallengeService challengeService;
+	
+	private MemberService memberService;
 
 	// 챌린지 등록
 	@RequestMapping(value = "/inserting.do")
@@ -39,7 +42,7 @@ public class ChallengeController {
 		paramap.put("category", cavo);
 		challengeService.insertChallenge(paramap);
 		challengeService.insertMemChallenge(paramap);
-
+		memberService.upPoint(mvo);
 		return "redirect:/go.do";
 	}
 
@@ -59,7 +62,7 @@ public class ChallengeController {
 
 	@RequestMapping(value = "/ChallengeOne.do")
 	public String getOneChallengelist(ChallengeVO vo, Model model) throws IOException {
-
+		System.out.println(vo.getChall_code());
 		model.addAttribute("challenge", challengeService.getOneChallengelist(vo));
 
 		return "Challengedetails";

@@ -23,6 +23,7 @@ import com.mokoji.domain.SocialingVO;
 import com.mokoji.service.CategoryService;
 import com.mokoji.service.ChallengeService;
 import com.mokoji.service.ClubService;
+import com.mokoji.service.MemberService;
 import com.mokoji.service.SocialingService;
 
 @Controller
@@ -38,6 +39,9 @@ public class ClubController {
 	
 	@Autowired
 	private ChallengeService challengeService;
+	
+	@Autowired
+	private MemberService memberService;
 
 	//동호회 생성
 	@RequestMapping(value="/insertClub.do")
@@ -59,7 +63,7 @@ public class ClubController {
 		clubService.insertClub(map);
 		clubService.insertMemClub(map);
 		
-		
+		memberService.upPoint(mvo);
 
 		return "redirect:/go.do";
 	}

@@ -75,21 +75,15 @@ https://templatemo.com/tm-569-edu-meeting
 								<ul>
 									<c:choose>
 										<c:when test="${ memct_code eq 1 }">
-											<!-- Button trigger modal -->
-											<li type="button" class="btn" data-bs-toggle="modal"
-												data-bs-target="#joincurrentModal">승인현황</li>
-											<li type="button" class="btn" data-bs-toggle="modal"
-												data-bs-target="#exampleModalToggle">모임피드</li>
+											<li type="button" class="btn" data-bs-toggle="modal" data-bs-target="#joincurrentModal">승인현황</li>
+											<li type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModalToggle">모임피드</li>
 											<li data-filter=".sang" class="active">상세페이지</li>
-											<li type="button" class="btn btn" data-bs-toggle="modal"
-												data-bs-target="#matchingModal">매칭승인현황</li>
-											<li type="button" class="btn btn" data-bs-toggle="modal"
-												data-bs-target="#matchinginsertModal">매칭생성</li>
+											<li type="button" class="btn btn" data-bs-toggle="modal" data-bs-target="#matchingModal">매칭승인현황</li>
+											<li type="button" class="btn btn" data-bs-toggle="modal" data-bs-target="#matchinginsertModal">매칭생성</li>
 										</c:when>
 
 										<c:when test="${ memct_code eq 2 }">
-											<li type="button" class="btn" data-bs-toggle="modal"
-												data-bs-target="#exampleModalToggle">모임피드</li>
+											<li type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModalToggle">모임피드</li>
 										</c:when>
 
 										<c:when test="${ memct_code eq 0 }">
@@ -542,7 +536,10 @@ https://templatemo.com/tm-569-edu-meeting
 														<c:forEach items="${ oneClubList }" var="clist">
 															<c:choose>
 																<c:when
-																	test="${(clist.club_gender eq gender and clist.club_memtot-clist.club_left > 0 and clist.club_maxage+10 > age) or (clist.club_gender eq '누구나'  and clist.club_memtot-clist.club_left > 0 and clist.club_maxage+10 > age) or (clist.club_maxage eq 0 and clist.club_gender eq gender and clist.club_memtot-clist.club_left > 0) or (clist.club_maxage eq 0 and clist.club_gender eq '누구나' and clist.club_memtot-clist.club_left > 0)}">
+																	test="${(clist.club_gender eq gender and clist.club_memtot-clist.club_left > 0 and clist.club_maxage+10 > age) or 
+																	(clist.club_gender eq '누구나'  and clist.club_memtot-clist.club_left > 0 and clist.club_maxage+10 > age) or 
+																	(clist.club_maxage eq 0 and clist.club_gender eq gender and clist.club_memtot-clist.club_left > 0) or 
+																	(clist.club_maxage eq 0 and clist.club_gender eq '누구나' and clist.club_memtot-clist.club_left > 0)}">
 																	<button type="submit" class="btn">가입하기</button>
 																</c:when>
 																<c:otherwise>

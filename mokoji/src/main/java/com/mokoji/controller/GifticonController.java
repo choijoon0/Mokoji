@@ -88,6 +88,7 @@ public class GifticonController {
 	@RequestMapping(value="buyGift.do", method =  RequestMethod.POST)
 	@ResponseBody
 	public void buyGift(@RequestParam("gcon_code") int gcon_code, @RequestParam("remainpoint") int remainpoint, @RequestParam("giftcount")int giftcount, GifticonVO vo, MemberVO mvo, HttpSession session){
+		
 		int code = (int)session.getAttribute("code");
 		mvo.setMem_code(code);
 		mvo.setMem_point(remainpoint);

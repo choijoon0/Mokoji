@@ -5,21 +5,9 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 <head>
 
-<meta charset="UTF-8">
+<meta c\harset="UTF-8">
 <title>Insert title here</title>
 
 

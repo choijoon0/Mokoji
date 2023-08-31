@@ -23,6 +23,7 @@ import com.mokoji.service.ClubInstantService;
 import com.mokoji.service.ClubPaneService;
 import com.mokoji.service.ClubService;
 import com.mokoji.service.MemClubService;
+import com.mokoji.service.MemberService;
 
 @Controller
 public class ClubInstantController {
@@ -37,6 +38,9 @@ public class ClubInstantController {
 
 	@Autowired
 	private MemClubService memClubService;
+	
+	@Autowired
+	private MemberService memberService;
 
 	// 동호회 상세 페이지 이동
 	@RequestMapping(value = "/details.do")
@@ -79,28 +83,32 @@ public class ClubInstantController {
 	}
 
 	//번개 등록
-	@RequestMapping(value = "/insertClubInstant.do", method = RequestMethod.POST)
-	public String insertClubInstant(ClubInstantVO vo, MemberVO mvo, ClubVO cvo) throws UnsupportedEncodingException{
-		
-		HashMap<String, Object> map = new HashMap<String, Object>();
+	   @RequestMapping(value = "/insertClubInstant.do", method = RequestMethod.POST)
+	   public void insertClubInstant(ClubInstantVO vo, MemberVO mvo, ClubVO cvo, HttpServletResponse response) throws UnsupportedEncodingException , IOException{
+	      
+	      HashMap<String, Object> map = new HashMap<String, Object>();
 
-		int nextcode = clubInstantService.getNextClubInstantCode();
-		vo.setCinst_code(nextcode);
-		map.put("clubinstant", vo);
+	      int nextcode = clubInstantService.getNextClubInstantCode();
+	      vo.setCinst_code(nextcode);
+	      map.put("clubinstant", vo);
 
-		map.put("member", mvo);
+	      map.put("member", mvo);
 
-		map.put("club", cvo);
-		
-		clubInstantService.insertClubInstant(map);
-		
-		clubInstantService.insertClubInstantInfo(map);
-		
-		
-		
-		return "redirect:/go.do";
+	      map.put("club", cvo);
+	      
+	      clubInstantService.insertClubInstant(map);
+	      
+	      clubInstantService.insertClubInstantInfo(map);
+	      
+	      String msg = "번개 등록 완료!";
+	      response.setContentType("text/html; charset=utf-8");
+	      PrintWriter w = response.getWriter();
+	      w.write("<script>alert('" + msg + "');history.back();</script>");
+	      w.flush();
+	      w.close();
+	      memberService.upPoint(mvo);
 
-	}
+	   }
 
 	//번개 전체 일정
 	@RequestMapping(value="/ClubInstantCal.do")

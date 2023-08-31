@@ -1,5 +1,5 @@
 $("#giftcount").keyup(function(){
-	var giftpay = $(".card-text").text();
+	var giftpay = $("#giftpay").val();
 	var point = $("#point").val();
 	var count = $("#giftcount").val();
 	var total = point - giftpay * count
@@ -25,7 +25,7 @@ $(function(){
 		 document.location.reload();
 			alert("구매완료되었습니다!");	
 		},error : function(){
-			alert("문제가 생겼다!");
+			alert("보유포인트가 부족합니다!");
 		}
 	});
 	}

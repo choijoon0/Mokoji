@@ -129,8 +129,9 @@ p {
 }
 
 img {
-  width: 100%;
+  width: 300ox;
   overflow: hidden;
+  height: 225px;
 }
 
 /* 

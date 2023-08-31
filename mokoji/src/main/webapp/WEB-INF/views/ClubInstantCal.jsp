@@ -97,7 +97,7 @@
                      myCustomButton: { 
                          text: '일정추가', 
                          click: function(event) {
-                           var club_code = "<%=club_code %>"; // 상담사 이름 추출
+                           var club_code = "<%=club_code %>"; 
                            var url = "applyClubInstant.do?club_code=" + encodeURIComponent(club_code);
                            var name = "ReservePopup";
                            var option ="width = 700, height = 700 left = 100, top = 400, location = no";

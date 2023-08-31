@@ -68,9 +68,10 @@ https://templatemo.com/tm-569-edu-meeting
                                                             <div id="contact" method="post">
                                                                <div class="row">
                                                                  <c:forEach items="${ challenge }" var="chlist">
+                                                                 <form action="joinChallenge.do" enctype="multipart/form-data">
                                                                      <div class="meeting-single-item">
                                                                         <div class="thumb">
-
+																			<input type="hidden" name="chall_code" value="${chlist.chall_code }"/>
                                                                            <div class="date">
                                                                               <h6>활동지역</h6>
                                                                               <span>${chlist.chall_loc}</span>
@@ -101,7 +102,7 @@ https://templatemo.com/tm-569-edu-meeting
                                           									</table>
 										                                    </div>
 										                                 </div>
-										 						<form action="joinChallenge.do" enctype="multipart/form-data">
+										 						
 										 						<c:choose>
 																<c:when test="${(chlist.chall_gender eq gender and chlist.chall_tot-chlist.chall_left > 0 and chlist.chall_age+10 > age) or (chlist.chall_gender eq '누구나'  and chlist.chall_tot-chlist.chall_left > 0 and chlist.chall_age+10 > age) or (chlist.chall_age eq 0 and chlist.chall_gender eq gender and chlist.chall_tot-chlist.chall_left > 0) or (chlist.chall_age eq 0 and chlist.chall_gender eq '누구나' and chlist.chall_tot-chlist.chall_left > 0)}">
 																<button type="submit" class="btn">가입하기</button>
@@ -110,7 +111,7 @@ https://templatemo.com/tm-569-edu-meeting
 																<button type="button" class="nochall">가입하기</button>
 																</c:otherwise>
 																</c:choose>
-										          						</form>
+										          				</form>
 																</c:forEach>
 										                        </section>
                       

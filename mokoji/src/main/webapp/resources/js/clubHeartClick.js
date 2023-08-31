@@ -13,7 +13,7 @@
                      type: "POST", 
                       success : function(data){
                     
-                      alert("찜하기취소");
+                      
                       
                   },error:function(request,status,error){
                   
@@ -29,7 +29,7 @@
                            type: "POST", 
                             success : function(data){
                               
-                      alert("찜하기완료")
+                      
                       
                   },error:function(request,status,error){
                 

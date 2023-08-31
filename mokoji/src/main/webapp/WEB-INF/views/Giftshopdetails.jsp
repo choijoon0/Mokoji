@@ -39,10 +39,11 @@
     <div class="col-md-8">
       <div class="card-body">
         <h1 class="card-title">${glist.gcon_name}</h1>
+        <h3>${glist.gcon_price}포인트<br><br></h3>
+        <input type="hidden" id="giftpay" value="${glist.gcon_price}">
         <div class="price">
         <input type="hidden" id="gcon_code" value="${glist.gcon_code}"><input type="hidden" id="point" value="${point}">
         </div>
-        <h3 class="card-text" value="${glist.gcon_price}">${glist.gcon_price}&nbsp;point<br><br></h3>
         <fieldset>
         <input type="number" id="giftcount" placeholder="갯수를 입력하세요.">
         </fieldset>
@@ -51,7 +52,7 @@
         <li id="buypoint">구매시 잔여 포인트 : ${point}</li><br>
         <input type="hidden" id="remainpoint">
        <div class="center">
-        <button type="submit"><span data-attr="Buy">Buy</span><span data-attr="Now">Now</span></button>
+        <button id="submit"><span data-attr="Buy">Buy</span><span data-attr="Now">Now</span></button>
     </div>
       </div>
     </div>
@@ -59,18 +60,6 @@
   </c:forEach>
 </div>
 
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
    
       <%@ include file="main/footer.jsp"%>
    <script src="././resources/vendor/jquery/jquery.min.js"></script>

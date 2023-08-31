@@ -1,7 +1,10 @@
 package com.mokoji.controller;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.HashMap;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +27,7 @@ public class MemClubController {
 	
 	//동호회 가입
 	@RequestMapping(value = "/joinClub.do")
-	public void joinClubInsert(ClubVO clubvo, MemberVO memvo, Model model) {
+	public void joinClubInsert(ClubVO clubvo, MemberVO memvo, Model model, HttpServletResponse response) throws IOException {
 		
 		//가져온 회원코드, 동호회 코드로 회원별동호회 테이블에 회원분류 코드찾기 그거 값이 1이면 이미 회장임
 		HashMap<String, Object> map = new HashMap<String, Object>();
@@ -52,7 +55,13 @@ public class MemClubController {
 			
 			memClubService.joinClub(map);
 			
-			
+			response.setContentType("text/html; charset=UTF-8");
+
+			PrintWriter out = response.getWriter();
+
+			out.println("<script>alert('가입 신청이 완료되었습니다!');history.back();</script>");
+
+			out.flush();
 		}
 	}
 	//승인 확인

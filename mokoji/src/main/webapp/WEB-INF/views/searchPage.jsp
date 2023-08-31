@@ -76,8 +76,8 @@ https://templatemo.com/tm-569-edu-meeting
 													</a>
 													<h2>${clubLoc.CLUB_NAME}
 														<small>전체${clubLoc.CLUB_MEMTOT}</small>
-														<small>가입한애들${clubLoc.CLUB_LEFT}</small>
-														<small>남은자리${clubLoc.CLUB_MEMTOT - clubLoc.CLUB_LEFT}</small>
+														<small>가입인원${clubLoc.CLUB_LEFT}</small>
+														<small>남은인원${clubLoc.CLUB_MEMTOT - clubLoc.CLUB_LEFT}</small>
 													</h2>
 												</div>
 												<c:if test="${ clubLoc.MIC_LIKES == 1 }">
@@ -122,8 +122,8 @@ https://templatemo.com/tm-569-edu-meeting
 													<h2>
 														${clubCate.CLUB_NAME}
 														<small>전체${clubCate.CLUB_MEMTOT}</small>
-														<small>가입한애들${clubCate.CLUB_LEFT}</small>
-														<small>남은자리${clubCate.CLUB_MEMTOT - clubCate.CLUB_LEFT}</small>
+														<small>가입인원${clubCate.CLUB_LEFT}</small>
+														<small>남은인원${clubCate.CLUB_MEMTOT - clubCate.CLUB_LEFT}</small>
 													</h2>
 												</div>
 												<c:if test="${ clubCate.MIC_LIKES == 1 }">
@@ -169,8 +169,8 @@ https://templatemo.com/tm-569-edu-meeting
 													<h2>
 														${socialLoc.SOCIAL_NAME}
 														<small>전체${socialLoc.SOCIAL_TOT}</small>
-														<small>가입한애들${socialLoc.SOCIAL_LEFT}</small>
-														<small>남은자리${socialLoc.SOCIAL_TOT - socialLoc.SOCIAL_LEFT}</small>
+														<small>가입인원${socialLoc.SOCIAL_LEFT}</small>
+														<small>남은인원${socialLoc.SOCIAL_TOT - socialLoc.SOCIAL_LEFT}</small>
 													</h2>
 												</div>
 												<div class="card-flap flap1">
@@ -206,8 +206,8 @@ https://templatemo.com/tm-569-edu-meeting
 													<h2>
 														${socialCate.SOCIAL_NAME}
 														<small>전체${socialCate.SOCIAL_TOT}</small>
-														<small>가입한애들${socialCate.SOCIAL_LEFT}</small>
-														<small>남은자리${socialCate.SOCIAL_TOT - socialCate.CLUB_LEFT}</small>
+														<small>가입인원${socialCate.SOCIAL_LEFT}</small>
+														<small>남은인원${socialCate.SOCIAL_TOT - socialCate.CLUB_LEFT}</small>
 													</h2>
 												</div>
 												<div class="card-flap flap1">

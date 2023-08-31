@@ -21,6 +21,7 @@ import com.mokoji.domain.MemClubVO;
 import com.mokoji.domain.MemberVO;
 import com.mokoji.service.MatchingService;
 import com.mokoji.service.MemClubService;
+import com.mokoji.service.MemberService;
 
 @Controller
 public class MatchingController {
@@ -30,10 +31,12 @@ public class MatchingController {
 
 	@Autowired
 	private MemClubService memClubService;
+	
+	private MemberService memberService;
 
 	// 매칭 등록
 	@RequestMapping(value = "/insertMatching.do", method = RequestMethod.POST)
-	public String insertMatching(MatchingVO mvo, ClubVO cvo, MatchingInfoVO mivo, HttpSession session)
+	public String insertMatching(MatchingVO mvo, ClubVO cvo, MatchingInfoVO mivo, HttpSession session,MemberVO memvo)
 			throws IOException {
 
 		HashMap<String, Object> map = new HashMap<String, Object>();
@@ -49,7 +52,11 @@ public class MatchingController {
 		matchingService.insertMatchingInfo(map);
 
 		session.setAttribute("clubcode", cvo.getClub_code());
-
+		
+		int mcode = (int)session.getAttribute("code");
+		memvo.setMem_code(mcode);
+		
+		memberService.upPoint(memvo);
 		return "redirect:/details.do";
 	}
 

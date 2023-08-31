@@ -12,4 +12,7 @@ public interface MemberDAO {
 	//아이디 중복 확인
 	public int nameCheck(String mem_id);
 	
+	//회원 포인트 업데이트
+	public void upPoint(MemberVO mvo);
+	
 }

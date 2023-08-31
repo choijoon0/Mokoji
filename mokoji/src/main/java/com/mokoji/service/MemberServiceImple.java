@@ -37,6 +37,13 @@ public class MemberServiceImple implements MemberService{
 		// TODO Auto-generated method stub
 		return memberDAO.nameCheck(mem_id);
 	}
+
+	//회원 포인트 업데이트
+	@Override
+	public void upPoint(MemberVO mvo) {
+		memberDAO.upPoint(mvo);// TODO Auto-generated method stub
+		
+	}
 	
 
 
