@@ -18,7 +18,7 @@
    href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900"
    rel="stylesheet">
 
-<title>Socialing Detail</title>
+<title>Education - List of Meetings</title>
 <link
    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
    rel="stylesheet"
@@ -55,8 +55,7 @@ https://templatemo.com/tm-569-edu-meeting
       <div class="container">
          <div class="row">
             <div class="col-lg-12">
-               <h6>Here are our upcoming meetings</h6>
-               <h2>${ clist.club_name }</h2>
+               <h2>소셜링 상세페이지</h2>
             </div>
          </div>
       </div>
@@ -201,7 +200,7 @@ https://templatemo.com/tm-569-edu-meeting
                   <div class="col-lg-12">
                      <div class="row grid">
                         <section class="contact-us">
- <form action="socialjoin.do">
+                           <form action="socialjoin.do">
                               <div class="templatemo-item-col all sang">
                                  <div class="row">
                                     <div class="col-lg-9 align-self-center">
@@ -210,6 +209,7 @@ https://templatemo.com/tm-569-edu-meeting
                                              <div id="contact" method="post">
                                                 <div class="row">
                                                    <c:forEach items="${ OneSocialList }" var="clist">
+                                                   	<div class="meeting-single-item">
                                                       <div class="thumb">
                                                          <div class="price">
                                                             <span>${ clist.social_signtype }</span>
@@ -218,43 +218,49 @@ https://templatemo.com/tm-569-edu-meeting
                                                          </div>
                                                          <div class="date">
                                                             <h6>
-                                                                     활동지역 <span>${ clist.social_loc }</span>
+                                                               활동지역 <span>${ clist.social_loc }</span>
                                                             </h6>
                                                          </div>
-                                                         <div>성별 : ${clist.social_gender }</div>
-                                                         <div>나이 : ${clist.social_maxage }</div>
-                                                         <div>총인원 : ${clist.social_tot }</div>
-                                                         <div>현재인원 : ${clist.social_left }</div>
+                                                         <div class="person">
+																										<h6
+																											style="font-size: 13px; text-transform: uppercase; font-weight: 600; color: #a12c2f;">인원수
+																										</h6>
+
+																										<span
+																											style="display: block; color: #1f272b; font-size: 17px; margin-top: 7px;">${ clist.social_left }/${ clist.social_tot }</span>
+																									</div>
                                                          <a href="meeting-details.html"><img
                                                             src="././resources/images/${ clist.social_rpic }"></a>
                                                       </div>
                                                       <div class="down-content">
                                                          <h4>${ clist.social_name }</h4>
-                                                         <img id="person"
-                                                            src="././resources/images/free-icon-group-2911099.png">
-                                                         <p class="per">${ clist.social_tot }</p>
-                                                         <p class="description">${ clist.social_content }</p>
+                                                          <div class="down-content">
+                                                          	<table class="table">
+                                                        		<tr>
+                                                          		<td style="font-weight:bold;">나이</td>
+                                                          		<td style="font-weight:bold;">성별</td>
+                                                           		<td style="font-weight:bold;">내용</td>
+                                                         		</tr>
+                                                           <tr>
+                                                              <td> ${ clist.social_maxage }</td>
+                                                              <td>${ clist.social_gender }</td>
+                                                              <td>${ clist.social_content }</td>
+                                                           </tr>
+                                          				</table>
+										                  </div>
                                                          <div class="col-lg-12"></div>
                                                          <div class="row">
                                                             <div class="col-lg-4">
-                                 <c:choose>
-                                    <c:when
-                                       test="${(clist.social_gender eq gender and clist.social_tot-clist.social_left > 0 and clist.social_maxage+10 > age) or (clist.social_gender eq '누구나'  and clist.social_tot-clist.social_left > 0 and clist.social_maxage+10 > age) or (clist.social_maxage eq 0 and clist.social_gender eq gender and clist.social_tot-clist.social_left > 0) or (clist.social_maxage eq 0 and clist.social_gender eq '누구나' and clist.social_tot-clist.social_left > 0)}">
-                                       <button type="submit" class="btn">가입하기</button>
-                                    </c:when>
-                                    <c:otherwise>
-                                       <button type="button" class="nosocial">가입하기</button>
-                                    </c:otherwise>
-                                 </c:choose>
-                     </c:forEach>
+                                                               <div>
+                                                                  <button type="submit">가입하기</button>
+                                                               </div>
                            </form>
-
                      </div>
                   </div>
    </section>
    </div>
    </div>
-   
+   </c:forEach>
    </div>
    </div>
    </div>
@@ -279,7 +285,6 @@ https://templatemo.com/tm-569-edu-meeting
    <script src="././resources/js/Category.js"></script>
    <script src="././resources/js/socialloadimg.js"></script>
    <script src="././resources/js/pidwrite.js"></script>
-   <script src="././resources/js/social.js"></script>
    <script>
         //according to loftblog tut
         $('.nav li:first').addClass('active');

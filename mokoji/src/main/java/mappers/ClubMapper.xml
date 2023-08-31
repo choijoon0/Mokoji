@@ -6,24 +6,25 @@
       resultType="hashmap">
       SELECT a.club_code, a.club_name, a.club_cost, a.club_loc,
       a.club_intro,
-      a.club_signtype, a.club_memtot, a.club_pic, a.club_rpic,a.ctmid_code, nvl(aaa.cnt,0)
+      a.club_signtype, a.club_memtot, a.club_pic, a.club_rpic,a.ctmid_code, (SELECT count(m.mc_joinstate) FROM 
+      MEMCLUB m WHERE a.club_code = m.club_code AND m.mc_joinstate ='Y') AS club_left, nvl(aaa.cnt,0)
       AS mic_likes FROM CLUB a
       LEFT JOIN (SELECT CLUB_CODE, count(*) AS cnt FROM MEMINTERCLUB m2 WHERE
       mem_code = ${member.mem_code}
       GROUP BY CLUB_CODE) aaa
       ON a.CLUB_CODE = aaa.club_code
       ORDER BY CLUB_CODE DESC
-   </select>
+    </select>
 
-   <select id="getClubCard" parameterType="club" resultType="club">
+	<select id="getClubCard" parameterType="club" resultType="club">
       SELECT
-      club_name, club_intro FROM club
-   </select>
-
-
+      club_name, club_intro, club_loc FROM club
+    </select>
+	
    <select id="getSelectedClubList" parameterType="hashmap" resultType="hashmap">
       SELECT a.club_code, a.club_name, a.club_cost, a.club_loc, 
-      a.club_intro, 
+      a.club_intro,  (SELECT count(m.mc_joinstate) FROM 
+      MEMCLUB m WHERE a.club_code = m.club_code AND m.mc_joinstate ='Y') AS club_left,
       a.club_signtype, a.club_memtot, a.club_pic, a.club_rpic,a.ctmid_code, nvl(aaa.cnt,0) 
       AS mic_likes FROM CLUB a 
       LEFT JOIN (SELECT CLUB_CODE, count(*) AS cnt FROM MEMINTERCLUB m2 WHERE 
@@ -35,7 +36,8 @@
 
    <select id="getSelectedHighClubList" parameterType="hashmap" resultType="hashmap">
       SELECT a.club_code, a.club_name, a.club_cost, a.club_loc, 
-      a.club_intro, 
+      a.club_intro, (SELECT count(m.mc_joinstate) FROM 
+      MEMCLUB m WHERE a.club_code = m.club_code AND m.mc_joinstate ='Y') AS club_left,
       a.club_signtype, a.club_memtot, a.club_pic, a.club_rpic,a.ctmid_code, nvl(aaa.cnt,0) 
       AS mic_likes FROM CLUB a 
       LEFT JOIN CATEGORYMIDDLE c2 ON a.CTMID_CODE = c2.CTMID_CODE 
@@ -47,7 +49,6 @@
       b.cthigh_name='${cate.cthigh_name}') 
       ORDER BY CLUB_CODE DESC 
    </select>
-
 
 	<select id="getOneClublist" parameterType="club"
 		resultType="club">
@@ -94,11 +95,9 @@
 		VALUES(seq_memclub.nextval, ${club.club_code}, ${member.mem_code}, 1, 'Y')
 	</insert>
 	
-	
-	<select id="getSearchClubCate" parameterType="category" resultType="Integer">
+		<select id="getSearchClubCate" parameterType="category" resultType="Integer">
 		SELECT CTMID_CODE FROM CATEGORYMIDDLE WHERE CTMID_NAME = #{ctmid_name}
 	</select>
-	
 	
 	<select id="selectClubByClubLoc" parameterType="hashmap" resultType="hashmap">
 		SELECT a.club_code, a.club_name, a.club_cost, a.club_loc, a.club_intro,
@@ -121,6 +120,5 @@
 		WHERE a.ctmid_code = ${category.ctmid_code}
 		ORDER BY CLUB_CODE DESC
 	</select>
-	
 
 </mapper>

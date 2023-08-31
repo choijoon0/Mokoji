@@ -1575,7 +1575,7 @@ heading page
 */
 
 section.heading-page {
-  background-image: url(../images/heading-bg.jpg);
+  background-image: url(../images/hclubpage.jpg);
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -2015,3 +2015,5 @@ responsive
     }
   }
 }
+
+

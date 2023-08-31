@@ -25,12 +25,10 @@
 
 <!-- Additional CSS Files -->
 <link rel="stylesheet" href="././resources/style/fontawesome.css">
-<link rel="stylesheet"
-   href="././resources/style/templatemo-edu-meeting.css">
 <link rel="stylesheet" href="././resources/style/owl.css">
 <link rel="stylesheet" href="././resources/style/lightbox.css">
-<link rel="stylesheet" href="././resources/style/test.css">
 <link rel="stylesheet" href="././resources/style/social.css">
+<link rel="stylesheet" href="././resources/style/socialTotal.css">
 
 <script src="././resources/js/clubTotal.js"></script>
 <!--
@@ -86,7 +84,7 @@ https://templatemo.com/tm-569-edu-meeting
                         </ul>
                      </div>
                   </div>
-                  <div class="col-lg-12">
+                  <div class="col-lg-12" id="mcate">
                      <div class="row grid">
                         <c:forEach items="${ midcategory }" var="catemid">
 
@@ -112,21 +110,25 @@ https://templatemo.com/tm-569-edu-meeting
          </div>
       </div>
 
-
-      <div class="cards" id="socialList">
+<div id="cardlist">
          <c:forEach items="${ SocialTotList }" var="sociallist">
          <form action="gosocialdetails.do">
+      <div class="cards" id="socialList">
             <div class="card" id="card">
                <div class="card__image-holder">
-                  <input type="hidden" name="social_code" value="${sociallist.social_code }">
-                  <img class="card__image" src="${sociallist.social_rpic}" />
+                  <input type="hidden" name="social_code" value="${sociallist.social_code}">
+                  <img class="card__image" src="././resources/images/${sociallist.social_rpic}" />
                </div>
                <div class="card-title">
                   <a href="#" class="toggle-info btn"> <span class="left"></span>
                      <span class="right"></span>
                   </a>
                   <h2>
-                     ${sociallist.social_name} <small>Image from unsplash.com</small>
+                     ${sociallist.social_name}
+                     <br>
+                     <br>
+                     
+                      <small>  ${sociallist.social_left}/${sociallist.social_tot}</small>
                   </h2>
                </div>
                <div class="card-flap flap1">
@@ -137,6 +139,7 @@ https://templatemo.com/tm-569-edu-meeting
                      </div>
                   </div>
                </div>
+            </div>
             </div>
             </form>
          </c:forEach>
@@ -159,7 +162,7 @@ https://templatemo.com/tm-569-edu-meeting
    <script src="././resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
    <script src="././resources/js/jquery-1.9.1.min.js"></script>
 
-   <script src="././resources/js/social.js"></script>
+   <script src="././resources/js/socialTotal.js"></script>
    <script src="././resources/js/isotope.min.js"></script>
    <script src="././resources/js/owl-carousel.js"></script>
    <script src="././resources/js/lightbox.js"></script>

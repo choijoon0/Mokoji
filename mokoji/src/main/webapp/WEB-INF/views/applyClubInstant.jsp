@@ -37,7 +37,10 @@ $(function() {
         
           <label for="name">번개 제목</label>
         <input name="cinst_name" type="text" id="cinst_name" placeholder="번개모임 제목을 입력하세요*" required autocomplete="off">
-          <label for="email">시작 일시</label> <input type="text" class="datetimepicker" name="cinst_date" style="width:140px;">
+          <label for="email">시작 일시</label>
+          <input type="text" class="datetimepicker" name="cinst_date" style="width:140px;">
+          <label for="email">번개 장소</label>
+          <input name="cinst_loc" type="text" id="cinst_loc" placeholder="번개모임 장소를 입력하세요*" required autocomplete="off">
          
        
           <label for="cinst_cost">모임비</label>

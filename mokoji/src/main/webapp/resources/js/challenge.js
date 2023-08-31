@@ -7,7 +7,7 @@ $(function(){
       cache : false,
       success : function(data){
             for(var i=0;i<data.length;i++){
-                 $("#challengeList").append('<form action="ChallengeOne.do"><div class="card" id="card"><div class="card__image-holder"><img class="card__image" src="' + data[i].chall_rpic + '"/></div><input type="hidden" name="chall_code" value="'+data[i].chall_code+'" ><div class="card-title"><a class="toggle-info btn"><span class="left"></span><span class="right"></span></a><h2>'+data[i].chall_name + '<small>' +data[i].chall_tot +'</small></h2></div><div class="card-flap flap1"><div class="card-description">'+data[i].chall_content+'</div><div class="card-flap flap2"><div class="card-actions"><button type="submit" class="btn">가입하기</button></div></div></div></div></form>');   
+                 $("#cardlist").append('<form action="ChallengeOne.do"><div class="cards" id="challengeList"><input type="hidden" name="chall_code" value="'+data[i].chall_code+'"><div class="card" id="card"><div class="card__image-holder"><img class="card__image" src="' + data[i].chall_rpic +'" /></div><div class="card-title"><a href="#" class="toggle-info btn"> <span class="left"></span><span class="right"></span></a><h2>'+ data[i].chall_name+ '</h2><span>' + data[i].chall_left +'/' + data[i].chall_tot +'</span></div><div class="card-flap flap1"><div class="card-description">'+data[i].chall_content+'</div><div class="card-flap flap2"><div class="card-actions"><button type="submit" class="btn">가입하기</button></div></div></div></div></div></form>');   
             }
          }, error :function(){
             alert(ctmid_name);
@@ -28,7 +28,7 @@ $(function(){
       success : function(data){
             for(var i=0;i<data.length;i++){
          
-            $("#challengeList").append('<form action="ChallengeOne.do"><div class="card" id="card"><div class="card__image-holder"><img class="card__image" src="' + data[i].chall_rpic + '"/></div><input type="hidden" name="chall_code" value="'+data[i].chall_code +'" ><div class="card-title"><a class="toggle-info btn"><span class="left"></span><span class="right"></span></a><h2>'+data[i].chall_name + '<small>' +data[i].chall_tot +'</small></h2></div><div class="card-flap flap1"><div class="card-description">'+data[i].chall_content+'</div><div class="card-flap flap2"><div class="card-actions"><button type="submit" class="btn">가입하기</button></div></div></div></div></form>');
+            $("#cardlist").append('<form action="ChallengeOne.do"><div class="cards" id="challengeList"><input type="hidden" name="chall_code" value="'+data[i].chall_code+'"><div class="card" id="card"><div class="card__image-holder"><img class="card__image" src="' + data[i].chall_rpic +'" /></div><div class="card-title"><a href="#" class="toggle-info btn"> <span class="left"></span><span class="right"></span></a><h2>'+ data[i].chall_name+ '</h2><span>' + data[i].chall_left +'/' + data[i].chall_tot +'</span></div><div class="card-flap flap1"><div class="card-description">'+data[i].chall_content+'</div><div class="card-flap flap2"><div class="card-actions"><button type="submit" class="btn">가입하기</button></div></div></div></div></div></form>');
             
             }
          }, error :function(){
@@ -70,6 +70,7 @@ $(document).ready(function(){
 
     } else {
       // no cards in view
+      
       $("div.cards")
         .addClass("showing");
       $(this)
@@ -83,19 +84,19 @@ $(document).ready(function(){
 });
 
 function delcontent(){
-$('.card').remove();
+$('#cardlist').empty();
 }
 
 
 $(function(){
 $('.highcate').click(function(){
-$('.card').remove();
+$('#cardlist').empty();
 
 });
 });
 
 $(function(){
-   $('.nochall').on('click',function(){
-      alert('참여 조건을 확인해주세요!');   
-   });
+	$('.nochall').on('click',function(){
+		alert('참여 조건을 확인해주세요!');	
+	});
 });

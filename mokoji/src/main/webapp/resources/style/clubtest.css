@@ -44,10 +44,127 @@ figure, header, nav, section, article, aside, footer, figcaption {
   outline: 0;
 }
 
+.replyinsert{
+    background-image: none;
+    border: none;
+    position: relative;
+    left: 220px;
+    bottom: 38px;
+	
+	
+}
+
+.indel{
+	margin-bottom:20px;
+	
+}
+
+.rple{
+	margin-top:30px;
+	position: relative;
+    left: 12px;
+    width: 500px;
+}
+
+.name{
+	bottom: 20px;
+    margin: 10px;
+    position: relative;
+    left: 45px;
+	
+}
+
+.line{
+	position: relative;
+    bottom: 15px;
+}
+
+
+#profile{
+position: relative;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    margin-left: 17px;
+    margin-bottom: px;
+    top: 15px;
+}
+
+.date1{
+	font-size: 13px;
+    opacity: 40%;
+    position: relative;
+    left: 475px;
+    bottom: 5px;
+	
+}
+
+.id{
+	padding-bottom: 5px;
+	position: relative;
+	margin-left: 10px;
+	margin-bottom:5px;
+}
+
+.content{
+	position: relative;
+	margin-left: 10px;
+}
+
+#pid{
+	border: outset;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    margin-left: 95px;
+    margin-bottom: 40px;
+}
+}
+
+.hc{
+	bottom: 120px; 
+	position: relative; 
+	left: 550px;
+	
+	
+}
+
+.title{
+	margin-top:15px;
+}
+
+
+#pane{
+	position:absolute;
+	margin-left: 95px;
+	
+}
+
+.person{
+	
+	position: absolute;
+    background-color: rgba(250,250,250,0.9);
+    width: 80px;
+    height: 80px;
+    text-align: center;
+    padding: 15px 0px;
+    border-radius: 10px;
+    right: 115px;
+    top: 20px;
+}
+	
+	
+}
+
 .col-lg-120{
    margin-left: 80px;
     padding-bottom: 30px;
     width: 100%;
+}
+
+.btn{
+	
 }
 
 
@@ -59,11 +176,11 @@ figure, header, nav, section, article, aside, footer, figcaption {
    width:100%;
 }
 
-#newCisnt{
-   position: absolute;
+#newCisnt {
+    position: absolute;
     width: 10px;
-    top: 205px;
-    left: 135px;
+     left: 885px;
+    bottom: 130px;
    
 }
 
@@ -164,6 +281,11 @@ a:hover {
 
 h1, h2, h3, h4, h5, h6 {
   margin-top: 0px;
+  
+  
+  
+  
+  
   margin-bottom: 0px;
 }
 
@@ -289,6 +411,10 @@ input#search {
 
 input {
   border: 1px solid transparent;
+  border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
   background-color: #f1f1f1;
   padding: 10px;
   font-size: 16px;
@@ -1133,6 +1259,20 @@ section.upcoming-meetings .categories .main-button-red a {
   margin-top: 7px;
 }
 
+.meeting-item .down-content .person h6 {
+  font-size: 13px;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: #a12c2f;
+}
+
+.meeting-item .down-content .person span {
+  display: block;
+  color: #1f272b;
+  font-size: 22px;
+  margin-top: 7px;
+}
+
 .meeting-item .down-content h4 {
   font-size: 18px;
   color: #1f272b;
@@ -1470,7 +1610,7 @@ section.contact-us {
 section.contact-us #contact {
     position: relative;
     margin-bottom:30px;
-   left: 525px;
+   left: 785px;
    width:1000px;
   background-color: #fff;
   border-radius: 20px;
@@ -1528,6 +1668,7 @@ section.contact-us #contact button {
   border-radius: 22px;
   font-weight: 500;
   text-transform: uppercase;
+  
   transition: all .3s;
   border: none;
   outline: none;
@@ -1572,7 +1713,7 @@ section.contact-us .right-info ul li span {
 
 .footer {
   text-align: center;
-  margin-top: 1400px;
+  margin-top: 5rem;
   border-top: 1px solid rgba(250,250,250,0.15);
   padding: 50px 0px;
 }
@@ -1731,9 +1872,9 @@ section.meetings-page .pagination ul li a:hover {
 
 .meeting-single-item .down-content {
   background-color: #fff;
-  padding: 40px;
-  border-bottom-right-radius: 20px;
-  border-bottom-left-radius: 20px;
+    padding: 10px;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
 }
 
 .meeting-single-item .thumb .date {
@@ -1758,7 +1899,7 @@ section.meetings-page .pagination ul li a:hover {
 .meeting-single-item .thumb .date span {
   display: block;
   color: #1f272b;
-  font-size: 22px;
+  font-size: 17px;
   margin-top: 7px;
 }
 
@@ -1791,6 +1932,8 @@ section.meetings-page .pagination ul li a:hover {
   padding-bottom: 40px;
   border-bottom: 1px solid #eee;
 }
+
+
 
 .meeting-single-item .down-content .share {
   margin-top: 40px;
@@ -1970,6 +2113,9 @@ responsive
 }
 
 .heart {
+	position:relative;
+	bottom:60px;
+	left:480px;
   width: 100px;
   height: 100px;
   background: url("https://cssanimation.rocks/images/posts/steps/heart.png")
@@ -2033,4 +2179,124 @@ responsive
       padding: 1em 0 0 0;
     }
   }
+}
+
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+.container-inner {
+	width: 100%;
+	max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 0;
+}
+
+.tab-container{
+	position: relative;
+	bottom: 100px;
+    padding: 20px;
+}
+
+/* Tab Accordian */
+
+
+
+.tab-accordian ul{
+    padding-left: 22px;
+}
+.tab-accordian p{
+    margin-top: 0;
+}
+
+.tab-accordian{
+    width: 100%;
+    box-shadow: 0 10px 30px rgba(0,0,0,.08);
+    border-radius: 10px;
+    border: 1px solid #cecece;
+    background: transparent;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.titleWrapper{
+    padding: 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fff;
+    -webkit-user-select: none;
+    user-select: none;
+    transition: background-color .8s linear;
+}
+/* .titleWrapper.active{
+    background: #fff;
+} */
+.desWrapper{
+    background: #fff;
+    max-height: 500px;
+    display: none;
+    padding: 20px;
+    transition: max-height 1s ease-in;
+    overflow: auto;  
+}
+
+/* Collapse Icon */
+
+.collapse-icon{
+    position: relative;
+}
+.collapse-icon .acc-close{
+    height: 20px;
+    border-left: 2px solid #0a7a7f;
+    transition: all .5s ease-in-out;
+    transform: rotate(-90deg);
+    opacity: 1;
+}
+
+.collapse-icon .acc-open {
+	width: 19px;
+	position: absolute;
+	border-top: 2px solid #0a7a7f;
+	transition: all .5s ease-in-out;
+	transform: rotate(90deg);
+	top: 43%;
+	right: -8px;
+}
+
+.titleWrapper.active .collapse-icon{
+    transition: all .5s ease-in-out;
+	transform: rotate(180deg);
+}
+
+.titleWrapper.inactive .collapse-icon{
+    transition: all .5s ease-in-out;
+	transform: rotate(-180deg);
+}
+
+.titleWrapper.active .collapse-icon .acc-open{ 
+    opacity: 0;
+}
+
+
+.footer {
+  text-align: center;
+  margin-top: 100%;
+  border-top: 1px solid rgba(250,250,250,0.15);
+  padding: 50px 0px;
+}
+
+.matching-button-red{
+  font-size: 13px;
+  color: #fff;
+  background-color: #a12c2f;
+  padding: 12px 30px;
+  display: inline-block;
+  border-radius: 22px;
+  font-weight: 500;
+  text-transform: uppercase;
+  transition: all .3s;
+  opacity: 0.9;
+  border: none;
+  margin-right: 35px;
 }

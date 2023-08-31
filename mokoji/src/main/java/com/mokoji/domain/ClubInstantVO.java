@@ -3,8 +3,8 @@ package com.mokoji.domain;
 import java.util.Date;
 
 public class ClubInstantVO {
-	private String cinst_name, cinst_content;
-	private int cinst_code, cinst_memtot, cinst_cost;
+	private String cinst_name, cinst_content, cinst_loc;
+	private int cinst_code, cinst_memtot, cinst_cost, cinst_left;
 	private String cinst_date;
 	
 	public String getCinst_name() {
@@ -42,6 +42,18 @@ public class ClubInstantVO {
 	}
 	public void setCinst_date(String cinst_date) {
 		this.cinst_date = cinst_date;
+	}
+	public String getCinst_loc() {
+		return cinst_loc;
+	}
+	public void setCinst_loc(String cinst_loc) {
+		this.cinst_loc = cinst_loc;
+	}
+	public int getCinst_left() {
+		return cinst_left;
+	}
+	public void setCinst_left(int cinst_left) {
+		this.cinst_left = cinst_left;
 	}
 
 	

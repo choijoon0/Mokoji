@@ -4,26 +4,27 @@
 }
 
 html {
-  overflow-y: scroll;
+     overflow-y: scroll;
+    background-image: url(../images/meetings-page-bg.jpg);
+    background-size: cover;
 }
 
 body {
-  background: #c1bdba;
-  font-family: 'Titillium Web', sans-serif;
+   font-family: 'Titillium Web', sans-serif;
 }
 
 a {
   text-decoration: none;
-  color: #1ab188;
+  color: #a12c2f;
   -webkit-transition: .5s ease;
   transition: .5s ease;
 }
 a:hover {
-  color: #179b77;
+  color: #a12c2f;
 }
 
 .form {
-  background: rgba(19, 35, 47, 0.9);
+  background: #fff;
   padding: 40px;
   max-width: 600px;
   margin: 40px auto;
@@ -56,11 +57,11 @@ a:hover {
   transition: .5s ease;
 }
 .tab-group li a:hover {
-  background: #179b77;
+  background: #831A1E;
   color: #ffffff;
 }
 .tab-group .active a {
-  background: #1ab188;
+  background: #a12c2f;
   color: #ffffff;
 }
 
@@ -93,8 +94,8 @@ label .req {
 }
 
 label .successNameChk{
-	margin: 2px;
-	color: #1ab188;
+   margin: 2px;
+   color: #1ab188;
 }
 
 label.active {
@@ -120,7 +121,7 @@ input, textarea {
   background: none;
   background-image: none;
   border: 1px solid #a0b3b0;
-  color: #ffffff;
+  color: #black;
   border-radius: 0;
   -webkit-transition: border-color .25s ease, box-shadow .25s ease;
   transition: border-color .25s ease, box-shadow .25s ease;
@@ -164,7 +165,7 @@ textarea {
   font-weight: 600;
     text-transz: uppercase;
   letter-spacing: .1em;
-  background: #1ab188;
+  background: #a12c2f;
   color: #ffffff;
   -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease;
@@ -189,41 +190,18 @@ textarea {
 }
 
 
-input::file-selector-button {
-  background-image: linear-gradient(
-    to right,
-    #ff7a18,
-    #af002d,
-    #319197 100%,
-    #319197 200%
-  );
-  background-position-x: 0%;
-  background-size: 200%;
-  border: 0;
-  border-radius: 8px;
-  color: #fff;
-  padding: 1rem 1.25rem;
-  text-shadow: 0 1px 1px #333;
-  transition: all 0.25s;
-}
-input::file-selector-button:hover {
-  background-position-x: 100%;
-  transform: scale(1.1);
-}
 
 #mem_favorite{
   width: 10rem;
   margin: auto;
   margin-top:8px;
-  margin-left: 180px;
-  text-align:center;
+  margin-left: 10px;
 }
 #cthigh_name{
   width: 10rem;
   margin: auto;
   margin-top:8px;
-  margin-left: 180px;
-  text-align:center;
+  margin-left: 130px;
 }
 
 
@@ -231,6 +209,53 @@ input::file-selector-button:hover {
   width: 10rem;
   margin: auto;
   margin-top:8px;
-  margin-left: 180px;
-  text-align:center;
+  margin-left: 130px;
+}
+
+select::-ms-expand .create { 
+   display: none;
+}
+
+/* IE */
+.signupcreate {
+  width: 150px;
+  height: 35px;
+  background-size: 20px;
+  padding: 5px 30px 5px 10px;
+  border-radius: 4px;
+  outline: 0 none;
+  text-align: inherit;
+}
+.signupcreate option {
+  background: #fff;
+  color: #black;
+  padding: 3px 0;
+}
+
+.signgood{
+   color: black;
+}
+
+/* 파일 업로드 */
+input[type=file]::file-selector-button {
+  width: 150px;
+  height: 30px;
+  background: #fff;
+  border: 1px solid rgb(77,77,77);
+  border-radius: 10px;
+  cursor: pointer;
+  &:hover {
+    background: rgb(77,77,77);
+    color: #fff;
+  }
+}
+
+#file{
+   border: none;   
+}
+
+img {
+    width: 30%;
+    overflow: hidden;
+    border-radius: 15px;
 }

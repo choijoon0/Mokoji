@@ -32,6 +32,8 @@
          <value>com.mokoji.domain.ClubPaneVO</value>
          <value>com.mokoji.domain.MemInterClubVO</value>
          <value>com.mokoji.domain.MemChallengeVO</value>
+         <value>com.mokoji.domain.GifticonVO</value>
+         <value>com.mokoji.domain.GiftCategoryVO</value>
       </list>
    </property>
  </bean>
