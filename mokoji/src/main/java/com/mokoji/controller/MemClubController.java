@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.mokoji.domain.ClubVO;
 import com.mokoji.domain.MemClubVO;
 import com.mokoji.domain.MemberVO;
+import com.mokoji.service.ClubService;
 import com.mokoji.service.MemClubService;
 
 @Controller
@@ -24,6 +25,8 @@ public class MemClubController {
 	@Autowired
 	private MemClubService memClubService;
 	
+	@Autowired
+	private ClubService clubService;
 	
 	//동호회 가입
 	@RequestMapping(value = "/joinClub.do")
@@ -41,12 +44,27 @@ public class MemClubController {
 		
 		if(num==2) {
 			//2면이미 가입한 동호회
-			System.out.println("이미 가입한 동호회에여");
+			System.out.println("이미 신청했거나 가입한 동호회에여");
+			response.setContentType("text/html; charset=UTF-8");
+
+			PrintWriter out = response.getWriter();
+
+			out.println("<script>alert('이미 신청했거나 가입한 동호회입니다.');history.back();</script>");
+
+			out.flush();
 			
 			
 		}else if(num==1) {
 			//null이면 가입가능
 			System.out.println("니가 만들었어요");
+			response.setContentType("text/html; charset=UTF-8");
+
+			PrintWriter out = response.getWriter();
+
+			out.println("<script>alert('자신이 만든 동호회는 가입이 불가능합니다.');history.back();</script>");
+
+			out.flush();
+			
 			
 			
 		}else{
@@ -64,20 +82,48 @@ public class MemClubController {
 			out.flush();
 		}
 	}
+	
+	
 	//승인 확인
 	@RequestMapping(value="/upMemClub.do", method = RequestMethod.POST)
-	public String upMemclub(MemClubVO vo,ClubVO cvo,HttpSession session) {
+	public void upMemclub(MemClubVO vo,ClubVO cvo,HttpSession session, HttpServletResponse response) throws IOException {
 		session.setAttribute("clubcode", cvo.getClub_code());
-		memClubService.upMemclub(vo);
-		return "redirect:/details.do";
+		
+		response.setContentType("text/html; charset=utf-8");
+		PrintWriter w = response.getWriter();
+		
+		String msg = "승인하셨습니다.";
+		String msg1 = "이미 인원이 가득찼습니다!";
+		
+		int memtot = clubService.getClubMemtot(cvo);
+		int nowmem = clubService.getNowMemberCnt(cvo);
+		if(memtot - nowmem > 0) {
+			memClubService.upMemclub(vo);
+			w.write("<script>alert('" + msg + "');history.back();</script>");
+			w.flush();
+			w.close();
+		}else {
+			
+			w.write("<script>alert('" + msg1 + "');history.back();</script>");
+			w.flush();
+			w.close();
+		}
+		
+		
+		
 	}
 	
 	//승인 거절
 	@RequestMapping(value="/delMemClub.do", method = RequestMethod.POST)
-	public String delMemclub(MemClubVO vo) {
+	public void delMemclub(MemClubVO vo, HttpSession session, HttpServletResponse response) throws IOException{
 		memClubService.delMemClub(vo);
+		response.setContentType("text/html; charset=utf-8");
+		PrintWriter w = response.getWriter();
+		String msg = "거절하셨습니다.";
+		w.write("<script>alert('" + msg + "');history.back();</script>");
+		w.flush();
+		w.close();
 		
-		return "redirect:/details.do";
 	}
 	
 	

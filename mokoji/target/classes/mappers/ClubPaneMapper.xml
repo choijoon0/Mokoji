@@ -9,7 +9,7 @@
 	</insert>
 
 	<select id="selectClubPaneList" parameterType="hashmap" resultType="hashmap">
-	SELECT p.CP_CODE, p.CP_NAME, p.CP_CONTENT, p.CP_DATE, p.CP_PIC, p.CP_CNT, p.CP_LIKES, p.MC_CODE, m.MEM_NAME, p.CP_RPIC, NVL(aaa.cnt,0) AS cnt FROM CLUBPANE p
+	SELECT p.CP_CODE, p.CP_NAME, p.CP_CONTENT, p.CP_DATE, p.CP_PIC, p.CP_CNT, p.CP_LIKES, p.MC_CODE, m.MEM_NAME, m.MEM_REALFNAME ,p.CP_RPIC, NVL(aaa.cnt,0) AS cnt FROM CLUBPANE p
 	LEFT JOIN MEMCLUB c ON c.mc_CODE=p.MC_CODE  
 	LEFT JOIN MEMBER m ON m.MEM_CODE  = c.MEM_CODE 
 	LEFT JOIN (SELECT cp_code, count(*) AS cnt FROM clubpanelikes cl WHERE mem_code = ${member.mem_code} GROUP BY cp_code) aaa
@@ -46,7 +46,7 @@
 	</select>
 
 	<select id="selectInfo" parameterType="member" resultType="member">
-	SELECT  MEM_FAVORITE , MEM_FNAME FROM MEMBER WHERE MEM_CODE = #{ mem_code }
+	SELECT  MEM_FAVORITE , MEM_FNAME, MEM_REALFNAME FROM MEMBER WHERE MEM_CODE = #{ mem_code }
 	</select>
 
 

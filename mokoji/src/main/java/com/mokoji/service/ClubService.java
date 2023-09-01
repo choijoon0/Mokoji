@@ -37,4 +37,10 @@ public interface ClubService {
 	
 	//카테고리로 클럽 리스트 검색
 	public List<HashMap<String, Object>> selectClubByCategory(HashMap<String, Object> map);
+	
+	//클럽 인원 제한수
+	public int getClubMemtot(ClubVO cvo);
+	
+	//클럽 현재 인원수
+	public int getNowMemberCnt(ClubVO cvo);
 }

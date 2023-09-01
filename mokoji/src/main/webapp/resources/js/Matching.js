@@ -10,4 +10,9 @@ $(function(){
 	});
 });
 
+$(function(){
+	$('.yes').on('click',function(){
+		alert('이미 참가신청을한 매칭입니다!');	
+	});
+});
 

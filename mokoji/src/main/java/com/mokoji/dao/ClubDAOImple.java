@@ -97,4 +97,18 @@ public class ClubDAOImple implements ClubDAO {
 		return list;
 	}
 
+	//클럽 인원 제한
+	@Override
+	public int getClubMemtot(ClubVO cvo) {
+		// TODO Auto-generated method stub
+		return mybatis.selectOne("ClubDAO.getClubMemtot", cvo);
+	}
+
+	//클럽 현재 인원수
+	@Override
+	public int getNowMemberCnt(ClubVO cvo) {
+		// TODO Auto-generated method stub
+		return mybatis.selectOne("ClubDAO.getNowMemberCnt", cvo);
+	}
+
 }

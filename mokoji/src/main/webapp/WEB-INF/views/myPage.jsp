@@ -64,7 +64,7 @@ https://templatemo.com/tm-569-edu-meeting
 									<c:forEach items="${ myinfo }" var="info">
 										<input type="hidden" value="${ info.mem_code }"
 											name="mem_code">
-										<img src="././resources/images/${ info.mem_fname }">
+										<img src="././resources/images/${ info.mem_realfname }">
 										<h5>관심사 :</h5>
 										<span class="badge bg-secondary">${ info.mem_favorite }</span>
 									</c:forEach>

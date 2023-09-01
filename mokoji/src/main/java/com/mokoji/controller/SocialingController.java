@@ -20,6 +20,7 @@ import com.mokoji.domain.CategoryVO;
 import com.mokoji.domain.MemberVO;
 import com.mokoji.domain.SocialingInfoVO;
 import com.mokoji.domain.SocialingVO;
+import com.mokoji.service.MemberService;
 import com.mokoji.service.SocialingService;
 
 @Controller
@@ -28,7 +29,10 @@ public class SocialingController {
 	   @Autowired
 	   private SocialingService socialingService;
 	   
+	   @Autowired
+	   private MemberService memberService;
 	   
+	   //소셜링 등록
 	   @RequestMapping(value="/insertSocialing.do")
 	   public String insertSocialing(SocialingVO vo, CategoryVO cvo, MemberVO mvo) throws IOException   {
 	      HashMap<String, Object> map = new HashMap<String, Object>();
@@ -42,6 +46,10 @@ public class SocialingController {
 	      
 	      socialingService.insertSocialing(map);
 	      socialingService.insertSocialinfo(map);
+	      
+	      memberService.upPoint(mvo);
+	      
+	      
 	      return "redirect:/go.do";
 	   }
 	   

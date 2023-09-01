@@ -18,7 +18,7 @@
 
 	<select id="getClubCard" parameterType="club" resultType="club">
       SELECT
-      club_name, club_intro, club_loc FROM club
+      club_name, club_intro, club_loc, club_rpic FROM club
     </select>
 	
    <select id="getSelectedClubList" parameterType="hashmap" resultType="hashmap">
@@ -119,6 +119,14 @@
 		LEFT JOIN (SELECT CLUB_CODE, count(*) AS cnt FROM MEMINTERCLUB m2 WHERE mem_code = ${member.mem_code} GROUP BY CLUB_CODE) aaa ON a.CLUB_CODE = aaa.club_code
 		WHERE a.ctmid_code = ${category.ctmid_code}
 		ORDER BY CLUB_CODE DESC
+	</select>
+
+	<select id="getClubMemtot" resultType="Integer">
+		SELECT club_memtot FROM club WHERE club_code = #{club_code}
+	</select>
+	
+	<select id="getNowMemberCnt" resultType="Integer">
+		SELECT count(*) FROM MEMCLUB WHERE club_code = #{club_code} AND mc_joinstate = 'Y'
 	</select>
 
 </mapper>

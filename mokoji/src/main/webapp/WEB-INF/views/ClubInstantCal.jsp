@@ -179,7 +179,7 @@
                            var cinst_code = clickedEventCinstCode;
                            var url = "dodo.do?cinst_code=" + cinst_code;
                            var name = "applyClubInstant";
-                           var option = "width=600,height=600,left=100,top=50,location=no";
+                           var option = "width=1500,height=600,left=100,top=50,location=no";
                            window.open(url, name, option);
                        
                    }

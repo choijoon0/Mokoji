@@ -10,6 +10,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link href="././resources/style/clubin.css">
 <link href="././resources/vendor/bootstrap/css/bootstrap.min.css"
    rel="stylesheet">
 
@@ -58,19 +59,34 @@
 </c:if>
 </c:forEach>
 
+
+
+
+
+
 <div id="profile">
 <table class="table">
-<c:forEach items="${ applyMember }" var="applyMem">
-  
+  <thead class="thead-light">
   <tr>
      <th scope="col">참가자</th>
-  </tr>
-  <tr>
-  	<td><img style="width: 30px" src="././resources/images/${applyMem.MEM_REALFNAME }"><h2 style="position: absolute; left: 180px; top: 172px;">${applyMem.MEM_NAME }</h2></td>
-  </tr>
+     
+<c:forEach items="${ applyMember }" var="applyMem">
 
- 
+     <th scope="col">
+<c:set var="i" value="${i+1}"></c:set>     
+     </th>
+  </tr>
+   <tr>
+  <th scope="row" style="width: 130px;">${i} </th>
+  <div class="icon" style=" position: relative;
+    top: 100px;
+    left: 90px;">
+   <th style="width: 50px"><img style="position: relative;"  " width=30px;" src="././resources/images/${applyMem.MEM_REALFNAME }"></th>
+   <td><h6 style="position: inherit;; left: 180px; top: 196px;">${applyMem.MEM_NAME }</h6> </td>
+   </div>
 </c:forEach>
+</tr>
+ </thead>
 </table>
 </div>
 

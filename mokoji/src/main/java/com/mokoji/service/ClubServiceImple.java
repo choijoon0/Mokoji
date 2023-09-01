@@ -106,6 +106,19 @@ public class ClubServiceImple implements ClubService{
 		
 		return clubdao.selectClubByCategory(map);
 	}
+	
+	//클럽 총 인원 제한
+	@Override
+	public int getClubMemtot(ClubVO cvo) {
+		// TODO Auto-generated method stub
+		return clubdao.getClubMemtot(cvo);
+	}
+	//클럽 현재 인원 수
+	@Override
+	public int getNowMemberCnt(ClubVO cvo) {
+		// TODO Auto-generated method stub
+		return clubdao.getNowMemberCnt(cvo);
+	}
 
 
 }

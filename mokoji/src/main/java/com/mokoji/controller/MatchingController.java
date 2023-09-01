@@ -32,6 +32,7 @@ public class MatchingController {
 	@Autowired
 	private MemClubService memClubService;
 	
+	@Autowired
 	private MemberService memberService;
 
 	// 매칭 등록
@@ -55,8 +56,9 @@ public class MatchingController {
 		
 		int mcode = (int)session.getAttribute("code");
 		memvo.setMem_code(mcode);
-		
+		System.out.println(mcode+"asdasd");
 		memberService.upPoint(memvo);
+		
 		return "redirect:/details.do";
 	}
 

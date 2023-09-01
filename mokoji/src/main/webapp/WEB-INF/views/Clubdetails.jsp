@@ -110,7 +110,6 @@ https://templatemo.com/tm-569-edu-meeting
 									<div class="modal-body">
 
 										<!-- Button trigger modal -->
-										<table>
 											<table class="table">
 												<tr>
 													<th scope="col">매칭명</th>
@@ -127,7 +126,8 @@ https://templatemo.com/tm-569-edu-meeting
 													<tr>
 														<td>${allmatchList.MAT_NAME}</td>
 														<td>${allmatchList.CLUB_NAME}</td>
-														<td>${allmatchList.WINNING }</td>
+														<fmt:parseNumber var="test" value="${allmatchList.WINNING }" integerOnly="true"/>
+														<td>${test}</td>
 														<td>
 															<form action="upMatching.do" method="post">
 																<c:forEach items="${ oneClubList }" var="clist">
@@ -153,6 +153,7 @@ https://templatemo.com/tm-569-edu-meeting
 													</tr>
 												</c:forEach>
 											</table>
+											
 											</div>
 											<div class="modal-footer">
 												<button type="button" class="btn btn-secondary"
@@ -243,6 +244,8 @@ https://templatemo.com/tm-569-edu-meeting
 																		<div class="col-lg-12"></div>
 																		<table class="table">
 																			<tr>
+																			
+																				<th scope="col"></th>
 																				<th scope="col">이름</th>
 																				<th scope="col">아이디</th>
 																				<th scope="col">성별</th>
@@ -278,12 +281,16 @@ https://templatemo.com/tm-569-edu-meeting
 																					<td>
 																						<form action="upMemClub.do" method="post">
 																							<c:forEach items="${ oneClubList }" var="clist">
-																								<input type="hidden" name="club_code"
-																									value="${clist.club_code }">
+																								<input type="hidden" name="club_code" value="${clist.club_code }">
+																								
+																							
+																									<button class="grant" type="submit" value="승인">승인</button>
+																								
+																								
 																							</c:forEach>
-																							<input type="hidden" name="mc_code"
-																								value="${memclub.MC_CODE}" />
-																							<button class="grant" type="submit" value="승인">승인</button>
+																							<input type="hidden" name="mc_code" value="${memclub.MC_CODE}" onclick="yes()"/>
+																							
+																							
 																						</form>
 																						<form action="delMemClub.do" method="post">
 																							<c:forEach items="${ oneClubList }" var="clist">
@@ -336,25 +343,25 @@ https://templatemo.com/tm-569-edu-meeting
 																							<div class="name"><h5>${ clubPane.MEM_NAME }</h5></div>
 																								<hr class="line">
 																								<img
-																									src="././resources/images/${clubPane.CP_PIC }">
+																									src="././resources/images/${clubPane.CP_RPIC }">
 																								<div class="title">
 																								<h5 class="id">${clubPane.CP_NAME }</h5>
 																								<hr class="line">
 																									<h6 class="content">${clubPane.CP_CONTENT }</h6>
 																									<c:choose>
 																										<c:when test="${ clubPane.CNT eq 1 }">
-																											<div id="heart" class="heart is-active"
-																												value="${clubPane.CP_CODE}"></div>
-																											<div class="hc"
-																												style="bottom: 120px; position: relative; left: 550px;">${clubPane.CP_LIKES}</div>
+																											<div id="heart" class="heart is-active" value="${clubPane.CP_CODE}">
+																											
+																											<div class="hc" style="bottom: 120px; position: relative; left: 550px;">${clubPane.CP_LIKES}</div>
+																											</div>
 
 																										</c:when>
 																										<c:otherwise>
-																											<div id="heart" class="heart"
-																												value="${clubPane.CP_CODE}"></div>
+																											<div id="heart" class="heart" value="${clubPane.CP_CODE}">
+																											<div class="hc" style="bottom: 120px; position: relative; left: 550px;">${clubPane.CP_LIKES}</div>
+																											
+																											</div>
 
-																											<div class="hc"
-																												style="bottom: 120px; position: relative; left: 550px;">${clubPane.CP_LIKES}</div>
 																										</c:otherwise>
 																									</c:choose>
 																								</div>
@@ -612,6 +619,7 @@ https://templatemo.com/tm-569-edu-meeting
 	<script src="././resources/js/reply.js"></script>
 	<script src="././resources/js/repleUpDel.js"></script>
 	<script src="././resources/js/openClubInstantCal.js"></script>
+	<script src="././resources/js/Matching.js"></script>
 	
 	
 	
@@ -672,7 +680,9 @@ https://templatemo.com/tm-569-edu-meeting
       	});
         
 
-
+		$('.noapply').on('click',function(){
+			alert("이미 총 인원수에 도달했습니다!");
+		});
                 	
 
     </script>

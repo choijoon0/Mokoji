@@ -22,6 +22,7 @@ import com.mokoji.domain.MemberVO;
 import com.mokoji.service.ClubInstantService;
 import com.mokoji.service.ClubPaneService;
 import com.mokoji.service.ClubService;
+import com.mokoji.service.MatchingService;
 import com.mokoji.service.MemClubService;
 import com.mokoji.service.MemberService;
 
@@ -41,6 +42,9 @@ public class ClubInstantController {
 	
 	@Autowired
 	private MemberService memberService;
+	
+	@Autowired
+	private MatchingService matchingService;
 
 	// 동호회 상세 페이지 이동
 	@RequestMapping(value = "/details.do")
@@ -73,6 +77,7 @@ public class ClubInstantController {
 		model.addAttribute("MemClubList", memClubService.getAllMemClub(vo2));
 		model.addAttribute("clubPaneList", clubPaneService.selectClubPaneList(map));
 		model.addAttribute("instant", clubInstantService.getInstantList(map));
+		model.addAttribute("allmatchList", matchingService.getAllMatch(map));
 
 		// 페이지를 나갔다 들어왔을때 각 클럽코드 적용되야함으로 지워줌
 		// 멤버클럽컨트롤러에서 가입 승인시 세션에 보내줌
